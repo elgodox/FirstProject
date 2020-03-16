@@ -4,6 +4,7 @@
 
 [node name="Node2D" type="Node2D"]
 
-[node name="hexagono" type="Sprite" parent="."]
-position = Vector2( 511.413, 273.426 )
+[node name="hexagono5" type="Sprite" parent="."]
+position = Vector2( 482.91, 292.598 )
+scale = Vector2( 0.522752, 0.522752 )
 texture = ExtResource( 1 )
