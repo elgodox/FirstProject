@@ -16,6 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="First Project"
+run/main_scene="res://Node2DAlan.tscn"
 
 [rendering]
 

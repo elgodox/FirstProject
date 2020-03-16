@@ -1,0 +1,5 @@
+H:\GIT\FirstProject\.mono\temp\obj\Tools\First Project.csprojAssemblyReference.cache
+H:\GIT\FirstProject\.mono\temp\bin\Tools\First Project.dll
+H:\GIT\FirstProject\.mono\temp\bin\Tools\First Project.pdb
+H:\GIT\FirstProject\.mono\temp\obj\Tools\First Project.dll
+H:\GIT\FirstProject\.mono\temp\obj\Tools\First Project.pdb
