@@ -16,4 +16,4 @@ _global_script_class_icons={
 [application]
 
 config/name="First Project"
-run/main_scene="res://Lvl1.tscn"
+run/main_scene="res://Escena1.tscn"
