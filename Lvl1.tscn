@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://Button.cs" type="Script" id=1]
 [ext_resource path="res://Sprites/hexagono.png" type="Texture" id=2]
@@ -6,10 +6,10 @@
 [ext_resource path="res://AnimationControl.cs" type="Script" id=4]
 [ext_resource path="res://Control.cs" type="Script" id=5]
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=1]
 resource_name = "Idle"
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=2]
 resource_name = "NotPressed"
 length = 0.5
 tracks/0/type = "value"
@@ -24,96 +24,9 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Color( 0, 0.313726, 0.976471, 1 ), Color( 1, 1, 1, 1 ) ]
 }
-
-[sub_resource type="Animation" id=10]
-resource_name = "Pressed"
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 0, 0.313726, 0.976471, 1 ) ]
-}
-
-[sub_resource type="Animation" id=11]
-resource_name = "Idle"
-
-[sub_resource type="Animation" id=12]
-resource_name = "NotPressed"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 0, 0.313726, 0.976471, 1 ), Color( 1, 1, 1, 1 ) ]
-}
-
-[sub_resource type="Animation" id=13]
-resource_name = "Pressed"
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 0, 0.313726, 0.976471, 1 ) ]
-}
-
-[sub_resource type="Animation" id=14]
-resource_name = "Idle"
-
-[sub_resource type="Animation" id=15]
-resource_name = "NotPressed"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 0, 0.313726, 0.976471, 1 ), Color( 1, 1, 1, 1 ) ]
-}
-
-[sub_resource type="Animation" id=16]
-resource_name = "Pressed"
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 0, 0.313726, 0.976471, 1 ) ]
-}
-
-[sub_resource type="Animation" id=6]
-resource_name = "Idle"
 
 [sub_resource type="Animation" id=3]
-resource_name = "NotPressed"
-length = 0.5
+resource_name = "Pressed"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
@@ -121,13 +34,32 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
+"times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 0, 0.313726, 0.976471, 1 ), Color( 1, 1, 1, 1 ) ]
+"values": [ Color( 1, 1, 1, 1 ), Color( 0, 0.313726, 0.976471, 1 ) ]
 }
 
 [sub_resource type="Animation" id=4]
+resource_name = "Idle"
+
+[sub_resource type="Animation" id=5]
+resource_name = "NotPressed"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0.313726, 0.976471, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=6]
 resource_name = "Pressed"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
@@ -145,8 +77,221 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=7]
 resource_name = "Idle"
 
-[sub_resource type="Animation" id=5]
-resource_name = "Salir"
+[sub_resource type="Animation" id=8]
+resource_name = "NotPressed"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0.313726, 0.976471, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "Pressed"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0, 0.313726, 0.976471, 1 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+
+[sub_resource type="Animation" id=11]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0.313726, 0.976471, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=12]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0, 0.313726, 0.976471, 1 ) ]
+}
+
+[sub_resource type="Animation" id=13]
+
+[sub_resource type="Animation" id=14]
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 3.06838, 3.06838 ) ]
+}
+
+[sub_resource type="Animation" id=15]
+resource_name = "Idle"
+
+[sub_resource type="Animation" id=16]
+resource_name = "NotPressed"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0.313726, 0.976471, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=17]
+resource_name = "Pressed"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0, 0.313726, 0.976471, 1 ) ]
+}
+
+[sub_resource type="Animation" id=18]
+resource_name = "Idle"
+
+[sub_resource type="Animation" id=19]
+resource_name = "NotPressed"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0.313726, 0.976471, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=20]
+resource_name = "Pressed"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0, 0.313726, 0.976471, 1 ) ]
+}
+
+[sub_resource type="Animation" id=21]
+resource_name = "Idle"
+
+[sub_resource type="Animation" id=22]
+resource_name = "NotPressed"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0.313726, 0.976471, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=23]
+resource_name = "Pressed"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0, 0.313726, 0.976471, 1 ) ]
+}
+
+[sub_resource type="Animation" id=24]
+
+[sub_resource type="Animation" id=25]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0.313726, 0.976471, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=26]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0, 0.313726, 0.976471, 1 ) ]
+}
+
+[sub_resource type="Animation" id=27]
+
+[sub_resource type="Animation" id=28]
 length = 1.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:scale")
@@ -194,9 +339,9 @@ position = Vector2( 42.8989, 41.8034 )
 texture = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite/TextureButton5/Sprite"]
-anims/Idle = SubResource( 8 )
-anims/NotPressed = SubResource( 9 )
-anims/Pressed = SubResource( 10 )
+anims/Idle = SubResource( 1 )
+anims/NotPressed = SubResource( 2 )
+anims/Pressed = SubResource( 3 )
 script = ExtResource( 3 )
 
 [node name="TextureButton3" type="TextureButton" parent="Sprite"]
@@ -219,9 +364,9 @@ position = Vector2( 42.8989, 41.8034 )
 texture = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite/TextureButton3/Sprite"]
-anims/Idle = SubResource( 11 )
-anims/NotPressed = SubResource( 12 )
-anims/Pressed = SubResource( 13 )
+anims/Idle = SubResource( 4 )
+anims/NotPressed = SubResource( 5 )
+anims/Pressed = SubResource( 6 )
 script = ExtResource( 3 )
 
 [node name="TextureButton4" type="TextureButton" parent="Sprite"]
@@ -244,9 +389,9 @@ position = Vector2( 42.8989, 41.8034 )
 texture = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite/TextureButton4/Sprite"]
-anims/Idle = SubResource( 14 )
-anims/NotPressed = SubResource( 15 )
-anims/Pressed = SubResource( 16 )
+anims/Idle = SubResource( 7 )
+anims/NotPressed = SubResource( 8 )
+anims/Pressed = SubResource( 9 )
 script = ExtResource( 3 )
 
 [node name="TextureButton2" type="TextureButton" parent="Sprite"]
@@ -269,21 +414,138 @@ position = Vector2( 42.8989, 41.8034 )
 texture = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite/TextureButton2/Sprite"]
-anims/Idle = SubResource( 6 )
-anims/NotPressed = SubResource( 3 )
-anims/Pressed = SubResource( 4 )
+anims/Idle = SubResource( 10 )
+anims/NotPressed = SubResource( 11 )
+anims/Pressed = SubResource( 12 )
 script = ExtResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
 pause_mode = 1
-anims/Idle = SubResource( 7 )
-anims/Salir = SubResource( 5 )
+anims/Idle = SubResource( 13 )
+anims/Salir = SubResource( 14 )
 script = ExtResource( 4 )
-[connection signal="button_down" from="Sprite/TextureButton5" to="Sprite/TextureButton5/Sprite/AnimationPlayer" method="_on_TextureButton_button_down"]
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 289.04, 52.4701 )
+
+[node name="TextureButton5" type="TextureButton" parent="Sprite2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 351.433
+margin_top = 171.887
+margin_right = 434.433
+margin_bottom = 254.887
+rect_scale = Vector2( 1, 1.00955 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="Sprite2/TextureButton5"]
+position = Vector2( 42.8989, 41.8034 )
+texture = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2/TextureButton5/Sprite"]
+anims/Idle = SubResource( 15 )
+anims/NotPressed = SubResource( 16 )
+anims/Pressed = SubResource( 17 )
+script = ExtResource( 3 )
+
+[node name="TextureButton3" type="TextureButton" parent="Sprite2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 446.872
+margin_top = 227.605
+margin_right = 529.872
+margin_bottom = 310.605
+rect_scale = Vector2( 1, 1.00955 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="Sprite2/TextureButton3"]
+position = Vector2( 42.8989, 41.8034 )
+texture = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2/TextureButton3/Sprite"]
+anims/Idle = SubResource( 18 )
+anims/NotPressed = SubResource( 19 )
+anims/Pressed = SubResource( 20 )
+script = ExtResource( 3 )
+
+[node name="TextureButton4" type="TextureButton" parent="Sprite2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 352.901
+margin_top = 284.777
+margin_right = 435.901
+margin_bottom = 367.777
+rect_scale = Vector2( 1, 1.00955 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="Sprite2/TextureButton4"]
+position = Vector2( 42.8989, 41.8034 )
+texture = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2/TextureButton4/Sprite"]
+anims/Idle = SubResource( 21 )
+anims/NotPressed = SubResource( 22 )
+anims/Pressed = SubResource( 23 )
+script = ExtResource( 3 )
+
+[node name="TextureButton2" type="TextureButton" parent="Sprite2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 542.312
+margin_top = 283.808
+margin_right = 625.312
+margin_bottom = 366.808
+rect_scale = Vector2( 1, 1.00955 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="Sprite2/TextureButton2"]
+position = Vector2( 42.8989, 41.8034 )
+texture = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2/TextureButton2/Sprite"]
+anims/Idle = SubResource( 24 )
+anims/NotPressed = SubResource( 25 )
+anims/Pressed = SubResource( 26 )
+script = ExtResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2"]
+pause_mode = 1
+anims/Idle = SubResource( 27 )
+anims/Salir = SubResource( 28 )
+script = ExtResource( 4 )
 [connection signal="button_down" from="Sprite/TextureButton5" to="." method="_on_TextureButton_button_down"]
-[connection signal="button_down" from="Sprite/TextureButton3" to="Sprite/TextureButton3/Sprite/AnimationPlayer" method="_on_TextureButton_button_down"]
+[connection signal="button_down" from="Sprite/TextureButton5" to="Sprite/TextureButton5/Sprite/AnimationPlayer" method="_on_TextureButton_button_down"]
 [connection signal="button_down" from="Sprite/TextureButton3" to="." method="_on_TextureButton_button_down"]
-[connection signal="button_down" from="Sprite/TextureButton4" to="Sprite/TextureButton4/Sprite/AnimationPlayer" method="_on_TextureButton_button_down"]
+[connection signal="button_down" from="Sprite/TextureButton3" to="Sprite/TextureButton3/Sprite/AnimationPlayer" method="_on_TextureButton_button_down"]
 [connection signal="button_down" from="Sprite/TextureButton4" to="." method="_on_TextureButton_button_down"]
-[connection signal="button_down" from="Sprite/TextureButton2" to="Sprite/TextureButton2/Sprite/AnimationPlayer" method="_on_TextureButton_button_down"]
+[connection signal="button_down" from="Sprite/TextureButton4" to="Sprite/TextureButton4/Sprite/AnimationPlayer" method="_on_TextureButton_button_down"]
 [connection signal="button_down" from="Sprite/TextureButton2" to="." method="_on_TextureButton_button_down"]
+[connection signal="button_down" from="Sprite/TextureButton2" to="Sprite/TextureButton2/Sprite/AnimationPlayer" method="_on_TextureButton_button_down"]
+[connection signal="button_down" from="Sprite2/TextureButton5" to="Sprite2/TextureButton5/Sprite/AnimationPlayer" method="_on_TextureButton_button_down"]
+[connection signal="button_down" from="Sprite2/TextureButton5" to="." method="_on_TextureButton_button_down"]
+[connection signal="button_down" from="Sprite2/TextureButton3" to="." method="_on_TextureButton_button_down"]
+[connection signal="button_down" from="Sprite2/TextureButton3" to="Sprite2/TextureButton3/Sprite/AnimationPlayer" method="_on_TextureButton_button_down"]
+[connection signal="button_down" from="Sprite2/TextureButton4" to="Sprite2/TextureButton4/Sprite/AnimationPlayer" method="_on_TextureButton_button_down"]
+[connection signal="button_down" from="Sprite2/TextureButton4" to="." method="_on_TextureButton_button_down"]
+[connection signal="button_down" from="Sprite2/TextureButton2" to="Sprite2/TextureButton2/Sprite/AnimationPlayer" method="_on_TextureButton_button_down"]
+[connection signal="button_down" from="Sprite2/TextureButton2" to="." method="_on_TextureButton_button_down"]

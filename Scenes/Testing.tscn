@@ -1,0 +1,140 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/HexManager.cs" type="Script" id=1]
+[ext_resource path="res://Scripts/HexNode.cs" type="Script" id=2]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+badOnes = 5
+
+[node name="Button" type="Button" parent="Control"]
+anchor_left = 0.078
+anchor_top = 0.143
+anchor_right = 0.257
+anchor_bottom = 0.449
+margin_left = -0.418571
+margin_top = -0.145218
+margin_right = 0.485443
+margin_bottom = -0.22522
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2" type="Button" parent="Control"]
+anchor_left = 0.302
+anchor_top = 0.143
+anchor_right = 0.482
+anchor_bottom = 0.449
+margin_left = 0.205536
+margin_top = -0.145218
+margin_right = 0.0855408
+margin_bottom = -0.22522
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button3" type="Button" parent="Control"]
+anchor_left = 0.52
+anchor_top = 0.143
+anchor_right = 0.7
+anchor_bottom = 0.449
+margin_left = -0.0263672
+margin_top = -0.145218
+margin_right = -0.146362
+margin_bottom = -0.22522
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button4" type="Button" parent="Control"]
+anchor_left = 0.736
+anchor_top = 0.143
+anchor_right = 0.916
+anchor_bottom = 0.449
+margin_left = -0.210266
+margin_top = -0.145218
+margin_right = -0.330261
+margin_bottom = -0.22522
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button8" type="Button" parent="Control"]
+anchor_left = 0.078
+anchor_top = 0.528
+anchor_right = 0.257
+anchor_bottom = 0.834
+margin_left = -0.418571
+margin_top = -0.145081
+margin_right = 0.485443
+margin_bottom = -0.225098
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button7" type="Button" parent="Control"]
+anchor_left = 0.302
+anchor_top = 0.528
+anchor_right = 0.482
+anchor_bottom = 0.834
+margin_left = 0.205536
+margin_top = -0.145081
+margin_right = 0.0855408
+margin_bottom = -0.225098
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button6" type="Button" parent="Control"]
+anchor_left = 0.52
+anchor_top = 0.528
+anchor_right = 0.7
+anchor_bottom = 0.834
+margin_left = -0.0263672
+margin_top = -0.145081
+margin_right = -0.146362
+margin_bottom = -0.225098
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button5" type="Button" parent="Control"]
+anchor_left = 0.736
+anchor_top = 0.528
+anchor_right = 0.916
+anchor_bottom = 0.834
+margin_left = -0.210266
+margin_top = -0.145081
+margin_right = -0.330261
+margin_bottom = -0.225098
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="button_down" from="Control/Button" to="Control/Button" method="_on_Button_button_down"]
+[connection signal="button_down" from="Control/Button2" to="Control/Button2" method="_on_Button_button_down"]
+[connection signal="button_down" from="Control/Button3" to="Control/Button3" method="_on_Button_button_down"]
+[connection signal="button_down" from="Control/Button4" to="Control/Button4" method="_on_Button_button_down"]
+[connection signal="button_down" from="Control/Button8" to="Control/Button8" method="_on_Button_button_down"]
+[connection signal="button_down" from="Control/Button7" to="Control/Button7" method="_on_Button_button_down"]
+[connection signal="button_down" from="Control/Button6" to="Control/Button6" method="_on_Button_button_down"]
+[connection signal="button_down" from="Control/Button5" to="Control/Button5" method="_on_Button_button_down"]
