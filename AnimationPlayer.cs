@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class icon : Node
+public class AnimationPlayer : Godot.AnimationPlayer
 {
     // Declare member variables here. Examples:
     // private int a = 2;
@@ -11,6 +11,16 @@ public class icon : Node
     public override void _Ready()
     {
         
+    }
+
+    public void _on_TextureButton_button_down()
+    {
+        CurrentAnimation = "Pressed";
+    }
+
+    public void _on_TextureButton_button_up()
+    {
+        CurrentAnimation = "NotPressed";
     }
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.

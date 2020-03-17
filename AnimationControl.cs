@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class hexagono : Sprite
+public class AnimationControl : AnimationPlayer
 {
     // Declare member variables here. Examples:
     // private int a = 2;
@@ -10,7 +10,13 @@ public class hexagono : Sprite
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-        GD.Print("un print re loco vite");
+
+    }
+
+    public void StartExitAnimation()
+    {
+        GD.Print("Animacion de salir");
+        CurrentAnimation = "Salir";
     }
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.

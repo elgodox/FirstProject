@@ -43,20 +43,24 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="GodotSharp">
-      <HintPath>$(ProjectDir)\.mono\assemblies\$(ApiConfiguration)\GodotSharp.dll</HintPath>
       <Private>False</Private>
+      <HintPath>$(ProjectDir)/.mono/assemblies/$(ApiConfiguration)/GodotSharp.dll</HintPath>
     </Reference>
     <Reference Include="GodotSharpEditor" Condition=" '$(Configuration)' == 'Tools' ">
-      <HintPath>$(ProjectDir)\.mono\assemblies\$(ApiConfiguration)\GodotSharpEditor.dll</HintPath>
       <Private>False</Private>
+      <HintPath>$(ProjectDir)/.mono/assemblies/$(ApiConfiguration)/GodotSharpEditor.dll</HintPath>
     </Reference>
     <Reference Include="System" />
   </ItemGroup>
+  <ItemGroup />
+  <ItemGroup />
   <ItemGroup>
-    <Compile Include="hexagono.cs" />
-    <Compile Include="icon.cs" />
-    <Compile Include="Node2DAlan.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="AnimationControl.cs" />
+    <Compile Include="AnimationPlayer.cs" />
+    <Compile Include="Button.cs" />
+    <Compile Include="Container.cs" />
+    <Compile Include="Control.cs" />
+    <Compile Include="HexAnimation.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

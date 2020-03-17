@@ -1,0 +1,289 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://Button.cs" type="Script" id=1]
+[ext_resource path="res://Sprites/hexagono.png" type="Texture" id=2]
+[ext_resource path="res://AnimationPlayer.cs" type="Script" id=3]
+[ext_resource path="res://AnimationControl.cs" type="Script" id=4]
+[ext_resource path="res://Control.cs" type="Script" id=5]
+
+[sub_resource type="Animation" id=8]
+resource_name = "Idle"
+
+[sub_resource type="Animation" id=9]
+resource_name = "NotPressed"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0.313726, 0.976471, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "Pressed"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0, 0.313726, 0.976471, 1 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "Idle"
+
+[sub_resource type="Animation" id=12]
+resource_name = "NotPressed"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0.313726, 0.976471, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "Pressed"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0, 0.313726, 0.976471, 1 ) ]
+}
+
+[sub_resource type="Animation" id=14]
+resource_name = "Idle"
+
+[sub_resource type="Animation" id=15]
+resource_name = "NotPressed"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0.313726, 0.976471, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=16]
+resource_name = "Pressed"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0, 0.313726, 0.976471, 1 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "Idle"
+
+[sub_resource type="Animation" id=3]
+resource_name = "NotPressed"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0.313726, 0.976471, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "Pressed"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0, 0.313726, 0.976471, 1 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "Idle"
+
+[sub_resource type="Animation" id=5]
+resource_name = "Salir"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 3.06838, 3.06838 ) ]
+}
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_scale = Vector2( 0.996403, 1.0101 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+pathanimationControl = "Sprite/AnimationPlayer"
+maxNumPressed = 4
+
+[node name="Sprite" type="Sprite" parent="."]
+
+[node name="TextureButton5" type="TextureButton" parent="Sprite"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 351.433
+margin_top = 171.887
+margin_right = 434.433
+margin_bottom = 254.887
+rect_scale = Vector2( 1, 1.00955 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="Sprite/TextureButton5"]
+position = Vector2( 42.8989, 41.8034 )
+texture = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite/TextureButton5/Sprite"]
+anims/Idle = SubResource( 8 )
+anims/NotPressed = SubResource( 9 )
+anims/Pressed = SubResource( 10 )
+script = ExtResource( 3 )
+
+[node name="TextureButton3" type="TextureButton" parent="Sprite"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 446.872
+margin_top = 227.605
+margin_right = 529.872
+margin_bottom = 310.605
+rect_scale = Vector2( 1, 1.00955 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="Sprite/TextureButton3"]
+position = Vector2( 42.8989, 41.8034 )
+texture = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite/TextureButton3/Sprite"]
+anims/Idle = SubResource( 11 )
+anims/NotPressed = SubResource( 12 )
+anims/Pressed = SubResource( 13 )
+script = ExtResource( 3 )
+
+[node name="TextureButton4" type="TextureButton" parent="Sprite"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 352.901
+margin_top = 284.777
+margin_right = 435.901
+margin_bottom = 367.777
+rect_scale = Vector2( 1, 1.00955 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="Sprite/TextureButton4"]
+position = Vector2( 42.8989, 41.8034 )
+texture = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite/TextureButton4/Sprite"]
+anims/Idle = SubResource( 14 )
+anims/NotPressed = SubResource( 15 )
+anims/Pressed = SubResource( 16 )
+script = ExtResource( 3 )
+
+[node name="TextureButton2" type="TextureButton" parent="Sprite"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 542.312
+margin_top = 283.808
+margin_right = 625.312
+margin_bottom = 366.808
+rect_scale = Vector2( 1, 1.00955 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="Sprite/TextureButton2"]
+position = Vector2( 42.8989, 41.8034 )
+texture = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite/TextureButton2/Sprite"]
+anims/Idle = SubResource( 6 )
+anims/NotPressed = SubResource( 3 )
+anims/Pressed = SubResource( 4 )
+script = ExtResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
+pause_mode = 1
+anims/Idle = SubResource( 7 )
+anims/Salir = SubResource( 5 )
+script = ExtResource( 4 )
+[connection signal="button_down" from="Sprite/TextureButton5" to="Sprite/TextureButton5/Sprite/AnimationPlayer" method="_on_TextureButton_button_down"]
+[connection signal="button_down" from="Sprite/TextureButton5" to="." method="_on_TextureButton_button_down"]
+[connection signal="button_down" from="Sprite/TextureButton3" to="Sprite/TextureButton3/Sprite/AnimationPlayer" method="_on_TextureButton_button_down"]
+[connection signal="button_down" from="Sprite/TextureButton3" to="." method="_on_TextureButton_button_down"]
+[connection signal="button_down" from="Sprite/TextureButton4" to="Sprite/TextureButton4/Sprite/AnimationPlayer" method="_on_TextureButton_button_down"]
+[connection signal="button_down" from="Sprite/TextureButton4" to="." method="_on_TextureButton_button_down"]
+[connection signal="button_down" from="Sprite/TextureButton2" to="Sprite/TextureButton2/Sprite/AnimationPlayer" method="_on_TextureButton_button_down"]
+[connection signal="button_down" from="Sprite/TextureButton2" to="." method="_on_TextureButton_button_down"]
