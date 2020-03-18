@@ -17,7 +17,7 @@ public class Control : Godot.Control
        
     }
     
-    public void _on_TextureButton_button_down()
+    public void _on_Hex_Pressed()
     {
         numHexPressed++;
         if(numHexPressed>=maxNumPressed)

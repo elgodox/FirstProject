@@ -56,10 +56,10 @@
   <ItemGroup />
   <ItemGroup>
     <Compile Include="AnimationControl.cs" />
-    <Compile Include="AnimationPlayer.cs" />
     <Compile Include="Button.cs" />
     <Compile Include="Container.cs" />
     <Compile Include="Control.cs" />
+    <Compile Include="HexAnim.cs" />
     <Compile Include="HexAnimation.cs" />
     <Compile Include="Scripts\HexManager.cs" />
     <Compile Include="Scripts\HexNode.cs" />
