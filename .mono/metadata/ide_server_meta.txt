@@ -1,2 +1,2 @@
-﻿50404
-C:\Users\lucas\OneDrive\Documentos\Godot_v3.2-stable_mono_win64\Godot_v3.2-stable_mono_win64.exe
+﻿52086
+H:\Usuario\Escritorio\Godot_v3.2.1-stable_mono_win64\Godot_v3.2.1-stable_mono_win64.exe
