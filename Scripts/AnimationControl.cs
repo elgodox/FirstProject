@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public class AnimationControl : Godot.AnimationPlayer
+public class AnimationControl : AnimationPlayer
 {
 	public override void _Ready()
 	{
