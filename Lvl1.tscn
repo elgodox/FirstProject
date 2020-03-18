@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Sprites/background.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/hexagono.png" type="Texture" id=2]
@@ -10,22 +10,27 @@
 [ext_resource path="res://Sprites/light.png" type="Texture" id=8]
 [ext_resource path="res://Sprites/hexa_malo.png" type="Texture" id=9]
 [ext_resource path="res://Sprites/hexa_bueno.png" type="Texture" id=10]
-
+[ext_resource path="res://Sprites/Bueno/Hexa_00001.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Malo/Hexa_malo_00002.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Malo/Hexa_malo_00003.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/Bueno/Hexa_00002.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/Bueno/Hexa_00003.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Malo/Hexa_malo_00001.png" type="Texture" id=16]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 2 ) ],
-"loop": true,
+"loop": false,
 "name": "Idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 10 ) ],
-"loop": true,
+"frames": [ ExtResource( 11 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 10 ) ],
+"loop": false,
 "name": "isGood",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 9 ) ],
-"loop": true,
+"frames": [ ExtResource( 16 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 9 ) ],
+"loop": false,
 "name": "isBad",
 "speed": 5.0
 } ]
@@ -127,7 +132,9 @@ __meta__ = {
 [node name="Sprite" type="AnimatedSprite" parent="HexManager/Hex6"]
 position = Vector2( 42.6815, 43.1763 )
 frames = SubResource( 1 )
-animation = "isGood"
+animation = "Idle"
+speed_scale = 5.0
+playing = true
 script = ExtResource( 3 )
 
 [node name="Hex7" type="TextureButton" parent="HexManager"]
@@ -135,10 +142,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 49.7751
-margin_top = -97.6044
-margin_right = 132.775
-margin_bottom = -14.6044
+margin_left = 48.0926
+margin_top = -97.5362
+margin_right = 131.093
+margin_bottom = -14.5362
 rect_scale = Vector2( 1, 1.00955 )
 script = ExtResource( 6 )
 __meta__ = {
@@ -146,9 +153,11 @@ __meta__ = {
 }
 
 [node name="Sprite" type="AnimatedSprite" parent="HexManager/Hex7"]
-position = Vector2( 42.6814, 42.1957 )
+position = Vector2( 42.6815, 43.1763 )
 frames = SubResource( 1 )
-animation = "isBad"
+animation = "Idle"
+speed_scale = 5.0
+playing = true
 script = ExtResource( 3 )
 
 [node name="Hex8" type="TextureButton" parent="HexManager"]
@@ -156,10 +165,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -140.342
-margin_top = -96.9393
-margin_right = -57.342
-margin_bottom = -13.9393
+margin_left = -139.406
+margin_top = -94.5887
+margin_right = -56.4063
+margin_bottom = -11.5887
 rect_scale = Vector2( 1, 1.00955 )
 script = ExtResource( 6 )
 __meta__ = {
@@ -167,9 +176,11 @@ __meta__ = {
 }
 
 [node name="Sprite" type="AnimatedSprite" parent="HexManager/Hex8"]
-position = Vector2( 43.6851, 44.157 )
+position = Vector2( 42.6815, 43.1763 )
 frames = SubResource( 1 )
 animation = "Idle"
+speed_scale = 5.0
+playing = true
 script = ExtResource( 3 )
 
 [node name="Hex9" type="TextureButton" parent="HexManager"]
@@ -177,10 +188,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -140.342
-margin_top = 15.4511
-margin_right = -57.342
-margin_bottom = 98.4511
+margin_left = -139.406
+margin_top = 16.68
+margin_right = -56.4063
+margin_bottom = 99.68
 rect_scale = Vector2( 1, 1.00955 )
 script = ExtResource( 6 )
 __meta__ = {
@@ -188,30 +199,11 @@ __meta__ = {
 }
 
 [node name="Sprite" type="AnimatedSprite" parent="HexManager/Hex9"]
-position = Vector2( 43.6851, 43.1763 )
+position = Vector2( 42.6815, 43.1763 )
 frames = SubResource( 1 )
 animation = "Idle"
-script = ExtResource( 3 )
-
-[node name="Hex11" type="TextureButton" parent="HexManager"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = 48.4267
-margin_top = 12.7909
-margin_right = 131.427
-margin_bottom = 95.7909
-rect_scale = Vector2( 1, 1.00955 )
-script = ExtResource( 6 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Sprite" type="AnimatedSprite" parent="HexManager/Hex11"]
-position = Vector2( 43.3557, 43.1763 )
-frames = SubResource( 1 )
-animation = "Idle"
+speed_scale = 5.0
+playing = true
 script = ExtResource( 3 )
 
 [node name="Hex10" type="TextureButton" parent="HexManager"]
@@ -219,10 +211,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -45.2834
-margin_top = 70.6488
-margin_right = 37.7166
-margin_bottom = 153.649
+margin_left = 52.5747
+margin_top = 13.7325
+margin_right = 135.575
+margin_bottom = 96.7325
 rect_scale = Vector2( 1, 1.00955 )
 script = ExtResource( 6 )
 __meta__ = {
@@ -230,9 +222,34 @@ __meta__ = {
 }
 
 [node name="Sprite" type="AnimatedSprite" parent="HexManager/Hex10"]
-position = Vector2( 43.6851, 42.1956 )
+position = Vector2( 42.6815, 43.1763 )
 frames = SubResource( 1 )
 animation = "Idle"
+speed_scale = 5.0
+playing = true
+script = ExtResource( 3 )
+
+[node name="Hex11" type="TextureButton" parent="HexManager"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -42.2952
+margin_top = 69.7352
+margin_right = 40.7048
+margin_bottom = 152.735
+rect_scale = Vector2( 1, 1.00955 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="AnimatedSprite" parent="HexManager/Hex11"]
+position = Vector2( 42.6815, 43.1763 )
+frames = SubResource( 1 )
+animation = "Idle"
+speed_scale = 5.0
+playing = true
 script = ExtResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -250,27 +267,27 @@ color = Color( 1, 0, 0, 1 )
 shadow_color = Color( 0, 0, 0, 1 )
 shadow_gradient_length = 403.1
 shadow_filter_smooth = 14.9
-[connection signal="button_down" from="HexManager/Hex6" to="HexManager/Hex6" method="_on_button_down"]
-[connection signal="button_down" from="HexManager/Hex6" to="." method="_on_Hex_Pressed"]
 [connection signal="button_down" from="HexManager/Hex6" to="HexManager/Hex6/Sprite" method="_on_Hex_button_down"]
+[connection signal="button_down" from="HexManager/Hex6" to="." method="_on_Hex_Pressed"]
+[connection signal="button_down" from="HexManager/Hex6" to="HexManager/Hex6" method="_on_button_down"]
 [connection signal="button_up" from="HexManager/Hex6" to="HexManager/Hex6/Sprite" method="_on_Hex_button_up"]
+[connection signal="button_down" from="HexManager/Hex7" to="HexManager/Hex7/Sprite" method="_on_Hex_button_down"]
 [connection signal="button_down" from="HexManager/Hex7" to="HexManager/Hex7" method="_on_button_down"]
 [connection signal="button_down" from="HexManager/Hex7" to="." method="_on_Hex_Pressed"]
-[connection signal="button_down" from="HexManager/Hex7" to="HexManager/Hex7/Sprite" method="_on_Hex_button_down"]
 [connection signal="button_up" from="HexManager/Hex7" to="HexManager/Hex7/Sprite" method="_on_Hex_button_up"]
-[connection signal="button_down" from="HexManager/Hex8" to="HexManager/Hex8" method="_on_button_down"]
 [connection signal="button_down" from="HexManager/Hex8" to="HexManager/Hex8/Sprite" method="_on_Hex_button_down"]
+[connection signal="button_down" from="HexManager/Hex8" to="HexManager/Hex8" method="_on_button_down"]
 [connection signal="button_down" from="HexManager/Hex8" to="." method="_on_Hex_Pressed"]
 [connection signal="button_up" from="HexManager/Hex8" to="HexManager/Hex8/Sprite" method="_on_Hex_button_up"]
-[connection signal="button_down" from="HexManager/Hex9" to="HexManager/Hex9" method="_on_button_down"]
 [connection signal="button_down" from="HexManager/Hex9" to="HexManager/Hex9/Sprite" method="_on_Hex_button_down"]
+[connection signal="button_down" from="HexManager/Hex9" to="HexManager/Hex9" method="_on_button_down"]
 [connection signal="button_down" from="HexManager/Hex9" to="." method="_on_Hex_Pressed"]
 [connection signal="button_up" from="HexManager/Hex9" to="HexManager/Hex9/Sprite" method="_on_Hex_button_up"]
-[connection signal="button_down" from="HexManager/Hex11" to="HexManager/Hex11" method="_on_button_down"]
-[connection signal="button_down" from="HexManager/Hex11" to="HexManager/Hex11/Sprite" method="_on_Hex_button_down"]
-[connection signal="button_down" from="HexManager/Hex11" to="." method="_on_Hex_Pressed"]
-[connection signal="button_up" from="HexManager/Hex11" to="HexManager/Hex11/Sprite" method="_on_Hex_button_up"]
-[connection signal="button_down" from="HexManager/Hex10" to="HexManager/Hex10" method="_on_button_down"]
 [connection signal="button_down" from="HexManager/Hex10" to="HexManager/Hex10/Sprite" method="_on_Hex_button_down"]
+[connection signal="button_down" from="HexManager/Hex10" to="HexManager/Hex10" method="_on_button_down"]
 [connection signal="button_down" from="HexManager/Hex10" to="." method="_on_Hex_Pressed"]
 [connection signal="button_up" from="HexManager/Hex10" to="HexManager/Hex10/Sprite" method="_on_Hex_button_up"]
+[connection signal="button_down" from="HexManager/Hex11" to="HexManager/Hex11/Sprite" method="_on_Hex_button_down"]
+[connection signal="button_down" from="HexManager/Hex11" to="HexManager/Hex11" method="_on_button_down"]
+[connection signal="button_down" from="HexManager/Hex11" to="." method="_on_Hex_Pressed"]
+[connection signal="button_up" from="HexManager/Hex11" to="HexManager/Hex11/Sprite" method="_on_Hex_button_up"]
