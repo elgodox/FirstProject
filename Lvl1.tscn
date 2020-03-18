@@ -97,16 +97,14 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 pathanimationControl = "AnimationPlayer"
-maxNumPressed = 4
+maxNumPressed = 5
 
 [node name="background" type="Sprite" parent="."]
 position = Vector2( 803.437, 451.44 )
 texture = ExtResource( 1 )
 
 [node name="HexManager" type="Sprite" parent="."]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 802.888, 443.52 )
-scale = Vector2( 0.127462, 0.127462 )
 script = ExtResource( 7 )
 badOnes = 2
 
@@ -128,7 +126,7 @@ __meta__ = {
 [node name="Sprite" type="AnimatedSprite" parent="HexManager/Hex6"]
 position = Vector2( 42.6815, 43.1763 )
 frames = SubResource( 1 )
-animation = "Idle"
+animation = "isGood"
 script = ExtResource( 3 )
 
 [node name="Hex7" type="TextureButton" parent="HexManager"]
@@ -149,7 +147,7 @@ __meta__ = {
 [node name="Sprite" type="AnimatedSprite" parent="HexManager/Hex7"]
 position = Vector2( 42.6814, 42.1957 )
 frames = SubResource( 1 )
-animation = "Idle"
+animation = "isBad"
 script = ExtResource( 3 )
 
 [node name="Hex8" type="TextureButton" parent="HexManager"]
