@@ -5,13 +5,20 @@ using System.Collections.Generic;
 public class HexManager : Node
 {
 	[Export] int badOnes;
+	//bool pressed;
 
+    // public delegate bool ReceiveButtonPressed();
+	// public ReceiveButtonPressed ispressed;
 	List <HexNode> _hexes = new List<HexNode>();
 
 	public override void _Ready()
 	{
 		CheckChildsHexNodes();
 		MakeBadOnes();
+		foreach (HexNode item in _hexes)
+		{
+			item.nodePressed += ReceiveNodePressed;
+		}
 	}
 
     private void CheckChildsHexNodes()
@@ -51,6 +58,17 @@ public class HexManager : Node
 		}
     }
 
+	private void ReceiveNodePressed(HexNode node)
+	{
+		if(node.goodOne)
+		{
+			GD.Print("El boton presionado es bueno");
+		}
+		else
+        {
+			GD.Print("El boton presionado es malo");
+        }
+	}
 
     //  // Called every frame. 'delta' is the elapsed time since the previous frame.
     //  public override void _Process(float delta)
