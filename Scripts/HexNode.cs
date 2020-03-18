@@ -3,32 +3,28 @@ using System;
 
 public class HexNode : Node
 {
-    // Declare member variables here. Examples:
-    // private int a = 2;
-    // private string b = "text";
     public bool goodOne = true;
     public bool asigned;
 
-    // Called when the node enters the scene tree for the first time.
+    AnimatedSprite sprite;
+
     public override void _Ready()
     {
-        
+        sprite = GetChild(0) as AnimatedSprite;
     }
 
-//  // Called every frame. 'delta' is the elapsed time since the previous frame.
-//  public override void _Process(float delta)
-//  {
-//      
-//  }
 
-    void _on_Button_button_down()
+    void _on_button_down()
     {
-        if(goodOne)
+        if (goodOne)
         {
             GD.Print("Soy de los buenos :D");
+            sprite.Animation = "isGood";
         }
         else
+        {
             GD.Print("Soy de los malos :c");
-
+            sprite.Animation = "isBad";
+        }
     }
 }
