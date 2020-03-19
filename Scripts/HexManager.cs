@@ -6,6 +6,7 @@ public class HexManager : Node
 {
 	[Export] public int badOnes;
 	[Export] String pathAnimation;
+
 	List <HexNode> _hexes = new List<HexNode>();
 
 	AnimationPlayer animation;
@@ -21,18 +22,24 @@ public class HexManager : Node
 		animation.CurrentAnimation = "Init";
 	}
 
-    private void CheckChildsHexNodes()
-    {
-        var allChilds = GetChildren();
+	private void CheckChildsHexNodes()
+	{
+		var allChilds = GetChildren();
 
-		foreach(HexNode hex in allChilds) //Todos los hijos estan obligados a ser HexNode	
+		HexNode e = new HexNode();
+
+		foreach(var hex in allChilds) //Todos los hijos estan obligados a ser HexNode	
 		{
-			_hexes.Add(hex);
+			if(hex.GetType() == e.GetType())
+			{
+				_hexes.Add(hex as HexNode);
+			}
+			else continue;
 		}
-    }
+	}
 
-    private void MakeBadOnes()
-    {
+	private void MakeBadOnes()
+	{
 		badOnes = Mathf.Clamp(badOnes, 0, _hexes.Count);
 
 		GD.Print("badOnes: " + badOnes);
@@ -56,7 +63,7 @@ public class HexManager : Node
 				i --;
 			}
 		}
-    }
+	}
 
 	private void ReceiveNodePressed(HexNode node)
 	{
@@ -65,14 +72,14 @@ public class HexManager : Node
 			GD.Print("El boton presionado es bueno");
 		}
 		else
-        {
+		{
 			GD.Print("El boton presionado es malo");
-        }
+		}
 	}
 
-    //  // Called every frame. 'delta' is the elapsed time since the previous frame.
-    //  public override void _Process(float delta)
-    //  {
-    //      
-    //  }
+	//  // Called every frame. 'delta' is the elapsed time since the previous frame.
+	//  public override void _Process(float delta)
+	//  {
+	//      
+	//  }
 }
