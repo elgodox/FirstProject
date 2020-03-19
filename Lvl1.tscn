@@ -1,34 +1,27 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Sprites/background.png" type="Texture" id=1]
-[ext_resource path="res://Prefabs/HexManager.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scripts/Control.cs" type="Script" id=5]
 [ext_resource path="res://Sprites/light.png" type="Texture" id=8]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
-anchor_bottom = 1.01
-margin_right = 0.00012207
-margin_bottom = -8.99994
+anchor_bottom = 1.0
 rect_min_size = Vector2( 1024, 768 )
-rect_scale = Vector2( 0.996403, 1.0101 )
 script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-pathanimationControl = "AnimationPlayer"
-maxNumPressed = 5
 
 [node name="Background" type="TextureRect" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 texture = ExtResource( 1 )
+expand = true
+stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="HexManager" parent="." instance=ExtResource( 2 )]
-modulate = Color( 1, 1, 1, 0 )
 
 [node name="Light2D" type="Light2D" parent="."]
 position = Vector2( 802.888, 443.52 )

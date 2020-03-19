@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class HexManager : Node
 {
 	[Export] public int badOnes;
+	public int pressed=0;
 	[Export] String pathAnimation;
 
 	List <HexNode> _hexes = new List<HexNode>();
@@ -20,6 +21,8 @@ public class HexManager : Node
 		}
 		animation = GetNode<AnimationPlayer>(pathAnimation);
 		animation.CurrentAnimation = "Init";
+		GD.Print(animation.CurrentAnimation);
+		animation.Play();
 	}
 
 	private void CheckChildsHexNodes()
@@ -65,6 +68,11 @@ public class HexManager : Node
 		}
 	}
 
+	public void DestroyHexManager()
+	{
+		this.QueueFree();
+	}
+
 	private void ReceiveNodePressed(HexNode node)
 	{
 		if(node.goodOne)
@@ -75,7 +83,13 @@ public class HexManager : Node
 		{
 			GD.Print("El boton presionado es malo");
 		}
+		pressed++;
+		if(pressed==_hexes.Count)
+		{
+			animation.CurrentAnimation="Exit";
+		}
 	}
+	
 
 	//  // Called every frame. 'delta' is the elapsed time since the previous frame.
 	//  public override void _Process(float delta)

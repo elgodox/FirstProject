@@ -3,39 +3,29 @@ using System;
 
 public class Control : Godot.Control
 {
-	[Export] String pathanimationControl;
-	[Export] int maxNumPressed;
-	AnimationControl animationControl;
 
-	private PackedScene hexManagerScn = ResourceLoader.Load("res://Prefabs/HexManager.tscn") as PackedScene;
+    private PackedScene hexManagerScn;
+    public override void _Ready()
+    {
+       GD.Print(GetChildCount());
+    }
 
-	int numHexPressed = 0;
-	public override void _Ready()
-	{
-		animationControl = GetNode<AnimationControl>(pathanimationControl);
-	}
-	public override void _Process(float delta)
-	{
-		if (Input.IsActionPressed("ui_A"))
-		{
-			GD.Print("Spawn HexManager");
-            HexManager e;
-			e = hexManagerScn.Instance() as HexManager;
-            AddChild(e);
-		}
-	}
+    public override void _Process(float delta)
+    {
+        if(GetChildCount()==2)
+        {
+            CreateHex();
+        }
+        
+    }
 
-	public void _on_Hex_Pressed()
-	{
-		numHexPressed++;
-		if (numHexPressed >= maxNumPressed)
-		{
-			EjecuteAnimation();
-		}
-	}
+    void CreateHex()
+    {
+        hexManagerScn = ResourceLoader.Load("res://Prefabs/HexManager.tscn") as PackedScene;
+        HexManager e;
+        e = hexManagerScn.Instance() as HexManager;
+        AddChild(e);
+    }
 
-	public void EjecuteAnimation()
-	{
-		animationControl.StartExitAnimation();
-	}
+
 }
