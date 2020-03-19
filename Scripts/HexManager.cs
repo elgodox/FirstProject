@@ -5,12 +5,10 @@ using System.Collections.Generic;
 public class HexManager : Node
 {
 	[Export] public int badOnes;
-	//bool pressed;
-
-    // public delegate bool ReceiveButtonPressed();
-	// public ReceiveButtonPressed ispressed;
+	[Export] String pathAnimation;
 	List <HexNode> _hexes = new List<HexNode>();
 
+	AnimationPlayer animation;
 	public override void _Ready()
 	{
 		CheckChildsHexNodes();
@@ -19,6 +17,8 @@ public class HexManager : Node
 		{
 			item.nodePressed += ReceiveNodePressed;
 		}
+		animation = GetNode<AnimationPlayer>(pathAnimation);
+		animation.CurrentAnimation = "Init";
 	}
 
     private void CheckChildsHexNodes()
