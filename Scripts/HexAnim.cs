@@ -6,6 +6,6 @@ public class HexAnim : AnimatedSprite
     
     public override void _Ready()
     {
-        Animation = "idle";
+        Animation = "Idle";
     }
 }

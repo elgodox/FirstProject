@@ -16,12 +16,20 @@ _global_script_class_icons={
 [application]
 
 config/name="First Project"
-run/main_scene="res://Escena1.tscn"
+run/main_scene="res://Lvl1.tscn"
 
 [display]
 
 window/size/width=1600
 window/size/height=900
+
+[input]
+
+ui_A={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":65,"unicode":0,"echo":false,"script":null)
+ ]
+}
 
 [rendering]
 

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class HexManager : Node
 {
-	[Export] int badOnes;
+	[Export] public int badOnes;
 	//bool pressed;
 
     // public delegate bool ReceiveButtonPressed();
