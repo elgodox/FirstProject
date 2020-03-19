@@ -22,7 +22,6 @@ public class HexManager : Node
 		animation = GetNode<AnimationPlayer>(pathAnimation);
 		animation.CurrentAnimation = "Init";
 		GD.Print(animation.CurrentAnimation);
-		animation.Play();
 	}
 
 	private void CheckChildsHexNodes()
