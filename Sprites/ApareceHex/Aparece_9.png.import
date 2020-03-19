@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Aparece1.png-63234c19ca4be86ed14068cc34045692.stex"
+path="res://.import/Aparece_9.png-b51ea21a284144c23b3b8fe9f8bf97b3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/ApareceHex/Aparece1.png"
-dest_files=[ "res://.import/Aparece1.png-63234c19ca4be86ed14068cc34045692.stex" ]
+source_file="res://Sprites/ApareceHex/Aparece_9.png"
+dest_files=[ "res://.import/Aparece_9.png-b51ea21a284144c23b3b8fe9f8bf97b3.stex" ]
 
 [params]
 
