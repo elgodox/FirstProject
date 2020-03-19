@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Prefabs/Hex.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scripts/HexManager.cs" type="Script" id=11]
+[ext_resource path="res://Scripts/HexManager.cs" type="Script" id=1]
+[ext_resource path="res://Prefabs/Hex.tscn" type="PackedScene" id=2]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Exit"
@@ -64,19 +64,61 @@ tracks/0/keys = {
 [node name="HexManager" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = 0.493805
+margin_bottom = 0.493774
 rect_pivot_offset = Vector2( 797.928, 450.438 )
-script = ExtResource( 11 )
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 badOnes = 1
 pathAnimation = "AnimationPlayer"
 
-[node name="Hex12" parent="." instance=ExtResource( 1 )]
-margin_left = -43.7036
-margin_top = -40.4053
-margin_right = 39.296
-margin_bottom = 42.5957
+[node name="Hex11" parent="." instance=ExtResource( 2 )]
+margin_left = 143.315
+margin_top = -177.37
+margin_right = 226.315
+margin_bottom = -94.37
+
+[node name="Hex14" parent="." instance=ExtResource( 2 )]
+margin_left = 50.4899
+margin_top = -119.581
+margin_right = 133.49
+margin_bottom = -36.581
+
+[node name="Hex12" parent="." instance=ExtResource( 2 )]
+margin_left = -139.279
+margin_top = -118.062
+margin_right = -56.2787
+margin_bottom = -35.062
+
+[node name="Hex6" parent="." instance=ExtResource( 2 )]
+margin_top = -63.7249
+margin_bottom = 19.2754
+
+[node name="Hex7" parent="." instance=ExtResource( 2 )]
+margin_left = 49.9437
+margin_top = -9.14767
+margin_right = 132.944
+margin_bottom = 73.8526
+
+[node name="Hex8" parent="." instance=ExtResource( 2 )]
+margin_left = -138.218
+margin_top = -8.10812
+margin_right = -55.2181
+margin_bottom = 74.8921
+
+[node name="Hex13" parent="." instance=ExtResource( 2 )]
+margin_left = -230.605
+margin_top = 47.9221
+margin_right = -147.605
+margin_bottom = 130.922
+
+[node name="Hex9" parent="." instance=ExtResource( 2 )]
+margin_left = 142.791
+margin_top = 46.8332
+margin_right = 225.791
+margin_bottom = 129.834
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 pause_mode = 1
