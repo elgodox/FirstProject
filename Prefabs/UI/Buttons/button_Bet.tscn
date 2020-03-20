@@ -16,20 +16,24 @@ margin_bottom = 0.399963
 texture_normal = ExtResource( 2 )
 texture_pressed = ExtResource( 3 )
 expand = true
+stretch_mode = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="."]
-anchor_left = 0.12
-anchor_top = 0.26
-anchor_right = 0.882
-anchor_bottom = 0.797
-margin_left = 0.0434265
-margin_top = -0.506006
-margin_right = -0.0204926
-margin_bottom = -0.504009
+anchor_left = 0.031
+anchor_top = 0.239
+anchor_right = 0.943
+anchor_bottom = 0.776
+margin_left = 15.3514
+margin_top = 0.0159302
+margin_right = -10.5125
+margin_bottom = 0.0179329
 custom_fonts/font = ExtResource( 1 )
 text = "APUESTA"
 align = 1
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

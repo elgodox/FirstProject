@@ -14,41 +14,44 @@ font_data = ExtResource( 3 )
 [node name="ui_MaxBet" type="TextureRect"]
 anchor_left = 0.301
 anchor_top = 0.811
-anchor_right = 0.452
-anchor_bottom = 0.996
+anchor_right = 0.301
+anchor_bottom = 0.811
 margin_left = -0.600037
 margin_top = 0.0999756
-margin_right = -0.200012
-margin_bottom = -0.400024
+margin_right = 241.4
+margin_bottom = 166.1
 texture = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="title_MaxBet" type="Label" parent="."]
-anchor_left = 0.123
+anchor_left = 0.072
 anchor_top = 0.176
-anchor_right = 0.875
-anchor_bottom = 0.36
-margin_left = 0.0688839
-margin_top = 0.00723457
-margin_right = 0.0848694
-margin_bottom = 0.00724411
+anchor_right = 0.938
+anchor_bottom = 0.362
+margin_left = 12.6918
+margin_top = 0.288118
+margin_right = -14.8802
+margin_bottom = 18.4121
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.63261, 0.940249, 0.952637, 1 )
 text = "APUESTA MAXIMA"
 align = 1
 valign = 1
+autowrap = true
 
 [node name="current_CreditsBet" type="Label" parent="."]
-anchor_left = 0.153
-anchor_top = 0.508
-anchor_right = 0.847
-anchor_bottom = 0.755
-margin_left = 0.00328827
-margin_top = -0.00115967
-margin_right = 0.0552521
-margin_bottom = -0.0031662
+anchor_left = 0.08
+anchor_top = 0.527
+anchor_right = 0.919
+anchor_bottom = 0.774
+margin_left = 9.2913
+margin_top = 1.45013
+margin_right = -9.74673
+margin_bottom = 1.44812
+grow_horizontal = 2
+size_flags_vertical = 1
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 0.63261, 0.940249, 0.952637, 1 )
 text = "00.000,00"

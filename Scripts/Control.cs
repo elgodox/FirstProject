@@ -16,7 +16,7 @@ public class Control : Godot.Control
         
         
         
-        if(GetChildCount()==2)
+        if(GetChildCount()==3)
         {
             CreateHex(SceneGenerator(level));
             level--;
