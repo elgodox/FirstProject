@@ -4,5 +4,7 @@ export.cfg
 export_presets.cfg
 
 # Mono-specific ignores
-.mono/
+*.translation
 data_*/
+.mono
+.mono/
