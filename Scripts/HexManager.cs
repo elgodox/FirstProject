@@ -4,8 +4,9 @@ using System.Collections.Generic;
 
 public class HexManager : Node
 {
+	public GameManager myGameManager;
 	[Export] public int badOnes;
-	public int pressed=0;
+	public int pressed = 0;
 	[Export] String pathAnimation;
 
 	List <HexNode> _hexes = new List<HexNode>();
@@ -70,6 +71,9 @@ public class HexManager : Node
 
 	private void ReceiveNodePressed(HexNode node)
 	{
+
+		myGameManager.GameOver((node.goodOne));
+		
 		if(node.goodOne)
 		{
 			animation.CurrentAnimation="Exit";

@@ -56,7 +56,8 @@
   <ItemGroup />
   <ItemGroup>
     <Compile Include="Scripts\AnimationControl.cs" />
-    <Compile Include="Scripts\Control.cs" />
+    <Compile Include="Scripts\Constants.cs" />
+    <Compile Include="Scripts\GameManager.cs" />
     <Compile Include="Scripts\HexAnim.cs" />
     <Compile Include="Scripts\HexManager.cs" />
     <Compile Include="Scripts\HexNode.cs" />
