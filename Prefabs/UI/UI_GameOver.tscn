@@ -11,40 +11,25 @@ use_filter = true
 font_data = ExtResource( 2 )
 
 [node name="UI_GameOver" type="Control"]
-anchor_left = 0.223
-anchor_top = 0.176
-anchor_right = 0.792
-anchor_bottom = 0.78
-margin_left = 0.199982
-margin_top = -0.400009
-margin_right = -0.200073
+anchor_right = 1.0
+anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ui_GameOver" type="TextureRect" parent="."]
-anchor_left = 0.128
-anchor_top = 0.074
-anchor_right = 0.882
-anchor_bottom = 0.949
-margin_left = -0.0642319
-margin_top = -0.15044
-margin_right = -0.204285
-margin_bottom = -0.150452
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -185.0
 texture = ExtResource( 1 )
+stretch_mode = 4
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="ui_GameOver"]
-anchor_left = 0.152
-anchor_top = 0.275
-anchor_right = 0.847
-anchor_bottom = 0.746
-margin_left = -0.272003
-margin_top = 0.0999908
-margin_right = -0.0420532
-margin_bottom = -0.0960388
+anchor_right = 1.0
+anchor_bottom = 1.0
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 1, 0.866667, 0.866667, 1 )
 text = "FIN DEL JUEGO"
