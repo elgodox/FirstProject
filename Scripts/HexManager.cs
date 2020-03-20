@@ -21,7 +21,6 @@ public class HexManager : Node
 		}
 		animation = GetNode<AnimationPlayer>(pathAnimation);
 		animation.CurrentAnimation = "Init";
-		GD.Print(animation.CurrentAnimation);
 	}
 
 	private void CheckChildsHexNodes()
@@ -44,8 +43,6 @@ public class HexManager : Node
 	{
 		badOnes = Mathf.Clamp(badOnes, 0, _hexes.Count);
 
-		GD.Print("badOnes: " + badOnes);
-
 		List<int> badOnesList = new List<int>();
 		
 		for (int i = 0; i < badOnes; i++)
@@ -55,13 +52,12 @@ public class HexManager : Node
 			if(!badOnesList.Contains(badRand))
 			{
 				badOnesList.Add(badRand);
-				GD.Print("Uno de los malos va a ser el slot: " + badRand);
+				//GD.Print("Uno de los malos va a ser el slot: " + badRand);
 				_hexes[badRand].goodOne = false;
 				_hexes[badRand].asigned = true;
 			}
 			else
 			{
-				GD.Print(badRand + " salió repetido :o");
 				i --;
 			}
 		}
@@ -77,11 +73,10 @@ public class HexManager : Node
 		if(node.goodOne)
 		{
 			animation.CurrentAnimation="Exit";
-			GD.Print("El boton presionado es bueno");
 		}
 		else
 		{
-			GD.Print("El boton presionado es malo");
+			
 		}
 	}
 	

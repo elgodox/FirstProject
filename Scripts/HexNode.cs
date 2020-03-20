@@ -23,12 +23,10 @@ public class HexNode : Node
             pressed = true;
             if (goodOne)
             {
-                GD.Print("Soy de los buenos :D");
                 sprite.Animation = "isGood";
             }
             else
             {
-                GD.Print("Soy de los malos :c");
                 sprite.Animation = "isBad";
             }
             nodePressed(this);
