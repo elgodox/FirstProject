@@ -14,7 +14,7 @@ public class GameManager : Godot.Control
 
     public override void _Process(float delta)
     {
-        if(GetChildCount()==2)
+        if(GetChildCount()==3)
         {
             CreateHex(SceneGenerator(level));
             level--;
