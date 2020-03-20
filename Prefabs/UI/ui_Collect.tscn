@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Fonts/Dynamic Fonts/font_Courier_26.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Sprites/Botones/CartelApuesta.png" type="Texture" id=2]
+[ext_resource path="res://Fonts/Courier Prime Code.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 22
+outline_size = 1
+outline_color = Color( 0.243137, 0.4, 0.741176, 1 )
+use_filter = true
+font_data = ExtResource( 3 )
+
+[node name="ui_Collect" type="TextureRect"]
+anchor_left = 0.555
+anchor_top = 0.811
+anchor_right = 0.706
+anchor_bottom = 0.996
+margin_left = -0.39917
+margin_top = 0.0999146
+margin_right = 0.000732422
+margin_bottom = -0.400024
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="title_MaxBet" type="Label" parent="."]
+anchor_left = 0.123
+anchor_top = 0.176
+anchor_right = 0.875
+anchor_bottom = 0.36
+margin_left = 0.0688839
+margin_top = 0.00723457
+margin_right = 0.0848541
+margin_bottom = 0.00724411
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.63261, 0.940249, 0.952637, 1 )
+text = "COBRAR"
+align = 1
+valign = 1
+
+[node name="current_CreditsCollect" type="Label" parent="."]
+anchor_left = 0.153
+anchor_top = 0.508
+anchor_right = 0.847
+anchor_bottom = 0.755
+margin_left = 0.00328827
+margin_top = -0.00115967
+margin_right = 0.0552521
+margin_bottom = -0.0031662
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.63261, 0.940249, 0.952637, 1 )
+text = "00.000,00"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Fonts/Dynamic Fonts/font_Courier_38.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Sprites/Botones/apuesta.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Botones/apuesta-presionado.png" type="Texture" id=3]
+
+[node name="button_Bet" type="TextureButton"]
+anchor_left = 0.449
+anchor_top = 0.83
+anchor_right = 0.557
+anchor_bottom = 0.904
+margin_left = 0.599976
+margin_top = -6.10352e-05
+margin_right = -0.200073
+margin_bottom = 0.399963
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.12
+anchor_top = 0.26
+anchor_right = 0.882
+anchor_bottom = 0.797
+margin_left = 0.0434265
+margin_top = -0.506006
+margin_right = -0.0204926
+margin_bottom = -0.504009
+custom_fonts/font = ExtResource( 1 )
+text = "APUESTA"
+align = 1
+valign = 1
