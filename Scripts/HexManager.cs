@@ -76,16 +76,12 @@ public class HexManager : Node
 	{
 		if(node.goodOne)
 		{
+			animation.CurrentAnimation="Exit";
 			GD.Print("El boton presionado es bueno");
 		}
 		else
 		{
 			GD.Print("El boton presionado es malo");
-		}
-		pressed++;
-		if(pressed==_hexes.Count)
-		{
-			animation.CurrentAnimation="Exit";
 		}
 	}
 	
