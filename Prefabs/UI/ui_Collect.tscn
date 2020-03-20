@@ -16,9 +16,9 @@ anchor_left = 0.555
 anchor_top = 0.811
 anchor_right = 0.706
 anchor_bottom = 0.996
-margin_left = -0.39917
+margin_left = 0.120605
 margin_top = 0.0999146
-margin_right = 0.000732422
+margin_right = 0.52063
 margin_bottom = -0.400024
 texture = ExtResource( 2 )
 __meta__ = {
@@ -26,14 +26,14 @@ __meta__ = {
 }
 
 [node name="title_MaxBet" type="Label" parent="."]
-anchor_left = 0.123
-anchor_top = 0.176
-anchor_right = 0.875
-anchor_bottom = 0.36
-margin_left = 0.0688839
-margin_top = 0.00723457
-margin_right = 0.0848541
-margin_bottom = 0.00724411
+anchor_left = 0.5
+anchor_top = 0.268
+anchor_right = 0.5
+anchor_bottom = 0.268
+margin_left = -91.1651
+margin_top = -15.2648
+margin_right = 90.8349
+margin_bottom = 15.2793
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.63261, 0.940249, 0.952637, 1 )
 text = "COBRAR"
@@ -41,14 +41,14 @@ align = 1
 valign = 1
 
 [node name="current_CreditsCollect" type="Label" parent="."]
-anchor_left = 0.153
-anchor_top = 0.508
-anchor_right = 0.847
-anchor_bottom = 0.755
-margin_left = 0.00328827
-margin_top = -0.00115967
-margin_right = 0.0552521
-margin_bottom = -0.0031662
+anchor_left = 0.5
+anchor_top = 0.631
+anchor_right = 0.5
+anchor_bottom = 0.631
+margin_left = -83.9707
+margin_top = -20.4192
+margin_right = 84.0293
+margin_bottom = 20.5808
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 0.63261, 0.940249, 0.952637, 1 )
 text = "00.000,00"

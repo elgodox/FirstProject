@@ -21,14 +21,14 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="."]
-anchor_left = 0.215
-anchor_top = 0.127
-anchor_right = 0.785
-anchor_bottom = 0.918
-margin_left = 0.000896454
-margin_top = 0.0192595
-margin_right = -0.0391083
-margin_bottom = 0.0222549
+anchor_left = 0.5
+anchor_top = 0.523
+anchor_right = 0.5
+anchor_bottom = 0.523
+margin_left = -49.0191
+margin_top = -26.5128
+margin_right = 48.9809
+margin_bottom = 26.4873
 custom_fonts/font = ExtResource( 1 )
 text = "APUESTA
 MAXIMA"

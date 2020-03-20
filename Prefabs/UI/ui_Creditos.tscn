@@ -16,37 +16,43 @@ anchor_left = 0.141
 anchor_top = 0.786
 anchor_right = 0.302
 anchor_bottom = 0.925
-margin_left = 0.333893
-margin_top = 0.0343018
-margin_right = -0.266113
-margin_bottom = -0.0657349
+margin_left = 0.399994
+margin_top = 0.599976
+margin_right = -0.199982
+margin_bottom = 0.5
 texture = ExtResource( 2 )
+expand = true
+stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="title_Credits" type="Label" parent="."]
-anchor_left = 0.074
-anchor_top = 0.248
-anchor_right = 0.708
-anchor_bottom = 0.432
-margin_left = -0.0179996
-margin_top = -1.90735e-06
-margin_right = 0.0440063
+anchor_left = 0.391
+anchor_top = 0.34
+anchor_right = 0.391
+anchor_bottom = 0.34
+margin_left = -81.487
+margin_top = -11.5
+margin_right = 81.513
+margin_bottom = 11.5
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.63261, 0.940249, 0.952637, 1 )
 text = "CREDITO ///"
 
 [node name="current_Credits" type="Label" parent="."]
-anchor_left = 0.07
-anchor_top = 0.464
-anchor_right = 0.946
-anchor_bottom = 0.792
-margin_left = 0.0100002
-margin_top = -3.8147e-06
-margin_right = -0.122009
-margin_bottom = -7.62939e-06
+anchor_left = 0.508
+anchor_top = 0.628
+anchor_right = 0.508
+anchor_bottom = 0.628
+margin_left = -112.556
+margin_top = -20.5
+margin_right = 112.444
+margin_bottom = 20.5
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 0.63261, 0.940249, 0.952637, 1 )
 text = "00.000,00"
 valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}

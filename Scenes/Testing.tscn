@@ -15,8 +15,11 @@
 [node name="UI_Template" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = 3.97174
+margin_bottom = 3.97174
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_use_anchors_": false,
+"_edit_vertical_guides_": [ 395.143, 718.153, 939.144, 1256.41, 1644.25 ]
 }
 
 [node name="conceptGame" type="Sprite" parent="."]
@@ -25,26 +28,91 @@ position = Vector2( 796.334, 451.287 )
 texture = ExtResource( 3 )
 
 [node name="ui_MaxBet" parent="." instance=ExtResource( 4 )]
+anchor_left = 0.143
+anchor_top = 0.781
+anchor_right = 0.394
+anchor_bottom = 0.998
+margin_left = 129.2
+margin_right = 53.6
+margin_bottom = -2.20001
+expand = true
+stretch_mode = 1
 
 [node name="ui_Collect" parent="." instance=ExtResource( 7 )]
+anchor_left = 0.585
+anchor_top = 0.781
+anchor_right = 0.725
+margin_left = 47.9999
+margin_top = 0.0999756
+margin_right = 98.0
+margin_bottom = -1.40002
+expand = true
 
 [node name="ui_Creditos2" parent="." instance=ExtResource( 5 )]
-margin_right = -0.266083
-margin_bottom = -0.0656738
+anchor_left = 0.025
+anchor_top = 0.732
+anchor_right = 0.185
+anchor_bottom = 0.876
+margin_left = -0.466919
+margin_top = -0.0727539
+margin_right = 0.533081
+margin_bottom = -4.67273
+expand = false
 
 [node name="button_Collect" parent="." instance=ExtResource( 1 )]
-anchor_bottom = 0.99
-margin_right = -0.200104
-margin_bottom = -6.10352e-05
+anchor_left = 0.036
+anchor_top = 0.895
+anchor_right = 0.036
+anchor_bottom = 0.895
+margin_left = 0.29179
+margin_top = -0.259216
+margin_right = 230.292
+margin_bottom = 53.7408
 
 [node name="button_Bet" parent="." instance=ExtResource( 2 )]
+anchor_left = 0.459
+anchor_top = 0.797
+anchor_right = 0.459
+anchor_bottom = 0.877
+margin_left = -0.400024
+margin_top = -0.300049
+margin_right = 167.6
+margin_bottom = -0.300049
+stretch_mode = 0
 
 [node name="button_MaxBet" parent="." instance=ExtResource( 6 )]
+anchor_left = 0.459
+anchor_top = 0.905
+anchor_right = 0.459
+anchor_bottom = 0.98
+margin_left = -0.400024
+margin_top = 0.5
+margin_right = 167.6
+margin_bottom = 0.0
 
 [node name="button_Play" parent="." instance=ExtResource( 10 )]
+anchor_left = 0.83
+anchor_top = 0.781
+anchor_right = 0.966
+anchor_bottom = 0.98
+margin_left = -0.00012207
+margin_top = 0.0999756
+margin_right = 2.40002
+margin_bottom = 0.0
 
 [node name="button_Menu" parent="." instance=ExtResource( 11 )]
+anchor_left = 0.012
+anchor_right = 0.096
+margin_left = -2.2
+margin_right = 1.39999
+margin_bottom = 1.6
+stretch_mode = 0
 
 [node name="button_Help" parent="." instance=ExtResource( 8 )]
-
-[node name="UI_GameOver" parent="." instance=ExtResource( 9 )]
+anchor_left = 0.893
+anchor_right = 0.98
+anchor_bottom = 0.098
+margin_left = -0.151123
+margin_top = 1.0
+margin_right = -0.351074
+margin_bottom = -0.200005
