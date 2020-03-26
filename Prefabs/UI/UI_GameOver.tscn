@@ -1,25 +1,22 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Sprites/cartel-perdiste.png" type="Texture" id=1]
-[ext_resource path="res://Fonts/Courier Prime Code.ttf" type="DynamicFontData" id=2]
-
-[sub_resource type="DynamicFont" id=1]
-size = 40
-outline_size = 1
-outline_color = Color( 0.537255, 0, 0, 1 )
-use_filter = true
-font_data = ExtResource( 2 )
+[ext_resource path="res://Fonts/Dynamic Fonts/font_Courier_46_GameOver.tres" type="DynamicFont" id=2]
 
 [node name="UI_GameOver" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_horizontal_guides_": [ 448.474 ],
+"_edit_use_anchors_": false,
+"_edit_vertical_guides_": [ 800.039 ]
 }
 
 [node name="ui_GameOver" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = 155.0
 margin_bottom = -185.0
 texture = ExtResource( 1 )
 stretch_mode = 4
@@ -30,7 +27,7 @@ __meta__ = {
 [node name="Label" type="Label" parent="ui_GameOver"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 1, 0.866667, 0.866667, 1 )
 text = "FIN DEL JUEGO"
 align = 1
