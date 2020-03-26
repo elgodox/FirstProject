@@ -6,7 +6,6 @@ public class HexManager : Node
 {
 	public GameManager myGameManager;
 	[Export] public int badOnes;
-	public int pressed = 0;
 	[Export] String pathAnimation;
 
 	List <HexNode> _hexes = new List<HexNode>();
@@ -66,6 +65,10 @@ public class HexManager : Node
 
 	public void DestroyHexManager()
 	{
+		if(myGameManager.currentHexMngr == this)
+		{
+			myGameManager.currentHexMngr = null;
+		}
 		this.QueueFree();
 	}
 
