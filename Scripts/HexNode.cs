@@ -7,7 +7,7 @@ public class HexNode : Node
     public SendPressedNode nodePressed;
     public bool goodOne = true;
     public bool asigned;
-    bool pressed = false;
+    public bool pressed = false;
     AnimatedSprite sprite;
     public override void _Ready()
     {

@@ -72,7 +72,12 @@ public class HexManager : Node
 	private void ReceiveNodePressed(HexNode node)
 	{
 
-		myGameManager.GameOver((node.goodOne));
+		myGameManager.CheckHexSelected((node.goodOne));
+
+		foreach (var item in _hexes)
+		{
+			item.pressed = true;
+		}
 		
 		if(node.goodOne)
 		{
@@ -83,11 +88,7 @@ public class HexManager : Node
 			
 		}
 	}
-	
 
-	//  // Called every frame. 'delta' is the elapsed time since the previous frame.
-	//  public override void _Process(float delta)
-	//  {
-	//      
-	//  }
+	
+	
 }

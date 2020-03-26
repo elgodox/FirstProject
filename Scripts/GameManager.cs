@@ -91,21 +91,4 @@ public class GameManager : Godot.Control
     {
         CreateHex(SceneGenerator(level));
     }
-    public IEnumerator TestCoroutine()
-    {
-        GD.Print("asd");
-        
-        var t = new Timer();
-        GD.Print("Comenzando cuenta regresiva: " + t + "Segundos");
-        t.WaitTime = 1;
-        t.OneShot = true;
-        this.AddChild(t);
-        t.Start();
-        yield return (t, "timeout");
-        t.QueueFree();
-    }
-    //Habia un bug que podías seguir apretando HexNodes mientras se estaba hacien do la animacion de cambio de nivel
-    //Hice el canvas de la pantalla de Win, que se escale a la pantalla
-    //Hice que el botón de Play Reinicie el juego, todavia tengo que desactivarlo
-    //Arranqué a hacer un timer y viendo corrutinas
 }
