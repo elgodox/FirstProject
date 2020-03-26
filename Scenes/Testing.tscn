@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Prefabs/UI/Buttons/button_Collect.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Prefabs/UI/Buttons/button_Bet.tscn" type="PackedScene" id=2]
@@ -11,6 +11,12 @@
 [ext_resource path="res://Scripts/UIButtonsManager.cs" type="Script" id=9]
 [ext_resource path="res://Prefabs/UI/Buttons/button_Play.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Prefabs/UI/Buttons/button_Menu.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Sprites/Botones/jugar-presionado.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Botones/jugar.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/cartel-ayuda.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/background.png" type="Texture" id=15]
+[ext_resource path="res://Fonts/Dynamic Fonts/font_Courier_26.tres" type="DynamicFont" id=16]
+[ext_resource path="res://Fonts/Dynamic Fonts/font_Courier_22.tres" type="DynamicFont" id=17]
 
 [node name="UI_Template" type="Control"]
 anchor_right = 1.0
@@ -101,14 +107,6 @@ margin_top = 0.0999756
 margin_right = 2.40002
 margin_bottom = 0.0
 
-[node name="button_Menu" parent="." instance=ExtResource( 11 )]
-anchor_left = 0.012
-anchor_right = 0.096
-margin_left = -2.2
-margin_right = 1.39999
-margin_bottom = 1.6
-stretch_mode = 0
-
 [node name="button_Help" parent="." instance=ExtResource( 8 )]
 anchor_left = 0.893
 anchor_right = 0.98
@@ -117,4 +115,90 @@ margin_left = -0.151123
 margin_top = 1.0
 margin_right = -0.351074
 margin_bottom = -0.200005
+
+[node name="button_Menu" parent="." instance=ExtResource( 11 )]
+anchor_left = 0.012
+anchor_right = 0.096
+margin_left = -2.2
+margin_right = 1.39999
+margin_bottom = 1.6
+stretch_mode = 0
+
+[node name="ui_Help" type="TextureRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -3.97174
+margin_bottom = -3.97174
+texture = ExtResource( 15 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ui_HelpText" type="TextureRect" parent="ui_Help"]
+anchor_left = 0.08
+anchor_top = 0.138
+anchor_right = 0.91
+anchor_bottom = 0.876
+margin_left = -1.52588e-05
+margin_top = -0.199982
+margin_bottom = -0.400024
+texture = ExtResource( 14 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="helpText" type="Label" parent="ui_Help/ui_HelpText"]
+anchor_left = 0.054
+anchor_top = 0.151
+anchor_right = 0.964
+anchor_bottom = 0.842
+margin_left = 0.287994
+margin_top = -0.264008
+margin_right = -0.192017
+margin_bottom = -0.0880737
+custom_fonts/font = ExtResource( 16 )
+custom_colors/font_color = Color( 0.63261, 0.940249, 0.952637, 1 )
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="button_Back" type="TextureButton" parent="ui_Help"]
+anchor_left = 0.893
+anchor_top = 0.01
+anchor_right = 0.98
+anchor_bottom = 0.098
+margin_left = -0.151123
+margin_top = 1.0
+margin_right = -0.351074
+margin_bottom = -0.200005
+texture_normal = ExtResource( 13 )
+texture_pressed = ExtResource( 12 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ui_Help/button_Back"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -36.5001
+margin_top = -10.1899
+margin_right = 36.4999
+margin_bottom = 14.8101
+custom_fonts/font = ExtResource( 17 )
+text = "ATRAS"
+align = 1
+valign = 1
 [connection signal="button_up" from="button_Play" to="." method="PlayButtonUp"]
+[connection signal="button_up" from="button_Help" to="." method="OnHelpButtonUp"]
+[connection signal="button_up" from="ui_Help/button_Back" to="." method="OnBackButtonUp"]

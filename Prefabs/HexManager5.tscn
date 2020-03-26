@@ -62,12 +62,14 @@ tracks/0/keys = {
 }
 
 [node name="HexManager" type="Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 0.493774
-margin_top = 0.493805
-margin_right = 0.493774
-margin_bottom = 0.493774
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -799.506
+margin_top = -449.506
+margin_right = 800.494
+margin_bottom = 450.494
 rect_pivot_offset = Vector2( 797.928, 450.438 )
 mouse_filter = 2
 script = ExtResource( 1 )

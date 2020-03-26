@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Fonts/Dynamic Fonts/font_Courier_22.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Sprites/Botones/jugar-presionado.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/Botones/jugar.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Lines_Background.png" type="Texture" id=4]
 
 [node name="button_Play" type="TextureButton"]
 anchor_left = 0.701
@@ -15,6 +16,7 @@ margin_right = -0.400146
 margin_bottom = -0.400024
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 2 )
+texture_disabled = ExtResource( 4 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
