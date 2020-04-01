@@ -49,7 +49,6 @@ public class CurrencyManager : Node
         credit -= currentBet;
         EmitSignal(nameof(CurrencyChanged), Constants.credits, credit);
     }
-
     void AddBetToCurrency() // La lama GameManager, señal roundWinned
     {
         currencyToCollect += currentBet;

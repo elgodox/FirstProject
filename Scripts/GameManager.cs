@@ -35,9 +35,13 @@ public class GameManager : Godot.Control
 
 	String SceneGenerator(int currentLevel)
 	{
+		Random randomNumber = new Random();
+		int randomLevel = (randomNumber.Next() % 4);
+		randomLevel = Mathf.Clamp(randomLevel, 1 , 4);
+		GD.Print(randomLevel);
 		if(currentLevel >= 1)
 		{
-			return "res://Prefabs/HexManager" + currentLevel + ".tscn";
+			return "res://Prefabs/Levels/" + currentLevel + "/HexManager" + currentLevel + "_" + randomLevel + ".tscn";
 		}
 		else
 		return "res://Prefabs/HexManager.tscn";
@@ -46,7 +50,6 @@ public class GameManager : Godot.Control
 
 	public void CheckHexSelected(bool win)
 	{
-		GD.Print(level);
 		if(win)
 		{
 			EmitSignal(nameof(RoundWined));
@@ -67,7 +70,6 @@ public class GameManager : Godot.Control
 			isPlaying = false;
 		}
 	}
-
 	public void StartGame() //La llama UIManager, señal RestartGame
 	{
 		isPlaying = true;
