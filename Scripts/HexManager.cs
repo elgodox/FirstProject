@@ -63,7 +63,7 @@ public class HexManager : Node
 		}
 	}
 
-	public void DestroyHexManager()
+	public void DestroyHexManager() //La llama la animación de Exit
 	{
 		if(myGameManager.currentHexMngr == this)
 		{
@@ -73,8 +73,7 @@ public class HexManager : Node
 	}
 
 	private void ReceiveNodePressed(HexNode node)
-	{
-
+	{	
 		myGameManager.CheckHexSelected((node.goodOne));
 
 		foreach (var item in _hexes)
@@ -82,16 +81,6 @@ public class HexManager : Node
 			item.pressed = true;
 		}
 		
-		if(node.goodOne)
-		{
-			animation.CurrentAnimation="Exit";
-		}
-		else
-		{
-			
-		}
+		animation.CurrentAnimation = "Exit";
 	}
-
-	
-	
 }

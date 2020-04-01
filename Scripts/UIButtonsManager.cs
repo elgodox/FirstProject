@@ -15,8 +15,6 @@ public class UIButtonsManager : Control
 	
 	Control gameOverMessage;
 
-	bool PlayButtonEnabled;
-
 	public override void _Ready()
 	{
 		InitChilds();
@@ -25,7 +23,7 @@ public class UIButtonsManager : Control
     
 	#region Funciones de Botones
 
-	void ActivateAgain(bool win)
+	void ActivateAgain(bool win) //La llama GameManager, señal GameOver
     {
 		ActivatePlayButton(win);
 		helpButton.Disabled = win;
@@ -54,7 +52,7 @@ public class UIButtonsManager : Control
 	{
 		EmitSignal(nameof(collect));
 	}
-	void OnPlayButtonUp()
+	void OnPlayButtonUp() 
 	{
 		EmitSignal(nameof(restartGame));
 		ActivatePlayButton(false);
@@ -65,7 +63,6 @@ public class UIButtonsManager : Control
 	}
 	void ActivatePlayButton(bool enable)
 	{
-		PlayButtonEnabled = enable;
 
 		if(enable)
 		{
@@ -104,12 +101,12 @@ public class UIButtonsManager : Control
 		myCurrencyLabels[currencyType].UpdateLabel(currency.ToString());
 	}
 
-	void SetGameOverMessage(bool win)
+	void SetGameOverMessage(bool win) //La llama GameManager, señal GameOver
 	{
 		EmitSignal(nameof(GameOverPopUp), win);
 	}
 
-	Control LoadScene(string pathScene)
+	void LoadScene(string pathScene)
 	{
 		var scene = ResourceLoader.Load(pathScene) as PackedScene;
 		var message = scene.Instance() as Control;
@@ -117,6 +114,5 @@ public class UIButtonsManager : Control
 		AddChild(go);
 		Connect(nameof(GameOverPopUp), go, nameof(go.ReceiveGameOverPopUp));
 		Connect(nameof(restartGame), go, nameof(go.ClearGameOverMessage));
-		return message;
 	}
 }

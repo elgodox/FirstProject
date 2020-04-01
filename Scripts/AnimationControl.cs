@@ -10,7 +10,6 @@ public class AnimationControl : AnimationPlayer
 
 	public void StartExitAnimation()
 	{
-		GD.Print("Animacion de salir");
 		CurrentAnimation = "Salir";
 	}
 	public void StartEnterAnimation()

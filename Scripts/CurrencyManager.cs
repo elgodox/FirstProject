@@ -44,7 +44,6 @@ public class CurrencyManager : Node
     {
         GD.Print("Collect");
     }
-
     void ConfirmBet() // La llama UIManager, señal restartGame
     {
         credit -= currentBet;
