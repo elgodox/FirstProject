@@ -32,14 +32,14 @@ animations = [ {
 "name": "Idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 7 ), ExtResource( 8 ) ],
-"loop": false,
-"name": "isBad",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 10 ), ExtResource( 9 ), ExtResource( 6 ), ExtResource( 2 ) ],
 "loop": false,
 "name": "isGood",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 7 ), ExtResource( 8 ) ],
+"loop": false,
+"name": "isBad",
 "speed": 5.0
 } ]
 

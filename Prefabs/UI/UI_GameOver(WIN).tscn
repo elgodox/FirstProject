@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://Fonts/Courier Prime Code.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Sprites/Animations/Win/Luz_00015.png" type="Texture" id=2]
@@ -30,6 +30,8 @@
 [ext_resource path="res://Sprites/Animations/Win/Luz_00025.png" type="Texture" id=28]
 [ext_resource path="res://Sprites/Animations/Win/Luz_00026.png" type="Texture" id=29]
 [ext_resource path="res://Scripts/AnimationControl.cs" type="Script" id=30]
+[ext_resource path="res://Scripts/CurrencyLabel.cs" type="Script" id=31]
+[ext_resource path="res://Scripts/GameOverMessage.cs" type="Script" id=32]
 
 [sub_resource type="AnimatedTexture" id=1]
 flags = 4
@@ -176,6 +178,22 @@ tracks/5/keys = {
 "values": [ Vector2( 492.783, 453.831 ), Vector2( 492.783, 453.831 ), Vector2( 492.783, 350 ) ]
 }
 
+[sub_resource type="Animation" id=5]
+resource_name = "Salir"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 1e-05, 1e-05 ) ]
+}
+
 [node name="UI_GameOver" type="Control"]
 anchor_left = 0.5
 anchor_top = 0.5
@@ -185,13 +203,16 @@ margin_left = -800.0
 margin_top = -450.0
 margin_right = 800.0
 margin_bottom = 450.0
+rect_scale = Vector2( 1e-05, 1e-05 )
 rect_pivot_offset = Vector2( 800, 450 )
 mouse_filter = 2
+script = ExtResource( 32 )
 __meta__ = {
 "_edit_horizontal_guides_": [ 448.474 ],
 "_edit_use_anchors_": false,
 "_edit_vertical_guides_": [ 800.039 ]
 }
+MyWin = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchor_left = 0.495
@@ -209,13 +230,14 @@ __meta__ = {
 }
 
 [node name="MoneyAmount" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.5
 anchor_top = 0.45
 anchor_right = 0.5
 anchor_bottom = 0.45
-margin_left = -307.217
+margin_left = -316.47
 margin_top = -55.0
-margin_right = 340.783
+margin_right = 331.53
 margin_bottom = 67.0001
 rect_pivot_offset = Vector2( -6.62192e+07, 1.15812e+08 )
 custom_fonts/font = SubResource( 2 )
@@ -223,18 +245,21 @@ custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "00.000,00"
 align = 1
 valign = 1
+script = ExtResource( 31 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+myType = "winnedCurrency"
 
 [node name="Label" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.5
 anchor_top = 0.328
 anchor_right = 0.5
 anchor_bottom = 0.328
-margin_left = -296.0
+margin_left = -314.506
 margin_top = -63.2
-margin_right = 334.84
+margin_right = 316.334
 margin_bottom = 63.6199
 rect_pivot_offset = Vector2( 291, 63.41 )
 custom_fonts/font = SubResource( 3 )
@@ -250,4 +275,5 @@ __meta__ = {
 pause_mode = 2
 method_call_mode = 1
 anims/Entrar = SubResource( 4 )
+anims/Salir = SubResource( 5 )
 script = ExtResource( 30 )

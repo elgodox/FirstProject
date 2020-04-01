@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Fonts/Dynamic Fonts/font_Courier_26.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Sprites/Botones/CartelApuesta.png" type="Texture" id=2]
 [ext_resource path="res://Fonts/Courier Prime Code.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Scripts/CurrencyLabel.cs" type="Script" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 22
@@ -54,6 +55,8 @@ custom_colors/font_color = Color( 0.63261, 0.940249, 0.952637, 1 )
 text = "00.000,00"
 align = 1
 valign = 1
+script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+myType = "currencyToCollect"

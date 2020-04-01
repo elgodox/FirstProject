@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Prefabs/UI/Buttons/button_Collect.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Prefabs/UI/Buttons/button_Bet.tscn" type="PackedScene" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://Sprites/background.png" type="Texture" id=15]
 [ext_resource path="res://Fonts/Dynamic Fonts/font_Courier_26.tres" type="DynamicFont" id=16]
 [ext_resource path="res://Fonts/Dynamic Fonts/font_Courier_22.tres" type="DynamicFont" id=17]
+[ext_resource path="res://Sprites/Botones/jugar-desactivado.png" type="Texture" id=19]
 
 [node name="UI_Template" type="Control"]
 anchor_right = 1.0
@@ -106,6 +107,7 @@ margin_left = -0.00012207
 margin_top = 0.0999756
 margin_right = 2.40002
 margin_bottom = 0.0
+texture_disabled = ExtResource( 19 )
 
 [node name="button_Help" parent="." instance=ExtResource( 8 )]
 anchor_left = 0.893
@@ -199,6 +201,9 @@ custom_fonts/font = ExtResource( 17 )
 text = "ATRAS"
 align = 1
 valign = 1
-[connection signal="button_up" from="button_Play" to="." method="PlayButtonUp"]
+[connection signal="button_up" from="button_Collect" to="." method="OnCollectButtonUp"]
+[connection signal="button_up" from="button_Bet" to="." method="OnBetButtonUp"]
+[connection signal="button_up" from="button_MaxBet" to="." method="OnMaxBetButtonUp"]
+[connection signal="button_up" from="button_Play" to="." method="OnPlayButtonUp"]
 [connection signal="button_up" from="button_Help" to="." method="OnHelpButtonUp"]
 [connection signal="button_up" from="ui_Help/button_Back" to="." method="OnBackButtonUp"]

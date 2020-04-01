@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Sprites/background.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Testing.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scripts/GameManager.cs" type="Script" id=3]
+[ext_resource path="res://Scripts/CurrencyManager.cs" type="Script" id=4]
 [ext_resource path="res://Sprites/light.png" type="Texture" id=8]
 
 [node name="GameManager" type="Control"]
@@ -25,6 +26,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="UI_Template" parent="." instance=ExtResource( 2 )]
+anchor_left = -0.000797729
+anchor_top = 0.000709059
+anchor_right = 0.999202
+anchor_bottom = 1.00071
+margin_left = 4.84363
+margin_top = 2.38507
+margin_right = 4.84363
+margin_bottom = 2.38507
+
 [node name="Light2D" type="Light2D" parent="."]
 position = Vector2( 802.888, 443.52 )
 texture = ExtResource( 8 )
@@ -33,9 +44,19 @@ shadow_color = Color( 0, 0, 0, 1 )
 shadow_gradient_length = 403.1
 shadow_filter_smooth = 14.9
 
-[node name="UI_Template" parent="." instance=ExtResource( 2 )]
-anchor_left = -0.000797729
-anchor_top = 0.000709059
-anchor_right = 0.999202
-anchor_bottom = 1.00071
-[connection signal="restartGame" from="UI_Template" to="." method="RestartGame"]
+[node name="CurrencyManager" type="Node" parent="."]
+script = ExtResource( 4 )
+credit = 5.0
+maxBetAmount = 15.0
+minBetAmount = 5.0
+[connection signal="GameOver" from="." to="UI_Template" method="ActivateAgain"]
+[connection signal="GameOver" from="." to="UI_Template" method="SetGameOverMessage"]
+[connection signal="GameOver" from="." to="CurrencyManager" method="AddCurrencyToCredits"]
+[connection signal="RoundWined" from="." to="CurrencyManager" method="AddBetToCurrency"]
+[connection signal="bet" from="UI_Template" to="CurrencyManager" method="Bet"]
+[connection signal="collect" from="UI_Template" to="CurrencyManager" method="Collect"]
+[connection signal="maxBet" from="UI_Template" to="CurrencyManager" method="MaxBet"]
+[connection signal="restartGame" from="UI_Template" to="." method="StartGame"]
+[connection signal="restartGame" from="UI_Template" to="CurrencyManager" method="ConfirmBet"]
+[connection signal="CurrencyChanged" from="CurrencyManager" to="UI_Template" method="UpdateCurrencyUI"]
+[connection signal="GameHaveBet" from="CurrencyManager" to="UI_Template" method="ActivatePlayButton"]
