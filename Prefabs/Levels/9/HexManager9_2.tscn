@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/HexManager.cs" type="Script" id=1]
-[ext_resource path="res://Prefabs/Hex.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Prefabs/Levels/Hex.tscn" type="PackedScene" id=2]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Exit"
@@ -79,57 +79,59 @@ __meta__ = {
 badOnes = 1
 pathAnimation = "AnimationPlayer"
 
-[node name="Hex14" parent="." instance=ExtResource( 2 )]
-margin_left = 50.4899
-margin_top = -143.581
-margin_right = 133.49
-margin_bottom = -60.581
-
-[node name="Hex12" parent="." instance=ExtResource( 2 )]
-margin_left = -138.279
-margin_top = -141.062
-margin_right = -55.2787
-margin_bottom = -58.061
-
 [node name="Hex6" parent="." instance=ExtResource( 2 )]
-margin_top = -87.725
-margin_bottom = -4.72473
-
-[node name="Hex11" parent="." instance=ExtResource( 2 )]
-margin_left = 145.277
-margin_top = -88.291
-margin_right = 228.277
-margin_bottom = -5.29059
+margin_left = -44.4748
+margin_top = -145.175
+margin_right = 38.5252
+margin_bottom = -62.1747
 
 [node name="Hex7" parent="." instance=ExtResource( 2 )]
 margin_left = 49.9437
-margin_top = -33.1477
+margin_top = -87.1681
 margin_right = 132.944
-margin_bottom = 49.8526
+margin_bottom = -4.16779
 
 [node name="Hex8" parent="." instance=ExtResource( 2 )]
-margin_left = -138.218
-margin_top = -32.1081
-margin_right = -55.2181
-margin_bottom = 50.8922
+margin_left = -139.075
+margin_top = -86.1285
+margin_right = -56.0754
+margin_bottom = -3.12823
 
 [node name="Hex13" parent="." instance=ExtResource( 2 )]
-margin_left = -231.605
-margin_top = 23.9221
-margin_right = -148.605
-margin_bottom = 106.922
+margin_left = -235.127
+margin_top = -29.9438
+margin_right = -152.127
+margin_bottom = 53.056
+
+[node name="Hex16" parent="." instance=ExtResource( 2 )]
+margin_left = -235.127
+margin_top = 81.5149
+margin_right = -152.127
+margin_bottom = 164.515
 
 [node name="Hex9" parent="." instance=ExtResource( 2 )]
 margin_left = -137.179
-margin_top = 79.1258
+margin_top = 25.1053
 margin_right = -54.1785
-margin_bottom = 162.126
+margin_bottom = 108.106
 
 [node name="Hex10" parent="." instance=ExtResource( 2 )]
-margin_left = 50.9833
-margin_top = 77.5664
+margin_left = 50.9832
+margin_top = 23.546
 margin_right = 133.983
-margin_bottom = 160.567
+margin_bottom = 106.547
+
+[node name="Hex14" parent="." instance=ExtResource( 2 )]
+margin_left = 147.867
+margin_top = -33.0408
+margin_right = 230.866
+margin_bottom = 49.9598
+
+[node name="Hex15" parent="." instance=ExtResource( 2 )]
+margin_left = 148.724
+margin_top = 79.2754
+margin_right = 231.724
+margin_bottom = 162.276
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 pause_mode = 1

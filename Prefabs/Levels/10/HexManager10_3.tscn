@@ -1,0 +1,146 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Prefabs/Levels/Hex.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/HexManager.cs" type="Script" id=11]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Exit"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 2, 2 ), Vector2( 5, 5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "DestroyHexManager"
+} ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Init"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 0.965936 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1, 1 ) ]
+}
+
+[node name="HexManager" type="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -800.0
+margin_top = -450.0
+margin_right = 800.0
+margin_bottom = 450.0
+rect_pivot_offset = Vector2( 797.928, 450.438 )
+mouse_filter = 2
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+badOnes = 1
+pathAnimation = "AnimationPlayer"
+
+[node name="Hex12" parent="." instance=ExtResource( 1 )]
+margin_left = 242.389
+margin_top = -98.8637
+margin_right = 325.389
+margin_bottom = -15.8627
+
+[node name="Hex6" parent="." instance=ExtResource( 1 )]
+margin_left = 148.205
+margin_top = -41.0744
+margin_right = 231.205
+margin_bottom = 41.9259
+
+[node name="Hex7" parent="." instance=ExtResource( 1 )]
+margin_left = 49.9437
+margin_top = -97.1477
+margin_right = 132.944
+margin_bottom = -14.1474
+
+[node name="Hex8" parent="." instance=ExtResource( 1 )]
+margin_left = -138.218
+margin_top = -96.1081
+margin_right = -55.2181
+margin_bottom = -13.1078
+
+[node name="Hex13" parent="." instance=ExtResource( 1 )]
+margin_left = -231.605
+margin_top = -40.0779
+margin_right = -148.605
+margin_bottom = 42.9224
+
+[node name="Hex9" parent="." instance=ExtResource( 1 )]
+margin_left = -137.179
+margin_top = 15.1258
+margin_right = -54.1786
+margin_bottom = 98.1261
+
+[node name="Hex10" parent="." instance=ExtResource( 1 )]
+margin_left = 50.9833
+margin_top = 13.5664
+margin_right = 133.983
+margin_bottom = 96.5668
+
+[node name="Hex11" parent="." instance=ExtResource( 1 )]
+margin_left = -328.192
+margin_top = -99.4997
+margin_right = -245.192
+margin_bottom = -16.4991
+
+[node name="Hex15" parent="." instance=ExtResource( 1 )]
+margin_left = -232.247
+margin_top = 71.9609
+margin_right = -149.247
+margin_bottom = 154.961
+
+[node name="Hex14" parent="." instance=ExtResource( 1 )]
+margin_left = 147.419
+margin_top = 72.6107
+margin_right = 230.419
+margin_bottom = 155.612
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+pause_mode = 1
+autoplay = "Init"
+anims/Exit = SubResource( 1 )
+anims/Init = SubResource( 2 )

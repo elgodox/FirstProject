@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Prefabs/Hex.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scripts/HexManager.cs" type="Script" id=11]
+[ext_resource path="res://Scripts/HexManager.cs" type="Script" id=1]
+[ext_resource path="res://Prefabs/Levels/Hex.tscn" type="PackedScene" id=2]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Exit"
@@ -66,24 +66,36 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -800.0
-margin_top = -450.0
-margin_right = 800.0
-margin_bottom = 450.0
+margin_left = -799.012
+margin_top = -449.506
+margin_right = 800.988
+margin_bottom = 450.494
 rect_pivot_offset = Vector2( 797.928, 450.438 )
 mouse_filter = 2
-script = ExtResource( 11 )
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 badOnes = 1
 pathAnimation = "AnimationPlayer"
 
-[node name="Hex12" parent="." instance=ExtResource( 1 )]
-margin_left = -43.7036
-margin_top = -40.4053
-margin_right = 39.296
-margin_bottom = 42.5957
+[node name="Hex13" parent="." instance=ExtResource( 2 )]
+margin_left = -40.293
+margin_top = -35.8954
+margin_right = 42.707
+margin_bottom = 47.1047
+
+[node name="Hex7" parent="." instance=ExtResource( 2 )]
+margin_left = 158.233
+margin_top = 75.8159
+margin_right = 241.234
+margin_bottom = 158.816
+
+[node name="Hex12" parent="." instance=ExtResource( 2 )]
+margin_left = -234.792
+margin_top = -153.875
+margin_right = -151.792
+margin_bottom = -70.875
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 pause_mode = 1
