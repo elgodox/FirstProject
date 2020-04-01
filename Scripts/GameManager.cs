@@ -4,12 +4,12 @@ using System.Collections;
 
 public class GameManager : Godot.Control
 {
-	[Signal] public delegate void GameOver();
+	[Signal] public delegate void GameOver(bool win);
+	[Signal] public delegate void GameStarted();
+	[Signal] public delegate void RoundWined();
+
 	private PackedScene hexManagerScn;
-	private PackedScene gameOverWin;
-	private PackedScene gameOverLose;
 	public HexManager currentHexMngr;
-	Control gameOverMessage;
 	[Export] int level;
 	public override void _Ready()
 	{
@@ -26,6 +26,7 @@ public class GameManager : Godot.Control
 		hexManagerScn = ResourceLoader.Load(path) as PackedScene;
 		currentHexMngr = hexManagerScn.Instance() as HexManager;
 		currentHexMngr.badOnes = 0;
+		//AddChildBelowNode(GetNode("Background"), currentHexMngr);
 		AddChild(currentHexMngr);
 		currentHexMngr.myGameManager = this;
 		level--;
@@ -46,10 +47,11 @@ public class GameManager : Godot.Control
 	{
 		if(win)
 		{
+			EmitSignal(nameof(RoundWined));
+			
 			if(level < 2)
 			{
-				SetGameOverMessage(gameOverWin, Constants.ui_GmOvr_win_path);
-				EmitSignal(nameof(GameOver));
+				EmitSignal(nameof(GameOver), true);
 			}
 			else
 			{
@@ -58,30 +60,21 @@ public class GameManager : Godot.Control
 		}
 		else
 		{
-			EmitSignal(nameof(GameOver));
-			SetGameOverMessage(gameOverLose, Constants.ui_GmOvr_lose_path);
+			EmitSignal(nameof(GameOver), false);
 		}
 	}
 
-	void SetGameOverMessage(PackedScene scene, string pathScene)
+	public void StartGame()
 	{
-		scene = ResourceLoader.Load(pathScene) as PackedScene;
-		gameOverMessage = scene.Instance() as Control;
-		AddChild(gameOverMessage);
-	}
-	public void RestartGame()
-	{
+		EmitSignal(nameof(GameStarted));
+
 		if(currentHexMngr != null)
 		{
 			currentHexMngr.QueueFree();
 		}
-        if(gameOverMessage != null)
-        {
-		    gameOverMessage.QueueFree();
-        }
 		CreateHex(SceneGenerator(level = 10));
 	}
-
+	
 	void CreateTimer(float secs, string method)
 	{
 		var timer = new Timer();
