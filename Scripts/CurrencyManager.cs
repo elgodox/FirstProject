@@ -20,7 +20,7 @@ public class CurrencyManager : Node
             
             if(currentBet >= maxBetAmount || currentBet + minBetAmount > credit)
             {
-                currentBet = 0;
+                currentBet = minBetAmount;
                 EmitSignal(nameof(GameHaveBet), false);
             }
             else

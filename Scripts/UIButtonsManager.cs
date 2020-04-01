@@ -29,9 +29,9 @@ public class UIButtonsManager : Control
     {
 		ActivatePlayButton(win);
 		helpButton.Disabled = win;
-		maxBetButton.Disabled = win;
-		betButton.Disabled = win;
-		collectButton.Disabled = win;
+		//maxBetButton.Disabled = win;
+		//betButton.Disabled = win;
+		//collectButton.Disabled = win;
     }
 	
 	void OnHelpButtonUp()
@@ -59,9 +59,9 @@ public class UIButtonsManager : Control
 		EmitSignal(nameof(restartGame));
 		ActivatePlayButton(false);
 		helpButton.Disabled = true;
-		maxBetButton.Disabled = true;
-		betButton.Disabled = true;
-		collectButton.Disabled = true;
+		//maxBetButton.Disabled = true;
+		//betButton.Disabled = true;
+		//collectButton.Disabled = true;
 	}
 	void ActivatePlayButton(bool enable)
 	{
