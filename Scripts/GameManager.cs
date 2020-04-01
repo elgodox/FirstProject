@@ -7,10 +7,12 @@ public class GameManager : Godot.Control
 	[Signal] public delegate void GameOver(bool win);
 	[Signal] public delegate void GameStarted();
 	[Signal] public delegate void RoundWined();
+	[Signal] public delegate void GameReady(bool ready);
 
 	private PackedScene hexManagerScn;
 	public HexManager currentHexMngr;
 	[Export] int level;
+	bool isPlaying = false;
 	public override void _Ready()
 	{
         
@@ -52,6 +54,7 @@ public class GameManager : Godot.Control
 			if(level < 2)
 			{
 				EmitSignal(nameof(GameOver), true);
+				isPlaying = false;
 			}
 			else
 			{
@@ -61,11 +64,13 @@ public class GameManager : Godot.Control
 		else
 		{
 			EmitSignal(nameof(GameOver), false);
+			isPlaying = false;
 		}
 	}
 
 	public void StartGame()
 	{
+		isPlaying = true;
 		EmitSignal(nameof(GameStarted));
 
 		if(currentHexMngr != null)
@@ -87,5 +92,12 @@ public class GameManager : Godot.Control
 	void CreateHexWithCurrentLevel()
 	{
 		CreateHex(SceneGenerator(level));
+	}
+	void GameHaveBetNow(bool haveBet)
+	{
+		if(!isPlaying)
+		{
+			EmitSignal(nameof(GameReady), true);
+		}
 	}
 }

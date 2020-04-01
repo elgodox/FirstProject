@@ -17,7 +17,6 @@ public class CurrencyManager : Node
     {
         if(credit >= minBetAmount)
         {
-            
             if(currentBet >= maxBetAmount || currentBet + minBetAmount > credit)
             {
                 currentBet = minBetAmount;
@@ -61,7 +60,6 @@ public class CurrencyManager : Node
     {
         EmitSignal(nameof(CurrencyChanged), Constants.winnedCurrency, currencyToCollect);
     }
-
     void AddCurrencyToCredits(bool win) // La llama GameManager, señal GameOver
     {
         if(win)
