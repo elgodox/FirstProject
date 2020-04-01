@@ -32,14 +32,14 @@ animations = [ {
 "name": "Idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 10 ), ExtResource( 9 ), ExtResource( 6 ), ExtResource( 2 ) ],
-"loop": false,
-"name": "isGood",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 7 ), ExtResource( 8 ) ],
 "loop": false,
 "name": "isBad",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 9 ), ExtResource( 6 ), ExtResource( 2 ) ],
+"loop": false,
+"name": "isGood",
 "speed": 5.0
 } ]
 
@@ -62,6 +62,8 @@ __meta__ = {
 position = Vector2( 42.6815, 43.1763 )
 frames = SubResource( 1 )
 animation = "Idle"
+frame = 14
 speed_scale = 5.0
+playing = true
 script = ExtResource( 1 )
 [connection signal="button_down" from="." to="." method="_on_button_down"]

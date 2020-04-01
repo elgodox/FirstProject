@@ -28,7 +28,6 @@ public class GameManager : Godot.Control
 		hexManagerScn = ResourceLoader.Load(path) as PackedScene;
 		currentHexMngr = hexManagerScn.Instance() as HexManager;
 		currentHexMngr.badOnes = 0;
-		//AddChildBelowNode(GetNode("Background"), currentHexMngr);
 		AddChild(currentHexMngr);
 		currentHexMngr.myGameManager = this;
 		level--;
@@ -36,9 +35,13 @@ public class GameManager : Godot.Control
 
 	String SceneGenerator(int currentLevel)
 	{
-		if(currentLevel > 1)
+		Random randomNumber = new Random();
+		int randomLevel = (randomNumber.Next() % 4);
+		randomLevel = Mathf.Clamp(randomLevel, 1 , 4);
+		GD.Print(randomLevel);
+		if(currentLevel >= 1)
 		{
-			return "res://Prefabs/HexManager" + currentLevel + ".tscn";
+			return "res://Prefabs/Levels/" + currentLevel + "/HexManager" + currentLevel + "_" + randomLevel + ".tscn";
 		}
 		else
 		return "res://Prefabs/HexManager.tscn";
@@ -51,7 +54,7 @@ public class GameManager : Godot.Control
 		{
 			EmitSignal(nameof(RoundWined));
 			
-			if(level < 2)
+			if(level < 1)
 			{
 				EmitSignal(nameof(GameOver), true);
 				isPlaying = false;
@@ -67,8 +70,7 @@ public class GameManager : Godot.Control
 			isPlaying = false;
 		}
 	}
-
-	public void StartGame()
+	public void StartGame() //La llama UIManager, señal RestartGame
 	{
 		isPlaying = true;
 		EmitSignal(nameof(GameStarted));
@@ -89,11 +91,11 @@ public class GameManager : Godot.Control
 		timer.Start();
 		timer.Connect("timeout", this, method);
 	}
-	void CreateHexWithCurrentLevel()
+	void CreateHexWithCurrentLevel() //Se llama dentro de la función CheckHexsSelected, la recibe CreateTimer
 	{
 		CreateHex(SceneGenerator(level));
 	}
-	void GameHaveBetNow(bool haveBet)
+	void GameHaveBetNow(bool haveBet) //La llama CurrencyManager, señal GameHaveBet
 	{
 		if(!isPlaying)
 		{

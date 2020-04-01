@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/HexManager.cs" type="Script" id=1]
-[ext_resource path="res://Prefabs/Hex.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Prefabs/Levels/Hex.tscn" type="PackedScene" id=2]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Exit"
@@ -63,13 +63,13 @@ tracks/0/keys = {
 
 [node name="HexManager" type="Control"]
 anchor_left = 0.5
-anchor_top = 0.5
+anchor_top = 0.501
 anchor_right = 0.5
-anchor_bottom = 0.5
+anchor_bottom = 0.501
 margin_left = -799.506
-margin_top = -449.506
+margin_top = -450.406
 margin_right = 800.494
-margin_bottom = 450.494
+margin_bottom = 449.594
 rect_pivot_offset = Vector2( 797.928, 450.438 )
 mouse_filter = 2
 script = ExtResource( 1 )
@@ -79,35 +79,41 @@ __meta__ = {
 badOnes = 1
 pathAnimation = "AnimationPlayer"
 
+[node name="Hex11" parent="." instance=ExtResource( 2 )]
+margin_left = -43.7427
+margin_top = -91.3962
+margin_right = 39.2573
+margin_bottom = -8.39572
+
 [node name="Hex14" parent="." instance=ExtResource( 2 )]
-margin_left = 49.4899
-margin_top = -95.5813
-margin_right = 132.49
-margin_bottom = -12.5811
+margin_left = 52.9195
+margin_top = -148.217
+margin_right = 135.92
+margin_bottom = -65.217
 
 [node name="Hex12" parent="." instance=ExtResource( 2 )]
-margin_left = -139.279
-margin_top = -94.0618
-margin_right = -56.2787
-margin_bottom = -11.0615
-
-[node name="Hex11" parent="." instance=ExtResource( 2 )]
-margin_left = -233.598
-margin_top = -38.5359
-margin_right = -150.598
-margin_bottom = 44.4644
+margin_left = -141.851
+margin_top = -147.458
+margin_right = -58.8508
+margin_bottom = -64.4578
 
 [node name="Hex7" parent="." instance=ExtResource( 2 )]
-margin_left = 49.9437
-margin_top = 14.8524
-margin_right = 132.944
-margin_bottom = 97.8527
+margin_left = 53.3734
+margin_top = 80.6311
+margin_right = 136.374
+margin_bottom = 163.631
 
 [node name="Hex8" parent="." instance=ExtResource( 2 )]
-margin_left = -139.218
-margin_top = 16.8919
-margin_right = -56.2181
-margin_bottom = 99.8922
+margin_left = -139.916
+margin_top = 83.1478
+margin_right = -56.9164
+margin_bottom = 166.148
+
+[node name="Hex9" parent="." instance=ExtResource( 2 )]
+margin_left = -44.2184
+margin_top = 22.1543
+margin_right = 38.7816
+margin_bottom = 105.155
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 pause_mode = 1

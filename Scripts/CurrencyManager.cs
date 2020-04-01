@@ -44,13 +44,11 @@ public class CurrencyManager : Node
     {
         GD.Print("Collect");
     }
-
     void ConfirmBet() // La llama UIManager, señal restartGame
     {
         credit -= currentBet;
         EmitSignal(nameof(CurrencyChanged), Constants.credits, credit);
     }
-
     void AddBetToCurrency() // La lama GameManager, señal roundWinned
     {
         currencyToCollect += currentBet;
