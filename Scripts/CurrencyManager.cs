@@ -4,14 +4,15 @@ using System;
 public class CurrencyManager : Node
 {
     
-	[Signal] public delegate void CurrencyChanged(string typeOfCurrency, float currency);
+	[Signal] public delegate void CurrencyChanged(string typeOfCurrency, double currency);
 	[Signal] public delegate void GameHaveBet(bool haveBet);
 
-    [Export] float credit, maxBetAmount, minBetAmount;
-    float currentBet, currencyToCollect;
+    double credit, maxBetAmount, minBetAmount;
+    double currentBet, currencyToCollect;
     public override void _Ready()
     {
         CheckAllCurrency();
+        OMenuCommunication.Start();
     }
     void Bet() // La llama UIManager, señal bet
     {
