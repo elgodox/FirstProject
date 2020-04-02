@@ -15,7 +15,6 @@ public class HexNode : Node
         sprite.Animation = "Idle";
         sprite.Play();
     }
-
     void _on_button_down()
     {
         if (!pressed)

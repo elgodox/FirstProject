@@ -26,7 +26,7 @@ public class UIButtonsManager : Control
 	void ActivateAgain(bool win) //La llama GameManager, señal GameOver
     {
 		ActivatePlayButton(win);
-		helpButton.Disabled = !win;
+		helpButton.Disabled = false;
 		//maxBetButton.Disabled = win;
 		//betButton.Disabled = win;
 		//collectButton.Disabled = win;
