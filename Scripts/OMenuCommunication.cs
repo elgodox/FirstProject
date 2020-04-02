@@ -3,18 +3,16 @@ using System;
 using OMenuClient;
 using OMenuClient.Structs;
 
-public class OMenuCommunication : Node
+public static class OMenuCommunication
 {
-    public override void _Ready()
+        public static VLTLocalClient oMenuClient;
+        public static OMenuClient.Structs.GameProfile profile;
+    public static void Start()
     {
-        VLTLocalClient oMenuClient = new VLTLocalClient(16);
-        GD.Print(oMenuClient.GameProfileName);
-
-
+        oMenuClient = new VLTLocalClient(16);
         oMenuClient.StartService();
-        OMenuClient.Structs.GameProfile profile = oMenuClient.GetGameProfile();
+        profile = oMenuClient.GetGameProfile();
         GD.Print(profile.ToString());
-        
     }
 
 }
