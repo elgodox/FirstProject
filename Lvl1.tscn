@@ -47,10 +47,11 @@ shadow_filter_smooth = 14.9
 [node name="CurrencyManager" type="Node" parent="."]
 script = ExtResource( 4 )
 [connection signal="GameOver" from="." to="CurrencyManager" method="AddCurrencyToCredits"]
-[connection signal="GameOver" from="." to="UI_Template" method="SetGameOverMessage"]
 [connection signal="GameOver" from="." to="UI_Template" method="ActivateAgain"]
+[connection signal="GameOver" from="." to="UI_Template" method="SetGameOverMessage"]
 [connection signal="GameReady" from="." to="UI_Template" method="ActivatePlayButton"]
 [connection signal="RoundWined" from="." to="CurrencyManager" method="AddBetToCurrency"]
+[connection signal="SetCurrencyManager" from="." to="CurrencyManager" method="SetCurrency"]
 [connection signal="bet" from="UI_Template" to="CurrencyManager" method="Bet"]
 [connection signal="collect" from="UI_Template" to="CurrencyManager" method="Collect"]
 [connection signal="maxBet" from="UI_Template" to="CurrencyManager" method="MaxBet"]

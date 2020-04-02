@@ -7,6 +7,7 @@ public class GameManager : Godot.Control
 	[Signal] public delegate void GameOver(bool win);
 	[Signal] public delegate void GameStarted();
 	[Signal] public delegate void RoundWined();
+	[Signal] public delegate void SetCurrencyManager(double credit,double minBet, double maxBet);
 	[Signal] public delegate void GameReady(bool ready);
 
 	private PackedScene hexManagerScn;
@@ -14,9 +15,14 @@ public class GameManager : Godot.Control
 	int currentLevel;
 	[Export] int Levels;
 	bool isPlaying = false;
+
+	OMenuCommunication oMenu = new OMenuCommunication();
 	public override void _Ready()
 	{
-        
+        if(oMenu.Start())
+		{
+			EmitSignal(nameof(SetCurrencyManager),oMenu.GetMoney(),oMenu.MinBet(),oMenu.MaxBet());
+		}
 	}
 
 	public override void _Process(float delta)
@@ -94,6 +100,12 @@ public class GameManager : Godot.Control
 		timer.Start();
 		timer.Connect("timeout", this, method);
 	}
+
+	void UpdateSaveData(double moneyAmount, double betAmount, DateTime DateTime)
+	{
+		oMenu.UpdateSaveData(isPlaying, moneyAmount, betAmount, DateTime, currentLevel.ToString());
+	}
+
 	void CreateHexWithCurrentLevel() //Se llama dentro de la función CheckHexsSelected, la recibe CreateTimer
 	{
 		CreateHex(SceneGenerator(currentLevel));

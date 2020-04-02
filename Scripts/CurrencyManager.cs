@@ -7,18 +7,21 @@ public class CurrencyManager : Node
 	[Signal] public delegate void CurrencyChanged(string typeOfCurrency, double currency);
 	[Signal] public delegate void GameHaveBet(bool haveBet);
 
-    OMenuCommunication oMenu = new OMenuCommunication();
-
     double credit, maxBetAmount, minBetAmount;
     double currentBet, currencyToCollect;
     public override void _Ready()
     {
-        oMenu.Start();
-        credit = oMenu.GetMoney();
-        maxBetAmount = oMenu.MaxBet();
-        minBetAmount = oMenu.MinBet();
+
+    }
+
+    void SetCurrency(double money, double minBet,double maxBet)
+    {
+        credit = money;
+        minBetAmount = minBet;
+        maxBetAmount = maxBet;
         CheckAllCurrency();
     }
+
     void Bet() // La llama UIManager, señal bet
     {
         if(credit >= minBetAmount)
@@ -55,7 +58,7 @@ public class CurrencyManager : Node
         credit -= currentBet;
         EmitSignal(nameof(CurrencyChanged), Constants.credits, credit);
     }
-    void AddBetToCurrency() // La lama GameManager, señal roundWinned
+    void AddBetToCurrency() // La llama GameManager, señal roundWinned
     {
         currencyToCollect += currentBet;
         EmitSignal(nameof(CurrencyChanged), Constants.currencyToCollect, currencyToCollect);

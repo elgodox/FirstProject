@@ -7,14 +7,18 @@ public class OMenuCommunication
 {
     public VLTLocalClient oMenuClient;
     public OMenuClient.Structs.GameProfile profile;
-
     public SaveData saveData;
-    public void Start()
+    public PlayInfo playInfo;
+    public bool Start()
     {
         oMenuClient = new VLTLocalClient(16);
         oMenuClient.StartService();
-        profile = oMenuClient.GetGameProfile();
-        GD.Print(profile.ToString());
+        if (oMenuClient.ServiceStarted)
+        {
+            profile = oMenuClient.GetGameProfile();
+            return true;
+        }
+        return false;
     }
 
     public double GetMoney()
@@ -41,11 +45,16 @@ public class OMenuCommunication
     {
         return profile.denomination;
     }
-    public void UpdateSaveData(bool isPlaying,double moneyAmount,double betAmount,DateTime DateTime, String description)
+    public void UpdateSaveData(bool isPlaying, double moneyAmount, double betAmount, DateTime DateTime, String description)
     {
-        oMenuClient.UpdateSaveData(isPlaying,moneyAmount,betAmount,DateTime,description);
+        oMenuClient.UpdateSaveData(isPlaying, moneyAmount, betAmount, DateTime, description);
     }
-    
+
+    public PlayInfo PlayInfo(PlayInfo playInfo)
+    {
+        return playInfo;
+    }
+
 
 
 
