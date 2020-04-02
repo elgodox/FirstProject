@@ -64,7 +64,13 @@
     <Compile Include="Scripts\HexAnim.cs" />
     <Compile Include="Scripts\HexManager.cs" />
     <Compile Include="Scripts\HexNode.cs" />
+    <Compile Include="Scripts\OMenuCommunication.cs" />
     <Compile Include="Scripts\UIButtonsManager.cs" />
   </ItemGroup>
+  <ItemGroup>
+  <Reference Include="OMenuClient">
+    <HintPath>OMenuClient.dll</HintPath>
+  </Reference>
+</ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
