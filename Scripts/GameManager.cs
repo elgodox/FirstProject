@@ -11,7 +11,8 @@ public class GameManager : Godot.Control
 
 	private PackedScene hexManagerScn;
 	public HexManager currentHexMngr;
-	[Export] int level;
+	int currentLevel;
+	[Export] int Levels;
 	bool isPlaying = false;
 	public override void _Ready()
 	{
@@ -28,22 +29,24 @@ public class GameManager : Godot.Control
 		hexManagerScn = ResourceLoader.Load(path) as PackedScene;
 		currentHexMngr = hexManagerScn.Instance() as HexManager;
 		currentHexMngr.badOnes = 0;
+		currentHexMngr.activeOnes = currentLevel;
 		AddChild(currentHexMngr);
 		currentHexMngr.myGameManager = this;
-		level--;
+		currentLevel--;
 	}
 
 	String SceneGenerator(int currentLevel)
 	{
-		Random randomNumber = new Random();
-		int randomLevel = (randomNumber.Next() % 4);
-		randomLevel = Mathf.Clamp(randomLevel, 1 , 4);
-		GD.Print(randomLevel);
-		if(currentLevel >= 1)
-		{
-			return "res://Prefabs/Levels/" + currentLevel + "/HexManager" + currentLevel + "_" + randomLevel + ".tscn";
-		}
-		else
+		// Random randomNumber = new Random();
+		// int randomLevel = (randomNumber.Next() % 4);
+		// randomLevel = Mathf.Clamp(randomLevel, 1 , 4);
+		// GD.Print(randomLevel);
+
+		// if(currentLevel >= 1)
+		// {
+		// 	return "res://Prefabs/Levels/" + currentLevel + "/HexManager" + currentLevel + "_" + randomLevel + ".tscn";
+		// }
+		// else
 		return "res://Prefabs/HexManager.tscn";
 		
 	}
@@ -54,14 +57,14 @@ public class GameManager : Godot.Control
 		{
 			EmitSignal(nameof(RoundWined));
 			
-			if(level < 1)
+			if(currentLevel < 1)
 			{
 				EmitSignal(nameof(GameOver), true);
 				isPlaying = false;
 			}
 			else
 			{
-				CreateTimer(.5f, "CreateHexWithCurrentLevel");
+				CreateTimer(.4f, "CreateHexWithCurrentLevel");
 			}
 		}
 		else
@@ -79,7 +82,7 @@ public class GameManager : Godot.Control
 		{
 			currentHexMngr.QueueFree();
 		}
-		CreateHex(SceneGenerator(level = 10));
+		CreateHex(SceneGenerator(currentLevel = Levels));
 	}
 	
 	void CreateTimer(float secs, string method)
@@ -93,7 +96,7 @@ public class GameManager : Godot.Control
 	}
 	void CreateHexWithCurrentLevel() //Se llama dentro de la función CheckHexsSelected, la recibe CreateTimer
 	{
-		CreateHex(SceneGenerator(level));
+		CreateHex(SceneGenerator(currentLevel));
 	}
 	void GameHaveBetNow(bool haveBet) //La llama CurrencyManager, señal GameHaveBet
 	{
