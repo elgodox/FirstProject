@@ -4,7 +4,7 @@ using System;
 public class CurrencyManager : Node
 {
     
-	[Signal] public delegate void CurrencyChanged(string typeOfCurrency, double currency);
+	[Signal] public delegate void CurrencyChanged(params object[] parameters);
 	[Signal] public delegate void GameHaveBet(bool haveBet);
 
     double credit, maxBetAmount, minBetAmount;
@@ -21,7 +21,6 @@ public class CurrencyManager : Node
         maxBetAmount = maxBet;
         CheckAllCurrency();
     }
-
     void Bet() // La llama UIManager, señal bet
     {
         if(credit >= minBetAmount)

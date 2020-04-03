@@ -14,7 +14,8 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-Levels = 10
+levels = 10
+badOnes = 1
 
 [node name="Background" type="TextureRect" parent="."]
 anchor_right = 1.0
@@ -46,16 +47,16 @@ shadow_filter_smooth = 14.9
 
 [node name="CurrencyManager" type="Node" parent="."]
 script = ExtResource( 4 )
-[connection signal="GameOver" from="." to="CurrencyManager" method="AddCurrencyToCredits"]
-[connection signal="GameOver" from="." to="UI_Template" method="ActivateAgain"]
 [connection signal="GameOver" from="." to="UI_Template" method="SetGameOverMessage"]
+[connection signal="GameOver" from="." to="UI_Template" method="ActivateAgain"]
+[connection signal="GameOver" from="." to="CurrencyManager" method="AddCurrencyToCredits"]
 [connection signal="GameReady" from="." to="UI_Template" method="ActivatePlayButton"]
 [connection signal="RoundWined" from="." to="CurrencyManager" method="AddBetToCurrency"]
 [connection signal="SetCurrencyManager" from="." to="CurrencyManager" method="SetCurrency"]
 [connection signal="bet" from="UI_Template" to="CurrencyManager" method="Bet"]
 [connection signal="collect" from="UI_Template" to="CurrencyManager" method="Collect"]
 [connection signal="maxBet" from="UI_Template" to="CurrencyManager" method="MaxBet"]
-[connection signal="restartGame" from="UI_Template" to="CurrencyManager" method="ConfirmBet"]
 [connection signal="restartGame" from="UI_Template" to="." method="StartGame"]
+[connection signal="restartGame" from="UI_Template" to="CurrencyManager" method="ConfirmBet"]
 [connection signal="CurrencyChanged" from="CurrencyManager" to="UI_Template" method="UpdateCurrencyUI"]
 [connection signal="GameHaveBet" from="CurrencyManager" to="." method="GameHaveBetNow"]

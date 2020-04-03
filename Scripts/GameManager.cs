@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 
 public class GameManager : Godot.Control
 {
@@ -10,19 +11,26 @@ public class GameManager : Godot.Control
 	[Signal] public delegate void SetCurrencyManager(double credit,double minBet, double maxBet);
 	[Signal] public delegate void GameReady(bool ready);
 
+	Dictionary<string, double> myCurrencyValues = new Dictionary<string, double>();
+
 	private PackedScene hexManagerScn;
 	public HexManager currentHexMngr;
 	int currentLevel;
-	[Export] int Levels;
+	[Export] int levels;
+	[Export] int badOnes;
 	bool isPlaying = false;
 
 	OMenuCommunication oMenu = new OMenuCommunication();
+	GameGenerator myGameGen = new GameGenerator();
+
+	List<int[]> generatedLevels = new List<int[]>();
 	public override void _Ready()
 	{
         if(oMenu.Start())
 		{
 			EmitSignal(nameof(SetCurrencyManager),oMenu.GetMoney(),oMenu.MinBet(),oMenu.MaxBet());
 		}
+	 	SetNewGame();
 	}
 
 	public override void _Process(float delta)
@@ -34,11 +42,10 @@ public class GameManager : Godot.Control
 	{
 		hexManagerScn = ResourceLoader.Load(path) as PackedScene;
 		currentHexMngr = hexManagerScn.Instance() as HexManager;
-		currentHexMngr.badOnes = 0;
-		currentHexMngr.activeOnes = currentLevel;
 		AddChild(currentHexMngr);
 		currentHexMngr.myGameManager = this;
-		currentLevel--;
+		currentHexMngr.SetActivesPositions(generatedLevels[currentLevel], badOnes);
+		currentLevel++;
 	}
 
 	String SceneGenerator(int currentLevel)
@@ -63,10 +70,11 @@ public class GameManager : Godot.Control
 		{
 			EmitSignal(nameof(RoundWined));
 			
-			if(currentLevel < 1)
+			if(currentLevel >= levels)
 			{
 				EmitSignal(nameof(GameOver), true);
 				isPlaying = false;
+	 			SetNewGame();
 			}
 			else
 			{
@@ -77,6 +85,7 @@ public class GameManager : Godot.Control
 		{
 			EmitSignal(nameof(GameOver), false);
 			isPlaying = false;
+	 		SetNewGame();
 		}
 	}
 	public void StartGame() //La llama UIManager, señal RestartGame
@@ -88,7 +97,7 @@ public class GameManager : Godot.Control
 		{
 			currentHexMngr.QueueFree();
 		}
-		CreateHex(SceneGenerator(currentLevel = Levels));
+		CreateHex(SceneGenerator(currentLevel = 0));
 	}
 	
 	void CreateTimer(float secs, string method)
@@ -116,5 +125,16 @@ public class GameManager : Godot.Control
 		{
 			EmitSignal(nameof(GameReady), true);
 		}
+	}
+
+	void UpdateCurrency(string nameOfCurrency, double currencyValue)
+	{
+		
+	}
+
+	void SetNewGame()
+	{
+		GD.Print("New Game Setted");
+		generatedLevels = myGameGen.GenerateGame(levels);
 	}
 }

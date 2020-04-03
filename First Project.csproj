@@ -59,6 +59,7 @@
     <Compile Include="Scripts\Constants.cs" />
     <Compile Include="Scripts\CurrencyLabel.cs" />
     <Compile Include="Scripts\CurrencyManager.cs" />
+    <Compile Include="Scripts\GameGenerator.cs" />
     <Compile Include="Scripts\GameManager.cs" />
     <Compile Include="Scripts\GameOverMessage.cs" />
     <Compile Include="Scripts\HexAnim.cs" />
@@ -68,9 +69,9 @@
     <Compile Include="Scripts\UIButtonsManager.cs" />
   </ItemGroup>
   <ItemGroup>
-  <Reference Include="OMenuClient">
-    <HintPath>OMenuClient.dll</HintPath>
-  </Reference>
-</ItemGroup>
+    <Reference Include="OMenuClient">
+      <HintPath>OMenuClient.dll</HintPath>
+    </Reference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
