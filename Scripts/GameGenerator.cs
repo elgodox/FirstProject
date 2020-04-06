@@ -4,33 +4,29 @@ using System.Collections.Generic;
 
 public class GameGenerator
 {
-    //private int[] levelInfo;
     int hexNodes = 19;
-
-    public List<int[]> GenerateGame(int levels)
+    int badOnes;
+    
+    public int[] GenerateLevelInfo(int level)
     {
-        List<int[]> gameInfo = new List<int[]>();
+        int[] levelInfo = new int[hexNodes];
 
-        int currentLevel = levels;
-
-        for (int i = 0; i < levels; i++)
+        if(level <= 1)
         {
-            if(currentLevel == 1) // para que el los dos ultimos niveles tengan 2 nodos
-            {
-                currentLevel++;
-            }
-            gameInfo.Add(GenerateRandoms(currentLevel));
-            currentLevel--;
+            level = 2;
         }
-        return gameInfo;
+
+        levelInfo = GenerateRandoms(level);
+
+        return levelInfo;
     }
 
-    int[] GenerateRandoms(int randomCount)
+    int[] GenerateRandoms(int randomAmount)
     {
 		List<int> activeOnesList = new List<int>();
-        int[] randoms = new int[randomCount];
+        int[] randoms = new int[randomAmount];
 
-		for (int i = 0; i < randomCount; i++)
+		for (int i = 0; i < randomAmount; i++)
 		{
 			Random randomNumber = new Random();
 			int activeRand = (randomNumber.Next() % hexNodes);
@@ -45,6 +41,47 @@ public class GameGenerator
 				i--;
 			}
 		}
+        GetLevelDescription(randoms);
         return randoms;
+    }
+
+    public String GetLevelDescription(int[] levelInfo)
+    {
+        string descriptionInfo = default;
+
+        for (int i = 0; i < hexNodes - 1; i++)
+        {
+            if(i > 0 && i < hexNodes)
+            {
+                descriptionInfo += ",";
+            }
+            for (int x = 0; x < levelInfo.Length; x++)
+            {
+                if(i == levelInfo[x])
+                {
+                    if(x >= levelInfo.Length - badOnes)
+                    {
+                        descriptionInfo += "2";
+                        break;
+                    }
+                    else
+                    {
+                        descriptionInfo += "1";
+                        break;
+                    }
+                }
+                else if(x >= levelInfo.Length - 1)
+                {
+                    descriptionInfo += "0";
+                }
+            }
+        }
+
+        return descriptionInfo;
+    }
+
+    public void SetBadOnes(int badOnesAmount)
+    {   
+        badOnes = badOnesAmount;
     }
 }
