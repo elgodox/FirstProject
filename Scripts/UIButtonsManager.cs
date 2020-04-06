@@ -59,7 +59,7 @@ public class UIButtonsManager : Control
 		helpButton.Disabled = true;
 		maxBetButton.Disabled = true;
 		betButton.Disabled = true;
-		//collectButton.Disabled = true;
+		collectButton.Disabled = true;
 	}
 	void ActivatePlayButton(bool enable)
 	{
@@ -71,7 +71,11 @@ public class UIButtonsManager : Control
 		else
 			playButton.Disabled = true;
 	}
-	
+	void ActivateCollectButton()
+	{
+		collectButton.Disabled = false;
+	}
+
 	#endregion
 	void InitChilds()
 	{

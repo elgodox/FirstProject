@@ -50,7 +50,10 @@ public class CurrencyManager : Node
     }
     void Collect() // La llama UIManager, señal collect
     {
-        GD.Print("Collect");
+        credit = 0;
+        currentBet = 0;
+        EmitSignal(nameof(CurrencyChanged), Constants.credits, credit);
+        EmitSignal(nameof(CurrencyChanged), Constants.currentBet, currentBet);
     }
     void ConfirmBet() // La llama UIManager, señal restartGame
     {

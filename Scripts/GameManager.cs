@@ -5,6 +5,7 @@ using System.Collections.Generic;
 
 public class GameManager : Godot.Control
 {
+	[Signal] public delegate void CanCollect();
 	[Signal] public delegate void GameOver(bool win);
 	[Signal] public delegate void GameStarted();
 	[Signal] public delegate void RoundWined();
@@ -23,7 +24,7 @@ public class GameManager : Godot.Control
 
 	OMenuCommunication oMenu = new OMenuCommunication();
 	GameGenerator myGameGen = new GameGenerator();
-	
+
 	int[] currentLevelInfo;
 
 	public override void _Ready()
@@ -78,7 +79,12 @@ public class GameManager : Godot.Control
 				isPlaying = false;
 			}
 			else
-			{
+			{	
+				if(currentLevel <= 8) 
+				{ 
+					EmitSignal(nameof(CanCollect)); 
+				}
+
 				CreateTimer(.4f, "CreateHexWithCurrentLevel");
 			}
 		}
@@ -136,5 +142,16 @@ public class GameManager : Godot.Control
 	{
 		myGameGen.SetBadOnes(badOnes[levels - currentLevel]);
 		currentLevelInfo = myGameGen.GenerateLevelInfo(currentLevel);
+	}
+
+	void MoneyCollected()
+	{
+		if(isPlaying)
+		{
+			EmitSignal(nameof(GameOver), false);
+			currentHexMngr.DestroyHexManager();
+			isPlaying = false;
+		}
+		//oMenu.
 	}
 }
