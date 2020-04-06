@@ -17,20 +17,21 @@ public class GameManager : Godot.Control
 	public HexManager currentHexMngr;
 	int currentLevel;
 	[Export] int levels;
-	[Export] int badOnes;
+	//[Export] int badOnes;
+	[Export] int[] badOnes = new int [10];
 	bool isPlaying = false;
 
 	OMenuCommunication oMenu = new OMenuCommunication();
 	GameGenerator myGameGen = new GameGenerator();
+	
+	int[] currentLevelInfo;
 
-	List<int[]> generatedLevels = new List<int[]>();
 	public override void _Ready()
 	{
         if(oMenu.Start())
 		{
 			EmitSignal(nameof(SetCurrencyManager),oMenu.GetMoney(),oMenu.MinBet(),oMenu.MaxBet());
 		}
-	 	SetNewGame();
 	}
 
 	public override void _Process(float delta)
@@ -40,12 +41,13 @@ public class GameManager : Godot.Control
 
 	void CreateHex(String path)
 	{
+		GetNewLevelInfo();
 		hexManagerScn = ResourceLoader.Load(path) as PackedScene;
 		currentHexMngr = hexManagerScn.Instance() as HexManager;
 		AddChild(currentHexMngr);
 		currentHexMngr.myGameManager = this;
-		currentHexMngr.SetActivesPositions(generatedLevels[currentLevel], badOnes);
-		currentLevel++;
+		currentHexMngr.SetActivesPositions(currentLevelInfo, badOnes[currentLevel - 1]);
+		currentLevel--;
 	}
 
 	String SceneGenerator(int currentLevel)
@@ -70,11 +72,10 @@ public class GameManager : Godot.Control
 		{
 			EmitSignal(nameof(RoundWined));
 			
-			if(currentLevel >= levels)
+			if(currentLevel <= 0)
 			{
 				EmitSignal(nameof(GameOver), true);
 				isPlaying = false;
-	 			SetNewGame();
 			}
 			else
 			{
@@ -85,7 +86,6 @@ public class GameManager : Godot.Control
 		{
 			EmitSignal(nameof(GameOver), false);
 			isPlaying = false;
-	 		SetNewGame();
 		}
 	}
 	public void StartGame() //La llama UIManager, señal RestartGame
@@ -97,7 +97,7 @@ public class GameManager : Godot.Control
 		{
 			currentHexMngr.QueueFree();
 		}
-		CreateHex(SceneGenerator(currentLevel = 0));
+		CreateHex(SceneGenerator(currentLevel = 10));
 	}
 	
 	void CreateTimer(float secs, string method)
@@ -132,9 +132,9 @@ public class GameManager : Godot.Control
 		
 	}
 
-	void SetNewGame()
+	void GetNewLevelInfo()
 	{
-		GD.Print("New Game Setted");
-		generatedLevels = myGameGen.GenerateGame(levels);
+		myGameGen.SetBadOnes(badOnes[levels - currentLevel]);
+		currentLevelInfo = myGameGen.GenerateLevelInfo(currentLevel);
 	}
 }
