@@ -7,8 +7,8 @@ public class CurrencyManager : Node
 	[Signal] public delegate void CurrencyChanged(params object[] parameters);
 	[Signal] public delegate void GameHaveBet(bool haveBet);
 
-    double credit, maxBetAmount, minBetAmount;
-    double currentBet, currencyToCollect;
+    public double credit, maxBetAmount, minBetAmount;
+    public double currentBet, currencyToCollect;
     public override void _Ready()
     {
 

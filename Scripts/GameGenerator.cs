@@ -6,6 +6,8 @@ public class GameGenerator
 {
     int hexNodes = 19;
     int badOnes;
+
+    public string levelDescription;
     
     public int[] GenerateLevelInfo(int level)
     {
@@ -76,7 +78,7 @@ public class GameGenerator
                 }
             }
         }
-
+        levelDescription = descriptionInfo;
         return descriptionInfo;
     }
 

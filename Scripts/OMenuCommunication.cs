@@ -50,13 +50,5 @@ public class OMenuCommunication
         oMenuClient.UpdateSaveData(isPlaying, moneyAmount, betAmount, DateTime, description);
     }
 
-    public PlayInfo PlayInfo(PlayInfo playInfo)
-    {
-        return playInfo;
-    }
-
-
-
-
 
 }

@@ -9,4 +9,5 @@ public class Constants
     public const string credits = "credits";
     public const string currencyToCollect = "currencyToCollect";
     public const string winnedCurrency = "winnedCurrency";
+    public const string currency_Manager_path="CurrencyManager";
 }

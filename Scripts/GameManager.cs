@@ -16,18 +16,22 @@ public class GameManager : Godot.Control
 	private PackedScene hexManagerScn;
 	public HexManager currentHexMngr;
 	int currentLevel;
+	string bet_description;
+	string nodePressed;
 	[Export] int levels;
 	//[Export] int badOnes;
 	[Export] int[] badOnes = new int [10];
 	bool isPlaying = false;
 
+	DateTime dateTime;
 	OMenuCommunication oMenu = new OMenuCommunication();
 	GameGenerator myGameGen = new GameGenerator();
-	
+	CurrencyManager currencyManager;
 	int[] currentLevelInfo;
 
 	public override void _Ready()
 	{
+		currencyManager = GetNode(Constants.currency_Manager_path) as CurrencyManager;
         if(oMenu.Start())
 		{
 			EmitSignal(nameof(SetCurrencyManager),oMenu.GetMoney(),oMenu.MinBet(),oMenu.MaxBet());
@@ -66,16 +70,19 @@ public class GameManager : Godot.Control
 		
 	}
 
-	public void CheckHexSelected(bool win)
+	public void CheckHexSelected(bool win, String nodeName)
 	{
+		nodePressed=nodeName;
 		if(win)
 		{
 			EmitSignal(nameof(RoundWined));
+			UpdateSaveData();
 			
 			if(currentLevel <= 0)
 			{
 				EmitSignal(nameof(GameOver), true);
 				isPlaying = false;
+				UpdateSaveData();
 			}
 			else
 			{
@@ -110,9 +117,13 @@ public class GameManager : Godot.Control
 		timer.Connect("timeout", this, method);
 	}
 
-	void UpdateSaveData(double moneyAmount, double betAmount, DateTime DateTime)
+	void UpdateSaveData()
 	{
-		oMenu.UpdateSaveData(isPlaying, moneyAmount, betAmount, DateTime, currentLevel.ToString());
+		bet_description+=myGameGen.levelDescription;
+		bet_description+="|";
+		bet_description+=nodePressed;
+		bet_description+=";";
+		oMenu.UpdateSaveData(isPlaying, currencyManager.credit, currencyManager.currentBet, dateTime, bet_description);
 	}
 
 	void CreateHexWithCurrentLevel() //Se llama dentro de la función CheckHexsSelected, la recibe CreateTimer
@@ -125,11 +136,6 @@ public class GameManager : Godot.Control
 		{
 			EmitSignal(nameof(GameReady), true);
 		}
-	}
-
-	void UpdateCurrency(string nameOfCurrency, double currencyValue)
-	{
-		
 	}
 
 	void GetNewLevelInfo()

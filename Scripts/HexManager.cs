@@ -129,9 +129,9 @@ public class HexManager : Node
 		this.QueueFree();
 	}
 
-	private void ReceiveNodePressed(HexNode node)
-	{	
-		myGameManager.CheckHexSelected((node.goodOne));
+	public void ReceiveNodePressed(HexNode node)
+	{
+		myGameManager.CheckHexSelected(node.goodOne, node.Name);
 
 		foreach (var item in _hexes)
 		{
