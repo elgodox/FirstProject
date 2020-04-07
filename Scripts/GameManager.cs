@@ -28,7 +28,10 @@ public class GameManager : Godot.Control
 	OMenuCommunication oMenu = new OMenuCommunication();
 	GameGenerator myGameGen = new GameGenerator();
 	CurrencyManager currencyManager;
+	GameRecover myRecover;
 	int[] currentLevelInfo;
+
+	string imaginaryBetDescription = "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0|14;0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0|14;0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0|14;0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0|2";
 
 	public override void _Ready()
 	{
@@ -37,11 +40,14 @@ public class GameManager : Godot.Control
 		{
 			EmitSignal(nameof(SetCurrencyManager),oMenu.GetMoney(),oMenu.MinBet(),oMenu.MaxBet());
 		}
+
+		myRecover = new GameRecover(imaginaryBetDescription);
+		myRecover.FillDictionarys(levels);
 	}
 
 	public override void _Process(float delta)
 	{
-
+		
 	}
 
 	void CreateHex(String path)
@@ -160,4 +166,5 @@ public class GameManager : Godot.Control
 		}
 		//oMenu.
 	}
+
 }
