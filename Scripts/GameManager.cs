@@ -17,7 +17,7 @@ public class GameManager : Godot.Control
     private PackedScene hexManagerScn;
     public HexManager currentHexMngr;
     int currentLevel;
-    string bet_description = "P;";
+    string bet_description = "P";
     string nodePressed;
     [Export] int levels;
     [Export] int[] badOnes = new int[10];
@@ -31,19 +31,19 @@ public class GameManager : Godot.Control
 
     public override void _Ready()
     {
-    
+
         currencyManager = GetNode(Constants.currency_Manager_path) as CurrencyManager;
         if (oMenu.Start())
         {
             if (oMenu.IsPlaying())
             {
                 CheckBetDescription();
+
             }
             EmitSignal(nameof(SetCurrencyManager), oMenu.GetMoney(), oMenu.MinBet(), oMenu.MaxBet());
         }
 
-        myRecover = new GameRecover(imaginaryBetDescription);
-		myRecover.FillDictionarys(levels);
+
     }
 
 
@@ -54,7 +54,9 @@ public class GameManager : Godot.Control
         {
             if (betToCheck.Contains("P"))
             {
-                GD.Print("BET: " + betToCheck);
+                bet_description = betToCheck;
+                myRecover = new GameRecover(bet_description);
+                myRecover.FillDictionarys(levels);
             }
         }
 
@@ -133,12 +135,14 @@ public class GameManager : Godot.Control
 
     void UpdateSaveData(String nodePressed)
     {
-        //bet_description += myGameGen.levelDescription;
         if (nodePressed != null)
         {
-        	bet_description += "|";
             bet_description += nodePressed.Replace("Hex", "");
             bet_description += ";";
+        }
+        else
+        {
+            bet_description += "|";
         }
         oMenu.UpdateSaveData(isPlaying, currencyManager.credit, currencyManager.currentBet, dateTime, bet_description);
     }
