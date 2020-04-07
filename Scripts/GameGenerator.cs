@@ -51,7 +51,7 @@ public class GameGenerator
     {
         string descriptionInfo = default;
 
-        for (int i = 0; i < hexNodes - 1; i++)
+        for (int i = 0; i < hexNodes; i++)
         {
             if(i > 0 && i < hexNodes)
             {
