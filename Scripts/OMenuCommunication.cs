@@ -50,5 +50,19 @@ public class OMenuCommunication
         oMenuClient.UpdateSaveData(isPlaying, moneyAmount, betAmount, DateTime, description);
     }
 
+    public String GetBetDescription()
+    {
+        return oMenuClient.GetSaveData().description;
+    }
+
+    public bool IsPlaying()
+    {
+        return oMenuClient.GetSaveData().isPlaying;
+    }
+
+
+
+
+
 
 }
