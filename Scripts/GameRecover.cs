@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class GameRecover
 {
-    Dictionary<int, string> myLevels = new Dictionary<int, string>(); 
+    Dictionary<int, string> myLevels = new Dictionary<int, string>();
 
     Dictionary<int, string> myPlays = new Dictionary<int, string>();
     string betDescription;
@@ -28,7 +28,7 @@ public class GameRecover
             }
         }
 
-        GD.Print("Se llegó hasta el nivel "+ levelReached);
+        GD.Print("Se llegó hasta el nivel " + levelReached);
         return levelReached;
     }
 
@@ -43,24 +43,24 @@ public class GameRecover
         {
             var currentChar = betDescription[i];
 
-            if(currentChar == ';')
+            if (currentChar == ';')
             {
                 levelDone = false;
                 myPlays.Add(pipesCounter + 1, playString);
                 playString = default;
             }
-            if(currentChar == '|')
+            if (currentChar == '|')
             {
                 levelDone = true;
                 myLevels.Add(pipesCounter, levelString);
                 levelString = default;
                 pipesCounter--;
             }
-            else if(currentChar != ';' && currentChar != ',' && !levelDone)
+            else if (currentChar != ';' && currentChar != 'P' && currentChar != ',' && !levelDone)
             {
                 levelString += currentChar;
             }
-            else if(levelDone)
+            else if (levelDone)
             {
                 playString += currentChar;
             }
@@ -68,9 +68,9 @@ public class GameRecover
 
         for (int i = levels; i > levels - myLevels.Count; i--)
         {
-            GD.Print("el string en el slot " + i + " es: " + myLevels[i] +  " con "  + myLevels[i].Length + " slots en total");
+            GD.Print("el string en el slot " + i + " es: " + myLevels[i] + " con " + myLevels[i].Length + " slots en total");
 
-            if(i > (levels - myPlays.Count))
+            if (i > (levels - myPlays.Count))
             {
                 GD.Print("Se jugó el slot: " + myPlays[i]);
             }
