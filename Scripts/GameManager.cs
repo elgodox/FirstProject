@@ -22,7 +22,7 @@ public class GameManager : Godot.Control
     [Export] int levels;
     [Export] int[] badOnes = new int[10];
     bool isPlaying = false;
-
+    GameRecover myRecover;
     DateTime dateTime;
     OMenuCommunication oMenu = new OMenuCommunication();
     GameGenerator myGameGen = new GameGenerator();
@@ -31,6 +31,8 @@ public class GameManager : Godot.Control
 
     public override void _Ready()
     {
+    
+        currencyManager = GetNode(Constants.currency_Manager_path) as CurrencyManager;
         if (oMenu.Start())
         {
             if (oMenu.IsPlaying())
@@ -40,7 +42,8 @@ public class GameManager : Godot.Control
             EmitSignal(nameof(SetCurrencyManager), oMenu.GetMoney(), oMenu.MinBet(), oMenu.MaxBet());
         }
 
-        currencyManager = GetNode(Constants.currency_Manager_path) as CurrencyManager;
+        myRecover = new GameRecover(imaginaryBetDescription);
+		myRecover.FillDictionarys(levels);
     }
 
 
