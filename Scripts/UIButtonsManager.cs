@@ -12,6 +12,11 @@ public class UIButtonsManager : Control
 	[Signal] public delegate void maxBet();
 	[Signal] public delegate void collect();
 	[Signal] public delegate void GameOverPopUp();
+	[Signal] public delegate void TimerDone(bool win);
+
+	Label myTime;
+	
+    Timer timer = new Timer();
 	
 	Control gameOverMessage;
 
@@ -20,6 +25,15 @@ public class UIButtonsManager : Control
 		InitChilds();
 		ActivatePlayButton(false);
 	}
+	
+    public override void _Process(float delta)
+    {
+		if(timer != null)
+		{
+			var timeInt = Convert.ToInt32(timer.TimeLeft);
+        	myTime.Text = timeInt.ToString();
+		}
+    }
     
 	#region Funciones de Botones
 
@@ -88,6 +102,8 @@ public class UIButtonsManager : Control
 		maxBetButton = GetNode("button_MaxBet") as TextureButton;
 		collectButton = GetNode("button_Collect") as TextureButton;
 		helpCanvas = GetNode("ui_Help") as TextureRect;
+		myTime = GetNode("timer") as Label;
+		SetUpTimer();
 	}
 	public void SubscribeCurrencyLabel(CurrencyLabel cl)
 	{
@@ -107,6 +123,7 @@ public class UIButtonsManager : Control
 
 	void SetGameOverMessage(bool win) //La llama GameManager, señal GameOver
 	{
+		timer.Stop();
 		EmitSignal(nameof(GameOverPopUp), win);
 	}
 
@@ -119,4 +136,23 @@ public class UIButtonsManager : Control
 		Connect(nameof(GameOverPopUp), go, nameof(go.ReceiveGameOverPopUp));
 		Connect(nameof(restartGame), go, nameof(go.ClearGameOverMessage));
 	}
+
+	void StartTimer(float seconds)
+	{
+		timer.WaitTime = seconds;
+		timer.OneShot = true;
+		timer.Start();
+	}
+
+	void TimerFinished()
+	{	
+		EmitSignal(nameof(TimerDone), true);
+	}
+
+	void SetUpTimer()
+	{
+		AddChild(timer);
+        timer.Connect("timeout", this, "TimerFinished");
+	}
+
 }
