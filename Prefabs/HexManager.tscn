@@ -92,9 +92,9 @@ margin_bottom = -172.289
 anchor_left = 0.500436
 anchor_right = 0.500436
 margin_left = -44.8123
-margin_top = -310.179
+margin_top = -311.937
 margin_right = 38.1874
-margin_bottom = -227.178
+margin_bottom = -228.936
 
 [node name="Hex8" parent="." instance=ExtResource( 1 )]
 anchor_left = 0.500436
