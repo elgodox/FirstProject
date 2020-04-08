@@ -60,6 +60,8 @@ public class GameManager : Godot.Control
                 bet_description = betToCheck;
                 myRecover = new GameRecover(bet_description);
                 myRecover.FillDictionarys(levels);
+                currencyManager.credit= oMenu.GetMoney();
+                currencyManager.currentBet = oMenu.GetCurrentBet();
                 ResumeCrashedGame();
             }
         }
@@ -129,7 +131,6 @@ public class GameManager : Godot.Control
     {
         isPlaying = true;
         EmitSignal(nameof(GameStarted));
-
         if (currentHexMngr != null)
         {
             currentHexMngr.QueueFree();

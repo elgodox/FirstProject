@@ -33,6 +33,11 @@ public class OMenuCommunication
     {
         return profile.minBet;
     }
+
+    public double GetCurrentBet()
+    {
+        return oMenuClient.GetSaveData().betAmount;
+    }
     public double MaxPrize()
     {
         return profile.maxPrize;
