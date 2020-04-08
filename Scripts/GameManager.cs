@@ -28,6 +28,7 @@ public class GameManager : Godot.Control
     GameGenerator myGameGen = new GameGenerator();
     CurrencyManager currencyManager;
     int[] currentLevelInfo;
+    Timer timerAutoEnd = new Timer();
     bool isResuming;
 
     public override void _Ready()
@@ -43,10 +44,11 @@ public class GameManager : Godot.Control
             }
             EmitSignal(nameof(SetCurrencyManager), oMenu.GetMoney(), oMenu.MinBet(), oMenu.MaxBet());
         }
-
+    
+        AddChild(timerAutoEnd);
+        timerAutoEnd.Connect("timeout", this, "MoneyCollected");
 
     }
-
 
     void CheckBetDescription()
     {
@@ -109,6 +111,9 @@ public class GameManager : Godot.Control
                 if (currentLevel <= 8)
                 {
                     EmitSignal(nameof(CanCollect));
+                    timerAutoEnd.WaitTime = 5f;
+                    timerAutoEnd.OneShot = true;
+                    timerAutoEnd.Start();
                 }
 
                 CreateTimer(.4f, "CreateHexWithCurrentLevel");
@@ -184,13 +189,14 @@ public class GameManager : Godot.Control
     {
         if (isPlaying)
         {
-            EmitSignal(nameof(GameOver), false);
+            EmitSignal(nameof(GameOver), true);
             currentHexMngr.DestroyHexManager();
             EndGame();
         }
     }
     void EndGame()
     {
+        GD.Print("EndGame");
         isPlaying = false;
         bet_description = "";
         oMenu.UpdateSaveData(isPlaying, currencyManager.credit, currencyManager.currentBet, dateTime, bet_description);
@@ -203,5 +209,6 @@ public class GameManager : Godot.Control
         StartGame();
         CreateHexWithCurrentLevel();
     }
+
 
 }
