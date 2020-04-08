@@ -28,7 +28,7 @@ public class GameRecover
             }
         }
 
-        GD.Print("Se llegó hasta el nivel " + levelReached);
+        //GD.Print("Se llegó hasta el nivel " + levelReached);
         return levelReached;
     }
 
@@ -88,6 +88,7 @@ public class GameRecover
         int[] levelInfo = new int[currentLevel];
 
         int counter = 0;
+        int badOnesCounter = 0;
         
         for (int i = 0; i < myLevels[currentLevel].Length; i++)
         {
@@ -97,7 +98,14 @@ public class GameRecover
                 levelInfo[counter] = i;
                 counter++;
             }
+            if(currentChar == '2')
+            {
+                levelInfo[(levelInfo.Length - 1) - badOnesCounter] = i;
+                badOnesCounter += 1;
+            }
+
         }
+
         return levelInfo;
     }
 }
