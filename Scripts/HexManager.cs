@@ -5,7 +5,6 @@ using System.Collections.Generic;
 public class HexManager : Node
 {
 	public GameManager myGameManager;
-	[Export] public int badOnes;
 	[Export] public int activeOnes;
 	[Export] String pathAnimation;
 
@@ -157,7 +156,6 @@ public class HexManager : Node
 				_hexes[actives[i]].goodOne = true;
 			}
 
-			_hexes[actives[i]].asigned = true;
 			_hexes[actives[i]].asigned = true;
 			//GD.Print(_hexes[actives[i]].Name + " asigned: " + _hexes[actives[i]].asigned);
 		}
