@@ -11,10 +11,9 @@ public class GameManager : Godot.Control
     [Signal] public delegate void RoundWined();
     [Signal] public delegate void SetCurrencyManager(double credit, double minBet, double maxBet);
     [Signal] public delegate void GameReady(bool ready);
+    [Signal] public delegate void StartTimer(float secs);
 
-    Dictionary<string, double> myCurrencyValues = new Dictionary<string, double>();
 
-    private PackedScene hexManagerScn;
     public HexManager currentHexMngr;
     int currentLevel;
     string bet_description = "P";
@@ -28,13 +27,13 @@ public class GameManager : Godot.Control
     GameGenerator myGameGen = new GameGenerator();
     CurrencyManager currencyManager;
     int[] currentLevelInfo;
-    Timer timerAutoEnd = new Timer();
     bool isResuming;
 
     public override void _Ready()
     {
 
         currencyManager = GetNode(Constants.currency_Manager_path) as CurrencyManager;
+
         if (oMenu.Start())
         {
             if (oMenu.IsPlaying())
@@ -44,10 +43,6 @@ public class GameManager : Godot.Control
             }
             EmitSignal(nameof(SetCurrencyManager), oMenu.GetMoney(), oMenu.MinBet(), oMenu.MaxBet());
         }
-    
-        AddChild(timerAutoEnd);
-        timerAutoEnd.Connect("timeout", this, "MoneyCollected");
-
     }
 
     void CheckBetDescription()
@@ -66,12 +61,8 @@ public class GameManager : Godot.Control
 
     }
 
-    public override void _Process(float delta)
-    {
 
-    }
-
-    void CreateHex(String path)
+    void CreateLevel(String path)
     {
         if(!isResuming)
         {
@@ -81,11 +72,11 @@ public class GameManager : Godot.Control
         {
             isResuming = false;
         }
-        hexManagerScn = ResourceLoader.Load(path) as PackedScene;
-        currentHexMngr = hexManagerScn.Instance() as HexManager;
+        var newLevelManager = ResourceLoader.Load(path) as PackedScene;
+        currentHexMngr = newLevelManager.Instance() as HexManager;
         AddChild(currentHexMngr);
         currentHexMngr.myGameManager = this;
-        currentHexMngr.SetActivesPositions(currentLevelInfo, badOnes[currentLevel - 1]);
+        currentHexMngr.SetActivesPositions(currentLevelInfo, badOnes[levels - currentLevel]);
         currentLevel--;
     }
 
@@ -103,26 +94,22 @@ public class GameManager : Godot.Control
             EmitSignal(nameof(RoundWined));
             if (currentLevel <= 0)
             {
-                EmitSignal(nameof(GameOver), true);
-                EndGame();
+                EndGame(true);
             }
             else
             {
                 if (currentLevel <= 8)
                 {
                     EmitSignal(nameof(CanCollect));
-                    timerAutoEnd.WaitTime = 5f;
-                    timerAutoEnd.OneShot = true;
-                    timerAutoEnd.Start();
+                    EmitSignal(nameof(StartTimer), 5);
                 }
 
-                CreateTimer(.4f, "CreateHexWithCurrentLevel");
+                CreateTimer(.4f, "CreateCurrentLevel");
             }
         }
         else
         {
-            EmitSignal(nameof(GameOver), false);
-            EndGame();
+            EndGame(false);
         }
     }
     public void StartGame() //La llama UIManager, señal RestartGame
@@ -136,10 +123,9 @@ public class GameManager : Godot.Control
         }
         if(!isResuming)
         {
-            CreateHex(SceneGenerator(currentLevel = 10));
+            CreateLevel(SceneGenerator(currentLevel = 10));
         }
     }
-
     void CreateTimer(float secs, string method)
     {
         var timer = new Timer();
@@ -149,7 +135,6 @@ public class GameManager : Godot.Control
         timer.Start();
         timer.Connect("timeout", this, method);
     }
-
     void UpdateSaveData(String nodePressed)
     {
         if (nodePressed != null)
@@ -163,11 +148,9 @@ public class GameManager : Godot.Control
         }
         oMenu.UpdateSaveData(isPlaying, currencyManager.credit, currencyManager.currentBet, dateTime, bet_description);
     }
-
-    void CreateHexWithCurrentLevel() //Se llama dentro de la función CheckHexsSelected, la recibe CreateTimer
+    void CreateCurrentLevel() //Se llama dentro de la función CheckHexsSelected, la recibe CreateTimer
     {
-        CreateHex(SceneGenerator(currentLevel));
-
+        CreateLevel(SceneGenerator(currentLevel));
     }
     void GameHaveBetNow(bool haveBet) //La llama CurrencyManager, señal GameHaveBet
     {
@@ -176,7 +159,6 @@ public class GameManager : Godot.Control
             EmitSignal(nameof(GameReady), true);
         }
     }
-
     void GetNewLevelInfo()
     {
         myGameGen.SetBadOnes(badOnes[levels - currentLevel]);
@@ -184,19 +166,18 @@ public class GameManager : Godot.Control
         bet_description += myGameGen.levelDescription;
         UpdateSaveData(null);
     }
-
-    void MoneyCollected()
+    void MoneyCollected() //La llama la señal Collect, del UIManager
     {
         if (isPlaying)
         {
             EmitSignal(nameof(GameOver), true);
-            currentHexMngr.DestroyHexManager();
-            EndGame();
+            EndGame(true);
         }
     }
-    void EndGame()
+    void EndGame(bool win)
     {
-        GD.Print("EndGame");
+        EmitSignal(nameof(GameOver), win);
+        currentHexMngr.DestroyHexManager();
         isPlaying = false;
         bet_description = "";
         oMenu.UpdateSaveData(isPlaying, currencyManager.credit, currencyManager.currentBet, dateTime, bet_description);
@@ -207,8 +188,6 @@ public class GameManager : Godot.Control
         currentLevel = myRecover.GetLevelReached();
         currentLevelInfo = myRecover.GetLastLevelInfo(currentLevel);
         StartGame();
-        CreateHexWithCurrentLevel();
+        CreateCurrentLevel();
     }
-
-
 }
