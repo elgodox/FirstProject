@@ -66,4 +66,14 @@ frame = 14
 speed_scale = 5.0
 playing = true
 script = ExtResource( 18 )
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.398
+anchor_right = 0.5
+anchor_bottom = 0.398
+margin_left = -41.5
+margin_top = -33.0341
+margin_right = 38.5
+margin_bottom = 32.9659
 [connection signal="button_down" from="." to="." method="_on_button_down"]
