@@ -8,3 +8,4 @@ export_presets.cfg
 data_*/
 .mono
 .mono/
+.vscode/settings.json

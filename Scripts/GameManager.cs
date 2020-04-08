@@ -28,6 +28,7 @@ public class GameManager : Godot.Control
     GameGenerator myGameGen = new GameGenerator();
     CurrencyManager currencyManager;
     int[] currentLevelInfo;
+    bool isResuming;
 
     public override void _Ready()
     {
@@ -57,6 +58,7 @@ public class GameManager : Godot.Control
                 bet_description = betToCheck;
                 myRecover = new GameRecover(bet_description);
                 myRecover.FillDictionarys(levels);
+                ResumeCrashedGame();
             }
         }
 
@@ -69,7 +71,14 @@ public class GameManager : Godot.Control
 
     void CreateHex(String path)
     {
-        GetNewLevelInfo();
+        if(!isResuming)
+        {
+            GetNewLevelInfo();
+        }
+        else
+        {
+            isResuming = false;
+        }
         hexManagerScn = ResourceLoader.Load(path) as PackedScene;
         currentHexMngr = hexManagerScn.Instance() as HexManager;
         AddChild(currentHexMngr);
@@ -120,7 +129,10 @@ public class GameManager : Godot.Control
         {
             currentHexMngr.QueueFree();
         }
-        CreateHex(SceneGenerator(currentLevel = 10));
+        if(!isResuming)
+        {
+            CreateHex(SceneGenerator(currentLevel = 10));
+        }
     }
 
     void CreateTimer(float secs, string method)
@@ -176,13 +188,20 @@ public class GameManager : Godot.Control
             currentHexMngr.DestroyHexManager();
             EndGame();
         }
-        //oMenu.
     }
     void EndGame()
     {
         isPlaying = false;
         bet_description = "";
         oMenu.UpdateSaveData(isPlaying, currencyManager.credit, currencyManager.currentBet, dateTime, bet_description);
+    }
+    void ResumeCrashedGame()
+    {
+        isResuming = true;
+        currentLevel = myRecover.GetLevelReached();
+        currentLevelInfo = myRecover.GetLastLevelInfo(currentLevel);
+        StartGame();
+        CreateHexWithCurrentLevel();
     }
 
 }

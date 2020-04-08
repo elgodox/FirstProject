@@ -8,13 +8,13 @@ public class GameRecover
 
     Dictionary<int, string> myPlays = new Dictionary<int, string>();
     string betDescription;
-
+    int minLevel = 2;
     public GameRecover(String description)
     {
         betDescription = description;
     }
 
-    int GetLevelReached()
+    public int GetLevelReached()
     {
         int levelReached = 10;
 
@@ -65,19 +65,39 @@ public class GameRecover
                 playString += currentChar;
             }
         }
+        #region  CheckDictionaryPrinter
+        // for (int i = levels; i > levels - myLevels.Count; i--)
+        // {
+        //     GD.Print("el string en el slot " + i + " es: " + myLevels[i] + " con " + myLevels[i].Length + " slots en total");
 
-        for (int i = levels; i > levels - myLevels.Count; i--)
+        //     if (i > (levels - myPlays.Count))
+        //     {
+        //         GD.Print("Se jugó el slot: " + myPlays[i]);
+        //     }
+        //     else
+        //     {
+        //         GD.Print("Se espera continuar el juego desde el nivel " + i);
+        //     }
+        // }
+        #endregion 
+    }
+
+    public int[] GetLastLevelInfo(int currentLevel)
+    {
+        currentLevel = Mathf.Clamp(currentLevel, minLevel, currentLevel);
+        int[] levelInfo = new int[currentLevel];
+
+        int counter = 0;
+        
+        for (int i = 0; i < myLevels[currentLevel].Length; i++)
         {
-            GD.Print("el string en el slot " + i + " es: " + myLevels[i] + " con " + myLevels[i].Length + " slots en total");
-
-            if (i > (levels - myPlays.Count))
+            var currentChar = myLevels[currentLevel][i];
+            if(currentChar == '1')
             {
-                GD.Print("Se jugó el slot: " + myPlays[i]);
-            }
-            else
-            {
-                GD.Print("Se espera continuar el juego desde el nivel " + i);
+                levelInfo[counter] = i;
+                counter++;
             }
         }
+        return levelInfo;
     }
 }
