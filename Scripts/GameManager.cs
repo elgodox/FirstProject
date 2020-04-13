@@ -18,6 +18,7 @@ public class GameManager : Godot.Control
     int currentLevel;
     string bet_description = "P";
     string nodePressed;
+    [Export] bool UseDB = false;
     [Export] int levels;
     [Export] int[] badOnes = new int[10];
     bool isPlaying = false;
@@ -34,14 +35,21 @@ public class GameManager : Godot.Control
 
         currencyManager = GetNode(Constants.currency_Manager_path) as CurrencyManager;
 
-        if (oMenu.Start())
+        if (UseDB)
         {
-            if (oMenu.IsPlaying())
+            if (oMenu.Start())
             {
-                CheckBetDescription();
+                if (oMenu.IsPlaying())
+                {
+                    CheckBetDescription();
 
+                }
+                EmitSignal(nameof(SetCurrencyManager), oMenu.GetMoney(), oMenu.MinBet(), oMenu.MaxBet());
             }
-            EmitSignal(nameof(SetCurrencyManager), oMenu.GetMoney(), oMenu.MinBet(), oMenu.MaxBet());
+        }
+        else
+        {
+            EmitSignal(nameof(SetCurrencyManager), 1000, 5, 25);
         }
     }
 
@@ -55,7 +63,7 @@ public class GameManager : Godot.Control
                 bet_description = betToCheck;
                 myRecover = new GameRecover(bet_description);
                 myRecover.FillDictionarys(levels);
-                currencyManager.credit= oMenu.GetMoney();
+                currencyManager.credit = oMenu.GetMoney();
                 currencyManager.currentBet = oMenu.GetCurrentBet();
                 ResumeCrashedGame();
             }
@@ -66,7 +74,7 @@ public class GameManager : Godot.Control
 
     void CreateLevel(String path)
     {
-        if(!isResuming)
+        if (!isResuming)
         {
             GetNewLevelInfo();
         }
@@ -122,7 +130,7 @@ public class GameManager : Godot.Control
         {
             currentHexMngr.QueueFree();
         }
-        if(!isResuming)
+        if (!isResuming)
         {
             CreateLevel(SceneGenerator(currentLevel = 10));
         }
@@ -138,16 +146,19 @@ public class GameManager : Godot.Control
     }
     void UpdateSaveData(String nodePressed)
     {
-        if (nodePressed != null)
+        if (UseDB)
         {
-            bet_description += nodePressed.Replace("Hex", "");
-            bet_description += ";";
+            if (nodePressed != null)
+            {
+                bet_description += nodePressed.Replace("Hex", "");
+                bet_description += ";";
+            }
+            else
+            {
+                bet_description += "|";
+            }
+            oMenu.UpdateSaveData(isPlaying, currencyManager.credit, currencyManager.currentBet, dateTime, bet_description);
         }
-        else
-        {
-            bet_description += "|";
-        }
-        oMenu.UpdateSaveData(isPlaying, currencyManager.credit, currencyManager.currentBet, dateTime, bet_description);
     }
     void CreateCurrentLevel() //Se llama dentro de la función CheckHexsSelected, la recibe CreateTimer
     {
@@ -181,7 +192,10 @@ public class GameManager : Godot.Control
         currentHexMngr.DestroyHexManager();
         isPlaying = false;
         bet_description = "";
-        oMenu.UpdateSaveData(isPlaying, currencyManager.credit, currencyManager.currentBet, dateTime, bet_description);
+        if (UseDB)
+        {
+            oMenu.UpdateSaveData(isPlaying, currencyManager.credit, currencyManager.currentBet, dateTime, bet_description);
+        }
     }
     void ResumeCrashedGame()
     {
