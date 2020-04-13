@@ -123,6 +123,10 @@ public class GameManager : Godot.Control
     }
     public void StartGame() //La llama UIManager, señal RestartGame
     {
+        if(!isResuming)
+        {
+            bet_description = "P";
+        }
         isPlaying = true;
         EmitSignal(nameof(GameStarted));
         if (currentHexMngr != null)
