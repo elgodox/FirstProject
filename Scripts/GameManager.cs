@@ -16,9 +16,9 @@ public class GameManager : Godot.Control
 
     public HexManager currentHexMngr;
     int currentLevel;
-    string bet_description = "P";
+    string bet_description;
     [Export] bool UseDB = false;
-    [Export] int levels;
+    [Export] int levels, timerInLevel;
     [Export] int[] badOnes = new int[10];
     bool isPlaying = false;
     GameRecover myRecover;
@@ -110,7 +110,7 @@ public class GameManager : Godot.Control
                 if (currentLevel <= 8)
                 {
                     EmitSignal(nameof(CanCollect));
-                    EmitSignal(nameof(StartTimer), 5);
+                    EmitSignal(nameof(StartTimer), timerInLevel);
                 }
 
                 CreateTimer(.4f, "CreateCurrentLevel");
