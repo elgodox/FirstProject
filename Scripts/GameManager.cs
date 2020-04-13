@@ -16,7 +16,7 @@ public class GameManager : Godot.Control
 
     public HexManager currentHexMngr;
     int currentLevel;
-    string bet_description = "P";
+    string bet_description;
     [Export] bool UseDB = false;
     [Export] int levels;
     [Export] int[] badOnes = new int[10];
@@ -123,6 +123,10 @@ public class GameManager : Godot.Control
     }
     public void StartGame() //La llama UIManager, señal RestartGame
     {
+        if(!isResuming)
+        {
+            bet_description = "P";
+        }
         isPlaying = true;
         EmitSignal(nameof(GameStarted));
         if (currentHexMngr != null)
