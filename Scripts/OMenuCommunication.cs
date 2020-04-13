@@ -6,7 +6,7 @@ using OMenuClient.Structs;
 public class OMenuCommunication
 {
     public VLTLocalClient oMenuClient;
-    public OMenuClient.Structs.GameProfile profile;
+    public OMenuClient.Structs.Profile profile;
     public SaveData saveData;
     public PlayInfo playInfo;
     public bool Start()
@@ -15,7 +15,7 @@ public class OMenuCommunication
         oMenuClient.StartService();
         if (oMenuClient.ServiceStarted)
         {
-            profile = oMenuClient.GetGameProfile();
+            profile = oMenuClient.GetProfile();
             return true;
         }
         return false;
