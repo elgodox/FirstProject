@@ -6,9 +6,13 @@ public class CurrencyManager : Node
     
 	[Signal] public delegate void CurrencyChanged(params object[] parameters);
 	[Signal] public delegate void GameHaveBet(bool haveBet);
+    
+    [Export] float[] multipliers = new float[10];
 
     public double credit, maxBetAmount, minBetAmount;
     public double currentBet, currencyToCollect;
+
+    double multiplier;
     public override void _Ready()
     {
 
@@ -62,7 +66,7 @@ public class CurrencyManager : Node
     }
     void AddBetToCurrency() // La llama GameManager, señal roundWinned
     {
-        currencyToCollect += currentBet;
+        currencyToCollect = currentBet * multiplier;
         EmitSignal(nameof(CurrencyChanged), Constants.currencyToCollect, currencyToCollect);
     }
     void WinnedCurrency()
@@ -98,5 +102,14 @@ public class CurrencyManager : Node
         EmitSignal(nameof(CurrencyChanged), Constants.credits, credit);
         EmitSignal(nameof(CurrencyChanged), Constants.currencyToCollect, currencyToCollect);
         EmitSignal(nameof(CurrencyChanged), Constants.currentBet, currentBet);
+    }
+
+    public void SetMultiplier(int levelMultiplier)
+    {
+        if(levelMultiplier < 0) // Checkeo que si al enviar un -1 no intente acceder al indice [-1] del array
+        {
+            levelMultiplier = 0;
+        }
+        multiplier = Convert.ToDouble(multipliers[levelMultiplier]);
     }
 }
