@@ -17,7 +17,6 @@ public class GameManager : Godot.Control
     public HexManager currentHexMngr;
     int currentLevel;
     string bet_description = "P";
-    string nodePressed;
     [Export] bool UseDB = false;
     [Export] int levels;
     [Export] int[] badOnes = new int[10];
@@ -32,7 +31,6 @@ public class GameManager : Godot.Control
 
     public override void _Ready()
     {
-
         currencyManager = GetNode(Constants.currency_Manager_path) as CurrencyManager;
 
         if (UseDB)
@@ -74,7 +72,9 @@ public class GameManager : Godot.Control
 
     void CreateLevel(String path)
     {
-        if (!isResuming)
+        currencyManager.SetMultiplier(levels - currentLevel);
+        
+        if(!isResuming)
         {
             GetNewLevelInfo();
         }
@@ -97,8 +97,7 @@ public class GameManager : Godot.Control
 
     public void CheckHexSelected(bool win, String nodeName)
     {
-        nodePressed = nodeName;
-        UpdateSaveData(nodePressed);
+        UpdateSaveData(nodeName);
         if (win)
         {
             EmitSignal(nameof(RoundWined));
@@ -201,7 +200,9 @@ public class GameManager : Godot.Control
     {
         isResuming = true;
         currentLevel = myRecover.GetLevelReached();
+        currencyManager.SetMultiplier((levels - currentLevel) - 1);
         currentLevelInfo = myRecover.GetLastLevelInfo(currentLevel);
+        EmitSignal(nameof(RoundWined));
         StartGame();
         CreateCurrentLevel();
     }
