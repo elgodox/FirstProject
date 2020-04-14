@@ -22,7 +22,6 @@ public class GameManager : Godot.Control
     [Export] int[] badOnes = new int[10];
     bool isPlaying = false;
     GameRecover myRecover;
-    DateTime dateTime;
     OMenuCommunication oMenu = new OMenuCommunication();
     GameGenerator myGameGen = new GameGenerator();
     CurrencyManager currencyManager;
@@ -40,7 +39,6 @@ public class GameManager : Godot.Control
                 if (oMenu.IsPlaying())
                 {
                     CheckBetDescription();
-
                 }
                 EmitSignal(nameof(SetCurrencyManager), oMenu.GetMoney(), oMenu.MinBet(), oMenu.MaxBet());
             }
@@ -78,7 +76,7 @@ public class GameManager : Godot.Control
         double money = oMenu.GetMoney();
         double bet = oMenu.GetCurrentBet();
         double betToMoney = bet+money;
-        oMenu.UpdateSaveData(false,betToMoney,0,dateTime,"");
+        oMenu.UpdateSaveData(false,betToMoney,0,DateTime.Now,"");
     }
 
 
@@ -172,7 +170,7 @@ public class GameManager : Godot.Control
             {
                 bet_description += "|";
             }
-            oMenu.UpdateSaveData(isPlaying, currencyManager.credit, currencyManager.currentBet, dateTime, bet_description);
+            oMenu.UpdateSaveData(isPlaying, currencyManager.credit, currencyManager.currentBet, DateTime.Now, bet_description);
         }
     }
     void CreateCurrentLevel() //Se llama dentro de la función CheckHexsSelected, la recibe CreateTimer
@@ -209,7 +207,7 @@ public class GameManager : Godot.Control
         bet_description = "";
         if (UseDB)
         {
-            oMenu.UpdateSaveData(isPlaying, currencyManager.credit, currencyManager.currentBet, dateTime, bet_description);
+            oMenu.UpdateSaveData(isPlaying, currencyManager.credit, currencyManager.currentBet, DateTime.Now, bet_description);
         }
     }
     void ResumeCrashedGame()
