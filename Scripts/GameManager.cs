@@ -65,8 +65,20 @@ public class GameManager : Godot.Control
                 currencyManager.currentBet = oMenu.GetCurrentBet();
                 ResumeCrashedGame();
             }
+            else
+            {
+                PrepareBetDescription();
+            }
         }
 
+    }
+
+    void PrepareBetDescription()
+    {
+        double money = oMenu.GetMoney();
+        double bet = oMenu.GetCurrentBet();
+        double betToMoney = bet+money;
+        oMenu.UpdateSaveData(false,betToMoney,0,dateTime,"");
     }
 
 
