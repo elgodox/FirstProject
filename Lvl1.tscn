@@ -14,6 +14,7 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+UseDB = true
 levels = 10
 timerInLevel = 10
 badOnes = PoolIntArray( 2, 0, 0, 0, 0, 0, 0, 0, 0, 0 )
