@@ -191,6 +191,11 @@ public class GameManager : Godot.Control
     }
     void EndGame(bool win)
     {
+        if(!win)
+        {
+            GD.Print("Perdí, generando " + (currentLevel) + " niveles faltantes");
+            FillBetDescription(currentLevel);
+        }
         EmitSignal(nameof(GameOver), win);
         currentHexMngr.DestroyHexManager();
         isPlaying = false;
@@ -200,6 +205,24 @@ public class GameManager : Godot.Control
             oMenu.UpdateSaveData(isPlaying, currencyManager.credit, currencyManager.currentBet, dateTime, bet_description);
         }
     }
+
+    private void FillBetDescription(int restOfLevels)
+    {
+        if(restOfLevels > 0)
+        {
+            for (int i = 0; i < restOfLevels; i++)
+            {
+                var intendedLevel = restOfLevels - i;
+                myGameGen.SetBadOnes(badOnes[intendedLevel]);
+                currentLevelInfo = myGameGen.GenerateLevelInfo(intendedLevel);
+                string restOfLevelsDescription = myGameGen.GetLevelDescription(currentLevelInfo);
+                bet_description += restOfLevelsDescription;
+                UpdateSaveData("|-2");
+            }
+        }
+        GD.Print(bet_description);
+    }
+
     void ResumeCrashedGame()
     {
         isResuming = true;
