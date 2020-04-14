@@ -3,27 +3,34 @@ using System;
 using OMenuClient;
 using OMenuClient.Structs;
 
+
 public class OMenuCommunication
 {
     public VLTLocalClient oMenuClient;
-    public OMenuClient.Structs.Profile profile;
+    public Profile profile;
     public SaveData saveData;
     public PlayInfo playInfo;
-    public bool Start()
+
+
+    public OMenuCommunication()
     {
-        oMenuClient = new VLTLocalClient(16);
-        oMenuClient.StartService();
-        if (oMenuClient.ServiceStarted)
-        {
-            profile = oMenuClient.GetProfile();
-            return true;
-        }
-        return false;
+        oMenuClient = new VLTLocalClient(VLTLocalClient.TypeConncetion.DataBase);
     }
 
-    public double GetMoney()
+
+    public void Start(Action OnSuccess, Action OnFail)
     {
-        return oMenuClient.GetSaveData().moneyAmount;
+        oMenuClient.StartService(16, delegate { GetProfile(OnSuccess, OnFail); }, OnFail);
+    }
+
+    public void GetProfile(Action OnSuccess, Action OnFail, Action OnCompletation = null)
+    {
+        oMenuClient.GetProfile(delegate (Profile profile) { this.profile = profile; OnSuccess?.Invoke(); }, OnFail, OnCompletation);
+    }
+
+    public void GetMoney(Action<double> OnSuccess, Action OnFail, Action OnCompletation = null)
+    {
+        oMenuClient.GetSaveData(delegate (OMenuClient.Structs.SaveData savedata) { OnSuccess?.Invoke(savedata.moneyAmount); }, OnFail, OnCompletation);
     }
     public double MaxBet()
     {
@@ -33,10 +40,9 @@ public class OMenuCommunication
     {
         return profile.minBet;
     }
-
-    public double GetCurrentBet()
+    public void GetCurrentBet(Action<double> OnSuccess, Action OnFail, Action OnCompletation = null)
     {
-        return oMenuClient.GetSaveData().betAmount;
+        oMenuClient.GetSaveData(delegate (OMenuClient.Structs.SaveData saveData) { OnSuccess.Invoke(saveData.betAmount); }, OnFail, OnCompletation);
     }
     public double MaxPrize()
     {
@@ -50,19 +56,24 @@ public class OMenuCommunication
     {
         return profile.denomination;
     }
-    public void UpdateSaveData(bool isPlaying, double moneyAmount, double betAmount, DateTime DateTime, String description)
+    public void UpdateSaveData(SaveData saveData, Action OnSuccess, Action OnFail)
     {
-        oMenuClient.UpdateSaveData(isPlaying, moneyAmount, betAmount, DateTime, description);
+        oMenuClient.UpdateSaveData(saveData, OnSuccess, OnFail);
+    }
+    public void GetBetDescription(Action<string> OnSuccess, Action OnFail, Action OnCompletation = null)
+    {
+        oMenuClient.GetSaveData(delegate (OMenuClient.Structs.SaveData saveData) { OnSuccess?.Invoke(saveData.description); }, OnFail, OnCompletation);
     }
 
-    public String GetBetDescription()
+
+    public void IsPlaying(Action OnSuccess, Action OnFail)
     {
-        return oMenuClient.GetSaveData().description;
+        oMenuClient.GetSaveData(delegate (OMenuClient.Structs.SaveData savedata) { if (savedata.isPlaying) OnSuccess?.Invoke(); }, OnFail);
     }
 
-    public bool IsPlaying()
+    public void GetSaveData(Action<SaveData> OnSuccess, Action OnFail, Action OnCompletation = null)
     {
-        return oMenuClient.GetSaveData().isPlaying;
+        oMenuClient.GetSaveData(delegate (OMenuClient.Structs.SaveData saveData) { OnSuccess?.Invoke(saveData); }, OnFail, OnCompletation);
     }
 
 
@@ -71,3 +82,38 @@ public class OMenuCommunication
 
 
 }
+
+
+/*
+
+public struct SaveData
+{
+    public readonly bool isPlaying;
+    public readonly double moneyAmount;
+    public readonly double betAmount;
+    public readonly DateTime date;
+    public readonly string description;
+
+
+    public SaveData(bool isPlaying, double moneyAmount, double betAmount, DateTime date, string description)
+    {
+        this.isPlaying = isPlaying;
+        this.moneyAmount = moneyAmount;
+        this.betAmount = betAmount;
+        this.date = date;
+        this.description = description;
+    }
+
+
+    public static implicit operator SaveData(OMenuClient.Structs.SaveData saveData)
+    {
+        return new SaveData(saveData.isPlaying, saveData.moneyAmount,saveData.betAmount, saveData.date, saveData.description);
+    }
+    
+    public static implicit operator OMenuClient.Structs.SaveData(SaveData saveData)
+    {
+        return new SaveData(saveData.isPlaying, saveData.moneyAmount, saveData.betAmount, saveData.date, saveData.description);
+    }
+
+}
+*/

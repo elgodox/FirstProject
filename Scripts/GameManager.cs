@@ -34,14 +34,7 @@ public class GameManager : Godot.Control
 
         if (UseDB)
         {
-            if (oMenu.Start())
-            {
-                if (oMenu.IsPlaying())
-                {
-                    CheckBetDescription();
-                }
-                EmitSignal(nameof(SetCurrencyManager), oMenu.GetMoney(), oMenu.MinBet(), oMenu.MaxBet());
-            }
+            oMenu.Start(OnStartCompletation, null);
         }
         else
         {
@@ -49,9 +42,26 @@ public class GameManager : Godot.Control
         }
     }
 
-    void CheckBetDescription()
+
+    private void OnStartCompletation()
     {
-        string betToCheck = oMenu.GetBetDescription();
+        oMenu.IsPlaying(delegate { GetBetDescription(delegate (string value) { CheckBetDescription(value); }, null); }, null);
+
+
+        // Puede llegar a explotar
+        oMenu.GetMoney(delegate (double money) { EmitSignal(nameof(SetCurrencyManager), money, oMenu.MinBet(), oMenu.MaxBet()); }, null);
+    }
+
+
+    private void GetBetDescription(Action<string> OnSuccess, Action OnFail)
+    {
+        oMenu.GetBetDescription(OnSuccess, OnFail);
+    }
+
+
+
+    void CheckBetDescription(string betToCheck)
+    {
         if (betToCheck != null)
         {
             if (betToCheck.Contains("P"))
@@ -59,9 +69,20 @@ public class GameManager : Godot.Control
                 bet_description = betToCheck;
                 myRecover = new GameRecover(bet_description);
                 myRecover.FillDictionarys(levels);
-                currencyManager.credit = oMenu.GetMoney();
-                currencyManager.currentBet = oMenu.GetCurrentBet();
-                ResumeCrashedGame();
+
+                oMenu.GetMoney(
+                    delegate (double money)
+                    {
+                        currencyManager.credit = money;
+
+                        oMenu.GetCurrentBet(delegate (double bet)
+                        {
+                            currencyManager.currentBet = bet;
+                            ResumeCrashedGame();
+
+                        }, null);
+
+                    }, null);
             }
             else
             {
@@ -73,18 +94,24 @@ public class GameManager : Godot.Control
 
     void PrepareBetDescription()
     {
-        double money = oMenu.GetMoney();
-        double bet = oMenu.GetCurrentBet();
-        double betToMoney = bet+money;
-        oMenu.UpdateSaveData(false,betToMoney,0,DateTime.Now,"");
+        oMenu.GetSaveData(UpdateSaveDataLocal, null);
+    }
+
+    void UpdateSaveDataLocal(OMenuClient.Structs.SaveData saveData)
+    {
+        double money = saveData.moneyAmount;
+        double bet = saveData.betAmount;
+        double betToMoney = bet + money;
+        OMenuClient.Structs.SaveData newSaveData = new OMenuClient.Structs.SaveData(false, betToMoney, 0, DateTime.Now, "");
+        oMenu.UpdateSaveData(newSaveData, null, null);
     }
 
 
     void CreateLevel(String path)
     {
         currencyManager.SetMultiplier(levels - currentLevel);
-        
-        if(!isResuming)
+
+        if (!isResuming)
         {
             GetNewLevelInfo();
         }
@@ -133,7 +160,7 @@ public class GameManager : Godot.Control
     }
     public void StartGame() //La llama UIManager, señal RestartGame
     {
-        if(!isResuming)
+        if (!isResuming)
         {
             bet_description = "P";
         }
@@ -157,6 +184,8 @@ public class GameManager : Godot.Control
         timer.Start();
         timer.Connect("timeout", this, method);
     }
+
+
     void UpdateSaveData(String nodePressed)
     {
         if (UseDB)
@@ -170,9 +199,14 @@ public class GameManager : Godot.Control
             {
                 bet_description += "|";
             }
-            oMenu.UpdateSaveData(isPlaying, currencyManager.credit, currencyManager.currentBet, DateTime.Now, bet_description);
+
+            OMenuClient.Structs.SaveData saveData = new OMenuClient.Structs.SaveData(isPlaying, currencyManager.credit, currencyManager.currentBet, DateTime.Now, bet_description);
+
+            oMenu.UpdateSaveData(saveData, null, null);
         }
     }
+
+
     void CreateCurrentLevel() //Se llama dentro de la función CheckHexsSelected, la recibe CreateTimer
     {
         CreateLevel(SceneGenerator(currentLevel));
@@ -199,9 +233,12 @@ public class GameManager : Godot.Control
             EndGame(true);
         }
     }
+
+
+    
     void EndGame(bool win)
     {
-        if(!win)
+        if (!win)
         {
             GD.Print("Perdí, generando " + (currentLevel) + " niveles faltantes");
             FillBetDescription(currentLevel);
@@ -212,13 +249,16 @@ public class GameManager : Godot.Control
         bet_description = "";
         if (UseDB)
         {
-            oMenu.UpdateSaveData(isPlaying, currencyManager.credit, currencyManager.currentBet, DateTime.Now, bet_description);
+            OMenuClient.Structs.SaveData saveData = new OMenuClient.Structs.SaveData(isPlaying, currencyManager.credit, currencyManager.currentBet, DateTime.Now, bet_description);
+            oMenu.UpdateSaveData(saveData, null, null);
         }
     }
 
+
+
     private void FillBetDescription(int restOfLevels)
     {
-        if(restOfLevels > 0)
+        if (restOfLevels > 0)
         {
             for (int i = 0; i < restOfLevels; i++)
             {

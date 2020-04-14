@@ -6,7 +6,7 @@ public class CurrencyManager : Node
     
 	[Signal] public delegate void CurrencyChanged(params object[] parameters);
 	[Signal] public delegate void GameHaveBet(bool haveBet);
-    [Export] double[] multipliers = new double[10];
+    double[] multipliers = new double[10];
 
     public double credit, maxBetAmount, minBetAmount;
     public double currentBet, currencyToCollect;
