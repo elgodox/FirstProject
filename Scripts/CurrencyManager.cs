@@ -6,8 +6,7 @@ public class CurrencyManager : Node
     
 	[Signal] public delegate void CurrencyChanged(params object[] parameters);
 	[Signal] public delegate void GameHaveBet(bool haveBet);
-    
-    [Export] float[] multipliers = new float[10];
+    [Export] double[] multipliers = new double[10];
 
     public double credit, maxBetAmount, minBetAmount;
     public double currentBet, currencyToCollect;
@@ -15,7 +14,16 @@ public class CurrencyManager : Node
     double multiplier;
     public override void _Ready()
     {
-
+        multipliers[0]= 0;
+        multipliers[1]= 0.9;
+        multipliers[2]= 1.2;
+        multipliers[3]= 1.4;
+        multipliers[4]= 1.68;
+        multipliers[5]= 2.1;
+        multipliers[6]= 2.8;
+        multipliers[7]= 4.2;
+        multipliers[8]= 8.4;
+        multipliers[9]= 16.8;
     }
 
     void SetCurrency(double money, double minBet,double maxBet)
@@ -110,6 +118,6 @@ public class CurrencyManager : Node
         {
             levelMultiplier = 0;
         }
-        multiplier = Convert.ToDouble(multipliers[levelMultiplier]);
+        multiplier = multipliers[levelMultiplier];
     }
 }

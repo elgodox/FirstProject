@@ -22,6 +22,7 @@ run/main_scene="res://Lvl1.tscn"
 
 window/size/width=1600
 window/size/height=900
+window/size/borderless=true
 
 [input]
 
