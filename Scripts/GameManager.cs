@@ -215,7 +215,7 @@ public class GameManager : Godot.Control
     {
         if (!isPlaying)
         {
-            EmitSignal(nameof(GameReady), true);
+            EmitSignal(nameof(GameReady), haveBet);
         }
     }
     void GetNewLevelInfo()
@@ -244,7 +244,7 @@ public class GameManager : Godot.Control
             FillBetDescription(currentLevel);
         }
         EmitSignal(nameof(GameOver), win);
-        currentHexMngr.DestroyHexManager();
+        //currentHexMngr.DestroyHexManager();
         isPlaying = false;
         bet_description = "";
         if (UseDB)
