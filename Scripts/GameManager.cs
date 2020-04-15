@@ -243,9 +243,9 @@ public class GameManager : Godot.Control
             GD.Print("Perdí, generando " + (currentLevel) + " niveles faltantes");
             FillBetDescription(currentLevel);
         }
-        EmitSignal(nameof(GameOver), win);
         //currentHexMngr.DestroyHexManager();
         isPlaying = false;
+        EmitSignal(nameof(GameOver), win);
         bet_description = "";
         if (UseDB)
         {

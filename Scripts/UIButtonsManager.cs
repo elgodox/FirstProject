@@ -41,7 +41,6 @@ public class UIButtonsManager : Control
 
 	void ActivateAgain(bool win) //La llama GameManager, señal GameOver
     {
-		ActivatePlayButton(win);
 		_helpButton.Disabled = false;
 		_maxBetButton.Disabled = false;
 		_betButton.Disabled = false;
@@ -78,6 +77,10 @@ public class UIButtonsManager : Control
 		PlayAudio();
 		EmitSignal(nameof(restartGame));
 		ActivatePlayButton(false);
+		DeactivateButtons();
+	}
+	void DeactivateButtons()
+	{
 		_helpButton.Disabled = true;
 		_maxBetButton.Disabled = true;
 		_betButton.Disabled = true;
@@ -146,7 +149,7 @@ public class UIButtonsManager : Control
 		var scene = ResourceLoader.Load(pathScene) as PackedScene;
 		var message = scene.Instance() as Control;
 		GameOverMessage go = message as GameOverMessage;
-		AddChild(go);
+		AddChildBelowNode(GetNode("GameOverMessageContainer") as Node, go);
 		Connect(nameof(GameOverPopUp), go, nameof(go.ReceiveGameOverPopUp));
 		Connect(nameof(restartGame), go, nameof(go.ClearGameOverMessage));
 	}
