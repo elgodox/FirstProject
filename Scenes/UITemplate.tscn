@@ -1,8 +1,7 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Prefabs/UI/Buttons/button_Collect.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Prefabs/UI/Buttons/button_Bet.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Sprites/conceptGame.png" type="Texture" id=3]
 [ext_resource path="res://Prefabs/UI/ui_MaxBet.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Prefabs/UI/ui_Creditos.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Prefabs/UI/Buttons/button_MaxBet.tscn" type="PackedScene" id=6]
@@ -20,11 +19,11 @@
 [ext_resource path="res://Sprites/Botones/jugar-desactivado.png" type="Texture" id=19]
 [ext_resource path="res://Audio/Button Blip.ogg" type="AudioStream" id=20]
 
-[sub_resource type="StreamTexture" id=6]
+[sub_resource type="StreamTexture" id=1]
 flags = 4
 load_path = "res://.import/fondo-neon.png-1c2e78e60b261aec10a51f0bb8ccada2.stex"
 
-[node name="UI_Template" type="Control"]
+[node name="UI_Manager" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 3.97174
@@ -35,10 +34,7 @@ __meta__ = {
 "_edit_vertical_guides_": [ 395.143, 718.153, 939.144, 1256.41, 1644.25 ]
 }
 
-[node name="conceptGame" type="Sprite" parent="."]
-visible = false
-position = Vector2( 796.334, 451.287 )
-texture = ExtResource( 3 )
+[node name="GameOverMessageContainer" type="Node" parent="."]
 
 [node name="ui_MaxBet" parent="." instance=ExtResource( 4 )]
 anchor_left = 0.143
@@ -131,13 +127,28 @@ margin_right = 1.39999
 margin_bottom = 1.6
 stretch_mode = 0
 
+[node name="timer" type="Label" parent="."]
+anchor_left = 0.901
+anchor_top = 0.143
+anchor_right = 0.989
+anchor_bottom = 0.211
+margin_left = 0.399902
+margin_top = -0.700012
+margin_right = -0.400024
+margin_bottom = 0.0999908
+custom_fonts/font = ExtResource( 18 )
+text = "00,00"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="ui_Help" type="TextureRect" parent="."]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -3.97174
 margin_bottom = -3.97174
-texture = SubResource( 6 )
+texture = SubResource( 1 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -206,21 +217,6 @@ custom_fonts/font = ExtResource( 17 )
 text = "ATRAS"
 align = 1
 valign = 1
-
-[node name="timer" type="Label" parent="."]
-anchor_left = 0.901
-anchor_top = 0.143
-anchor_right = 0.989
-anchor_bottom = 0.211
-margin_left = 0.399902
-margin_top = -0.700012
-margin_right = -0.400024
-margin_bottom = 0.0999908
-custom_fonts/font = ExtResource( 18 )
-text = "00,00"
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
