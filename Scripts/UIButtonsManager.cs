@@ -4,9 +4,9 @@ using System.Collections.Generic;
 
 public class UIButtonsManager : Control
 {
-	TextureButton playButton, helpButton, betButton, maxBetButton, collectButton;
-	TextureRect helpCanvas;
-	Dictionary<string, CurrencyLabel> myCurrencyLabels = new Dictionary<string, CurrencyLabel>();
+	TextureButton _playButton, _helpButton, _betButton, _maxBetButton, _collectButton;
+	TextureRect _helpCanvas;
+	Dictionary<string, CurrencyLabel> _myCurrencyLabels = new Dictionary<string, CurrencyLabel>();
 	[Signal] public delegate void restartGame();
 	[Signal] public delegate void bet();
 	[Signal] public delegate void maxBet();
@@ -14,11 +14,13 @@ public class UIButtonsManager : Control
 	[Signal] public delegate void GameOverPopUp();
 	[Signal] public delegate void TimerDone(bool win);
 
-	Label myTime;
+	AudioStreamPlayer _audio;
+
+	Label _myTimeLabel;
 	
-    Timer timer = new Timer();
+    Timer _timer = new Timer();
 	
-	Control gameOverMessage;
+	Control _gameOverMessage;
 
 	public override void _Ready()
 	{
@@ -28,10 +30,10 @@ public class UIButtonsManager : Control
 	
     public override void _Process(float delta)
     {
-		if(timer != null)
+		if(_timer != null)
 		{
-			var timeInt = Convert.ToInt32(timer.TimeLeft);
-        	myTime.Text = timeInt.ToString();
+			var timeInt = Convert.ToInt32(_timer.TimeLeft);
+        	_myTimeLabel.Text = timeInt.ToString();
 		}
     }
     
@@ -40,54 +42,65 @@ public class UIButtonsManager : Control
 	void ActivateAgain(bool win) //La llama GameManager, señal GameOver
     {
 		ActivatePlayButton(win);
-		helpButton.Disabled = false;
-		maxBetButton.Disabled = false;
-		betButton.Disabled = false;
+		_helpButton.Disabled = false;
+		_maxBetButton.Disabled = false;
+		_betButton.Disabled = false;
 		//collectButton.Disabled = win;
     }
 	
 	void OnHelpButtonUp()
 	{
-		helpCanvas.Show();
+		PlayAudio();
+		_helpCanvas.Show();
 	}
 	void OnBackButtonUp()
 	{
-		helpCanvas.Hide();
+		PlayAudio();
+		_helpCanvas.Hide();
 	}
 	void OnBetButtonUp()
 	{
+		PlayAudio();
 		EmitSignal(nameof(bet));
 	}
 	void OnMaxBetButtonUp()
 	{
+		PlayAudio();
 		EmitSignal(nameof(maxBet));
 	}
 	void OnCollectButtonUp()
 	{
+		PlayAudio();
 		EmitSignal(nameof(collect));
 	}
 	void OnPlayButtonUp() 
 	{
+		PlayAudio();
 		EmitSignal(nameof(restartGame));
 		ActivatePlayButton(false);
-		helpButton.Disabled = true;
-		maxBetButton.Disabled = true;
-		betButton.Disabled = true;
-		collectButton.Disabled = true;
+		_helpButton.Disabled = true;
+		_maxBetButton.Disabled = true;
+		_betButton.Disabled = true;
+		_collectButton.Disabled = true;
 	}
 	void ActivatePlayButton(bool enable)
 	{
 
 		if(enable)
 		{
-			playButton.Disabled = false;
+			_playButton.Disabled = false;
 		}
 		else
-			playButton.Disabled = true;
+			_playButton.Disabled = true;
 	}
 	void ActivateCollectButton()
 	{
-		collectButton.Disabled = false;
+		_collectButton.Disabled = false;
+	}
+
+	void PlayAudio()
+	{
+		_audio.Play(0.5f);
 	}
 
 	#endregion
@@ -96,34 +109,35 @@ public class UIButtonsManager : Control
 		LoadScene(Constants.ui_GmOvr_win_path);
 		LoadScene(Constants.ui_GmOvr_lose_path);
 
-		playButton = GetNode("button_Play") as TextureButton;
-		helpButton = GetNode("button_Help") as TextureButton;
-		betButton = GetNode("button_Bet") as TextureButton;
-		maxBetButton = GetNode("button_MaxBet") as TextureButton;
-		collectButton = GetNode("button_Collect") as TextureButton;
-		helpCanvas = GetNode("ui_Help") as TextureRect;
-		myTime = GetNode("timer") as Label;
+		_playButton = GetNode("button_Play") as TextureButton;
+		_helpButton = GetNode("button_Help") as TextureButton;
+		_betButton = GetNode("button_Bet") as TextureButton;
+		_maxBetButton = GetNode("button_MaxBet") as TextureButton;
+		_collectButton = GetNode("button_Collect") as TextureButton;
+		_helpCanvas = GetNode("ui_Help") as TextureRect;
+		_myTimeLabel = GetNode("timer") as Label;
+		_audio = GetNode("AudioStreamPlayer") as AudioStreamPlayer;
 		SetUpTimer();
 	}
 	public void SubscribeCurrencyLabel(CurrencyLabel cl)
 	{
-		myCurrencyLabels.Add(cl.myType, cl);
+		_myCurrencyLabels.Add(cl.myType, cl);
 	}
 	public void UnsuscribeCurrencyLabel(CurrencyLabel cl)
 	{
-		if(myCurrencyLabels.ContainsValue(cl))
+		if(_myCurrencyLabels.ContainsValue(cl))
 		{
-			myCurrencyLabels.Remove(cl.myType);
+			_myCurrencyLabels.Remove(cl.myType);
 		}
 	}
 	void UpdateCurrencyUI(string currencyType, float currency)
 	{
-		myCurrencyLabels[currencyType].UpdateLabel(Convert.ToInt32(currency).ToString());
+		_myCurrencyLabels[currencyType].UpdateLabel(Convert.ToInt32(currency).ToString());
 	}
 
 	void SetGameOverMessage(bool win) //La llama GameManager, señal GameOver
 	{
-		timer.Stop();
+		_timer.Stop();
 		EmitSignal(nameof(GameOverPopUp), win);
 	}
 
@@ -139,9 +153,9 @@ public class UIButtonsManager : Control
 
 	void StartTimer(float seconds)
 	{
-		timer.WaitTime = seconds;
-		timer.OneShot = true;
-		timer.Start();
+		_timer.WaitTime = seconds;
+		_timer.OneShot = true;
+		_timer.Start();
 	}
 
 	void TimerFinished()
@@ -151,8 +165,8 @@ public class UIButtonsManager : Control
 
 	void SetUpTimer()
 	{
-		AddChild(timer);
-        timer.Connect("timeout", this, "TimerFinished");
+		AddChild(_timer);
+        _timer.Connect("timeout", this, "TimerFinished");
 	}
 
 }
