@@ -14,12 +14,15 @@
 [ext_resource path="res://Sprites/Botones/jugar-presionado.png" type="Texture" id=12]
 [ext_resource path="res://Sprites/Botones/jugar.png" type="Texture" id=13]
 [ext_resource path="res://Sprites/cartel-ayuda.png" type="Texture" id=14]
-[ext_resource path="res://Sprites/background.png" type="Texture" id=15]
 [ext_resource path="res://Fonts/Dynamic Fonts/font_Courier_26.tres" type="DynamicFont" id=16]
 [ext_resource path="res://Fonts/Dynamic Fonts/font_Courier_22.tres" type="DynamicFont" id=17]
 [ext_resource path="res://Fonts/Dynamic Fonts/font_Courier_46_GameOver.tres" type="DynamicFont" id=18]
 [ext_resource path="res://Sprites/Botones/jugar-desactivado.png" type="Texture" id=19]
 [ext_resource path="res://Audio/Button Blip.ogg" type="AudioStream" id=20]
+
+[sub_resource type="StreamTexture" id=6]
+flags = 4
+load_path = "res://.import/fondo-neon.png-1c2e78e60b261aec10a51f0bb8ccada2.stex"
 
 [node name="UI_Template" type="Control"]
 anchor_right = 1.0
@@ -134,7 +137,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -3.97174
 margin_bottom = -3.97174
-texture = ExtResource( 15 )
+texture = SubResource( 6 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false

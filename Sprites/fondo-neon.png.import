@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/background.png-4fa92766cad903a1a79b587b09bd47c5.stex"
+path="res://.import/fondo-neon.png-1c2e78e60b261aec10a51f0bb8ccada2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/background.png"
-dest_files=[ "res://.import/background.png-4fa92766cad903a1a79b587b09bd47c5.stex" ]
+source_file="res://Sprites/fondo-neon.png"
+dest_files=[ "res://.import/fondo-neon.png-1c2e78e60b261aec10a51f0bb8ccada2.stex" ]
 
 [params]
 
