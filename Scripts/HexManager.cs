@@ -10,11 +10,13 @@ public class HexManager : Node
 
 	HexNode[] _hexes = new HexNode[19];
 	AnimationPlayer animation;
+	AudioStreamPlayer _audio;
 	public override void _Ready()
 	{
 		CheckChildsHexNodes();
 		animation = GetNode<AnimationPlayer>(pathAnimation);
 		animation.CurrentAnimation = "Init";
+		_audio = GetNode("AudioStreamPlayer") as AudioStreamPlayer;
 	}
 
 	private void CheckChildsHexNodes()
@@ -125,13 +127,14 @@ public class HexManager : Node
 		{
 			myGameManager.currentHexMngr = null;
 		}
+		
 		this.QueueFree();
 	}
 
 	public void ReceiveNodePressed(HexNode node)
 	{
 		myGameManager.CheckHexSelected(node.goodOne, node.Name);
-
+		_audio.Play();
 		foreach (var item in _hexes)
 		{
 			if(item != null)
