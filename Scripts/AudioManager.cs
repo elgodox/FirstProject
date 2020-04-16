@@ -9,6 +9,7 @@ public class AudioManager : Node
     #region AudioTracks
     
     [Export] AudioStream idleMusic;
+    [Export] AudioStream gamePlayMusic;
     [Export] AudioStream gameOverWinMusic;
     [Export] AudioStream gameOverLoseMusic;
         
@@ -27,7 +28,7 @@ public class AudioManager : Node
         _notificationSounds = GetNode("NotificationSounds") as AudioStreamPlayer;
     }
 
-    void PlayOneShot(AudioStream track, AudioStreamPlayer audioSource)
+    void PlayAudioTrack(AudioStream track, AudioStreamPlayer audioSource)
     {
         audioSource.Stream = track;
         audioSource.Play();
@@ -35,13 +36,20 @@ public class AudioManager : Node
 
     public void GameOverSound(bool win)
     {
+        PlayAudioTrack(idleMusic, _backGroundMusic);
+
         if(win)
         {
-            PlayOneShot(gameOverWinMusic, _notificationSounds);
+            PlayAudioTrack(gameOverWinMusic, _notificationSounds);
         }
         else
         {
-           PlayOneShot(gameOverLoseMusic, _notificationSounds);
+           PlayAudioTrack(gameOverLoseMusic, _notificationSounds);
         }
+    }
+
+    public void PlayLevelMusic()
+    {
+        PlayAudioTrack(gamePlayMusic, _backGroundMusic);
     }
 }
