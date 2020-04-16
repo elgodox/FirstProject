@@ -56,6 +56,7 @@
   <ItemGroup />
   <ItemGroup>
     <Compile Include="Scripts\AnimationControl.cs" />
+    <Compile Include="Scripts\AudioManager.cs" />
     <Compile Include="Scripts\Constants.cs" />
     <Compile Include="Scripts\CurrencyLabel.cs" />
     <Compile Include="Scripts\CurrencyManager.cs" />
