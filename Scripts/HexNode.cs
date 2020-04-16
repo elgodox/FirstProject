@@ -14,10 +14,9 @@ public class HexNode : Node
     public override void _Ready()
     {
         sprite = GetChild(0) as AnimatedSprite;
-        sprite.Animation = "Idle";
-        sprite.Play();
         myName = GetChild(1) as Label;
         myName.Text = Name;
+        sprite.Playing = false;
     }
     void _on_button_down()
     {
@@ -35,6 +34,14 @@ public class HexNode : Node
             nodePressed(this);
         }
 
+    }
+
+    public void ShowMe()
+    {
+        sprite.Animation = "Idle";
+
+        sprite.Playing = true;
+        sprite.Play();
     }
 }
 

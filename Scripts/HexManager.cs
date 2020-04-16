@@ -10,13 +10,11 @@ public class HexManager : Node
 
 	HexNode[] _hexes = new HexNode[19];
 	AnimationPlayer animation;
-	AudioStreamPlayer _audio;
 	public override void _Ready()
 	{
 		CheckChildsHexNodes();
 		animation = GetNode<AnimationPlayer>(pathAnimation);
 		animation.CurrentAnimation = "Init";
-		_audio = GetNode("AudioStreamPlayer") as AudioStreamPlayer;
 	}
 
 	private void CheckChildsHexNodes()
@@ -134,7 +132,6 @@ public class HexManager : Node
 	public void ReceiveNodePressed(HexNode node)
 	{
 		myGameManager.CheckHexSelected(node.goodOne, node.Name);
-		_audio.Play();
 		foreach (var item in _hexes)
 		{
 			if(item != null)
@@ -150,6 +147,8 @@ public class HexManager : Node
 	{
 		for (int i = 0; i < actives.Length; i++) // asigna los nodos activos, los últinmos son considerados malos
 		{
+			_hexes[actives[i]].pressed = true;
+
 			if(i >= actives.Length - badOnes)
 			{
 				_hexes[actives[i]].goodOne = false;
@@ -170,6 +169,19 @@ public class HexManager : Node
 				_hexes[i].QueueFree();
 				_hexes[i] = null;
 				_hexes[i] = default;
+			}
+		}
+		
+	}
+
+	public void ShowActivesOnes()
+	{
+		for (int i = 0; i < _hexes.Length; i++) //muestra los asignados activos
+		{
+			if(_hexes[i] != null)
+			{
+				_hexes[i].pressed = false;
+				_hexes[i].ShowMe();
 			}
 		}
 	}
