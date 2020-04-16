@@ -66,6 +66,8 @@ public class CurrencyManager : Node
         currentBet = 0;
         EmitSignal(nameof(CurrencyChanged), Constants.credits, credit);
         EmitSignal(nameof(CurrencyChanged), Constants.currentBet, currentBet);
+        
+        CheckBet();
     }
     void ConfirmBet() // La llama UIManager, señal restartGame
     {
@@ -96,15 +98,7 @@ public class CurrencyManager : Node
 
         CheckBet();
     }
-    void CheckBet() 
-    {
-        if(currentBet > 0)
-        {
-            EmitSignal(nameof(GameHaveBet), true);
-        }
-        else
-            EmitSignal(nameof(GameHaveBet), false);
-    }
+    
     void CheckAllCurrency()
     {
         EmitSignal(nameof(CurrencyChanged), Constants.credits, credit);
@@ -119,5 +113,22 @@ public class CurrencyManager : Node
             levelMultiplier = 0;
         }
         multiplier = multipliers[levelMultiplier];
+    }
+
+    void CheckBet() 
+    {
+        if(credit > 0)
+        {
+            if(currentBet > 0)
+            {
+                EmitSignal(nameof(GameHaveBet), true);
+            }
+        }
+        
+        else
+        {
+            currentBet = 0;
+            EmitSignal(nameof(GameHaveBet), false);
+        }
     }
 }
