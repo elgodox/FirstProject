@@ -3,7 +3,6 @@ using System;
 
 public class GameOverMessage : Control
 {
-    public UIButtonsManager myUIManager;
     [Export] bool MyWin;
 
     AnimationControl myAnim;

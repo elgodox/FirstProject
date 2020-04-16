@@ -53,9 +53,11 @@ public class CurrencyManager : Node
     }
     void MaxBet() // La llama UIManager, señal MaxBet
     {
-        if(credit >= maxBetAmount)
+        if(credit > 0)
         {
-            currentBet = maxBetAmount;
+            if(credit >= maxBetAmount) { currentBet = maxBetAmount; }
+            else { currentBet = credit; }
+            
             EmitSignal(nameof(GameHaveBet), true);
             EmitSignal(nameof(CurrencyChanged), Constants.currentBet, currentBet);
         }
