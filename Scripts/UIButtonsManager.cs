@@ -44,7 +44,7 @@ public class UIButtonsManager : Control
 		_helpButton.Disabled = false;
 		_maxBetButton.Disabled = false;
 		_betButton.Disabled = false;
-		//collectButton.Disabled = win;
+		_collectButton.Disabled = false;
     }
 	
 	void OnHelpButtonUp()
