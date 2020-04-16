@@ -231,6 +231,7 @@ public class GameManager : Godot.Control
         {
             EmitSignal(nameof(GameOver), true);
             EndGame(true);
+            currentHexMngr.DestroyHexManager();
         }
     }
 
