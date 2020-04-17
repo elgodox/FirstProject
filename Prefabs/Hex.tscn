@@ -1,46 +1,151 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=126 format=2]
 
-[ext_resource path="res://Sprites/ApareceHex/Aparece_2.png" type="Texture" id=1]
-[ext_resource path="res://Sprites/ApareceHex/Aparece_3.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/ApareceHex/Aparece_10.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/ApareceHex/Aparece_11.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/ApareceHex/Aparece_12.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/ApareceHex/Aparece_1.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/Malo/Hexa_malo_00003.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/Bueno/Hexa_00003.png" type="Texture" id=8]
-[ext_resource path="res://Sprites/Bueno/Hexa_00001.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/ApareceHex/Aparece_13.png" type="Texture" id=10]
-[ext_resource path="res://Sprites/Malo/Hexa_malo_00002.png" type="Texture" id=11]
-[ext_resource path="res://Sprites/Bueno/Hexa_00002.png" type="Texture" id=12]
-[ext_resource path="res://Sprites/ApareceHex/Aparece_14.png" type="Texture" id=13]
-[ext_resource path="res://Sprites/hexa_bueno.png" type="Texture" id=14]
-[ext_resource path="res://Sprites/Malo/Hexa_malo_00001.png" type="Texture" id=15]
-[ext_resource path="res://Sprites/hexa_malo.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00025.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00026.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00016.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00000.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00011.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00010.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Animations/HexNode/BadOne/Hexa-malo_00033.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Animations/HexNode/BadOne/Hexa-malo_00034.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Animations/HexNode/BadOne/Hexa-malo_00031.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00015.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Animations/HexNode/BadOne/Hexa-malo_00030.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Animations/HexNode/BadOne/Hexa-malo_00035.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00003.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/Animations/HexNode/BadOne/Hexa-malo_00029.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/Animations/HexNode/BadOne/Hexa-malo_00032.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Animations/HexNode/GoodOne/Hexa-bueno_00017.png" type="Texture" id=16]
 [ext_resource path="res://Scripts/HexNode.cs" type="Script" id=17]
 [ext_resource path="res://Scripts/HexAnim.cs" type="Script" id=18]
-[ext_resource path="res://Sprites/ApareceHex/Aparece_6.png" type="Texture" id=19]
-[ext_resource path="res://Sprites/ApareceHex/Aparece_9.png" type="Texture" id=20]
-[ext_resource path="res://Sprites/ApareceHex/Aparece_7.png" type="Texture" id=21]
-[ext_resource path="res://Sprites/ApareceHex/Aparece_8.png" type="Texture" id=22]
-[ext_resource path="res://Sprites/ApareceHex/Aparece_4.png" type="Texture" id=23]
-[ext_resource path="res://Sprites/ApareceHex/Aparece_5.png" type="Texture" id=24]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00008.png" type="Texture" id=19]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00001.png" type="Texture" id=20]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00009.png" type="Texture" id=21]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00014.png" type="Texture" id=22]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00018.png" type="Texture" id=23]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00022.png" type="Texture" id=24]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00021.png" type="Texture" id=25]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00002.png" type="Texture" id=26]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00004.png" type="Texture" id=27]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00006.png" type="Texture" id=28]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00012.png" type="Texture" id=29]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00020.png" type="Texture" id=30]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00023.png" type="Texture" id=31]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00005.png" type="Texture" id=32]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00007.png" type="Texture" id=33]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00013.png" type="Texture" id=34]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00017.png" type="Texture" id=35]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00019.png" type="Texture" id=36]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00024.png" type="Texture" id=37]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00031.png" type="Texture" id=38]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00032.png" type="Texture" id=39]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00033.png" type="Texture" id=40]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00028.png" type="Texture" id=41]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00035.png" type="Texture" id=42]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00029.png" type="Texture" id=43]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00030.png" type="Texture" id=44]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00027.png" type="Texture" id=45]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00036.png" type="Texture" id=46]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00034.png" type="Texture" id=47]
+[ext_resource path="res://Sprites/Animations/HexNode/GoodOne/Hexa-bueno_00000.png" type="Texture" id=48]
+[ext_resource path="res://Sprites/Animations/HexNode/GoodOne/Hexa-bueno_00001.png" type="Texture" id=49]
+[ext_resource path="res://Sprites/Animations/HexNode/GoodOne/Hexa-bueno_00004.png" type="Texture" id=50]
+[ext_resource path="res://Sprites/Animations/HexNode/GoodOne/Hexa-bueno_00002.png" type="Texture" id=51]
+[ext_resource path="res://Sprites/Animations/HexNode/GoodOne/Hexa-bueno_00006.png" type="Texture" id=52]
+[ext_resource path="res://Sprites/Animations/HexNode/GoodOne/Hexa-bueno_00009.png" type="Texture" id=53]
+[ext_resource path="res://Sprites/Animations/HexNode/GoodOne/Hexa-bueno_00008.png" type="Texture" id=54]
+[ext_resource path="res://Sprites/Animations/HexNode/GoodOne/Hexa-bueno_00007.png" type="Texture" id=55]
+[ext_resource path="res://Sprites/Animations/HexNode/GoodOne/Hexa-bueno_00014.png" type="Texture" id=56]
+[ext_resource path="res://Sprites/Animations/HexNode/GoodOne/Hexa-bueno_00011.png" type="Texture" id=57]
+[ext_resource path="res://Sprites/Animations/HexNode/GoodOne/Hexa-bueno_00015.png" type="Texture" id=58]
+[ext_resource path="res://Sprites/Animations/HexNode/GoodOne/Hexa-bueno_00016.png" type="Texture" id=59]
+[ext_resource path="res://Sprites/Animations/HexNode/GoodOne/Hexa-bueno_00018.png" type="Texture" id=60]
+[ext_resource path="res://Sprites/Animations/HexNode/GoodOne/Hexa-bueno_00012.png" type="Texture" id=61]
+[ext_resource path="res://Sprites/Animations/HexNode/GoodOne/Hexa-bueno_00003.png" type="Texture" id=62]
+[ext_resource path="res://Sprites/Animations/HexNode/GoodOne/Hexa-bueno_00010.png" type="Texture" id=63]
+[ext_resource path="res://Sprites/Animations/HexNode/GoodOne/Hexa-bueno_00013.png" type="Texture" id=64]
+[ext_resource path="res://Sprites/Animations/HexNode/GoodOne/Hexa-bueno_00019.png" type="Texture" id=65]
+[ext_resource path="res://Sprites/Animations/HexNode/GoodOne/Hexa-bueno_00005.png" type="Texture" id=66]
+[ext_resource path="res://Sprites/Animations/HexNode/GoodOne/Hexa-bueno_00025.png" type="Texture" id=67]
+[ext_resource path="res://Sprites/Animations/HexNode/GoodOne/Hexa-bueno_00022.png" type="Texture" id=68]
+[ext_resource path="res://Sprites/Animations/HexNode/GoodOne/Hexa-bueno_00035.png" type="Texture" id=69]
+[ext_resource path="res://Sprites/Animations/HexNode/BadOne/Hexa-malo_00010.png" type="Texture" id=70]
+[ext_resource path="res://Sprites/Animations/HexNode/BadOne/Hexa-malo_00012.png" type="Texture" id=71]
+[ext_resource path="res://Sprites/Animations/HexNode/GoodOne/Hexa-bueno_00028.png" type="Texture" id=72]
+[ext_resource path="res://Sprites/Animations/HexNode/GoodOne/Hexa-bueno_00023.png" type="Texture" id=73]
+[ext_resource path="res://Sprites/Animations/HexNode/GoodOne/Hexa-bueno_00030.png" type="Texture" id=74]
+[ext_resource path="res://Sprites/Animations/HexNode/GoodOne/Hexa-bueno_00032.png" type="Texture" id=75]
+[ext_resource path="res://Sprites/Animations/HexNode/BadOne/Hexa-malo_00014.png" type="Texture" id=76]
+[ext_resource path="res://Sprites/Animations/HexNode/GoodOne/Hexa-bueno_00034.png" type="Texture" id=77]
+[ext_resource path="res://Sprites/Animations/HexNode/BadOne/Hexa-malo_00013.png" type="Texture" id=78]
+[ext_resource path="res://Sprites/Animations/HexNode/BadOne/Hexa-malo_00015.png" type="Texture" id=79]
+[ext_resource path="res://Sprites/Animations/HexNode/GoodOne/Hexa-bueno_00020.png" type="Texture" id=80]
+[ext_resource path="res://Sprites/Animations/HexNode/BadOne/Hexa-malo_00006.png" type="Texture" id=81]
+[ext_resource path="res://Sprites/Animations/HexNode/GoodOne/Hexa-bueno_00027.png" type="Texture" id=82]
+[ext_resource path="res://Sprites/Animations/HexNode/GoodOne/Hexa-bueno_00029.png" type="Texture" id=83]
+[ext_resource path="res://Sprites/Animations/HexNode/BadOne/Hexa-malo_00003.png" type="Texture" id=84]
+[ext_resource path="res://Sprites/Animations/HexNode/GoodOne/Hexa-bueno_00033.png" type="Texture" id=85]
+[ext_resource path="res://Sprites/Animations/HexNode/BadOne/Hexa-malo_00007.png" type="Texture" id=86]
+[ext_resource path="res://Sprites/Animations/HexNode/BadOne/Hexa-malo_00000.png" type="Texture" id=87]
+[ext_resource path="res://Sprites/Animations/HexNode/GoodOne/Hexa-bueno_00021.png" type="Texture" id=88]
+[ext_resource path="res://Sprites/Animations/HexNode/BadOne/Hexa-malo_00011.png" type="Texture" id=89]
+[ext_resource path="res://Sprites/Animations/HexNode/GoodOne/Hexa-bueno_00026.png" type="Texture" id=90]
+[ext_resource path="res://Sprites/Animations/HexNode/GoodOne/Hexa-bueno_00031.png" type="Texture" id=91]
+[ext_resource path="res://Sprites/Animations/HexNode/BadOne/Hexa-malo_00009.png" type="Texture" id=92]
+[ext_resource path="res://Sprites/Animations/HexNode/GoodOne/Hexa-bueno_00024.png" type="Texture" id=93]
+[ext_resource path="res://Sprites/Animations/HexNode/BadOne/Hexa-malo_00002.png" type="Texture" id=94]
+[ext_resource path="res://Sprites/Animations/HexNode/BadOne/Hexa-malo_00008.png" type="Texture" id=95]
+[ext_resource path="res://Sprites/Animations/HexNode/BadOne/Hexa-malo_00001.png" type="Texture" id=96]
+[ext_resource path="res://Sprites/Animations/HexNode/BadOne/Hexa-malo_00004.png" type="Texture" id=97]
+[ext_resource path="res://Sprites/Animations/HexNode/BadOne/Hexa-malo_00005.png" type="Texture" id=98]
+[ext_resource path="res://Sprites/Animations/HexNode/BadOne/Hexa-malo_00024.png" type="Texture" id=99]
+[ext_resource path="res://Sprites/Animations/HexNode/BadOne/Hexa-malo_00018.png" type="Texture" id=100]
+[ext_resource path="res://Sprites/Animations/HexNode/BadOne/Hexa-malo_00023.png" type="Texture" id=101]
+[ext_resource path="res://Sprites/Animations/HexNode/BadOne/Hexa-malo_00022.png" type="Texture" id=102]
+[ext_resource path="res://Sprites/Animations/HexNode/BadOne/Hexa-malo_00025.png" type="Texture" id=103]
+[ext_resource path="res://Sprites/Animations/HexNode/BadOne/Hexa-malo_00026.png" type="Texture" id=104]
+[ext_resource path="res://Sprites/Animations/HexNode/BadOne/Hexa-malo_00016.png" type="Texture" id=105]
+[ext_resource path="res://Sprites/Animations/HexNode/BadOne/Hexa-malo_00017.png" type="Texture" id=106]
+[ext_resource path="res://Sprites/Animations/HexNode/BadOne/Hexa-malo_00027.png" type="Texture" id=107]
+[ext_resource path="res://Sprites/Animations/HexNode/BadOne/Hexa-malo_00028.png" type="Texture" id=108]
+[ext_resource path="res://Sprites/Animations/HexNode/BadOne/Hexa-malo_00020.png" type="Texture" id=109]
+[ext_resource path="res://Sprites/Animations/HexNode/BadOne/Hexa-malo_00019.png" type="Texture" id=110]
+[ext_resource path="res://Sprites/Animations/HexNode/BadOne/Hexa-malo_00021.png" type="Texture" id=111]
+[ext_resource path="res://Sprites/Animations/HexNode/Appear/Hexa-aparece_00012.png" type="Texture" id=112]
+[ext_resource path="res://Sprites/Animations/HexNode/Appear/Hexa-aparece_00002.png" type="Texture" id=113]
+[ext_resource path="res://Sprites/Animations/HexNode/Appear/Hexa-aparece_00004.png" type="Texture" id=114]
+[ext_resource path="res://Sprites/Animations/HexNode/Appear/Hexa-aparece_00003.png" type="Texture" id=115]
+[ext_resource path="res://Sprites/Animations/HexNode/Appear/Hexa-aparece_00008.png" type="Texture" id=116]
+[ext_resource path="res://Sprites/Animations/HexNode/Appear/Hexa-aparece_00009.png" type="Texture" id=117]
+[ext_resource path="res://Sprites/Animations/HexNode/Appear/Hexa-aparece_00010.png" type="Texture" id=118]
+[ext_resource path="res://Sprites/Animations/HexNode/Appear/Hexa-aparece_00000.png" type="Texture" id=119]
+[ext_resource path="res://Sprites/Animations/HexNode/Appear/Hexa-aparece_00006.png" type="Texture" id=120]
+[ext_resource path="res://Sprites/Animations/HexNode/Appear/Hexa-aparece_00007.png" type="Texture" id=121]
+[ext_resource path="res://Sprites/Animations/HexNode/Appear/Hexa-aparece_00011.png" type="Texture" id=122]
+[ext_resource path="res://Sprites/Animations/HexNode/Appear/Hexa-aparece_00001.png" type="Texture" id=123]
+[ext_resource path="res://Sprites/Animations/HexNode/Appear/Hexa-aparece_00005.png" type="Texture" id=124]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 6 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 19 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 20 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 10 ), ExtResource( 13 ), ExtResource( 13 ) ],
-"loop": false,
+"frames": [ ExtResource( 4 ), ExtResource( 20 ), ExtResource( 26 ), ExtResource( 13 ), ExtResource( 27 ), ExtResource( 32 ), ExtResource( 28 ), ExtResource( 33 ), ExtResource( 19 ), ExtResource( 21 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 29 ), ExtResource( 34 ), ExtResource( 22 ), ExtResource( 10 ), ExtResource( 3 ), ExtResource( 35 ), ExtResource( 23 ), ExtResource( 36 ), ExtResource( 30 ), ExtResource( 25 ), ExtResource( 24 ), ExtResource( 31 ), ExtResource( 37 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 45 ), ExtResource( 41 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 47 ), ExtResource( 42 ), ExtResource( 46 ) ],
+"loop": true,
 "name": "Idle",
 "speed": 6.0
 }, {
-"frames": [ ExtResource( 9 ), ExtResource( 12 ), ExtResource( 8 ), ExtResource( 14 ) ],
+"frames": [ ExtResource( 48 ), ExtResource( 49 ), ExtResource( 51 ), ExtResource( 62 ), ExtResource( 50 ), ExtResource( 66 ), ExtResource( 52 ), ExtResource( 55 ), ExtResource( 54 ), ExtResource( 53 ), ExtResource( 63 ), ExtResource( 57 ), ExtResource( 61 ), ExtResource( 64 ), ExtResource( 56 ), ExtResource( 58 ), ExtResource( 59 ), ExtResource( 16 ), ExtResource( 60 ), ExtResource( 65 ), ExtResource( 80 ), ExtResource( 88 ), ExtResource( 68 ), ExtResource( 73 ), ExtResource( 93 ), ExtResource( 67 ), ExtResource( 90 ), ExtResource( 82 ), ExtResource( 72 ), ExtResource( 83 ), ExtResource( 74 ), ExtResource( 91 ), ExtResource( 75 ), ExtResource( 85 ), ExtResource( 77 ), ExtResource( 69 ) ],
 "loop": false,
 "name": "isGood",
-"speed": 5.0
+"speed": 6.0
 }, {
-"frames": [ ExtResource( 15 ), ExtResource( 11 ), ExtResource( 7 ), ExtResource( 16 ) ],
+"frames": [ ExtResource( 87 ), ExtResource( 96 ), ExtResource( 94 ), ExtResource( 84 ), ExtResource( 97 ), ExtResource( 98 ), ExtResource( 81 ), ExtResource( 86 ), ExtResource( 95 ), ExtResource( 92 ), ExtResource( 70 ), ExtResource( 89 ), ExtResource( 71 ), ExtResource( 78 ), ExtResource( 76 ), ExtResource( 79 ), ExtResource( 105 ), ExtResource( 106 ), ExtResource( 100 ), ExtResource( 110 ), ExtResource( 109 ), ExtResource( 111 ), ExtResource( 102 ), ExtResource( 101 ), ExtResource( 99 ), ExtResource( 103 ), ExtResource( 104 ), ExtResource( 107 ), ExtResource( 108 ), ExtResource( 14 ), ExtResource( 11 ), ExtResource( 9 ), ExtResource( 15 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 12 ) ],
 "loop": false,
 "name": "isBad",
-"speed": 5.0
+"speed": 6.0
+}, {
+"frames": [ ExtResource( 119 ), ExtResource( 123 ), ExtResource( 113 ), ExtResource( 115 ), ExtResource( 114 ), ExtResource( 124 ), ExtResource( 120 ), ExtResource( 121 ), ExtResource( 116 ), ExtResource( 117 ), ExtResource( 118 ), ExtResource( 122 ), ExtResource( 112 ) ],
+"loop": false,
+"name": "Appear",
+"speed": 6.0
 } ]
 
 [node name="Hex6" type="TextureButton"]
@@ -59,10 +164,13 @@ __meta__ = {
 }
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
-position = Vector2( 42.6815, 43.1763 )
+position = Vector2( 40.0278, 43.1763 )
+scale = Vector2( 0.483959, 0.483959 )
 frames = SubResource( 1 )
-animation = "Idle"
-speed_scale = 5.0
+animation = "Appear"
+frame = 12
+speed_scale = 6.0
+playing = true
 script = ExtResource( 18 )
 
 [node name="Label" type="Label" parent="."]
