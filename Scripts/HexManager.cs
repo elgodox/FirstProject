@@ -129,6 +129,11 @@ public class HexManager : Node
 		this.QueueFree();
 	}
 
+	public void ExitAnimation(){
+		animation.CurrentAnimation = "Exit";
+		animation.Play();
+	}
+
 	public void ReceiveNodePressed(HexNode node)
 	{
 		myGameManager.CheckHexSelected(node.goodOne, node.Name);
