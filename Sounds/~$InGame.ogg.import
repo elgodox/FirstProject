@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/~$InGame.ogg-9f73b94db907fae7880282aad89f8346.oggstr"
+
+[deps]
+
+source_file="res://Sounds/~$InGame.ogg"
+dest_files=[ "res://.import/~$InGame.ogg-9f73b94db907fae7880282aad89f8346.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
