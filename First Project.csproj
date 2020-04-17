@@ -68,6 +68,7 @@
     <Compile Include="Scripts\HexManager.cs" />
     <Compile Include="Scripts\HexNode.cs" />
     <Compile Include="Scripts\OMenuCommunication.cs" />
+    <Compile Include="Scripts\Panner.cs" />
     <Compile Include="Scripts\UIButtonsManager.cs" />
   </ItemGroup>
   <ItemGroup>

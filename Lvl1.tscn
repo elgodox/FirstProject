@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Audio/BackGroundMusic.ogg" type="AudioStream" id=1]
 [ext_resource path="res://Scenes/UITemplate.tscn" type="PackedScene" id=2]
@@ -10,10 +10,8 @@
 [ext_resource path="res://Sprites/light.png" type="Texture" id=8]
 [ext_resource path="res://Audio/DropDown.ogg" type="AudioStream" id=9]
 [ext_resource path="res://Audio/GamePlayMusic.ogg" type="AudioStream" id=10]
-
-[sub_resource type="StreamTexture" id=1]
-flags = 4
-load_path = "res://.import/fondo-neon.png-1c2e78e60b261aec10a51f0bb8ccada2.stex"
+[ext_resource path="res://Sprites/BackGround/fondo.png" type="Texture" id=11]
+[ext_resource path="res://Prefabs/BackgroundCity.tscn" type="PackedScene" id=12]
 
 [sub_resource type="Gradient" id=2]
 offsets = PoolRealArray( 0.193258, 1 )
@@ -58,12 +56,15 @@ levels = 10
 timerInLevel = 10
 badOnes = PoolIntArray( 2, 0, 0, 0, 0, 0, 0, 0, 0, 0 )
 
+[node name="BackgroundCity" parent="." instance=ExtResource( 12 )]
+
 [node name="Background" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 0.783447
 margin_right = 0.783447
-texture = SubResource( 1 )
+rect_pivot_offset = Vector2( -563.085, -98.034 )
+texture = ExtResource( 11 )
 expand = true
 stretch_mode = 1
 __meta__ = {
@@ -113,8 +114,8 @@ stream = ExtResource( 1 )
 [connection signal="CanCollect" from="." to="UI_Template" method="ActivateCollectButton"]
 [connection signal="GameOver" from="." to="UI_Template" method="SetGameOverMessage"]
 [connection signal="GameOver" from="." to="UI_Template" method="ActivateAgain"]
-[connection signal="GameOver" from="." to="AudioManager" method="GameOverSound"]
 [connection signal="GameOver" from="." to="CurrencyManager" method="AddCurrencyToCredits"]
+[connection signal="GameOver" from="." to="AudioManager" method="GameOverSound"]
 [connection signal="GameReady" from="." to="UI_Template" method="ActivatePlayButton"]
 [connection signal="GameStarted" from="." to="UI_Template" method="DeactivateButtons"]
 [connection signal="GameStarted" from="." to="AudioManager" method="PlayLevelMusic"]
