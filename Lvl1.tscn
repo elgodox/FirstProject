@@ -1,6 +1,6 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
-[ext_resource path="res://Sounds/InGame.ogg" type="AudioStream" id=1]
+[ext_resource path="res://Sounds/InGameWithSilent.ogg" type="AudioStream" id=1]
 [ext_resource path="res://Scenes/UITemplate.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scripts/GameManager.cs" type="Script" id=3]
 [ext_resource path="res://Scripts/CurrencyManager.cs" type="Script" id=4]
@@ -8,28 +8,29 @@
 [ext_resource path="res://Scripts/AudioManager.cs" type="Script" id=6]
 [ext_resource path="res://Audio/success.ogg" type="AudioStream" id=7]
 [ext_resource path="res://Sprites/light.png" type="Texture" id=8]
-[ext_resource path="res://Audio/DropDown.ogg" type="AudioStream" id=9]
+[ext_resource path="res://Sounds/Loose.ogg" type="AudioStream" id=9]
 [ext_resource path="res://Sprites/efecto-holograma.png" type="Texture" id=10]
 [ext_resource path="res://Sprites/BackGround/fondo.png" type="Texture" id=11]
-[ext_resource path="res://Prefabs/BackgroundCity.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Sprites/BackGround/fondo-tile.png" type="Texture" id=12]
 [ext_resource path="res://Sounds/Menu.ogg" type="AudioStream" id=13]
 [ext_resource path="res://Sprites/luz-proyector.png" type="Texture" id=14]
 [ext_resource path="res://Sprites/BackGround/luces.png" type="Texture" id=15]
+[ext_resource path="res://Sounds/MenuWithSilent.ogg" type="AudioStream" id=16]
 
-[sub_resource type="Gradient" id=2]
+[sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0.193258, 1 )
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
 
-[sub_resource type="GradientTexture" id=3]
-gradient = SubResource( 2 )
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
 
-[sub_resource type="Curve" id=4]
+[sub_resource type="Curve" id=3]
 _data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.651136 ), -3.76363, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=5]
-curve = SubResource( 4 )
+[sub_resource type="CurveTexture" id=4]
+curve = SubResource( 3 )
 
-[sub_resource type="ParticlesMaterial" id=6]
+[sub_resource type="ParticlesMaterial" id=5]
 emission_shape = 1
 emission_sphere_radius = 62.88
 flag_disable_z = true
@@ -40,12 +41,11 @@ orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 linear_accel = -31.75
 scale = 0.05
-scale_curve = SubResource( 5 )
-color_ramp = SubResource( 3 )
+scale_curve = SubResource( 4 )
+color_ramp = SubResource( 2 )
 hue_variation = -1.0
 
-[sub_resource type="Animation" id=1]
-resource_name = "Init"
+[sub_resource type="Animation" id=6]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
@@ -69,7 +69,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 1, 2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+"values": [ Color( 1, 1, 1, 0 ), Color( 0.603922, 0.745098, 0.870588, 1 ) ]
 }
 
 [node name="GameManager" type="Control"]
@@ -87,27 +87,21 @@ __meta__ = {
 UseDB = true
 levels = 10
 timerInLevel = 10
-badOnes = PoolIntArray( 2, 2, 2, 0, 0, 0, 0, 0, 0, 0 )
+badOnes = PoolIntArray( 9, 2, 2, 0, 0, 0, 0, 0, 0, 0 )
 
-[node name="BackgroundCity" parent="." instance=ExtResource( 12 )]
-margin_left = 319.247
-margin_top = -226.907
-margin_right = 319.247
-margin_bottom = -226.907
-
-[node name="BackgroundCity2" parent="." instance=ExtResource( 12 )]
-margin_left = 1278.77
-margin_top = -226.907
-margin_right = 1278.77
-margin_bottom = -226.907
-
-[node name="BackgroundCity3" parent="." instance=ExtResource( 12 )]
-margin_left = -642.108
-margin_top = -226.907
-margin_right = -642.108
-margin_bottom = -226.907
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = -2888.29
+margin_top = -126.151
+margin_right = 4500.71
+margin_bottom = 719.849
+texture = ExtResource( 12 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Background" type="TextureRect" parent="."]
+modulate = Color( 0, 0, 0, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 0.783447
@@ -152,7 +146,7 @@ __meta__ = {
 }
 
 [node name="HaloLuz" type="TextureRect" parent="Background"]
-modulate = Color( 1, 1, 1, 0 )
+modulate = Color( 1, 1, 1, 9.53674e-07 )
 anchor_left = 0.399
 anchor_top = 0.44
 anchor_right = 0.603
@@ -185,13 +179,13 @@ position = Vector2( 20.5558, 19.3859 )
 amount = 20
 lifetime = 4.0
 randomness = 1.0
-process_material = SubResource( 6 )
+process_material = SubResource( 5 )
 texture = ExtResource( 5 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Background"]
 autoplay = "Init"
 method_call_mode = 1
-anims/Init = SubResource( 1 )
+anims/Init = SubResource( 6 )
 
 [node name="Light2D" type="Light2D" parent="."]
 visible = false
@@ -217,7 +211,10 @@ margin_bottom = 1.64075
 
 [node name="AudioManager" type="Node" parent="."]
 script = ExtResource( 6 )
-idleMusic = ExtResource( 13 )
+__meta__ = {
+"_editor_description_": ""
+}
+idleMusic = ExtResource( 16 )
 gamePlayMusic = ExtResource( 1 )
 gameOverWinMusic = ExtResource( 7 )
 gameOverLoseMusic = ExtResource( 9 )
@@ -229,8 +226,8 @@ stream = ExtResource( 13 )
 [connection signal="CanCollect" from="." to="UI_Template" method="ActivateCollectButton"]
 [connection signal="GameOver" from="." to="CurrencyManager" method="AddCurrencyToCredits"]
 [connection signal="GameOver" from="." to="AudioManager" method="GameOverSound"]
-[connection signal="GameOver" from="." to="UI_Template" method="ActivateAgain"]
 [connection signal="GameOver" from="." to="UI_Template" method="SetGameOverMessage"]
+[connection signal="GameOver" from="." to="UI_Template" method="ActivateAgain"]
 [connection signal="GameReady" from="." to="UI_Template" method="ActivatePlayButton"]
 [connection signal="GameStarted" from="." to="AudioManager" method="PlayLevelMusic"]
 [connection signal="GameStarted" from="." to="UI_Template" method="DeactivateButtons"]

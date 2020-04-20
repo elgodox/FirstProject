@@ -7,6 +7,8 @@ public class UIButtonsManager : Control
 	TextureButton _playButton, _helpButton, _betButton, _maxBetButton, _collectButton;
 	TextureRect _helpCanvas;
 	Dictionary<string, CurrencyLabel> _myCurrencyLabels = new Dictionary<string, CurrencyLabel>();
+    [Export] AudioStream PlayFX;
+	[Export] AudioStream ButtonFX;
 	[Signal] public delegate void restartGame();
 	[Signal] public delegate void bet();
 	[Signal] public delegate void maxBet();
@@ -74,7 +76,8 @@ public class UIButtonsManager : Control
 	}
 	void OnPlayButtonUp() 
 	{
-		PlayAudio();
+		_audio.Stream = PlayFX;
+		_audio.Play();
 		EmitSignal(nameof(restartGame));
 		ActivatePlayButton(false);
 		DeactivateButtons();
@@ -103,7 +106,8 @@ public class UIButtonsManager : Control
 
 	void PlayAudio()
 	{
-		_audio.Play(0.5f);
+		_audio.Stream = ButtonFX;
+		_audio.Play();
 	}
 
 	#endregion

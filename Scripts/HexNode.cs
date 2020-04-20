@@ -5,6 +5,10 @@ public class HexNode : Node
 {
     public delegate void SendPressedNode(HexNode node);
     public SendPressedNode nodePressed;
+    public AudioStreamPlayer2D audio;
+    [Export] AudioStream isGood;
+    [Export] AudioStream isBad;
+
     public bool goodOne = true;
     public bool asigned = false;
     public bool pressed = false;
@@ -17,6 +21,7 @@ public class HexNode : Node
         myName = GetChild(1) as Label;
         myName.Text = Name;
         sprite.Playing = false;
+        audio = GetNode("HexAudio") as AudioStreamPlayer2D;
     }
     void _on_button_down()
     {
@@ -26,11 +31,14 @@ public class HexNode : Node
             if (goodOne)
             {
                 sprite.Animation = "isGood";
+                audio.Stream = isGood;   
             }
             else
             {
                 sprite.Animation = "isBad";
+                audio.Stream = isBad;
             }
+            audio.Play();
             nodePressed(this);
         }
 

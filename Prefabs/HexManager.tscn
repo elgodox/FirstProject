@@ -14,10 +14,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.7, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 0, 0 ) ]
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 0.5, 0.1 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath(".:modulate")
@@ -26,10 +26,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.7, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 tracks/2/type = "method"
 tracks/2/path = NodePath(".")
@@ -57,7 +57,7 @@ tracks/3/keys = {
 "start_offset": 0.0,
 "stream": ExtResource( 3 )
 } ],
-"times": PoolRealArray( 0 )
+"times": PoolRealArray( 0.5 )
 }
 tracks/4/type = "value"
 tracks/4/path = NodePath(".:rect_position")
@@ -82,10 +82,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 0.965936 ),
+"times": PoolRealArray( 0, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 0.965936 ),
 "update": 0,
-"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1, 1 ) ]
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 0.3, 0.1 ), Vector2( 1, 1 ) ]
 }
 tracks/1/type = "method"
 tracks/1/path = NodePath(".")
@@ -127,8 +127,21 @@ tracks/3/keys = {
 "update": 0,
 "values": [  ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath(".:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
 
 [node name="HexManager" type="Control"]
+modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -137,6 +150,7 @@ margin_left = -800.0
 margin_top = -442.0
 margin_right = 800.0
 margin_bottom = 458.001
+rect_scale = Vector2( 1e-05, 1e-05 )
 rect_pivot_offset = Vector2( 797.928, 450.438 )
 mouse_filter = 2
 script = ExtResource( 2 )
@@ -289,5 +303,5 @@ anims/Exit = SubResource( 1 )
 anims/Init = SubResource( 2 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 3 )
-volume_db = 10.0
+stream = ExtResource( 4 )
+volume_db = 5.0

@@ -11,5 +11,5 @@ dest_files=[ "res://.import/InGame.ogg-b28a6e5e22f854dc85d7168cb828fe8d.oggstr" 
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
