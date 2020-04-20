@@ -46,8 +46,7 @@ public class HexNode : Node
 
     public void ShowMe()
     {
-        sprite.Animation = "Idle";
-
+        sprite.Animation = "Appear";
         sprite.Playing = true;
         sprite.Play();
     }
