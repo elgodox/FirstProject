@@ -30,7 +30,7 @@ public class GameManager : Godot.Control
 
     public override void _Ready()
     {
-        currencyManager = GetNode(Constants.currency_Manager_path) as CurrencyManager;
+        currencyManager = GetNode("CurrencyManager") as CurrencyManager;
 
         if (UseDB)
         {

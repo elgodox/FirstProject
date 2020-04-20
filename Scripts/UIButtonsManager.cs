@@ -113,8 +113,8 @@ public class UIButtonsManager : Control
 	#endregion
 	void InitChilds()
 	{
-		LoadScene(Constants.ui_GmOvr_win_path);
-		LoadScene(Constants.ui_GmOvr_lose_path);
+		LoadScene(Constants.PATH_UI_GAMEOVR_WIN);
+		LoadScene(Constants.PATH_UI_GAMEOVR_LOSE);
 
 		_playButton = GetNode("button_Play") as TextureButton;
 		_helpButton = GetNode("button_Help") as TextureButton;

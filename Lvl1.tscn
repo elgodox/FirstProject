@@ -11,7 +11,7 @@
 [ext_resource path="res://Sounds/Loose.ogg" type="AudioStream" id=9]
 [ext_resource path="res://Sprites/efecto-holograma.png" type="Texture" id=10]
 [ext_resource path="res://Sprites/BackGround/fondo.png" type="Texture" id=11]
-[ext_resource path="res://Sprites/BackGround/fondo-tile.png" type="Texture" id=12]
+[ext_resource path="res://Scripts/Panner.cs" type="Script" id=12]
 [ext_resource path="res://Sounds/Menu.ogg" type="AudioStream" id=13]
 [ext_resource path="res://Sprites/luz-proyector.png" type="Texture" id=14]
 [ext_resource path="res://Sprites/BackGround/luces.png" type="Texture" id=15]
@@ -87,18 +87,18 @@ __meta__ = {
 UseDB = true
 levels = 10
 timerInLevel = 10
-badOnes = PoolIntArray( 9, 2, 2, 0, 0, 0, 0, 0, 0, 0 )
+badOnes = PoolIntArray( 2, 2, 2, 0, 0, 0, 0, 0, 0, 0 )
 
-[node name="TextureRect" type="TextureRect" parent="."]
-margin_left = -2888.29
-margin_top = -126.151
-margin_right = 4500.71
-margin_bottom = 719.849
-texture = ExtResource( 12 )
-stretch_mode = 2
+[node name="Panner" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 12 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+speed = 3.0
+time = 0.3
+jumpDistance = 1000.0
 
 [node name="Background" type="TextureRect" parent="."]
 modulate = Color( 0, 0, 0, 1 )
@@ -224,13 +224,15 @@ stream = ExtResource( 13 )
 
 [node name="NotificationSounds" type="AudioStreamPlayer" parent="AudioManager"]
 [connection signal="CanCollect" from="." to="UI_Template" method="ActivateCollectButton"]
-[connection signal="GameOver" from="." to="CurrencyManager" method="AddCurrencyToCredits"]
-[connection signal="GameOver" from="." to="AudioManager" method="GameOverSound"]
 [connection signal="GameOver" from="." to="UI_Template" method="SetGameOverMessage"]
 [connection signal="GameOver" from="." to="UI_Template" method="ActivateAgain"]
+[connection signal="GameOver" from="." to="Panner" method="BackToOrigin"]
+[connection signal="GameOver" from="." to="CurrencyManager" method="AddCurrencyToCredits"]
+[connection signal="GameOver" from="." to="AudioManager" method="GameOverSound"]
 [connection signal="GameReady" from="." to="UI_Template" method="ActivatePlayButton"]
-[connection signal="GameStarted" from="." to="AudioManager" method="PlayLevelMusic"]
 [connection signal="GameStarted" from="." to="UI_Template" method="DeactivateButtons"]
+[connection signal="GameStarted" from="." to="AudioManager" method="PlayLevelMusic"]
+[connection signal="RoundWined" from="." to="Panner" method="Panning"]
 [connection signal="RoundWined" from="." to="CurrencyManager" method="AddBetToCurrency"]
 [connection signal="SetCurrencyManager" from="." to="CurrencyManager" method="SetCurrency"]
 [connection signal="StartTimer" from="." to="UI_Template" method="StartTimer"]
@@ -238,8 +240,8 @@ stream = ExtResource( 13 )
 [connection signal="GameHaveBet" from="CurrencyManager" to="." method="GameHaveBetNow"]
 [connection signal="TimerDone" from="UI_Template" to="." method="EndGame"]
 [connection signal="bet" from="UI_Template" to="CurrencyManager" method="Bet"]
-[connection signal="collect" from="UI_Template" to="CurrencyManager" method="Collect"]
 [connection signal="collect" from="UI_Template" to="." method="MoneyCollected"]
+[connection signal="collect" from="UI_Template" to="CurrencyManager" method="Collect"]
 [connection signal="maxBet" from="UI_Template" to="CurrencyManager" method="MaxBet"]
-[connection signal="restartGame" from="UI_Template" to="CurrencyManager" method="ConfirmBet"]
 [connection signal="restartGame" from="UI_Template" to="." method="StartGame"]
+[connection signal="restartGame" from="UI_Template" to="CurrencyManager" method="ConfirmBet"]

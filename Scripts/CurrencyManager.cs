@@ -49,7 +49,7 @@ public class CurrencyManager : Node
                 EmitSignal(nameof(GameHaveBet), true);
             }
         }
-        EmitSignal(nameof(CurrencyChanged), Constants.currentBet, currentBet);
+        EmitSignal(nameof(CurrencyChanged), Constants.CURRENT_BET, currentBet);
     }
     void MaxBet() // La llama UIManager, señal MaxBet
     {
@@ -59,31 +59,31 @@ public class CurrencyManager : Node
             else { currentBet = credit; }
             
             EmitSignal(nameof(GameHaveBet), true);
-            EmitSignal(nameof(CurrencyChanged), Constants.currentBet, currentBet);
+            EmitSignal(nameof(CurrencyChanged), Constants.CURRENT_BET, currentBet);
         }
     }
     void Collect() // La llama UIManager, señal collect
     {
         credit = 0;
         currentBet = 0;
-        EmitSignal(nameof(CurrencyChanged), Constants.credits, credit);
-        EmitSignal(nameof(CurrencyChanged), Constants.currentBet, currentBet);
+        EmitSignal(nameof(CurrencyChanged), Constants.CREDITS, credit);
+        EmitSignal(nameof(CurrencyChanged), Constants.CURRENT_BET, currentBet);
         
         CheckBet();
     }
     void ConfirmBet() // La llama UIManager, señal restartGame
     {
         credit -= currentBet;
-        EmitSignal(nameof(CurrencyChanged), Constants.credits, credit);
+        EmitSignal(nameof(CurrencyChanged), Constants.CREDITS, credit);
     }
     void AddBetToCurrency() // La llama GameManager, señal roundWinned
     {
         currencyToCollect = currentBet * multiplier;
-        EmitSignal(nameof(CurrencyChanged), Constants.currencyToCollect, currencyToCollect);
+        EmitSignal(nameof(CurrencyChanged), Constants.CURRENCY_TO_COLLECT, currencyToCollect);
     }
     void UpdateWinnedCurrency()
     {
-        EmitSignal(nameof(CurrencyChanged), Constants.winnedCurrency, currencyToCollect);
+        EmitSignal(nameof(CurrencyChanged), Constants.CURRENCY_WINNED, currencyToCollect);
     }
     void AddCurrencyToCredits(bool win) // La llama GameManager, señal GameOver
     {
@@ -95,17 +95,17 @@ public class CurrencyManager : Node
 
         currencyToCollect = 0;
 
-        EmitSignal(nameof(CurrencyChanged), Constants.currencyToCollect, currencyToCollect);
-        EmitSignal(nameof(CurrencyChanged), Constants.credits, credit);
+        EmitSignal(nameof(CurrencyChanged), Constants.CURRENCY_TO_COLLECT, currencyToCollect);
+        EmitSignal(nameof(CurrencyChanged), Constants.CREDITS, credit);
 
         CheckBet();
     }
     
     void CheckAllCurrency()
     {
-        EmitSignal(nameof(CurrencyChanged), Constants.credits, credit);
-        EmitSignal(nameof(CurrencyChanged), Constants.currencyToCollect, currencyToCollect);
-        EmitSignal(nameof(CurrencyChanged), Constants.currentBet, currentBet);
+        EmitSignal(nameof(CurrencyChanged), Constants.CREDITS, credit);
+        EmitSignal(nameof(CurrencyChanged), Constants.CURRENCY_TO_COLLECT, currencyToCollect);
+        EmitSignal(nameof(CurrencyChanged), Constants.CURRENT_BET, currentBet);
     }
 
     public void SetMultiplier(int levelMultiplier)
