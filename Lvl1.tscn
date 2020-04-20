@@ -11,25 +11,25 @@
 [ext_resource path="res://Audio/DropDown.ogg" type="AudioStream" id=9]
 [ext_resource path="res://Sprites/efecto-holograma.png" type="Texture" id=10]
 [ext_resource path="res://Sprites/BackGround/fondo.png" type="Texture" id=11]
-[ext_resource path="res://Prefabs/BackgroundCity.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scripts/Panner.cs" type="Script" id=12]
 [ext_resource path="res://Sounds/Menu.ogg" type="AudioStream" id=13]
 [ext_resource path="res://Sprites/luz-proyector.png" type="Texture" id=14]
 [ext_resource path="res://Sprites/BackGround/luces.png" type="Texture" id=15]
 
-[sub_resource type="Gradient" id=2]
+[sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0.193258, 1 )
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
 
-[sub_resource type="GradientTexture" id=3]
-gradient = SubResource( 2 )
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
 
-[sub_resource type="Curve" id=4]
+[sub_resource type="Curve" id=3]
 _data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.651136 ), -3.76363, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=5]
-curve = SubResource( 4 )
+[sub_resource type="CurveTexture" id=4]
+curve = SubResource( 3 )
 
-[sub_resource type="ParticlesMaterial" id=6]
+[sub_resource type="ParticlesMaterial" id=5]
 emission_shape = 1
 emission_sphere_radius = 62.88
 flag_disable_z = true
@@ -40,12 +40,11 @@ orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 linear_accel = -31.75
 scale = 0.05
-scale_curve = SubResource( 5 )
-color_ramp = SubResource( 3 )
+scale_curve = SubResource( 4 )
+color_ramp = SubResource( 2 )
 hue_variation = -1.0
 
-[sub_resource type="Animation" id=1]
-resource_name = "Init"
+[sub_resource type="Animation" id=6]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
@@ -89,23 +88,16 @@ levels = 10
 timerInLevel = 10
 badOnes = PoolIntArray( 2, 2, 2, 0, 0, 0, 0, 0, 0, 0 )
 
-[node name="BackgroundCity" parent="." instance=ExtResource( 12 )]
-margin_left = 319.247
-margin_top = -226.907
-margin_right = 319.247
-margin_bottom = -226.907
-
-[node name="BackgroundCity2" parent="." instance=ExtResource( 12 )]
-margin_left = 1278.77
-margin_top = -226.907
-margin_right = 1278.77
-margin_bottom = -226.907
-
-[node name="BackgroundCity3" parent="." instance=ExtResource( 12 )]
-margin_left = -642.108
-margin_top = -226.907
-margin_right = -642.108
-margin_bottom = -226.907
+[node name="Panner" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+speed = 3.0
+time = 0.3
+jumpDistance = 1000.0
 
 [node name="Background" type="TextureRect" parent="."]
 anchor_right = 1.0
@@ -185,13 +177,13 @@ position = Vector2( 20.5558, 19.3859 )
 amount = 20
 lifetime = 4.0
 randomness = 1.0
-process_material = SubResource( 6 )
+process_material = SubResource( 5 )
 texture = ExtResource( 5 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Background"]
 autoplay = "Init"
 method_call_mode = 1
-anims/Init = SubResource( 1 )
+anims/Init = SubResource( 6 )
 
 [node name="Light2D" type="Light2D" parent="."]
 visible = false
@@ -227,13 +219,15 @@ stream = ExtResource( 13 )
 
 [node name="NotificationSounds" type="AudioStreamPlayer" parent="AudioManager"]
 [connection signal="CanCollect" from="." to="UI_Template" method="ActivateCollectButton"]
+[connection signal="GameOver" from="." to="UI_Template" method="SetGameOverMessage"]
+[connection signal="GameOver" from="." to="UI_Template" method="ActivateAgain"]
+[connection signal="GameOver" from="." to="Panner" method="BackToOrigin"]
 [connection signal="GameOver" from="." to="CurrencyManager" method="AddCurrencyToCredits"]
 [connection signal="GameOver" from="." to="AudioManager" method="GameOverSound"]
-[connection signal="GameOver" from="." to="UI_Template" method="ActivateAgain"]
-[connection signal="GameOver" from="." to="UI_Template" method="SetGameOverMessage"]
 [connection signal="GameReady" from="." to="UI_Template" method="ActivatePlayButton"]
-[connection signal="GameStarted" from="." to="AudioManager" method="PlayLevelMusic"]
 [connection signal="GameStarted" from="." to="UI_Template" method="DeactivateButtons"]
+[connection signal="GameStarted" from="." to="AudioManager" method="PlayLevelMusic"]
+[connection signal="RoundWined" from="." to="Panner" method="Panning"]
 [connection signal="RoundWined" from="." to="CurrencyManager" method="AddBetToCurrency"]
 [connection signal="SetCurrencyManager" from="." to="CurrencyManager" method="SetCurrency"]
 [connection signal="StartTimer" from="." to="UI_Template" method="StartTimer"]
@@ -241,8 +235,8 @@ stream = ExtResource( 13 )
 [connection signal="GameHaveBet" from="CurrencyManager" to="." method="GameHaveBetNow"]
 [connection signal="TimerDone" from="UI_Template" to="." method="EndGame"]
 [connection signal="bet" from="UI_Template" to="CurrencyManager" method="Bet"]
-[connection signal="collect" from="UI_Template" to="CurrencyManager" method="Collect"]
 [connection signal="collect" from="UI_Template" to="." method="MoneyCollected"]
+[connection signal="collect" from="UI_Template" to="CurrencyManager" method="Collect"]
 [connection signal="maxBet" from="UI_Template" to="CurrencyManager" method="MaxBet"]
-[connection signal="restartGame" from="UI_Template" to="CurrencyManager" method="ConfirmBet"]
 [connection signal="restartGame" from="UI_Template" to="." method="StartGame"]
+[connection signal="restartGame" from="UI_Template" to="CurrencyManager" method="ConfirmBet"]
