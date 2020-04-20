@@ -1,6 +1,6 @@
 [gd_scene load_steps=24 format=2]
 
-[ext_resource path="res://Sounds/InGameWithSilent.ogg" type="AudioStream" id=1]
+[ext_resource path="res://Sounds/InGameRobot.ogg" type="AudioStream" id=1]
 [ext_resource path="res://Scenes/UITemplate.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scripts/GameManager.cs" type="Script" id=3]
 [ext_resource path="res://Scripts/CurrencyManager.cs" type="Script" id=4]
@@ -88,7 +88,7 @@ __meta__ = {
 UseDB = true
 levels = 10
 timerInLevel = 10
-badOnes = PoolIntArray( 2, 2, 2, 0, 0, 0, 0, 0, 0, 0 )
+badOnes = PoolIntArray( 9, 2, 2, 0, 0, 0, 0, 0, 0, 0 )
 
 [node name="Panner" type="Control" parent="."]
 anchor_right = 1.0
@@ -225,11 +225,11 @@ stream = ExtResource( 13 )
 stream = ExtResource( 17 )
 autoplay = true
 [connection signal="CanCollect" from="." to="UI_Template" method="ActivateCollectButton"]
-[connection signal="GameOver" from="." to="AudioManager" method="GameOverSound"]
 [connection signal="GameOver" from="." to="CurrencyManager" method="AddCurrencyToCredits"]
+[connection signal="GameOver" from="." to="AudioManager" method="GameOverSound"]
 [connection signal="GameOver" from="." to="Panner" method="BackToOrigin"]
-[connection signal="GameOver" from="." to="UI_Template" method="ActivateAgain"]
 [connection signal="GameOver" from="." to="UI_Template" method="SetGameOverMessage"]
+[connection signal="GameOver" from="." to="UI_Template" method="ActivateAgain"]
 [connection signal="GameReady" from="." to="UI_Template" method="ActivatePlayButton"]
 [connection signal="GameStarted" from="." to="AudioManager" method="PlayLevelMusic"]
 [connection signal="GameStarted" from="." to="UI_Template" method="DeactivateButtons"]
