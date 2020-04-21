@@ -51,6 +51,7 @@ public class AudioManager : Node
 
     public void PlayLevelMusic()
     {
+        _notificationSounds.Stop();
         PlayAudioTrack(gamePlayMusic, _backGroundMusic);
     }
 
@@ -58,6 +59,11 @@ public class AudioManager : Node
     {
         if (!_backGroundMusic.Playing)
             PlayAudioTrack(idleMusic, _backGroundMusic);
+    }
+
+    public void _on_UI_ControlMasterVolume(float volume)
+    {
+        AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("Master"),volume);
     }
 
 
