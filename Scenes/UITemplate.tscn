@@ -223,9 +223,28 @@ valign = 1
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
 volume_db = 1.0
+
+[node name="VSlider" type="VSlider" parent="."]
+anchor_left = 0.935
+anchor_top = 0.318
+anchor_right = 1.0
+anchor_bottom = 0.617
+margin_left = -0.00012207
+margin_top = -0.200012
+margin_right = -45.0
+margin_bottom = -0.300049
+min_value = -80.0
+max_value = 0.0
+value = -30.0
+rounded = true
+tick_count = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="button_up" from="button_Collect" to="." method="OnCollectButtonUp"]
 [connection signal="button_up" from="button_Bet" to="." method="OnBetButtonUp"]
 [connection signal="button_up" from="button_MaxBet" to="." method="OnMaxBetButtonUp"]
 [connection signal="button_up" from="button_Play" to="." method="OnPlayButtonUp"]
 [connection signal="button_up" from="button_Help" to="." method="OnHelpButtonUp"]
 [connection signal="button_up" from="ui_Help/button_Back" to="." method="OnBackButtonUp"]
+[connection signal="value_changed" from="VSlider" to="." method="_on_VSlider_value_changed"]
