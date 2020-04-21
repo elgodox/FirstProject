@@ -56,7 +56,8 @@ public class AudioManager : Node
 
     public void _on_NotificationSounds_finished()
     {
-        PlayAudioTrack(idleMusic, _backGroundMusic);
+        if (!_backGroundMusic.Playing)
+            PlayAudioTrack(idleMusic, _backGroundMusic);
     }
 
 
