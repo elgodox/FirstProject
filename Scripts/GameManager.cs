@@ -18,6 +18,8 @@ public class GameManager : Godot.Control
     int currentLevel;
     string bet_description;
     [Export] bool UseDB = false;
+    bool gotBonus = false;
+    bool bonusAssigned = false;
     [Export] int levels, timerInLevel;
     [Export] int[] badOnes = new int[10];
     bool isPlaying = false;
@@ -123,6 +125,11 @@ public class GameManager : Godot.Control
         currentHexMngr = newLevelManager.Instance() as HexManager;
         AddChild(currentHexMngr);
         currentHexMngr.myGameManager = this;
+        if(myGameGen.bonusGenerated && !myGameGen.bonusAssigned)
+        {
+            myGameGen.bonusAssigned = true;
+            currentHexMngr.gotABonus = true;
+        }
         currentHexMngr.SetActivesPositions(currentLevelInfo, badOnes[levels - currentLevel]);
         currentLevel--;
     }
@@ -132,9 +139,14 @@ public class GameManager : Godot.Control
         return "res://Prefabs/HexManager.tscn";
     }
 
-    public void CheckHexSelected(bool win, String nodeName)
+    public void CheckHexSelected(bool win, String nodeName, bool bonus)
     {
         UpdateSaveData(nodeName);
+        if(bonus)
+        {
+            gotBonus = true;
+            GD.Print("El nodo " + nodeName + " tenía Bonus!");
+        }
         if (win)
         {
             EmitSignal(nameof(RoundWined));
@@ -158,6 +170,7 @@ public class GameManager : Godot.Control
             EndGame(false);
         }
     }
+
     public void StartGame() //La llama UIManager, señal RestartGame
     {
         if (!isResuming)
@@ -239,6 +252,9 @@ public class GameManager : Godot.Control
     
     void EndGame(bool win)
     {
+        myGameGen.ResetBonus();
+        gotBonus = false;
+
         if (!win)
         {
             GD.Print("Perdí, generando " + (currentLevel) + " niveles faltantes");
@@ -277,6 +293,7 @@ public class GameManager : Godot.Control
     void ResumeCrashedGame()
     {
         isResuming = true;
+        gotBonus = myRecover.GetPossibleBonus();
         currentLevel = myRecover.GetLevelReached();
         currencyManager.SetMultiplier((levels - currentLevel) - 1);
         currentLevelInfo = myRecover.GetLastLevelInfo(currentLevel);
