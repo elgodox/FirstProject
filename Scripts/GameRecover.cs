@@ -14,6 +14,36 @@ public class GameRecover
         betDescription = description;
     }
 
+    public bool GetPossibleBonus()
+    {
+        string sum = default;
+        for (int i = 0; i < betDescription.Length; i++)
+        {
+            var currentChar = betDescription[i];
+            if(sum == default)
+            {
+                if(currentChar == ',' || currentChar == ';' || currentChar == 'P')
+                {
+                    sum += currentChar;
+                }
+            }
+            else
+            {
+                if(currentChar == '3')
+                {
+                    GD.Print("Encontré un Bonus!");
+                    return true;
+                }
+                else
+                {
+                    sum = default;
+                }
+            }
+        }
+        
+        GD.Print("No encontré Bonus");
+        return false;
+    }
     public int GetLevelReached()
     {
         int levelReached = 10;

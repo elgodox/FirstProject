@@ -6,11 +6,18 @@ public class GameGenerator
 {
     int hexNodes = 19;
     int badOnes;
+    public bool bonusGenerated;
+    public bool bonusAssigned;
+    int bonusChance = 25;
 
     public string levelDescription;
     
     public int[] GenerateLevelInfo(int level)
     {
+        if(!bonusGenerated)
+        {
+            CheckBonusChance();
+        }
         int[] levelInfo = new int[hexNodes];
 
         if(level <= 1)
@@ -51,16 +58,23 @@ public class GameGenerator
     {
         string descriptionInfo = default;
 
-        for (int i = 0; i < hexNodes; i++)
+        for (int i = 0; i < hexNodes; i++) // for 19 veces
         {
             if(i > 0 && i < hexNodes)
             {
                 descriptionInfo += ",";
             }
-            for (int x = 0; x < levelInfo.Length; x++)
+
+            for (int x = 0; x < levelInfo.Length; x++) // for de cantidad de nodos activos
             {
                 if(i == levelInfo[x])
                 {
+                    if(x == levelInfo.Length - (badOnes + 1) && bonusGenerated && !bonusAssigned)
+                    {
+                        //GD.Print("Bonus en el índice " + i + " en el nivel " + levelInfo.Length);
+                        descriptionInfo += "3";
+                        break;
+                    }
                     if(x >= levelInfo.Length - badOnes)
                     {
                         descriptionInfo += "2";
@@ -82,8 +96,28 @@ public class GameGenerator
         return descriptionInfo;
     }
 
+    public void ResetBonus()
+    {
+        bonusGenerated = false;
+        bonusAssigned = false;
+    }
+    public void CheckBonusChance()
+    {
+        bonusChance = Mathf.Clamp(bonusChance, 0, 100);
+
+        Random rand = new Random();
+        if (rand.Next(1, 101) <= bonusChance)
+        {
+            bonusGenerated = true;
+            GD.Print("Bonus Generado!");
+        }
+    }
     public void SetBadOnes(int badOnesAmount)
     {   
         badOnes = badOnesAmount;
+    }
+    public void SetBonusChance(int chance)
+    {   
+        bonusChance = chance;
     }
 }

@@ -10,6 +10,7 @@ public class HexNode : Node
     [Export] AudioStream isBad;
 
     public bool goodOne = true;
+    public bool bonus = false;
     public bool asigned = false;
     public bool pressed = false;
     AnimatedSprite sprite;

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class HexManager : Node
 {
+	public bool gotABonus;
 	public GameManager myGameManager;
 	[Export] public int activeOnes;
 	[Export] String pathAnimation;
@@ -147,7 +148,7 @@ public class HexManager : Node
 
 	public void ReceiveNodePressed(HexNode node)
 	{
-		myGameManager.CheckHexSelected(node.goodOne, node.Name);
+		myGameManager.CheckHexSelected(node.goodOne, node.Name, node.bonus);
 		foreach (var item in _hexes)
 		{
 			if(item != null)
@@ -165,6 +166,12 @@ public class HexManager : Node
 		{
 			_hexes[actives[i]].pressed = true;
 
+			if(i == actives.Length - (badOnes + 1) && gotABonus)
+			{
+				GD.Print("HexManager recibe que el bonus está en el índice " + actives[i]);
+				_hexes[actives[i]].bonus = true;
+				gotABonus = false;
+			}
 			if(i >= actives.Length - badOnes)
 			{
 				_hexes[actives[i]].goodOne = false;
