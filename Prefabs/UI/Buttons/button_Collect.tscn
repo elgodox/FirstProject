@@ -1,9 +1,6 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=2 format=2]
 
 [ext_resource path="res://Fonts/Dynamic Fonts/font_Courier_38.tres" type="DynamicFont" id=1]
-[ext_resource path="res://Sprites/Botones/cobrar-presionado.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/Botones/cobrar.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/Botones/cobrar-desactivado.png" type="Texture" id=4]
 
 [node name="button_Collect" type="TextureButton"]
 anchor_left = 0.149
@@ -14,9 +11,6 @@ margin_left = -0.400009
 margin_top = -6.10352e-05
 margin_right = -0.200104
 margin_bottom = -6.10352e-05
-texture_normal = ExtResource( 3 )
-texture_pressed = ExtResource( 2 )
-texture_disabled = ExtResource( 4 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -35,3 +29,6 @@ custom_fonts/font = ExtResource( 1 )
 text = "COBRAR"
 align = 1
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

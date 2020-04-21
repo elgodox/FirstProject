@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Fonts/Dynamic Fonts/font_Courier_26.tres" type="DynamicFont" id=1]
-[ext_resource path="res://Sprites/Botones/creditos.png" type="Texture" id=2]
 [ext_resource path="res://Fonts/Courier Prime Code.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://Scripts/CurrencyLabel.cs" type="Script" id=4]
 
@@ -21,7 +20,6 @@ margin_left = 0.399994
 margin_top = 0.599976
 margin_right = -0.199982
 margin_bottom = 0.5
-texture = ExtResource( 2 )
 expand = true
 stretch_mode = 1
 __meta__ = {

@@ -129,6 +129,17 @@ public class HexManager : Node
 		this.QueueFree();
 	}
 
+	public void HideNodes()
+	{
+	foreach (var item in _hexes)
+		{
+			if(item != null)
+			{
+				item.HideMe();
+			}
+		}
+	}
+
 	public void ExitAnimation(){
 		animation.CurrentAnimation = "Exit";
 		animation.Play();

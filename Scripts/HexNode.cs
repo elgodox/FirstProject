@@ -50,5 +50,12 @@ public class HexNode : Node
         sprite.Playing = true;
         sprite.Play();
     }
+
+    public void HideMe()
+    {
+        sprite.Animation = "Exit";
+        sprite.Playing = true;
+        sprite.Play();
+    }
 }
 

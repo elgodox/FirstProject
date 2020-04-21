@@ -117,11 +117,11 @@ public class UIButtonsManager : Control
 		LoadScene(Constants.PATH_UI_GAMEOVR_WIN);
 		LoadScene(Constants.PATH_UI_GAMEOVR_LOSE);
 
-		_playButton = GetNode("button_Play") as TextureButton;
+		_playButton = GetNode("ControlPanel/button_Play") as TextureButton;
 		_helpButton = GetNode("button_Help") as TextureButton;
-		_betButton = GetNode("button_Bet") as TextureButton;
-		_maxBetButton = GetNode("button_MaxBet") as TextureButton;
-		_collectButton = GetNode("button_Collect") as TextureButton;
+		_betButton = GetNode("ControlPanel/button_Bet") as TextureButton;
+		_maxBetButton = GetNode("ControlPanel/button_MaxBet") as TextureButton;
+		_collectButton = GetNode("ControlPanel/button_Collect") as TextureButton;
 		_helpCanvas = GetNode("ui_Help") as TextureRect;
 		_myTimeLabel = GetNode("timer") as Label;
 		_audio = GetNode("AudioStreamPlayer") as AudioStreamPlayer;
