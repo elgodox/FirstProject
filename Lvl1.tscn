@@ -6,7 +6,7 @@
 [ext_resource path="res://Scripts/CurrencyManager.cs" type="Script" id=4]
 [ext_resource path="res://Sprites/ball-of-light-png-7-original.png" type="Texture" id=5]
 [ext_resource path="res://Scripts/AudioManager.cs" type="Script" id=6]
-[ext_resource path="res://Audio/success.ogg" type="AudioStream" id=7]
+[ext_resource path="res://Sounds/Win_mezcla1.ogg" type="AudioStream" id=7]
 [ext_resource path="res://Sprites/light.png" type="Texture" id=8]
 [ext_resource path="res://Sounds/Loose.ogg" type="AudioStream" id=9]
 [ext_resource path="res://Sprites/efecto-holograma.png" type="Texture" id=10]
@@ -67,10 +67,10 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 1, 2 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 1.3, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.580392 ) ]
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.580392 ) ]
 }
 
 [node name="GameManager" type="Control"]
@@ -99,7 +99,6 @@ __meta__ = {
 }
 
 [node name="Background" type="TextureRect" parent="."]
-modulate = Color( 0, 0, 0, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 0.783447
@@ -225,24 +224,25 @@ stream = ExtResource( 13 )
 stream = ExtResource( 17 )
 autoplay = true
 [connection signal="CanCollect" from="." to="UI_Template" method="ActivateCollectButton"]
+[connection signal="GameOver" from="." to="AudioManager" method="GameOverSound"]
+[connection signal="GameOver" from="." to="CurrencyManager" method="AddCurrencyToCredits"]
+[connection signal="GameOver" from="." to="Panner" method="BackToOrigin"]
 [connection signal="GameOver" from="." to="UI_Template" method="ActivateAgain"]
 [connection signal="GameOver" from="." to="UI_Template" method="SetGameOverMessage"]
-[connection signal="GameOver" from="." to="Panner" method="BackToOrigin"]
-[connection signal="GameOver" from="." to="CurrencyManager" method="AddCurrencyToCredits"]
-[connection signal="GameOver" from="." to="AudioManager" method="GameOverSound"]
 [connection signal="GameReady" from="." to="UI_Template" method="ActivatePlayButton"]
-[connection signal="GameStarted" from="." to="UI_Template" method="DeactivateButtons"]
 [connection signal="GameStarted" from="." to="AudioManager" method="PlayLevelMusic"]
-[connection signal="RoundWined" from="." to="Panner" method="Panning"]
+[connection signal="GameStarted" from="." to="UI_Template" method="DeactivateButtons"]
 [connection signal="RoundWined" from="." to="CurrencyManager" method="AddBetToCurrency"]
+[connection signal="RoundWined" from="." to="Panner" method="Panning"]
 [connection signal="SetCurrencyManager" from="." to="CurrencyManager" method="SetCurrency"]
 [connection signal="StartTimer" from="." to="UI_Template" method="StartTimer"]
 [connection signal="CurrencyChanged" from="CurrencyManager" to="UI_Template" method="UpdateCurrencyUI"]
 [connection signal="GameHaveBet" from="CurrencyManager" to="." method="GameHaveBetNow"]
 [connection signal="TimerDone" from="UI_Template" to="." method="EndGame"]
 [connection signal="bet" from="UI_Template" to="CurrencyManager" method="Bet"]
-[connection signal="collect" from="UI_Template" to="." method="MoneyCollected"]
 [connection signal="collect" from="UI_Template" to="CurrencyManager" method="Collect"]
+[connection signal="collect" from="UI_Template" to="." method="MoneyCollected"]
 [connection signal="maxBet" from="UI_Template" to="CurrencyManager" method="MaxBet"]
-[connection signal="restartGame" from="UI_Template" to="." method="StartGame"]
 [connection signal="restartGame" from="UI_Template" to="CurrencyManager" method="ConfirmBet"]
+[connection signal="restartGame" from="UI_Template" to="." method="StartGame"]
+[connection signal="finished" from="AudioManager/NotificationSounds" to="AudioManager" method="_on_NotificationSounds_finished"]

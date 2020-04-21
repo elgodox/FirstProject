@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/End_mezcla.ogg-4b8ed4c5ba3b7b167d05726b8dd98788.oggstr"
+
+[deps]
+
+source_file="res://Sounds/End_mezcla.ogg"
+dest_files=[ "res://.import/End_mezcla.ogg-4b8ed4c5ba3b7b167d05726b8dd98788.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

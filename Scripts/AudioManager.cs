@@ -37,7 +37,7 @@ public class AudioManager : Node
 
     public void GameOverSound(bool win)
     {
-        PlayAudioTrack(idleMusic, _backGroundMusic);
+        _backGroundMusic.Stop();
 
         if(win)
         {
@@ -52,6 +52,11 @@ public class AudioManager : Node
     public void PlayLevelMusic()
     {
         PlayAudioTrack(gamePlayMusic, _backGroundMusic);
+    }
+
+    public void _on_NotificationSounds_finished()
+    {
+        PlayAudioTrack(idleMusic, _backGroundMusic);
     }
 
 
