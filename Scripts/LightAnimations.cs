@@ -14,6 +14,10 @@ public class LightAnimations : TextureRect
     {
         animation.CurrentAnimation = "Idle";
     }
+    public void TurnOn()
+    {
+        animation.CurrentAnimation = "TurnOn";
+    }
     public void IsGood()
     {
         animation.CurrentAnimation = "Good";
@@ -27,9 +31,13 @@ public class LightAnimations : TextureRect
     }
     public void _on_AnimationPlayer_animation_finished(string animationIdle)
     {
-        if (animationIdle != "Idle")
+        if (animationIdle == "Good")
         {
             Idle();
+        }
+        if(animationIdle=="Bad")
+        {
+             animation.CurrentAnimation = "TurnOff";
         }
     }
 }
