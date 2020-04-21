@@ -15,6 +15,7 @@ public class UIButtonsManager : Control
 	[Signal] public delegate void collect();
 	[Signal] public delegate void GameOverPopUp();
 	[Signal] public delegate void TimerDone(bool win);
+	[Signal] public delegate void ControlMasterVolume(float volume);
 
 	AudioStreamPlayer _audio;
 
@@ -174,6 +175,11 @@ public class UIButtonsManager : Control
 	{
 		AddChild(_timer);
         _timer.Connect("timeout", this, "TimerFinished");
+	}
+
+	void _on_VSlider_value_changed(float volume)
+	{
+		EmitSignal(nameof(ControlMasterVolume),volume);
 	}
 
 }
