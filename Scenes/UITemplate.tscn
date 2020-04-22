@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Prefabs/UI/Buttons/button_Collect.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Prefabs/UI/Buttons/button_Bet.tscn" type="PackedScene" id=2]
@@ -18,7 +18,6 @@
 [ext_resource path="res://Fonts/Dynamic Fonts/font_Courier_26.tres" type="DynamicFont" id=16]
 [ext_resource path="res://Fonts/Dynamic Fonts/font_Courier_22.tres" type="DynamicFont" id=17]
 [ext_resource path="res://Fonts/Dynamic Fonts/font_Courier_46_GameOver.tres" type="DynamicFont" id=18]
-[ext_resource path="res://Sprites/Botones/jugar-desactivado.png" type="Texture" id=19]
 [ext_resource path="res://Sprites/Panel.png" type="Texture" id=20]
 
 [sub_resource type="StreamTexture" id=1]
@@ -76,15 +75,14 @@ margin_bottom = 38.0595
 expand = true
 
 [node name="button_Play" parent="ControlPanel" instance=ExtResource( 10 )]
-anchor_left = 0.75
-anchor_top = 0.9
-anchor_right = 0.75
-anchor_bottom = 0.9
-margin_left = -50.0
-margin_top = -123.6
-margin_right = 133.0
-margin_bottom = 16.4
-texture_disabled = ExtResource( 19 )
+anchor_left = 0.779
+anchor_top = 0.689
+anchor_right = 0.779
+anchor_bottom = 0.689
+margin_left = -95.8761
+margin_top = -69.006
+margin_right = 87.1239
+margin_bottom = 70.994
 
 [node name="ui_Creditos2" parent="ControlPanel" instance=ExtResource( 5 )]
 anchor_left = 0.228
@@ -102,20 +100,20 @@ anchor_left = 0.219
 anchor_top = 0.872
 anchor_right = 0.219
 anchor_bottom = 0.872
-margin_left = -65.236
-margin_top = -25.488
-margin_right = 57.764
-margin_bottom = 21.512
+margin_left = -69.236
+margin_top = -26.488
+margin_right = 59.764
+margin_bottom = 23.512
 
 [node name="button_Bet" parent="ControlPanel" instance=ExtResource( 2 )]
-anchor_left = 0.497
-anchor_top = 0.877
-anchor_right = 0.497
-anchor_bottom = 0.877
-margin_left = -83.3868
-margin_top = -9.03912
-margin_right = 84.6132
-margin_bottom = 30.9609
+anchor_left = 0.498
+anchor_top = 0.889
+anchor_right = 0.498
+anchor_bottom = 0.889
+margin_left = -98.1121
+margin_top = -27.806
+margin_right = 96.8879
+margin_bottom = 34.194
 stretch_mode = 0
 
 [node name="button_MaxBet" parent="ControlPanel" instance=ExtResource( 6 )]
@@ -123,9 +121,9 @@ anchor_left = 0.497
 anchor_top = 0.681
 anchor_right = 0.497
 anchor_bottom = 0.681
-margin_left = -83.942
+margin_left = -84.2377
 margin_top = -38.974
-margin_right = 84.058
+margin_right = 83.7623
 margin_bottom = 39.026
 
 [node name="GameOverMessageContainer" type="Node" parent="."]
