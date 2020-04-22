@@ -165,7 +165,7 @@ public class UIButtonsManager : Control
         Connect(nameof(GameOverPopUp), go, nameof(go.ReceiveGameOverPopUp));
         Connect(nameof(restartGame), go, nameof(go.ClearGameOverMessage));
     }
-
+#region Timer
     void StartTimer(float seconds)
     {
         _timer.WaitTime = seconds;
@@ -179,11 +179,12 @@ public class UIButtonsManager : Control
     }
 
     void SetUpTimer()
+    
     {
         AddChild(_timer);
         _timer.Connect("timeout", this, "TimerFinished");
     }
-
+#endregion
     void _on_VolumeButton_pressed()
     {
         volume -= 20;
