@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/cobrar-desactivado.png-d5ffb62fd7044b7028685152ff0ca1b2.stex"
+path="res://.import/btn_abajo.png-e82d2a0bb519ce0df47c49035ced3fce.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Botones/cobrar-desactivado.png"
-dest_files=[ "res://.import/cobrar-desactivado.png-d5ffb62fd7044b7028685152ff0ca1b2.stex" ]
+source_file="res://Sprites/Botones/btn_abajo.png"
+dest_files=[ "res://.import/btn_abajo.png-e82d2a0bb519ce0df47c49035ced3fce.stex" ]
 
 [params]
 

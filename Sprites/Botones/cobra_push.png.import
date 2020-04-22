@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/apuesta-presionado.png-16618420116ceaa24a928d6454e44ad7.stex"
+path="res://.import/cobra_push.png-028fd18a618dca4419a133ada662d0f9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Botones/apuesta-presionado.png"
-dest_files=[ "res://.import/apuesta-presionado.png-16618420116ceaa24a928d6454e44ad7.stex" ]
+source_file="res://Sprites/Botones/cobra_push.png"
+dest_files=[ "res://.import/cobra_push.png-028fd18a618dca4419a133ada662d0f9.stex" ]
 
 [params]
 

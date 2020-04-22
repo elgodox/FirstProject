@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/apuesta.png-876c01294f26762c353c01ed99be6260.stex"
+path="res://.import/btn_arriba.png-a836d5d48a344b4fe3848c888a09ffe3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Botones/apuesta.png"
-dest_files=[ "res://.import/apuesta.png-876c01294f26762c353c01ed99be6260.stex" ]
+source_file="res://Sprites/Botones/btn_arriba.png"
+dest_files=[ "res://.import/btn_arriba.png-a836d5d48a344b4fe3848c888a09ffe3.stex" ]
 
 [params]
 

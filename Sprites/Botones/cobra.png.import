@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/apuesta-desactivado.png-53a3f76a9e904507eccb6f7baf530c45.stex"
+path="res://.import/cobra.png-b3993acd9e47aeb57111b34353672009.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Botones/apuesta-desactivado.png"
-dest_files=[ "res://.import/apuesta-desactivado.png-53a3f76a9e904507eccb6f7baf530c45.stex" ]
+source_file="res://Sprites/Botones/cobra.png"
+dest_files=[ "res://.import/cobra.png-b3993acd9e47aeb57111b34353672009.stex" ]
 
 [params]
 

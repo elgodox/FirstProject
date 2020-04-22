@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/creditos.png-71c9336bff5ce32908eb8557e863bc2d.stex"
+path="res://.import/jugar_push.png-deac778be46ae3544fdd4366cf0762a9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Botones/creditos.png"
-dest_files=[ "res://.import/creditos.png-71c9336bff5ce32908eb8557e863bc2d.stex" ]
+source_file="res://Sprites/Botones/jugar_push.png"
+dest_files=[ "res://.import/jugar_push.png-deac778be46ae3544fdd4366cf0762a9.stex" ]
 
 [params]
 
