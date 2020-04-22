@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Prefabs/UI/Buttons/button_Collect.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Prefabs/UI/Buttons/button_Bet.tscn" type="PackedScene" id=2]
@@ -18,7 +18,11 @@
 [ext_resource path="res://Fonts/Dynamic Fonts/font_Courier_26.tres" type="DynamicFont" id=16]
 [ext_resource path="res://Fonts/Dynamic Fonts/font_Courier_22.tres" type="DynamicFont" id=17]
 [ext_resource path="res://Fonts/Dynamic Fonts/font_Courier_46_GameOver.tres" type="DynamicFont" id=18]
+[ext_resource path="res://Fonts/Roboto-BoldCondensed.ttf" type="DynamicFontData" id=19]
 [ext_resource path="res://Sprites/Panel.png" type="Texture" id=20]
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 19 )
 
 [sub_resource type="StreamTexture" id=1]
 flags = 4
@@ -37,6 +41,7 @@ PlayFX = ExtResource( 15 )
 ButtonFX = ExtResource( 3 )
 
 [node name="ControlPanel" type="TextureRect" parent="."]
+self_modulate = Color( 0.788235, 0.788235, 0.788235, 1 )
 anchor_left = 0.501
 anchor_top = 0.853
 anchor_right = 0.501
@@ -46,6 +51,21 @@ margin_top = -126.711
 margin_right = 722.223
 margin_bottom = 127.289
 texture = ExtResource( 20 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VolumeButton" type="TextureButton" parent="ControlPanel"]
+anchor_left = 0.868
+anchor_top = 0.844
+anchor_right = 0.868
+anchor_bottom = 0.844
+margin_left = -33.126
+margin_top = -25.9189
+margin_right = 33.874
+margin_bottom = 26.0811
+texture_normal = ExtResource( 13 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -68,9 +88,9 @@ anchor_left = 0.624
 anchor_top = 0.732
 anchor_right = 0.624
 anchor_bottom = 0.732
-margin_left = -89.5746
+margin_left = -89.1925
 margin_top = -35.9405
-margin_right = 92.4254
+margin_right = 92.8075
 margin_bottom = 38.0595
 expand = true
 
@@ -79,10 +99,10 @@ anchor_left = 0.779
 anchor_top = 0.689
 anchor_right = 0.779
 anchor_bottom = 0.689
-margin_left = -95.8761
-margin_top = -69.006
-margin_right = 87.1239
-margin_bottom = 70.994
+margin_left = -96.494
+margin_top = -72.006
+margin_right = 89.506
+margin_bottom = 73.994
 
 [node name="ui_Creditos2" parent="ControlPanel" instance=ExtResource( 5 )]
 anchor_left = 0.228
@@ -104,16 +124,17 @@ margin_left = -69.236
 margin_top = -26.488
 margin_right = 59.764
 margin_bottom = 23.512
+stretch_mode = 3
 
 [node name="button_Bet" parent="ControlPanel" instance=ExtResource( 2 )]
 anchor_left = 0.498
 anchor_top = 0.889
 anchor_right = 0.498
 anchor_bottom = 0.889
-margin_left = -98.1121
-margin_top = -27.806
-margin_right = 96.8879
-margin_bottom = 34.194
+margin_left = -83.7299
+margin_top = -17.806
+margin_right = 81.2701
+margin_bottom = 27.194
 stretch_mode = 0
 
 [node name="button_MaxBet" parent="ControlPanel" instance=ExtResource( 6 )]
@@ -122,9 +143,9 @@ anchor_top = 0.681
 anchor_right = 0.497
 anchor_bottom = 0.681
 margin_left = -84.2377
-margin_top = -38.974
+margin_top = -39.974
 margin_right = 83.7623
-margin_bottom = 39.026
+margin_bottom = 38.026
 
 [node name="GameOverMessageContainer" type="Node" parent="."]
 
@@ -145,17 +166,34 @@ margin_right = 1.39999
 margin_bottom = 1.6
 stretch_mode = 0
 
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.938
+anchor_top = 0.11
+anchor_right = 0.938
+anchor_bottom = 0.11
+margin_left = -25.3613
+margin_top = -9.50449
+margin_right = 25.6387
+margin_bottom = 9.49551
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "TIEMPO"
+
 [node name="timer" type="Label" parent="."]
-anchor_left = 0.901
-anchor_top = 0.143
-anchor_right = 0.989
-anchor_bottom = 0.211
-margin_left = 0.399902
-margin_top = -0.700012
-margin_right = -0.400024
-margin_bottom = 0.0999908
+anchor_left = 0.937
+anchor_top = 0.13
+anchor_right = 0.937
+anchor_bottom = 0.13
+margin_left = -27.3461
+margin_top = -16.0418
+margin_right = 28.6539
+margin_bottom = 38.9582
 custom_fonts/font = ExtResource( 18 )
-text = "00,00"
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "00"
+align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }

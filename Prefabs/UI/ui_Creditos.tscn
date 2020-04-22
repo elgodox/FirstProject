@@ -1,15 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Fonts/Dynamic Fonts/font_Courier_26.tres" type="DynamicFont" id=1]
-[ext_resource path="res://Fonts/Courier Prime Code.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Fonts/Dynamic Fonts/btn_Ganado.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Scripts/CurrencyLabel.cs" type="Script" id=4]
-
-[sub_resource type="DynamicFont" id=1]
-size = 22
-outline_size = 1
-outline_color = Color( 0.243137, 0.4, 0.741176, 1 )
-use_filter = true
-font_data = ExtResource( 3 )
 
 [node name="ui_Creditos" type="TextureRect"]
 anchor_left = 0.141
@@ -31,13 +24,14 @@ anchor_left = 0.391
 anchor_top = 0.34
 anchor_right = 0.391
 anchor_bottom = 0.34
-margin_left = -81.487
+margin_left = -81.2582
 margin_top = -11.5
-margin_right = 81.513
+margin_right = 81.7418
 margin_bottom = 11.5
-custom_fonts/font = SubResource( 1 )
-custom_colors/font_color = Color( 0.63261, 0.940249, 0.952637, 1 )
-text = "CREDITO ///"
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "/// CREDITO"
 
 [node name="current_Credits" type="Label" parent="."]
 anchor_left = 0.508
@@ -45,11 +39,12 @@ anchor_top = 0.628
 anchor_right = 0.508
 anchor_bottom = 0.628
 margin_left = -112.556
-margin_top = -20.5
+margin_top = -23.5
 margin_right = 112.444
-margin_bottom = 20.5
+margin_bottom = 22.5
 custom_fonts/font = ExtResource( 1 )
-custom_colors/font_color = Color( 0.63261, 0.940249, 0.952637, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "00.000,00"
 valign = 2
 script = ExtResource( 4 )

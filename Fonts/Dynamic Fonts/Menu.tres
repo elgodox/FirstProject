@@ -3,8 +3,5 @@
 [ext_resource path="res://Fonts/Roboto-BoldCondensed.ttf" type="DynamicFontData" id=1]
 
 [resource]
-size = 46
-outline_size = 1
-outline_color = Color( 0.682353, 0.682353, 0.682353, 1 )
-use_filter = true
+size = 20
 font_data = ExtResource( 1 )

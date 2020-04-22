@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Fonts/Dynamic Fonts/font_Courier_38.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Fonts/Dynamic Fonts/Apuestas.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Sprites/Botones/cobra.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/Botones/cobra_push.png" type="Texture" id=3]
 
@@ -15,6 +15,7 @@ margin_right = -0.200043
 texture_normal = ExtResource( 2 )
 texture_pressed = ExtResource( 3 )
 expand = true
+stretch_mode = 4
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -29,6 +30,8 @@ margin_top = -14.08
 margin_right = 59.622
 margin_bottom = 14.92
 custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "COBRAR"
 align = 1
 valign = 1
