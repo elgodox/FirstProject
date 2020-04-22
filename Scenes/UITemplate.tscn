@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Prefabs/UI/Buttons/button_Collect.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Prefabs/UI/Buttons/button_Bet.tscn" type="PackedScene" id=2]
@@ -20,11 +20,39 @@
 [ext_resource path="res://Fonts/Dynamic Fonts/font_Courier_46_GameOver.tres" type="DynamicFont" id=18]
 [ext_resource path="res://Fonts/Roboto-BoldCondensed.ttf" type="DynamicFontData" id=19]
 [ext_resource path="res://Sprites/Panel.png" type="Texture" id=20]
+[ext_resource path="res://Sprites/Botones/Volume3.png" type="Texture" id=21]
+[ext_resource path="res://Sprites/Botones/Volume2.png" type="Texture" id=22]
+[ext_resource path="res://Sprites/Botones/Mute.png" type="Texture" id=23]
+[ext_resource path="res://Sprites/Botones/Volume1.png" type="Texture" id=24]
+[ext_resource path="res://Sprites/Botones/jugar_push.png" type="Texture" id=25]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 19 )
 
-[sub_resource type="StreamTexture" id=1]
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 23 ) ],
+"loop": false,
+"name": "Mute",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 24 ) ],
+"loop": false,
+"name": "Volume1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 22 ) ],
+"loop": false,
+"name": "Volume2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 21 ) ],
+"loop": false,
+"name": "Volume3",
+"speed": 5.0
+} ]
+
+[sub_resource type="StreamTexture" id=2]
 flags = 4
 
 [node name="UI_Manager" type="Control"]
@@ -34,6 +62,7 @@ margin_top = 3.97174
 margin_bottom = 3.97174
 script = ExtResource( 9 )
 __meta__ = {
+"_edit_horizontal_guides_": [ 803.934 ],
 "_edit_use_anchors_": false,
 "_edit_vertical_guides_": [ 395.143, 718.153, 939.144, 1256.41, 1644.25 ]
 }
@@ -41,154 +70,142 @@ PlayFX = ExtResource( 15 )
 ButtonFX = ExtResource( 3 )
 
 [node name="ControlPanel" type="TextureRect" parent="."]
-self_modulate = Color( 0.788235, 0.788235, 0.788235, 1 )
+self_modulate = Color( 0.368627, 0.360784, 0.517647, 1 )
 anchor_left = 0.501
 anchor_top = 0.853
 anchor_right = 0.501
 anchor_bottom = 0.853
 margin_left = -721.777
-margin_top = -126.711
+margin_top = -96.4068
 margin_right = 722.223
-margin_bottom = 127.289
+margin_bottom = 157.593
 texture = ExtResource( 20 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="VolumeButton" type="TextureButton" parent="ControlPanel"]
-anchor_left = 0.868
-anchor_top = 0.844
-anchor_right = 0.868
-anchor_bottom = 0.844
-margin_left = -33.126
-margin_top = -25.9189
-margin_right = 33.874
-margin_bottom = 26.0811
-texture_normal = ExtResource( 13 )
-expand = true
+stretch_mode = 4
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ui_MaxBet" parent="ControlPanel" instance=ExtResource( 4 )]
-anchor_left = 0.369
-anchor_top = 0.738
-anchor_right = 0.369
-anchor_bottom = 0.738
-margin_left = -89.836
-margin_top = -36.4769
-margin_right = 91.164
-margin_bottom = 40.5231
+anchor_left = 0.368
+anchor_top = 0.621
+anchor_right = 0.368
+anchor_bottom = 0.621
+margin_left = -90.5667
+margin_top = -38.5167
+margin_right = 90.4333
+margin_bottom = 38.4833
 expand = true
 stretch_mode = 1
 
 [node name="ui_Collect" parent="ControlPanel" instance=ExtResource( 7 )]
-anchor_left = 0.624
-anchor_top = 0.732
-anchor_right = 0.624
-anchor_bottom = 0.732
-margin_left = -89.1925
-margin_top = -35.9405
-margin_right = 92.8075
-margin_bottom = 38.0595
+anchor_left = 0.623
+anchor_top = 0.61
+anchor_right = 0.623
+anchor_bottom = 0.61
+margin_left = -91.4197
+margin_top = -36.9734
+margin_right = 90.5803
+margin_bottom = 37.0266
 expand = true
 
 [node name="button_Play" parent="ControlPanel" instance=ExtResource( 10 )]
-anchor_left = 0.779
-anchor_top = 0.689
-anchor_right = 0.779
-anchor_bottom = 0.689
-margin_left = -96.494
-margin_top = -72.006
-margin_right = 89.506
-margin_bottom = 73.994
+anchor_left = 0.774
+anchor_top = 0.5
+anchor_right = 0.774
+anchor_bottom = 0.5
+margin_left = -92.3711
+margin_top = -56.0023
+margin_right = 93.6289
+margin_bottom = 89.9977
 
 [node name="ui_Creditos2" parent="ControlPanel" instance=ExtResource( 5 )]
-anchor_left = 0.228
-anchor_top = 0.585
-anchor_right = 0.228
-anchor_bottom = 0.585
-margin_left = -128.074
-margin_top = -62.391
-margin_right = 128.926
-margin_bottom = 62.609
+anchor_left = 0.218
+anchor_top = 0.448
+anchor_right = 0.218
+anchor_bottom = 0.448
+margin_left = -115.941
+margin_top = -62.3893
+margin_right = 141.059
+margin_bottom = 62.6107
 expand = false
 
 [node name="button_Collect" parent="ControlPanel" instance=ExtResource( 1 )]
-anchor_left = 0.219
-anchor_top = 0.872
-anchor_right = 0.219
-anchor_bottom = 0.872
-margin_left = -69.236
-margin_top = -26.488
-margin_right = 59.764
-margin_bottom = 23.512
-stretch_mode = 3
+anchor_left = 0.214
+anchor_top = 0.74
+anchor_right = 0.214
+anchor_bottom = 0.74
+margin_left = -64.016
+margin_top = -24.96
+margin_right = 63.984
+margin_bottom = 25.04
+stretch_mode = 0
 
 [node name="button_Bet" parent="ControlPanel" instance=ExtResource( 2 )]
-anchor_left = 0.498
-anchor_top = 0.889
-anchor_right = 0.498
-anchor_bottom = 0.889
-margin_left = -83.7299
-margin_top = -17.806
-margin_right = 81.2701
-margin_bottom = 27.194
+anchor_left = 0.495
+anchor_top = 0.787
+anchor_right = 0.495
+anchor_bottom = 0.787
+margin_left = -84.78
+margin_top = -23.898
+margin_right = 84.22
+margin_bottom = 24.102
+expand = true
 stretch_mode = 0
 
 [node name="button_MaxBet" parent="ControlPanel" instance=ExtResource( 6 )]
-anchor_left = 0.497
-anchor_top = 0.681
-anchor_right = 0.497
-anchor_bottom = 0.681
-margin_left = -84.2377
-margin_top = -39.974
-margin_right = 83.7623
-margin_bottom = 38.026
+anchor_left = 0.495
+anchor_top = 0.553
+anchor_right = 0.495
+anchor_bottom = 0.553
+margin_left = -82.78
+margin_top = -36.462
+margin_right = 82.22
+margin_bottom = 36.538
+stretch_mode = 0
 
 [node name="GameOverMessageContainer" type="Node" parent="."]
 
-[node name="button_Help" parent="." instance=ExtResource( 8 )]
-anchor_left = 0.893
-anchor_right = 0.98
-anchor_bottom = 0.098
-margin_left = -0.151123
-margin_top = 1.0
-margin_right = -0.351074
-margin_bottom = -0.200005
+[node name="Tiempo" type="TextureRect" parent="."]
+anchor_left = 0.936
+anchor_top = 0.19
+anchor_right = 0.936
+anchor_bottom = 0.19
+margin_left = -69.9512
+margin_top = -39.5184
+margin_right = 70.0488
+margin_bottom = 39.4816
+texture = ExtResource( 13 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="button_Menu" parent="." instance=ExtResource( 11 )]
-anchor_left = 0.012
-anchor_right = 0.096
-margin_left = -2.2
-margin_right = 1.39999
-margin_bottom = 1.6
-stretch_mode = 0
-
-[node name="Label" type="Label" parent="."]
-anchor_left = 0.938
-anchor_top = 0.11
-anchor_right = 0.938
-anchor_bottom = 0.11
-margin_left = -25.3613
-margin_top = -9.50449
-margin_right = 25.6387
-margin_bottom = 9.49551
-custom_fonts/font = SubResource( 2 )
+[node name="Label" type="Label" parent="Tiempo"]
+anchor_left = 0.523
+anchor_top = 0.231
+anchor_right = 0.523
+anchor_bottom = 0.231
+margin_left = -25.4302
+margin_top = -9.5113
+margin_right = 25.5698
+margin_bottom = 9.4887
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "TIEMPO"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="timer" type="Label" parent="."]
-anchor_left = 0.937
-anchor_top = 0.13
-anchor_right = 0.937
-anchor_bottom = 0.13
-margin_left = -27.3461
-margin_top = -16.0418
-margin_right = 28.6539
-margin_bottom = 38.9582
+[node name="timer" type="Label" parent="Tiempo"]
+anchor_left = 0.5
+anchor_top = 0.604
+anchor_right = 0.516
+anchor_bottom = 0.604
+margin_left = -25.7949
+margin_top = -27.5156
+margin_right = 27.9651
+margin_bottom = 27.4844
 custom_fonts/font = ExtResource( 18 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
@@ -198,13 +215,57 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="button_Help" parent="." instance=ExtResource( 8 )]
+anchor_left = 0.936
+anchor_top = 0.054
+anchor_right = 0.936
+anchor_bottom = 0.054
+margin_left = -68.9512
+margin_top = -38.6
+margin_right = 70.0488
+margin_bottom = 39.4
+rect_pivot_offset = Vector2( 113.572, 56.3382 )
+
+[node name="button_Menu" parent="." instance=ExtResource( 11 )]
+anchor_left = 0.054
+anchor_top = 0.054
+anchor_right = 0.054
+anchor_bottom = 0.054
+margin_left = -69.2318
+margin_top = -39.9112
+margin_right = 68.7682
+margin_bottom = 39.4
+stretch_mode = 0
+
+[node name="VolumeButton" type="TextureButton" parent="."]
+anchor_left = 0.937
+anchor_top = 0.331
+anchor_right = 0.937
+anchor_bottom = 0.331
+margin_left = -70.2001
+margin_top = -39.1085
+margin_right = 68.7999
+margin_bottom = 39.8915
+texture_normal = ExtResource( 13 )
+texture_pressed = ExtResource( 25 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="VolumeButton"]
+position = Vector2( 73.9492, 34.9024 )
+scale = Vector2( 0.111646, 0.111646 )
+frames = SubResource( 3 )
+animation = "Volume2"
+
 [node name="ui_Help" type="TextureRect" parent="."]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -3.97174
 margin_bottom = -3.97174
-texture = SubResource( 1 )
+texture = SubResource( 2 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -277,28 +338,10 @@ valign = 1
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
 volume_db = 1.0
-
-[node name="VSlider" type="VSlider" parent="."]
-anchor_left = 0.935
-anchor_top = 0.318
-anchor_right = 1.0
-anchor_bottom = 0.617
-margin_left = -0.00012207
-margin_top = -0.200012
-margin_right = -45.0
-margin_bottom = -0.300049
-min_value = -80.0
-max_value = 0.0
-value = -30.0
-rounded = true
-tick_count = 5
-__meta__ = {
-"_edit_use_anchors_": false
-}
 [connection signal="button_up" from="ControlPanel/button_Play" to="." method="OnPlayButtonUp"]
 [connection signal="button_up" from="ControlPanel/button_Collect" to="." method="OnCollectButtonUp"]
 [connection signal="button_up" from="ControlPanel/button_Bet" to="." method="OnBetButtonUp"]
 [connection signal="button_up" from="ControlPanel/button_MaxBet" to="." method="OnMaxBetButtonUp"]
 [connection signal="button_up" from="button_Help" to="." method="OnHelpButtonUp"]
+[connection signal="pressed" from="VolumeButton" to="." method="_on_VolumeButton_pressed"]
 [connection signal="button_up" from="ui_Help/button_Back" to="." method="OnBackButtonUp"]
-[connection signal="value_changed" from="VSlider" to="." method="_on_VSlider_value_changed"]
