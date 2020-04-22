@@ -1,9 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Fonts/Dynamic Fonts/font_Courier_22.tres" type="DynamicFont" id=1]
-[ext_resource path="res://Sprites/Botones/apuesta.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/Botones/apuesta-presionado.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/Botones/apuesta-desactivado.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Botones/btn_arriba.png" type="Texture" id=2]
 
 [node name="button_MaxBet" type="TextureButton"]
 anchor_left = 0.449
@@ -15,14 +13,13 @@ margin_top = 0.0762329
 margin_right = -0.200073
 margin_bottom = -0.423706
 texture_normal = ExtResource( 2 )
-texture_pressed = ExtResource( 3 )
-texture_disabled = ExtResource( 4 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="."]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.523
 anchor_right = 0.5
