@@ -113,9 +113,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -800.0
-margin_top = -442.0
+margin_top = -470.593
 margin_right = 800.0
-margin_bottom = 458.001
+margin_bottom = 429.408
 rect_pivot_offset = Vector2( 797.928, 450.438 )
 mouse_filter = 2
 script = ExtResource( 2 )
@@ -136,10 +136,10 @@ margin_bottom = -172.289
 [node name="Hex2" parent="." instance=ExtResource( 1 )]
 anchor_left = 0.500436
 anchor_right = 0.500436
-margin_left = -44.8123
-margin_top = -311.937
-margin_right = 38.1874
-margin_bottom = -228.936
+margin_left = -340.665
+margin_top = -144.004
+margin_right = -257.665
+margin_bottom = -61.0034
 
 [node name="Hex8" parent="." instance=ExtResource( 1 )]
 anchor_left = 0.500436
@@ -234,10 +234,10 @@ margin_right = 38.9169
 margin_bottom = 112.867
 
 [node name="Hex18" parent="." instance=ExtResource( 1 )]
-margin_left = -44.1142
-margin_top = 144.24
-margin_right = 38.8854
-margin_bottom = 227.24
+margin_left = 251.738
+margin_top = -25.5114
+margin_right = 334.738
+margin_bottom = 57.4886
 
 [node name="Hex0" parent="." instance=ExtResource( 1 )]
 anchor_left = 0.500436

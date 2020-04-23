@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Fonts/Dynamic Fonts/font_Courier_22.tres" type="DynamicFont" id=1]
-[ext_resource path="res://Sprites/Botones/jugar-presionado.png" type="Texture" id=2]
+[ext_resource path="res://Fonts/Dynamic Fonts/Menu.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Sprites/Botones/jugar.png" type="Texture" id=3]
 
 [node name="button_Menu" type="TextureButton"]
@@ -10,10 +9,10 @@ anchor_top = 0.01
 anchor_right = 0.19
 anchor_bottom = 0.096
 margin_left = 0.799988
+margin_top = -0.311218
 margin_right = -3.05176e-05
-margin_bottom = -0.400002
+margin_bottom = -0.71122
 texture_normal = ExtResource( 3 )
-texture_pressed = ExtResource( 2 )
 expand = true
 stretch_mode = 4
 __meta__ = {
@@ -25,11 +24,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -28.5411
-margin_top = -9.55609
-margin_right = 27.4589
-margin_bottom = 15.4439
+margin_left = -26.6738
+margin_top = -12.6683
+margin_right = 29.3262
+margin_bottom = 12.3317
 custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "MENU"
 align = 1
 valign = 1

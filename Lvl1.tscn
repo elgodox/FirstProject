@@ -1,6 +1,6 @@
 [gd_scene load_steps=30 format=2]
 
-[ext_resource path="res://Sounds/InGameRobot.ogg" type="AudioStream" id=1]
+[ext_resource path="res://Sounds/InGameRobotShort.ogg" type="AudioStream" id=1]
 [ext_resource path="res://Scenes/UITemplate.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scripts/GameManager.cs" type="Script" id=3]
 [ext_resource path="res://Scripts/CurrencyManager.cs" type="Script" id=4]
@@ -237,6 +237,7 @@ __meta__ = {
 UseDB = true
 levels = 10
 timerInLevel = 10
+badOnes = PoolIntArray( 0, 0, 8, 0, 0, 0, 0, 0, 0, 0 )
 
 [node name="Panner" type="Control" parent="."]
 anchor_right = 1.0
@@ -378,10 +379,10 @@ anchor_left = -0.000797729
 anchor_top = 0.000709059
 anchor_right = 0.999202
 anchor_bottom = 1.00071
-margin_left = 4.84363
-margin_top = 1.64075
-margin_right = 4.84363
-margin_bottom = 1.64075
+margin_left = 6.47452
+margin_top = 2.73503
+margin_right = 6.47449
+margin_bottom = 2.73499
 
 [node name="AudioManager" type="Node" parent="."]
 script = ExtResource( 6 )
@@ -402,19 +403,19 @@ stream = ExtResource( 13 )
 stream = ExtResource( 17 )
 autoplay = true
 [connection signal="CanCollect" from="." to="UI_Template" method="ActivateCollectButton"]
-[connection signal="GameOver" from="." to="Panner" method="BackToOrigin"]
-[connection signal="GameOver" from="." to="Background" method="IsBad"]
-[connection signal="GameOver" from="." to="UI_Template" method="ActivateAgain"]
-[connection signal="GameOver" from="." to="UI_Template" method="SetGameOverMessage"]
 [connection signal="GameOver" from="." to="CurrencyManager" method="AddCurrencyToCredits"]
 [connection signal="GameOver" from="." to="AudioManager" method="GameOverSound"]
+[connection signal="GameOver" from="." to="UI_Template" method="ActivateAgain"]
+[connection signal="GameOver" from="." to="UI_Template" method="SetGameOverMessage"]
+[connection signal="GameOver" from="." to="Panner" method="BackToOrigin"]
+[connection signal="GameOver" from="." to="Background" method="IsBad"]
 [connection signal="GameReady" from="." to="UI_Template" method="ActivatePlayButton"]
-[connection signal="GameStarted" from="." to="Background" method="TurnOn"]
-[connection signal="GameStarted" from="." to="UI_Template" method="DeactivateButtons"]
 [connection signal="GameStarted" from="." to="AudioManager" method="PlayLevelMusic"]
+[connection signal="GameStarted" from="." to="UI_Template" method="DeactivateButtons"]
+[connection signal="GameStarted" from="." to="Background" method="TurnOn"]
+[connection signal="RoundWined" from="." to="CurrencyManager" method="AddBetToCurrency"]
 [connection signal="RoundWined" from="." to="Panner" method="Panning"]
 [connection signal="RoundWined" from="." to="Background" method="IsGood"]
-[connection signal="RoundWined" from="." to="CurrencyManager" method="AddBetToCurrency"]
 [connection signal="SetCurrencyManager" from="." to="CurrencyManager" method="SetCurrency"]
 [connection signal="StartTimer" from="." to="UI_Template" method="StartTimer"]
 [connection signal="animation_finished" from="Background/AnimationPlayer" to="Background" method="_on_AnimationPlayer_animation_finished"]
@@ -423,9 +424,9 @@ autoplay = true
 [connection signal="ControlMasterVolume" from="UI_Template" to="AudioManager" method="_on_UI_ControlMasterVolume"]
 [connection signal="TimerDone" from="UI_Template" to="." method="EndGame"]
 [connection signal="bet" from="UI_Template" to="CurrencyManager" method="Bet"]
-[connection signal="collect" from="UI_Template" to="." method="MoneyCollected"]
 [connection signal="collect" from="UI_Template" to="CurrencyManager" method="Collect"]
+[connection signal="collect" from="UI_Template" to="." method="MoneyCollected"]
 [connection signal="maxBet" from="UI_Template" to="CurrencyManager" method="MaxBet"]
-[connection signal="restartGame" from="UI_Template" to="." method="StartGame"]
 [connection signal="restartGame" from="UI_Template" to="CurrencyManager" method="ConfirmBet"]
+[connection signal="restartGame" from="UI_Template" to="." method="StartGame"]
 [connection signal="finished" from="AudioManager/NotificationSounds" to="AudioManager" method="_on_NotificationSounds_finished"]
