@@ -8,6 +8,8 @@ public class Constants
     public const string PATH_UI_GAMEOVR_WIN = "res://Prefabs/UI/UI_GameOver(WIN).tscn";
     public const string PATH_UI_GAMEOVR_LOSE = "res://Prefabs/UI/UI_GameOver.tscn";
     public const string PATH_BACKGROUND = "res://Prefabs/BackgroundCity.tscn";
+    public const string PATH_BONUS = "res://Prefabs/BonusManager.tscn";
+    public const string PATH_LEVEL_MANAGER = "res://Prefabs/LevelManager.tscn";
         
     #endregion
 

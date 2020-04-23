@@ -8,13 +8,15 @@ public class GameGenerator
     int badOnes;
     public bool bonusGenerated;
     public bool bonusAssigned;
-    int bonusChance = 25;
+    int bonusChance = 100;
+    int bonusLevel = 8;
+    public int bonusSlot;
 
     public string levelDescription;
     
     public int[] GenerateLevelInfo(int level)
     {
-        if(!bonusGenerated)
+        if(!bonusGenerated && level == bonusLevel)
         {
             CheckBonusChance();
         }
@@ -71,7 +73,9 @@ public class GameGenerator
                 {
                     if(x == levelInfo.Length - (badOnes + 1) && bonusGenerated && !bonusAssigned)
                     {
-                        //GD.Print("Bonus en el índice " + i + " en el nivel " + levelInfo.Length);
+                        bonusAssigned = true;
+                        GD.Print("Bonus en el índice " + i + " en el nivel " + levelInfo.Length + " con " + bonusChance + " de probabilidad");
+                        bonusSlot = i;
                         descriptionInfo += "3";
                         break;
                     }

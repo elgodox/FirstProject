@@ -57,6 +57,7 @@
   <ItemGroup>
     <Compile Include="Scripts\AnimationControl.cs" />
     <Compile Include="Scripts\AudioManager.cs" />
+    <Compile Include="Scripts\BonusManager.cs" />
     <Compile Include="Scripts\Constants.cs" />
     <Compile Include="Scripts\CurrencyLabel.cs" />
     <Compile Include="Scripts\CurrencyManager.cs" />
@@ -65,7 +66,7 @@
     <Compile Include="Scripts\GameOverMessage.cs" />
     <Compile Include="Scripts\GameRecover.cs" />
     <Compile Include="Scripts\HexAnim.cs" />
-    <Compile Include="Scripts\HexManager.cs" />
+    <Compile Include="Scripts\LevelManager.cs" />
     <Compile Include="Scripts\HexNode.cs" />
     <Compile Include="Scripts\LightAnimations.cs" />
     <Compile Include="Scripts\OMenuCommunication.cs" />
