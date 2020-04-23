@@ -48,8 +48,6 @@ public class GameManager : Godot.Control
     private void OnStartCompletation()
     {
         oMenu.IsPlaying(delegate { GetBetDescription(delegate (string value) { CheckBetDescription(value); }, null); }, null);
-
-
         // Puede llegar a explotar
         oMenu.GetMoney(delegate (double money) { EmitSignal(nameof(SetCurrencyManager), money, oMenu.MinBet(), oMenu.MaxBet()); }, null);
     }

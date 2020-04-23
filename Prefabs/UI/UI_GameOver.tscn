@@ -16,7 +16,7 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
+"transitions": PoolRealArray( 1, 1.03527 ),
 "update": 0,
 "values": [ Vector2( 0, 0 ), Vector2( 1, 1 ) ]
 }
@@ -39,24 +39,34 @@ tracks/0/keys = {
 
 [node name="UI_GameOver" type="Control"]
 light_mask = 16
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -512.0
+margin_top = -384.0
+margin_right = 512.0
+margin_bottom = 384.0
 rect_scale = Vector2( 1e-05, 1e-05 )
-rect_pivot_offset = Vector2( 800, 450 )
+rect_pivot_offset = Vector2( 512.411, 384.613 )
 mouse_filter = 2
 script = ExtResource( 3 )
 __meta__ = {
-"_edit_horizontal_guides_": [ 448.474 ],
+"_edit_horizontal_guides_": [ 384.287 ],
 "_edit_use_anchors_": false,
-"_edit_vertical_guides_": [ 800.039 ]
+"_edit_vertical_guides_": [ 513.058 ]
 }
 
 [node name="ui_GameOver" type="TextureRect" parent="."]
 light_mask = 16
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = 155.0
-margin_bottom = -185.0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -306.839
+margin_top = -267.322
+margin_right = 319.161
+margin_bottom = 158.678
 texture = ExtResource( 1 )
 stretch_mode = 4
 __meta__ = {

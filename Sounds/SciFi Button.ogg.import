@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/SciFi Button.ogg-e0e7825860f774d570d0ebd9cb7f0293.oggstr"
+
+[deps]
+
+source_file="res://Sounds/SciFi Button.ogg"
+dest_files=[ "res://.import/SciFi Button.ogg-e0e7825860f774d570d0ebd9cb7f0293.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
