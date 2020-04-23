@@ -9,6 +9,7 @@ public class GameRecover
     Dictionary<int, string> myPlays = new Dictionary<int, string>();
     string betDescription;
     int minLevel = 2;
+    public int bonuSlot;
     public GameRecover(String description)
     {
         betDescription = description;
@@ -20,6 +21,8 @@ public class GameRecover
         for (int i = 0; i < betDescription.Length; i++)
         {
             var currentChar = betDescription[i];
+            if(currentChar == ';' || currentChar == '|') { bonuSlot = 0; }
+            if(currentChar == '0'|| currentChar == '1'||currentChar == '2' || currentChar == '3') { bonuSlot++; }
             if(sum == default)
             {
                 if(currentChar == ',' || currentChar == ';' || currentChar == 'P')
@@ -31,7 +34,7 @@ public class GameRecover
             {
                 if(currentChar == '3')
                 {
-                    GD.Print("Encontré un Bonus!");
+                    GD.Print("Encontré un Bonus Generado! en el slot " + (bonuSlot -= 1));
                     return true;
                 }
                 else
@@ -41,9 +44,26 @@ public class GameRecover
             }
         }
         
-        GD.Print("No encontré Bonus");
+        GD.Print("No encontré Bonus Generado");
+        bonuSlot = 0;
         return false;
     }
+
+    public bool GetIfBonusGained()
+    {
+        int levelOfBonus = 8;
+        if(!myPlays.ContainsKey(levelOfBonus)) return false;
+
+        if(myPlays[levelOfBonus] == bonuSlot.ToString())
+        {
+            GD.Print("El jugador había conseguido el Bonus!");
+            return true;
+        }
+
+        GD.Print("El jugador NO había conseguido el Bonus");
+        return false;
+    }
+
     public int GetLevelReached()
     {
         int levelReached = 10;
@@ -58,7 +78,6 @@ public class GameRecover
             }
         }
 
-        //GD.Print("Se llegó hasta el nivel " + levelReached);
         return levelReached;
     }
 
@@ -123,7 +142,7 @@ public class GameRecover
         for (int i = 0; i < myLevels[currentLevel].Length; i++)
         {
             var currentChar = myLevels[currentLevel][i];
-            if(currentChar == '1')
+            if(currentChar == '1' || currentChar == '3')
             {
                 levelInfo[counter] = i;
                 counter++;
