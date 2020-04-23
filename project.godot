@@ -17,11 +17,14 @@ _global_script_class_icons={
 
 config/name="First Project"
 run/main_scene="res://Lvl1.tscn"
+boot_splash/fullsize=false
+boot_splash/use_filter=false
 
 [display]
 
 window/size/width=1600
 window/size/height=900
+window/size/fullscreen=true
 
 [input]
 

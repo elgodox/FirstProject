@@ -5,7 +5,8 @@ using System.Collections.Generic;
 public class UIButtonsManager : Control
 {
     TextureButton _playButton, _helpButton, _betButton, _maxBetButton, _collectButton;
-    TextureRect _helpCanvas;
+    TextureRect _helpCanvas, _controlPanel, _timeButton;
+    TextureButton _volumeButton;
     Dictionary<string, CurrencyLabel> _myCurrencyLabels = new Dictionary<string, CurrencyLabel>();
     [Export] AudioStream PlayFX;
     [Export] AudioStream ButtonFX;
@@ -34,6 +35,9 @@ public class UIButtonsManager : Control
         InitChilds();
         ActivatePlayButton(false);
 		volumeButton = GetNode("VolumeButton/AnimatedSprite") as AnimatedSprite;
+        _controlPanel = GetNode("ControlPanel") as TextureRect;
+        _timeButton = GetNode("Tiempo") as TextureRect;
+        _volumeButton = GetNode("VolumeButton") as TextureButton;
 		_myTimeLabel.Text = "--";
     }
 
@@ -60,11 +64,17 @@ public class UIButtonsManager : Control
     {
         PlayAudio();
         _helpCanvas.Show();
+        _controlPanel.Hide();
+        _timeButton.Hide();
+        _volumeButton.Hide();
     }
     void OnBackButtonUp()
     {
         PlayAudio();
         _helpCanvas.Hide();
+        _controlPanel.Show();
+        _timeButton.Show();
+        _volumeButton.Show();
     }
     void OnBetButtonUp()
     {
