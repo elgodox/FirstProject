@@ -2,15 +2,16 @@ using Godot;
 using System;
 using System.Collections.Generic;
 
-public class HexManager : Node
+public class LevelManager : Node
 {
+	int bonusIndex;
 	public bool gotABonus;
 	public GameManager myGameManager;
 	[Export] public int activeOnes;
 	[Export] String pathAnimation;
 
-	HexNode[] _hexes = new HexNode[19];
-	AnimationPlayer animation;
+	protected HexNode[] _nodes = new HexNode[19];
+	protected AnimationPlayer animation;
 	public override void _Ready()
 	{
 		CheckChildsHexNodes();
@@ -37,10 +38,10 @@ public class HexManager : Node
 		for (int i = 0; i < _hexesList.Count; i++)
 		{
 			int arrayIndex = RecursiveCheckNodesNames(_hexesList[i].Name, _hexesList.Count - 1);
-			_hexes[arrayIndex] = _hexesList[i];
+			_nodes[arrayIndex] = _hexesList[i];
 		}
 
-		foreach (HexNode item in _hexes)
+		foreach (HexNode item in _nodes)
 		{
 			if(item != null)
 			{
@@ -49,11 +50,11 @@ public class HexManager : Node
 		}
 	}
 
-	int RecursiveCheckNodesNames(string HexName, int counter)
+	protected int RecursiveCheckNodesNames(string HexName, int counter)
 	{
 		if(counter < 0)
 		{
-			return _hexes.Length - 1;
+			return _nodes.Length - 1;
 		}
 		if("Hex"+ counter == HexName)
 		{
@@ -122,9 +123,9 @@ public class HexManager : Node
 
 	public void DestroyHexManager() //La llama la animación de Exit
 	{
-		if(myGameManager.currentHexMngr == this)
+		if(myGameManager.currentLevelMngr == this)
 		{
-			myGameManager.currentHexMngr = null;
+			myGameManager.currentLevelMngr = null;
 		}
 		
 		this.QueueFree();
@@ -132,7 +133,7 @@ public class HexManager : Node
 
 	public void HideNodes()
 	{
-	foreach (var item in _hexes)
+	foreach (var item in _nodes)
 		{
 			if(item != null)
 			{
@@ -146,10 +147,10 @@ public class HexManager : Node
 		animation.Play();
 	}
 
-	public void ReceiveNodePressed(HexNode node)
+	public virtual void ReceiveNodePressed(HexNode node)
 	{
 		myGameManager.CheckHexSelected(node.goodOne, node.Name, node.bonus);
-		foreach (var item in _hexes)
+		foreach (var item in _nodes)
 		{
 			if(item != null)
 			{
@@ -164,48 +165,52 @@ public class HexManager : Node
 	{
 		for (int i = 0; i < actives.Length; i++) // asigna los nodos activos, los últinmos son considerados malos
 		{
-			_hexes[actives[i]].pressed = true;
+			_nodes[actives[i]].pressed = true;
 
-			if(i == actives.Length - (badOnes + 1) && gotABonus)
+			if(actives[i] == bonusIndex && gotABonus)
 			{
 				GD.Print("HexManager recibe que el bonus está en el índice " + actives[i]);
-				_hexes[actives[i]].bonus = true;
+				_nodes[actives[i]].bonus = true;
 				gotABonus = false;
 			}
 			if(i >= actives.Length - badOnes)
 			{
-				_hexes[actives[i]].goodOne = false;
+				_nodes[actives[i]].goodOne = false;
 			}
 			else
 			{
-				_hexes[actives[i]].goodOne = true;
+				_nodes[actives[i]].goodOne = true;
 			}
 
-			_hexes[actives[i]].asigned = true;
+			_nodes[actives[i]].asigned = true;
 			//GD.Print(_hexes[actives[i]].Name + " asigned: " + _hexes[actives[i]].asigned);
 		}
 
-		for (int i = 0; i < _hexes.Length; i++) // borra los que no estan asignados (activos)
+		for (int i = 0; i < _nodes.Length; i++) // borra los que no estan asignados (activos)
 		{
-			if(!_hexes[i].asigned)
+			if(!_nodes[i].asigned)
 			{
-				_hexes[i].QueueFree();
-				_hexes[i] = null;
-				_hexes[i] = default;
+				_nodes[i].QueueFree();
+				_nodes[i] = null;
+				_nodes[i] = default;
 			}
 		}
-		
 	}
 
 	public void ShowActivesOnes()
 	{
-		for (int i = 0; i < _hexes.Length; i++) //muestra los asignados activos
+		for (int i = 0; i < _nodes.Length; i++) //muestra los asignados activos
 		{
-			if(_hexes[i] != null)
+			if(_nodes[i] != null)
 			{
-				_hexes[i].pressed = false;
-				_hexes[i].ShowMe();
+				_nodes[i].pressed = false;
+				_nodes[i].ShowMe();
 			}
 		}
+	}
+
+	public void SetBonusPosition(int index)
+	{
+		bonusIndex = index;
 	}
 }
