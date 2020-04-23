@@ -14,7 +14,7 @@ public class GameManager : Godot.Control
     [Signal] public delegate void StartTimer(float secs);
 
 
-    public HexManager currentHexMngr;
+    public LevelManager currentLevelMngr;
     int currentLevel;
     string bet_description;
     [Export] bool UseDB = false;
@@ -108,8 +108,15 @@ public class GameManager : Godot.Control
         oMenu.UpdateSaveData(newSaveData, null, null);
     }
 
+    void CreateBonusLevel(string path)
+    {
+        var newLevelManager = ResourceLoader.Load(path) as PackedScene;
+        currentLevelMngr = newLevelManager.Instance() as LevelManager;
+        AddChild(currentLevelMngr);
+        currentLevelMngr.myGameManager = this;
+    }
 
-    void CreateLevel(String path)
+    void CreateLevel(string path)
     {
         currencyManager.SetMultiplier(levels - currentLevel);
 
@@ -122,37 +129,34 @@ public class GameManager : Godot.Control
             isResuming = false;
         }
         var newLevelManager = ResourceLoader.Load(path) as PackedScene;
-        currentHexMngr = newLevelManager.Instance() as HexManager;
-        AddChild(currentHexMngr);
-        currentHexMngr.myGameManager = this;
-        if(myGameGen.bonusGenerated && !myGameGen.bonusAssigned)
+        currentLevelMngr = newLevelManager.Instance() as LevelManager;
+        AddChild(currentLevelMngr);
+        currentLevelMngr.myGameManager = this;
+        if(myGameGen.bonusGenerated && currentLevel == 8)
         {
-            myGameGen.bonusAssigned = true;
-            currentHexMngr.gotABonus = true;
+            currentLevelMngr.SetBonusPosition(myGameGen.bonusSlot);
+            currentLevelMngr.gotABonus = true;
         }
-        currentHexMngr.SetActivesPositions(currentLevelInfo, badOnes[levels - currentLevel]);
+        currentLevelMngr.SetActivesPositions(currentLevelInfo, badOnes[levels - currentLevel]);
         currentLevel--;
-    }
-
-    String SceneGenerator(int currentLevel)
-    {
-        return "res://Prefabs/HexManager.tscn";
     }
 
     public void CheckHexSelected(bool win, String nodeName, bool bonus)
     {
         UpdateSaveData(nodeName);
-        if(bonus)
-        {
-            gotBonus = true;
-            GD.Print("El nodo " + nodeName + " tenía Bonus!");
-        }
+        
         if (win)
         {
             EmitSignal(nameof(RoundWined));
+            if(bonus)
+            {
+                gotBonus = true;
+                GD.Print("El nodo " + nodeName + " tenía Bonus!");
+            }
             if (currentLevel <= 0)
             {
-                EndGame(true);
+                if(gotBonus) { DisplayBonus(); }
+                else { EndGame(true); }
             }
             else
             {
@@ -171,6 +175,11 @@ public class GameManager : Godot.Control
         }
     }
 
+    private void DisplayBonus()
+    {
+        CreateBonusLevel(Constants.PATH_BONUS);
+    }
+
     public void StartGame() //La llama UIManager, señal RestartGame
     {
         if (!isResuming)
@@ -179,13 +188,14 @@ public class GameManager : Godot.Control
         }
         isPlaying = true;
         EmitSignal(nameof(GameStarted));
-        if (currentHexMngr != null)
+        if (currentLevelMngr != null)
         {
-            currentHexMngr.QueueFree();
+            currentLevelMngr.QueueFree();
         }
         if (!isResuming)
         {
-            CreateLevel(SceneGenerator(currentLevel = 10));
+            currentLevel = 10;
+            CreateLevel(Constants.PATH_LEVEL_MANAGER);
         }
     }
     void CreateTimer(float secs, string method)
@@ -222,7 +232,7 @@ public class GameManager : Godot.Control
 
     void CreateCurrentLevel() //Se llama dentro de la función CheckHexsSelected, la recibe CreateTimer
     {
-        CreateLevel(SceneGenerator(currentLevel));
+        CreateLevel(Constants.PATH_LEVEL_MANAGER);
     }
     void GameHaveBetNow(bool haveBet) //La llama CurrencyManager, señal GameHaveBet
     {
@@ -244,13 +254,13 @@ public class GameManager : Godot.Control
         {
             EmitSignal(nameof(GameOver), true);
             EndGame(true);
-            currentHexMngr.DestroyHexManager();
+            currentLevelMngr.DestroyHexManager();
         }
     }
 
 
     
-    void EndGame(bool win)
+    public void EndGame(bool win)
     {
         myGameGen.ResetBonus();
         gotBonus = false;
@@ -260,7 +270,7 @@ public class GameManager : Godot.Control
             GD.Print("Perdí, generando " + (currentLevel) + " niveles faltantes");
             FillBetDescription(currentLevel);
         }
-        currentHexMngr.ExitAnimation();
+        currentLevelMngr.ExitAnimation();
         isPlaying = false;
         EmitSignal(nameof(GameOver), win);
         bet_description = "";
@@ -293,12 +303,31 @@ public class GameManager : Godot.Control
     void ResumeCrashedGame()
     {
         isResuming = true;
-        gotBonus = myRecover.GetPossibleBonus();
         currentLevel = myRecover.GetLevelReached();
-        currencyManager.SetMultiplier((levels - currentLevel) - 1);
-        currentLevelInfo = myRecover.GetLastLevelInfo(currentLevel);
-        EmitSignal(nameof(RoundWined));
-        StartGame();
-        CreateCurrentLevel();
+
+        myGameGen.bonusGenerated = myRecover.GetPossibleBonus();
+        if(myGameGen.bonusGenerated)
+        {
+            myGameGen.bonusSlot = myRecover.bonuSlot;
+            gotBonus = myRecover.GetIfBonusGained();
+            myGameGen.bonusAssigned = true;
+        }
+
+        if(currentLevel > 0)
+        {
+            currencyManager.SetMultiplier((levels - currentLevel) - 1);
+            currentLevelInfo = myRecover.GetLastLevelInfo(currentLevel);
+            EmitSignal(nameof(RoundWined));
+            StartGame();
+            CreateCurrentLevel();
+        }
+        else if(gotBonus)
+        {
+            GD.Print("Resuming Bonus");
+            StartGame();
+            DisplayBonus();
+            gotBonus = false;
+        }
+        
     }
 }
