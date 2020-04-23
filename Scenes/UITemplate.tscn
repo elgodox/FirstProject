@@ -84,7 +84,7 @@
 [ext_resource path="res://Sprites/Panel/hud_00045.png" type="Texture" id=82]
 [ext_resource path="res://Sprites/Panel/hud_00044.png" type="Texture" id=83]
 
-[sub_resource type="SpriteFrames" id=5]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 37 ), ExtResource( 36 ), ExtResource( 38 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 50 ), ExtResource( 54 ), ExtResource( 41 ), ExtResource( 55 ), ExtResource( 56 ), ExtResource( 68 ), ExtResource( 53 ), ExtResource( 67 ), ExtResource( 49 ), ExtResource( 51 ), ExtResource( 61 ), ExtResource( 59 ), ExtResource( 39 ), ExtResource( 43 ), ExtResource( 70 ), ExtResource( 40 ), ExtResource( 69 ), ExtResource( 57 ), ExtResource( 45 ), ExtResource( 52 ), ExtResource( 64 ), ExtResource( 42 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 58 ), ExtResource( 65 ), ExtResource( 60 ), ExtResource( 44 ), ExtResource( 46 ), ExtResource( 62 ), ExtResource( 63 ), ExtResource( 66 ), ExtResource( 80 ), ExtResource( 75 ), ExtResource( 78 ), ExtResource( 76 ), ExtResource( 79 ), ExtResource( 81 ), ExtResource( 77 ), ExtResource( 83 ), ExtResource( 82 ), ExtResource( 71 ), ExtResource( 72 ), ExtResource( 74 ), ExtResource( 73 ), ExtResource( 26 ), ExtResource( 29 ), ExtResource( 31 ), ExtResource( 30 ), ExtResource( 28 ), ExtResource( 25 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 20 ), ExtResource( 27 ) ],
 "loop": true,
@@ -92,19 +92,14 @@ animations = [ {
 "speed": 20.0
 } ]
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=2]
 font_data = ExtResource( 19 )
 
-[sub_resource type="SpriteFrames" id=7]
+[sub_resource type="SpriteFrames" id=3]
 animations = [ {
 "frames": [ ExtResource( 23 ) ],
 "loop": false,
 "name": "Mute",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 22 ) ],
-"loop": false,
-"name": "Volume2",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 21 ) ],
@@ -115,6 +110,11 @@ animations = [ {
 "frames": [ ExtResource( 24 ) ],
 "loop": false,
 "name": "Volume1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 22 ) ],
+"loop": false,
+"name": "Volume2",
 "speed": 5.0
 } ]
 
@@ -150,9 +150,9 @@ __meta__ = {
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="ControlPanel"]
 position = Vector2( 718.484, 105.917 )
-frames = SubResource( 5 )
+frames = SubResource( 1 )
 animation = "Idle"
-frame = 4
+frame = 40
 playing = true
 
 [node name="ui_MaxBet" parent="ControlPanel" instance=ExtResource( 4 )]
@@ -258,7 +258,7 @@ margin_left = -25.4302
 margin_top = -9.5113
 margin_right = 25.5698
 margin_bottom = 9.4887
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "TIEMPO"
@@ -325,7 +325,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="VolumeButton"]
 position = Vector2( 73.9492, 34.9024 )
 scale = Vector2( 0.111646, 0.111646 )
-frames = SubResource( 7 )
+frames = SubResource( 3 )
 animation = "Volume2"
 
 [node name="GameOverMessageContainer" type="Node" parent="."]
