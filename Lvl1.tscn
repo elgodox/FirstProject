@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Sounds/InGameRobotShort.ogg" type="AudioStream" id=1]
 [ext_resource path="res://Scenes/UITemplate.tscn" type="PackedScene" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://Sprites/ball-of-light-png-7-original.png" type="Texture" id=5]
 [ext_resource path="res://Scripts/AudioManager.cs" type="Script" id=6]
 [ext_resource path="res://Sounds/Win_mezcla1.ogg" type="AudioStream" id=7]
-[ext_resource path="res://Sprites/BackGround/lucesBlancas.png" type="Texture" id=8]
 [ext_resource path="res://Sounds/Loose.ogg" type="AudioStream" id=9]
 [ext_resource path="res://Sprites/efecto-holograma.png" type="Texture" id=10]
 [ext_resource path="res://Sprites/BackGround/fondo.png" type="Texture" id=11]
@@ -251,18 +250,16 @@ time = 3.0
 jumpDistance = 1000.0
 
 [node name="Background" type="TextureRect" parent="."]
-anchor_left = 0.5
-anchor_top = 0.498
-anchor_right = 0.5
-anchor_bottom = 0.498
-margin_left = -799.217
-margin_top = -449.767
-margin_right = 800.783
-margin_bottom = 450.233
+anchor_right = 1.002
+anchor_bottom = 0.999
+margin_left = 1.0
+margin_top = -2.0
+margin_right = -0.200195
+margin_bottom = 0.899963
 rect_pivot_offset = Vector2( -563.085, -98.034 )
 texture = ExtResource( 11 )
 expand = true
-stretch_mode = 1
+stretch_mode = 7
 script = ExtResource( 18 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -295,6 +292,7 @@ margin_right = -0.204346
 margin_bottom = -0.315002
 texture = ExtResource( 14 )
 expand = true
+stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -340,27 +338,6 @@ randomness = 1.0
 process_material = SubResource( 5 )
 texture = ExtResource( 5 )
 
-[node name="TextureRect" type="TextureRect" parent="Background"]
-anchor_left = 0.5
-anchor_top = 0.423
-anchor_right = 0.5
-anchor_bottom = 0.423
-margin_left = -809.0
-margin_top = -379.7
-margin_right = 792.0
-margin_bottom = 380.3
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Light2D" type="Light2D" parent="Background/TextureRect"]
-visible = false
-position = Vector2( 805.741, 380.06 )
-scale = Vector2( 1.1262, 1.11676 )
-texture = ExtResource( 8 )
-energy = 2.0
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Background"]
 autoplay = "Init"
 method_call_mode = 1
@@ -397,8 +374,8 @@ stream = ExtResource( 13 )
 stream = ExtResource( 17 )
 autoplay = true
 [connection signal="CanCollect" from="." to="UI_Template" method="ActivateCollectButton"]
-[connection signal="GameOver" from="." to="Panner" method="BackToOrigin"]
 [connection signal="GameOver" from="." to="Background" method="IsBad"]
+[connection signal="GameOver" from="." to="Panner" method="BackToOrigin"]
 [connection signal="GameOver" from="." to="UI_Template" method="ActivateAgain"]
 [connection signal="GameOver" from="." to="UI_Template" method="SetGameOverMessage"]
 [connection signal="GameOver" from="." to="CurrencyManager" method="AddCurrencyToCredits"]
@@ -407,8 +384,8 @@ autoplay = true
 [connection signal="GameStarted" from="." to="Background" method="TurnOn"]
 [connection signal="GameStarted" from="." to="UI_Template" method="DeactivateButtons"]
 [connection signal="GameStarted" from="." to="AudioManager" method="PlayLevelMusic"]
-[connection signal="RoundWined" from="." to="Panner" method="Panning"]
 [connection signal="RoundWined" from="." to="Background" method="IsGood"]
+[connection signal="RoundWined" from="." to="Panner" method="Panning"]
 [connection signal="RoundWined" from="." to="CurrencyManager" method="AddBetToCurrency"]
 [connection signal="SetCurrencyManager" from="." to="CurrencyManager" method="SetCurrency"]
 [connection signal="StartTimer" from="." to="UI_Template" method="StartTimer"]
@@ -418,8 +395,7 @@ autoplay = true
 [connection signal="ControlMasterVolume" from="UI_Template" to="AudioManager" method="_on_UI_ControlMasterVolume"]
 [connection signal="TimerDone" from="UI_Template" to="." method="EndGame"]
 [connection signal="bet" from="UI_Template" to="CurrencyManager" method="Bet"]
-[connection signal="collect" from="UI_Template" to="." method="MoneyCollected"]
-[connection signal="collect" from="UI_Template" to="CurrencyManager" method="Collect"]
+[connection signal="end_collect" from="UI_Template" to="." method="MoneyCollected"]
 [connection signal="maxBet" from="UI_Template" to="CurrencyManager" method="MaxBet"]
 [connection signal="restartGame" from="UI_Template" to="." method="StartGame"]
 [connection signal="restartGame" from="UI_Template" to="CurrencyManager" method="ConfirmBet"]
