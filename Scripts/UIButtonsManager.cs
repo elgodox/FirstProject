@@ -166,6 +166,11 @@ public class UIButtonsManager : Control
         EmitSignal(nameof(GameOverPopUp), win);
     }
 
+    void BonusStarted()
+    {
+        GD.Print("UI recibe que el bonus inició");
+    }
+
     void LoadScene(string pathScene)
     {
         var scene = ResourceLoader.Load(pathScene) as PackedScene;
@@ -174,6 +179,7 @@ public class UIButtonsManager : Control
         AddChildBelowNode(GetNode("GameOverMessageContainer") as Node, go);
         Connect(nameof(GameOverPopUp), go, nameof(go.ReceiveGameOverPopUp));
         Connect(nameof(restartGame), go, nameof(go.ClearGameOverMessage));
+        go.ClearMe += BonusStarted;
     }
 #region Timer
     void StartTimer(float seconds)
