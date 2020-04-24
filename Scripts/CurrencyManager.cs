@@ -7,7 +7,6 @@ public class CurrencyManager : Node
 	[Signal] public delegate void CurrencyChanged(params object[] parameters);
 	[Signal] public delegate void GameHaveBet(bool haveBet);
     double[] multipliers = new double[10];
-
     public double credit, maxBetAmount, minBetAmount;
     public double currentBet, currencyToCollect;
 
@@ -62,15 +61,18 @@ public class CurrencyManager : Node
             EmitSignal(nameof(CurrencyChanged), Constants.CURRENT_BET, currentBet);
         }
     }
-    void Collect() // La llama UIManager, señal collect
+    /*void Collect() // La llama UIManager, señal collect
+    {
+        AddCurrencyToCredits(true);
+    }*/
+
+   /* void CollectOmenu() // La llama UIManager, señal collect
     {
         credit = 0;
         currentBet = 0;
-        EmitSignal(nameof(CurrencyChanged), Constants.CREDITS, credit);
-        EmitSignal(nameof(CurrencyChanged), Constants.CURRENT_BET, currentBet);
         
         CheckBet();
-    }
+    }*/
     void ConfirmBet() // La llama UIManager, señal restartGame
     {
         credit -= currentBet;
@@ -89,12 +91,15 @@ public class CurrencyManager : Node
     {
         if(win)
         {
+            GD.Print(currencyToCollect);
             UpdateWinnedCurrency();
             credit += currencyToCollect;
         }
 
         currencyToCollect = 0;
-
+        currentBet = 0;
+        
+        EmitSignal(nameof(CurrencyChanged), Constants.CURRENT_BET, currentBet);
         EmitSignal(nameof(CurrencyChanged), Constants.CURRENCY_TO_COLLECT, currencyToCollect);
         EmitSignal(nameof(CurrencyChanged), Constants.CREDITS, credit);
 

@@ -250,14 +250,10 @@ public class GameManager : Godot.Control
     {
         if (isPlaying)
         {
-            EmitSignal(nameof(GameOver), true);
             EndGame(true);
-            currentLevelMngr.DestroyHexManager();
         }
     }
 
-
-    
     public void EndGame(bool win)
     {
         myGameGen.ResetBonus();
@@ -278,8 +274,6 @@ public class GameManager : Godot.Control
             oMenu.UpdateSaveData(saveData, null, null);
         }
     }
-
-
 
     private void FillBetDescription(int restOfLevels)
     {
