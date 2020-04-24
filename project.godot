@@ -22,7 +22,11 @@ boot_splash/use_filter=false
 
 [display]
 
-window/size/height=768
+window/size/width=1600
+window/size/height=900
+window/size/test_width=1600
+window/size/test_height=900
+window/vsync/use_vsync=false
 
 [input]
 
@@ -35,3 +39,5 @@ ui_A={
 [rendering]
 
 environment/default_clear_color=Color( 0.129412, 0.129412, 0.129412, 1 )
+quality/depth/hdr=false
+quality/dynamic_fonts/use_oversampling=false

@@ -4,9 +4,6 @@ using System.Collections.Generic;
 
 public class UIButtonsManager : Control
 {
-    TextureButton _playButton, _helpButton, _betButton, _maxBetButton, _collectButton;
-    TextureRect _helpCanvas, _controlPanel, _timeButton;
-    TextureButton _volumeButton;
     Dictionary<string, CurrencyLabel> _myCurrencyLabels = new Dictionary<string, CurrencyLabel>();
     [Export] AudioStream PlayFX;
     [Export] AudioStream ButtonFX;
@@ -14,13 +11,17 @@ public class UIButtonsManager : Control
     [Signal] public delegate void bet();
     [Signal] public delegate void maxBet();
     [Signal] public delegate void collect();
+    [Signal] public delegate void end_collect();
     [Signal] public delegate void GameOverPopUp();
     [Signal] public delegate void TimerDone(bool win);
     [Signal] public delegate void ControlMasterVolume(float volume);
+    TextureButton _playButton, _helpButton, _betButton, _maxBetButton, _collectButton, _endAndCollectButton;
+    TextureRect _helpCanvas, _controlPanel, _timeButton;
+    TextureButton _volumeButton;
 
     AudioStreamPlayer _audio;
 
-	AnimatedSprite volumeButton;
+    AnimatedSprite _spriteVolumeButton;
 
     Label _myTimeLabel;
 
@@ -34,16 +35,11 @@ public class UIButtonsManager : Control
     {
         InitChilds();
         ActivatePlayButton(false);
-		volumeButton = GetNode("VolumeButton/AnimatedSprite") as AnimatedSprite;
-        _controlPanel = GetNode("ControlPanel") as TextureRect;
-        _timeButton = GetNode("Tiempo") as TextureRect;
-        _volumeButton = GetNode("VolumeButton") as TextureButton;
-		_myTimeLabel.Text = "--";
     }
 
     public override void _Process(float delta)
     {
-        if (_timer.TimeLeft>0)
+        if (_timer.TimeLeft > 0)
         {
             var timeInt = Convert.ToInt32(_timer.TimeLeft);
             _myTimeLabel.Text = timeInt.ToString();
@@ -58,6 +54,7 @@ public class UIButtonsManager : Control
         _maxBetButton.Disabled = false;
         _betButton.Disabled = false;
         _collectButton.Disabled = false;
+        ActivateEndAndCollectButton(false);
     }
 
     void OnHelpButtonUp()
@@ -75,6 +72,7 @@ public class UIButtonsManager : Control
         _controlPanel.Show();
         _timeButton.Show();
         _volumeButton.Show();
+
     }
     void OnBetButtonUp()
     {
@@ -91,6 +89,12 @@ public class UIButtonsManager : Control
         PlayAudio();
         EmitSignal(nameof(collect));
     }
+
+    void OnEndAndCollectButtonUp()
+    {
+        PlayAudio();
+        EmitSignal(nameof(end_collect));
+    }
     void OnPlayButtonUp()
     {
         _audio.Stream = PlayFX;
@@ -106,6 +110,17 @@ public class UIButtonsManager : Control
         _betButton.Disabled = true;
         _collectButton.Disabled = true;
     }
+    void ActivateEndAndCollectButton(bool enable)
+    {
+        if (enable)
+        {
+            _endAndCollectButton.Show();
+        }
+        else
+        {
+            _endAndCollectButton.Hide();
+        }
+    }
     void ActivatePlayButton(bool enable)
     {
 
@@ -114,11 +129,14 @@ public class UIButtonsManager : Control
             _playButton.Disabled = false;
         }
         else
+        {
             _playButton.Disabled = true;
+        }
     }
     void ActivateCollectButton()
     {
         _collectButton.Disabled = false;
+        ActivateEndAndCollectButton(true);
     }
 
     void PlayAudio()
@@ -130,17 +148,22 @@ public class UIButtonsManager : Control
     #endregion
     void InitChilds()
     {
-        LoadScene(Constants.PATH_UI_GAMEOVR_WIN);
-        LoadScene(Constants.PATH_UI_GAMEOVR_LOSE);
-
+        _myTimeLabel = GetNode("Tiempo/timer") as Label;
+        _controlPanel = GetNode("ControlPanel") as TextureRect;
+        _timeButton = GetNode("Tiempo") as TextureRect;
+        _volumeButton = GetNode("VolumeButton") as TextureButton;
+        _spriteVolumeButton = GetNode("VolumeButton/AnimatedSprite") as AnimatedSprite;
+        _endAndCollectButton = GetNode("ControlPanel/button_end_collect") as TextureButton;
         _playButton = GetNode("ControlPanel/button_Play") as TextureButton;
         _helpButton = GetNode("button_Help") as TextureButton;
         _betButton = GetNode("ControlPanel/button_Bet") as TextureButton;
         _maxBetButton = GetNode("ControlPanel/button_MaxBet") as TextureButton;
         _collectButton = GetNode("ControlPanel/button_Collect") as TextureButton;
         _helpCanvas = GetNode("ui_Help") as TextureRect;
-        _myTimeLabel = GetNode("Tiempo/timer") as Label;
         _audio = GetNode("AudioStreamPlayer") as AudioStreamPlayer;
+        _myTimeLabel.Text = "--";
+        LoadScene(Constants.PATH_UI_GAMEOVR_WIN);
+        LoadScene(Constants.PATH_UI_GAMEOVR_LOSE);
         SetUpTimer();
     }
     public void SubscribeCurrencyLabel(CurrencyLabel cl)
@@ -162,7 +185,7 @@ public class UIButtonsManager : Control
     void SetGameOverMessage(bool win) //La llama GameManager, señal GameOver
     {
         _timer.Stop();
-		_myTimeLabel.Text = "--";
+        _myTimeLabel.Text = "--";
         EmitSignal(nameof(GameOverPopUp), win);
     }
 
@@ -181,7 +204,7 @@ public class UIButtonsManager : Control
         Connect(nameof(restartGame), go, nameof(go.ClearGameOverMessage));
         go.ClearMe += BonusStarted;
     }
-#region Timer
+    #region Timer
     void StartTimer(float seconds)
     {
         _timer.WaitTime = seconds;
@@ -195,36 +218,36 @@ public class UIButtonsManager : Control
     }
 
     void SetUpTimer()
-    
+
     {
         AddChild(_timer);
         _timer.Connect("timeout", this, "TimerFinished");
     }
-#endregion
+    #endregion
     void _on_VolumeButton_pressed()
     {
         volume -= 20;
-		
-		if (volume == -20)
+
+        if (volume == -20)
         {
-			volumeButton.Animation = "Volume2";
+            _spriteVolumeButton.Animation = "Volume2";
         }
         if (volume == -40)
         {
-			volumeButton.Animation = "Volume1";
+            _spriteVolumeButton.Animation = "Volume1";
         }
-		if (volume == -60)
+        if (volume == -60)
         {
-			volumeButton.Animation = "Mute";
-            volume=-80;
+            _spriteVolumeButton.Animation = "Mute";
+            volume = -80;
         }
-		if (volume <= -81)
+        if (volume <= -81)
         {
-			volume=0;
+            volume = 0;
         }
-		if (volume == 0)
+        if (volume == 0)
         {
-			volumeButton.Animation = "Volume3";
+            _spriteVolumeButton.Animation = "Volume3";
         }
         EmitSignal(nameof(ControlMasterVolume), volume);
     }
