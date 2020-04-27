@@ -10,10 +10,8 @@ public class Panner : Node
 
     bool accelerating;
     Control backGround;
-
     Vector2 nextPos;
-    
-    
+    Vector2 initPosition;
     float currentSpeed;
     float currenTime;
     float origin;
@@ -25,18 +23,18 @@ public class Panner : Node
         currenTime = time;
         LoadScenes();
         nextPos = backGround.RectPosition;
+        initPosition = backGround.RectPosition;
     }
-
 
     public override void _Process(float delta)
     {
         CheckAcceleration(delta);
     }
 
-    public void BackToOrigin(bool win)
+    public void BackToOrigin(bool win)    
     {
         Panning();
-        destiny = 0;
+        destiny = initPosition.y;
     }
     public void Panning()
     {
@@ -44,8 +42,8 @@ public class Panner : Node
         {
             accelerating = true;
             currenTime = 0;
-            origin = backGround.RectPosition.x;
-            destiny = backGround.RectPosition.x - jumpDistance;
+            origin = backGround.RectPosition.y;
+            destiny = backGround.RectPosition.y - (-jumpDistance);
         }
     }
     void CheckAcceleration(float delta)
@@ -66,12 +64,11 @@ public class Panner : Node
             currenTime += delta * currentSpeed;
         }
         else if(currenTime >= 1){ currenTime = 1;}
-
-        nextPos.x = Mathf.Lerp(origin, destiny, currenTime);
-        nextPos.y = backGround.RectPosition.y;
+        nextPos.x = backGround.RectPosition.x;
+        nextPos.y = Mathf.Lerp(origin, destiny, currenTime);
         backGround.RectPosition = nextPos;
         
-        if(nextPos.x == destiny)
+        if(nextPos.y == destiny)
         {
             currentSpeed = speed;
             accelerating = false;
