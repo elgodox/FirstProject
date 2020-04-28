@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class GameGenerator
 {
+    double[] bonusMultipliers = { 1, 1.5d, 2, 3};
     int hexNodes = 19;
     int badOnes;
     public bool bonusGenerated;
@@ -96,6 +97,33 @@ public class GameGenerator
         levelDescription = descriptionInfo;
         return descriptionInfo;
     }
+
+    public string GetBonusDescription(int[] bonusInfo)
+    {
+        string result = default;
+        
+        for (int i = 0; i < bonusInfo.Length; i++)
+        {
+            var currentIndex = bonusInfo[i];
+            
+            if(currentIndex == 0){ result+= Constants.BONUS_MULTIPLIERS[0] + "*"; }
+            else if(currentIndex == 1) { result+= Constants.BONUS_MULTIPLIERS[1] + "*"; }
+            else if(currentIndex == 2) { result+= Constants.BONUS_MULTIPLIERS[2] + "*"; }
+            else if(currentIndex == 3) { result+= Constants.BONUS_MULTIPLIERS[3] + "*"; }
+
+            if (i == bonusInfo.Length - 1)
+            {
+                result = result.Remove(result.Length - 1); // borra la ultima coma
+            }
+        }
+        
+        result = result.Replace(',', '.');
+        result = result.Replace('*', ',');
+        
+        GD.Print("Bonus generado en el siguiente orden de posiciones: " + result);
+
+        return result;
+    }
     public void ResetBonus()
     {
         GD.Print("Resetting bonus");
@@ -120,5 +148,28 @@ public class GameGenerator
     public void SetBonusChance(int chance)
     {   
         bonusChance = chance;
+    }
+
+    public int[] GenerateBonusInfo()
+    {
+        List<int> doubleList = new List<int>();
+        int[] randoms = new int[4];
+        
+        for (int i = 0; i < randoms.Length; i++)
+        {
+            Random randomNumber = new Random();
+            int activeRand = (randomNumber.Next() % randoms.Length);
+
+            if(!doubleList.Contains(activeRand))
+            {
+                doubleList.Add(activeRand);
+                randoms[i] = activeRand;
+            }
+            else
+            {
+                i--;
+            }
+        }
+        return randoms;
     }
 }
