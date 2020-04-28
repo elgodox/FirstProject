@@ -3,6 +3,7 @@ using System;
 
 public class GameOverMessage : Control
 {
+    public Action ClearMe;
     [Export] bool MyWin;
 
     AnimationControl myAnim;
@@ -20,6 +21,7 @@ public class GameOverMessage : Control
 
     public void ClearGameOverMessage()
     {
+        GD.Print("clear this");
         myAnim.StartExitAnimation();
     }
 }
