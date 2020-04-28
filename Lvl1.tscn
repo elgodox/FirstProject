@@ -233,10 +233,10 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-UseDB = true
-levels = 10
-timerInLevel = 10
-badOnes = PoolIntArray( 1, 1, 1, 1, 0, 0, 0, 0, 0, 0 )
+_useDb = true
+_levels = 10
+_timerInLevel = 10
+_badOnes = PoolIntArray( 0, 0, 0, 8, 0, 0, 0, 0, 0, 0 )
 
 [node name="Panner" type="Control" parent="."]
 anchor_right = 1.0
@@ -373,30 +373,34 @@ stream = ExtResource( 13 )
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 17 )
 autoplay = true
+[connection signal="BonusOver" from="." to="UI_Template" method="BonusPicked"]
 [connection signal="CanCollect" from="." to="UI_Template" method="ActivateCollectButton"]
+[connection signal="GameOver" from="." to="AudioManager" method="GameOverSound"]
+[connection signal="GameOver" from="." to="CurrencyManager" method="AddCurrencyToCredits"]
 [connection signal="GameOver" from="." to="Background" method="IsBad"]
 [connection signal="GameOver" from="." to="Panner" method="BackToOrigin"]
 [connection signal="GameOver" from="." to="UI_Template" method="ActivateAgain"]
-[connection signal="GameOver" from="." to="UI_Template" method="SetGameOverMessage"]
-[connection signal="GameOver" from="." to="CurrencyManager" method="AddCurrencyToCredits"]
-[connection signal="GameOver" from="." to="AudioManager" method="GameOverSound"]
 [connection signal="GameReady" from="." to="UI_Template" method="ActivatePlayButton"]
+[connection signal="GameStarted" from="." to="AudioManager" method="PlayLevelMusic"]
 [connection signal="GameStarted" from="." to="Background" method="TurnOn"]
 [connection signal="GameStarted" from="." to="UI_Template" method="DeactivateButtons"]
-[connection signal="GameStarted" from="." to="AudioManager" method="PlayLevelMusic"]
+[connection signal="LevelsOver" from="." to="UI_Template" method="SetGameOverMessage"]
+[connection signal="RoundWined" from="." to="CurrencyManager" method="AddBetToCurrency"]
 [connection signal="RoundWined" from="." to="Background" method="IsGood"]
 [connection signal="RoundWined" from="." to="Panner" method="Panning"]
-[connection signal="RoundWined" from="." to="CurrencyManager" method="AddBetToCurrency"]
 [connection signal="SetCurrencyManager" from="." to="CurrencyManager" method="SetCurrency"]
+[connection signal="StartBonus" from="." to="UI_Template" method="BonusStarted"]
 [connection signal="StartTimer" from="." to="UI_Template" method="StartTimer"]
 [connection signal="animation_finished" from="Background/AnimationPlayer" to="Background" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="CurrencyChanged" from="CurrencyManager" to="UI_Template" method="UpdateCurrencyUI"]
 [connection signal="GameHaveBet" from="CurrencyManager" to="." method="GameHaveBetNow"]
+[connection signal="BonusAccepted" from="UI_Template" to="." method="InstantiateBonus"]
+[connection signal="BonusAccepted" from="UI_Template" to="UI_Template" method="BonusStarted"]
 [connection signal="ControlMasterVolume" from="UI_Template" to="AudioManager" method="_on_UI_ControlMasterVolume"]
 [connection signal="TimerDone" from="UI_Template" to="." method="EndGame"]
 [connection signal="bet" from="UI_Template" to="CurrencyManager" method="Bet"]
 [connection signal="end_collect" from="UI_Template" to="." method="MoneyCollected"]
 [connection signal="maxBet" from="UI_Template" to="CurrencyManager" method="MaxBet"]
-[connection signal="restartGame" from="UI_Template" to="." method="StartGame"]
 [connection signal="restartGame" from="UI_Template" to="CurrencyManager" method="ConfirmBet"]
+[connection signal="restartGame" from="UI_Template" to="." method="StartGame"]
 [connection signal="finished" from="AudioManager/NotificationSounds" to="AudioManager" method="_on_NotificationSounds_finished"]

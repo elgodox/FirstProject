@@ -1,4 +1,4 @@
-[gd_scene load_steps=93 format=2]
+[gd_scene load_steps=95 format=2]
 
 [ext_resource path="res://Prefabs/UI/Buttons/button_Collect.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Prefabs/UI/Buttons/button_Bet.tscn" type="PackedScene" id=2]
@@ -88,6 +88,8 @@
 [ext_resource path="res://Sprites/Botones/cobra_des.png" type="Texture" id=86]
 [ext_resource path="res://Sprites/Botones/jugar_des.png" type="Texture" id=87]
 [ext_resource path="res://Sprites/Botones/btn_abajo_des.png" type="Texture" id=88]
+[ext_resource path="res://Fonts/Dynamic Fonts/Apuestas.tres" type="DynamicFont" id=89]
+[ext_resource path="res://Scripts/CurrencyLabel.cs" type="Script" id=90]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -112,14 +114,14 @@ animations = [ {
 "name": "Volume1",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 21 ) ],
-"loop": false,
-"name": "Volume3",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 22 ) ],
 "loop": false,
 "name": "Volume2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 21 ) ],
+"loop": false,
+"name": "Volume3",
 "speed": 5.0
 } ]
 
@@ -158,7 +160,7 @@ __meta__ = {
 position = Vector2( 718.484, 105.917 )
 frames = SubResource( 1 )
 animation = "Idle"
-frame = 57
+frame = 55
 playing = true
 
 [node name="ui_MaxBet" parent="ControlPanel" instance=ExtResource( 4 )]
@@ -216,7 +218,7 @@ margin_left = -64.016
 margin_top = -24.96
 margin_right = 63.984
 margin_bottom = 25.04
-texture_hover = ExtResource( 86 )
+texture_disabled = ExtResource( 86 )
 stretch_mode = 0
 
 [node name="button_Bet" parent="ControlPanel" instance=ExtResource( 2 )]
@@ -434,6 +436,191 @@ text = "ATRAS"
 align = 1
 valign = 1
 
+[node name="ui_IncomingBonus" type="TextureRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -3.97174
+margin_bottom = -3.97174
+texture = SubResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ui_BonusTexture" type="TextureRect" parent="ui_IncomingBonus"]
+self_modulate = Color( 1, 1, 1, 0.278431 )
+anchor_left = 0.125
+anchor_top = 0.087
+anchor_right = 0.869
+anchor_bottom = 0.773
+margin_top = 437.7
+margin_right = -0.400024
+margin_bottom = 0.299988
+texture = ExtResource( 14 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="helpText" type="Label" parent="ui_IncomingBonus/ui_BonusTexture"]
+anchor_left = 0.046
+anchor_top = 0.151
+anchor_right = 0.967
+anchor_bottom = 0.772
+margin_left = 0.259995
+margin_top = -0.179998
+margin_right = 0.269897
+margin_bottom = 0.0399933
+custom_fonts/font = ExtResource( 16 )
+custom_colors/font_color = Color( 0.63261, 0.940249, 0.952637, 1 )
+text = "¡Has ganado un Bonus!
+Escoge un nodo y multiplica tu apuesta, todos los nodos son ganadores!"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="button_Ok" type="TextureButton" parent="ui_IncomingBonus"]
+anchor_left = 0.748
+anchor_top = 0.89
+anchor_right = 0.748
+anchor_bottom = 0.911
+margin_left = -93.1982
+margin_top = -53.9327
+margin_right = 92.8018
+margin_bottom = 73.1673
+texture_normal = ExtResource( 13 )
+texture_pressed = ExtResource( 12 )
+texture_disabled = ExtResource( 87 )
+stretch_mode = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ui_IncomingBonus/button_Ok"]
+anchor_left = 0.5
+anchor_top = 0.459
+anchor_right = 0.5
+anchor_bottom = 0.459
+margin_left = -56.4999
+margin_top = -56.014
+margin_right = 55.7501
+margin_bottom = 59.475
+custom_fonts/font = ExtResource( 89 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "COMENZAR"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ui_FinishedBonus" type="TextureRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -3.97174
+margin_bottom = -3.97174
+texture = SubResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ui_BonusTexture" type="TextureRect" parent="ui_FinishedBonus"]
+anchor_left = 0.125
+anchor_top = 0.087
+anchor_right = 0.869
+anchor_bottom = 0.773
+margin_top = -0.299995
+margin_right = -0.400024
+margin_bottom = 0.299988
+texture = ExtResource( 14 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FinishedBonusText" type="Label" parent="ui_FinishedBonus/ui_BonusTexture"]
+anchor_left = 0.046
+anchor_top = 0.151
+anchor_right = 0.967
+anchor_bottom = 0.772
+margin_left = 0.259995
+margin_top = -0.179998
+margin_right = 0.269897
+margin_bottom = 0.0399933
+custom_fonts/font = ExtResource( 16 )
+custom_colors/font_color = Color( 0.63261, 0.940249, 0.952637, 1 )
+text = "Tu recompensa bonus es de :"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FinishedBonusReward" type="Label" parent="ui_FinishedBonus/ui_BonusTexture"]
+anchor_left = 0.5
+anchor_top = 0.427
+anchor_right = 0.5
+anchor_bottom = 0.427
+margin_left = -258.0
+margin_top = -59.886
+margin_right = 269.0
+margin_bottom = 45.114
+custom_fonts/font = ExtResource( 16 )
+custom_colors/font_color = Color( 0.63261, 0.940249, 0.952637, 1 )
+text = "1000"
+align = 1
+valign = 1
+autowrap = true
+script = ExtResource( 90 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+myType = "bonusReward"
+
+[node name="button_Ok" type="TextureButton" parent="ui_FinishedBonus"]
+anchor_left = 0.493
+anchor_top = 0.649
+anchor_right = 0.493
+anchor_bottom = 0.649
+margin_left = -93.0745
+margin_top = -72.6165
+margin_right = 92.9255
+margin_bottom = 73.3835
+texture_normal = ExtResource( 13 )
+texture_pressed = ExtResource( 12 )
+texture_disabled = ExtResource( 87 )
+stretch_mode = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ui_FinishedBonus/button_Ok"]
+anchor_left = 0.5
+anchor_top = 0.459
+anchor_right = 0.5
+anchor_bottom = 0.459
+margin_left = -54.7418
+margin_top = -56.0139
+margin_right = 57.5082
+margin_bottom = 59.4751
+custom_fonts/font = ExtResource( 89 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "OK"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
 volume_db = 1.0
@@ -445,3 +632,5 @@ volume_db = 1.0
 [connection signal="button_up" from="button_Help" to="." method="OnHelpButtonUp"]
 [connection signal="pressed" from="VolumeButton" to="." method="_on_VolumeButton_pressed"]
 [connection signal="button_up" from="ui_Help/button_Back" to="." method="OnBackButtonUp"]
+[connection signal="button_up" from="ui_IncomingBonus/button_Ok" to="." method="OnOkButtonUp"]
+[connection signal="button_up" from="ui_FinishedBonus/button_Ok" to="." method="FinishBonus"]

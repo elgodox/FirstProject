@@ -11,7 +11,7 @@ public class BonusManager : LevelManager
     }
     public override void ReceiveNodePressed(HexNode node)
     {
-        myGameManager.EndGame(true);
+        myGameManager.BonusFinished();
         foreach (var item in _nodes)
 		{
 			if(item != null)

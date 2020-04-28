@@ -13,7 +13,6 @@ public class GameGenerator
     public int bonusSlot;
 
     public string levelDescription;
-    
     public int[] GenerateLevelInfo(int level)
     {
         if(!bonusGenerated && level == bonusLevel)
@@ -31,7 +30,6 @@ public class GameGenerator
 
         return levelInfo;
     }
-
     int[] GenerateRandoms(int randomAmount)
     {
 		List<int> activeOnesList = new List<int>();
@@ -55,7 +53,6 @@ public class GameGenerator
         GetLevelDescription(randoms);
         return randoms;
     }
-
     public String GetLevelDescription(int[] levelInfo)
     {
         string descriptionInfo = default;
@@ -99,9 +96,9 @@ public class GameGenerator
         levelDescription = descriptionInfo;
         return descriptionInfo;
     }
-
     public void ResetBonus()
     {
+        GD.Print("Resetting bonus");
         bonusGenerated = false;
         bonusAssigned = false;
     }
