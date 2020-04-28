@@ -15,6 +15,7 @@ public class GameManager : Godot.Control
     [Signal] public delegate void GameReady(bool ready);
     [Signal] public delegate void StartTimer(float secs);
     [Signal] public delegate void StartBonus();
+    [Signal] public delegate void NodeWithBonus();
     [Signal] public delegate void BonusOver();
 
     public LevelManager currentLevelMngr;
@@ -199,7 +200,7 @@ public class GameManager : Godot.Control
             if(bonus)
             {
                 _gotBonus = true;
-                GD.Print("El nodo " + nodeName + " tenía Bonus!");
+                EmitSignal(nameof(NodeWithBonus));
             }
             if (_currentLevel <= 0)
             {
@@ -291,8 +292,8 @@ public class GameManager : Godot.Control
     public void EndGame(bool win)
     {
         currentLevelMngr.ExitAnimation();
+        EmitSignal(nameof(GameOver), win);
         EmitSignal(nameof(LevelsOver), win, _gotBonus);
-
         if (_currentLevel > 0)
         {
             // ESTO SE HACE DESPUES DE JUGAR EL BONUS!
@@ -316,6 +317,7 @@ public class GameManager : Godot.Control
     public void BonusFinished()
     {
         EmitSignal(nameof(BonusOver));
+        EmitSignal(nameof(GameOver), true);
         GameCompletelyOver();
     }
     

@@ -22,6 +22,15 @@ public class LightAnimations : TextureRect
     {
         animation.CurrentAnimation = "Good";
     }
+
+    public void TurnOff()
+    {
+        animation.CurrentAnimation = "TurnOff";
+    }
+    public void IsBonus()
+    { 
+        animation.CurrentAnimation = "Bonus";
+    }
     public void IsBad(bool win)
     {
         if (!win)
@@ -37,7 +46,7 @@ public class LightAnimations : TextureRect
         }
         if(animationIdle=="Bad")
         {
-             animation.CurrentAnimation = "TurnOff";
+            TurnOff();
         }
     }
 }
