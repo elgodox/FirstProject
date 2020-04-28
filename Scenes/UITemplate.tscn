@@ -109,14 +109,14 @@ animations = [ {
 "name": "Mute",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 24 ) ],
-"loop": false,
-"name": "Volume1",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 22 ) ],
 "loop": false,
 "name": "Volume2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 24 ) ],
+"loop": false,
+"name": "Volume1",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 21 ) ],
@@ -160,7 +160,7 @@ __meta__ = {
 position = Vector2( 718.484, 105.917 )
 frames = SubResource( 1 )
 animation = "Idle"
-frame = 55
+frame = 27
 playing = true
 
 [node name="ui_MaxBet" parent="ControlPanel" instance=ExtResource( 4 )]
@@ -485,13 +485,13 @@ __meta__ = {
 
 [node name="button_Ok" type="TextureButton" parent="ui_IncomingBonus"]
 anchor_left = 0.748
-anchor_top = 0.89
+anchor_top = 0.911
 anchor_right = 0.748
 anchor_bottom = 0.911
-margin_left = -93.1982
-margin_top = -53.9327
-margin_right = 92.8018
-margin_bottom = 73.1673
+margin_left = -90.3547
+margin_top = -71.3544
+margin_right = 95.6453
+margin_bottom = 74.6456
 texture_normal = ExtResource( 13 )
 texture_pressed = ExtResource( 12 )
 texture_disabled = ExtResource( 87 )

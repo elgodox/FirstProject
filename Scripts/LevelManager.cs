@@ -142,7 +142,9 @@ public class LevelManager : Node
 		}
 	}
 
-	public void ExitAnimation(){
+	public void ExitAnimation()
+	{
+		DisableSelectAllNodes();
 		animation.CurrentAnimation = "Exit";
 		animation.Play();
 	}
@@ -150,6 +152,11 @@ public class LevelManager : Node
 	public virtual void ReceiveNodePressed(HexNode node)
 	{
 		myGameManager.CheckHexSelected(node.goodOne, node.Name, node.bonus);
+		DisableSelectAllNodes();
+	}
+
+	public void DisableSelectAllNodes()
+	{
 		foreach (var item in _nodes)
 		{
 			if(item != null)
@@ -157,7 +164,6 @@ public class LevelManager : Node
 				item.pressed = true;
 			}
 		}
-		
 		animation.CurrentAnimation = "Exit";
 	}
 
