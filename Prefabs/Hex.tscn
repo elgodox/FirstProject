@@ -1,4 +1,4 @@
-[gd_scene load_steps=149 format=2]
+[gd_scene load_steps=185 format=2]
 
 [ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00025.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00026.png" type="Texture" id=2]
@@ -144,9 +144,45 @@
 [ext_resource path="res://Sprites/Animations/HexNode/Appear/Hexa-hologram_00019.png" type="Texture" id=142]
 [ext_resource path="res://Sprites/Animations/HexNode/Appear/Hexa-hologram_00007.png" type="Texture" id=143]
 [ext_resource path="res://Sprites/Animations/HexNode/Appear/Hexa-hologram_00033.png" type="Texture" id=144]
+[ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00008.png" type="Texture" id=145]
+[ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00010.png" type="Texture" id=146]
 [ext_resource path="res://Sprites/Animations/HexNode/Appear/Hexa-hologram_00031.png" type="Texture" id=147]
+[ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00009.png" type="Texture" id=148]
 [ext_resource path="res://Sprites/Animations/HexNode/Appear/Hexa-hologram_00000.png" type="Texture" id=149]
 [ext_resource path="res://Sprites/Animations/HexNode/Appear/Hexa-hologram_00032.png" type="Texture" id=150]
+[ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00011.png" type="Texture" id=151]
+[ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00004.png" type="Texture" id=152]
+[ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00006.png" type="Texture" id=153]
+[ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00001.png" type="Texture" id=154]
+[ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00002.png" type="Texture" id=155]
+[ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00000.png" type="Texture" id=156]
+[ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00003.png" type="Texture" id=157]
+[ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00005.png" type="Texture" id=158]
+[ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00007.png" type="Texture" id=159]
+[ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00033.png" type="Texture" id=160]
+[ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00023.png" type="Texture" id=161]
+[ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00021.png" type="Texture" id=162]
+[ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00013.png" type="Texture" id=163]
+[ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00015.png" type="Texture" id=164]
+[ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00025.png" type="Texture" id=165]
+[ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00031.png" type="Texture" id=166]
+[ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00032.png" type="Texture" id=167]
+[ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00017.png" type="Texture" id=168]
+[ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00027.png" type="Texture" id=169]
+[ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00022.png" type="Texture" id=170]
+[ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00030.png" type="Texture" id=171]
+[ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00014.png" type="Texture" id=172]
+[ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00024.png" type="Texture" id=173]
+[ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00012.png" type="Texture" id=174]
+[ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00029.png" type="Texture" id=175]
+[ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00034.png" type="Texture" id=176]
+[ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00026.png" type="Texture" id=177]
+[ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00018.png" type="Texture" id=178]
+[ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00035.png" type="Texture" id=179]
+[ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00016.png" type="Texture" id=180]
+[ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00020.png" type="Texture" id=181]
+[ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00019.png" type="Texture" id=182]
+[ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00028.png" type="Texture" id=183]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -174,6 +210,11 @@ animations = [ {
 "loop": false,
 "name": "isBad",
 "speed": 6.0
+}, {
+"frames": [ ExtResource( 156 ), ExtResource( 154 ), ExtResource( 155 ), ExtResource( 157 ), ExtResource( 152 ), ExtResource( 158 ), ExtResource( 153 ), ExtResource( 159 ), ExtResource( 145 ), ExtResource( 148 ), ExtResource( 146 ), ExtResource( 151 ), ExtResource( 174 ), ExtResource( 163 ), ExtResource( 172 ), ExtResource( 164 ), ExtResource( 180 ), ExtResource( 168 ), ExtResource( 178 ), ExtResource( 182 ), ExtResource( 181 ), ExtResource( 162 ), ExtResource( 170 ), ExtResource( 161 ), ExtResource( 173 ), ExtResource( 165 ), ExtResource( 177 ), ExtResource( 169 ), ExtResource( 183 ), ExtResource( 175 ), ExtResource( 171 ), ExtResource( 166 ), ExtResource( 167 ), ExtResource( 160 ), ExtResource( 176 ), ExtResource( 179 ) ],
+"loop": false,
+"name": "isBonus",
+"speed": 5.0
 } ]
 
 [node name="Hex6" type="TextureButton"]

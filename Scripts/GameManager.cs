@@ -139,7 +139,6 @@ public class GameManager : Godot.Control
 
     #endregion
 
-
     void CreateBonusLevel(string path)
     {
         var newLevelManager = ResourceLoader.Load(path) as PackedScene;

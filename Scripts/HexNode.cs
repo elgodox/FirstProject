@@ -29,7 +29,12 @@ public class HexNode : Node
         if (!pressed)
         {
             pressed = true;
-            if (goodOne)
+            if (bonus)
+            {
+                sprite.Animation = "isBonus";
+                audio.Stream = isGood;    
+            }
+            else if (goodOne)
             {
                 sprite.Animation = "isGood";
                 audio.Stream = isGood;   
