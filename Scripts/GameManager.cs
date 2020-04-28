@@ -145,6 +145,22 @@ public class GameManager : Godot.Control
         if (newLevelManager != null) currentLevelMngr = newLevelManager.Instance() as LevelManager;
         AddChild(currentLevelMngr);
         currentLevelMngr.myGameManager = this;
+        
+        if (_isResuming)
+        {
+            _isResuming = false;
+            //_currentLevelInfo = _myRecover.GetLastLevelInfo(0);
+            //Debería decirle a BonusManager que asigne los slots como los tenía en la BetDescription
+        }
+        else
+        {
+            //Debería crearse la jugada y ser guardada en la betDescription
+            GetNewBonusInfo();
+            //
+        }
+
+        var bonusMngr = currentLevelMngr as BonusManager;
+        bonusMngr.SetMultipliersPositions(_currentLevelInfo);
     }
 
     void CreateLevel(string path)
@@ -255,6 +271,13 @@ public class GameManager : Godot.Control
         _myGameGen.SetBadOnes(_badOnes[_levels - _currentLevel]);
         _currentLevelInfo = _myGameGen.GenerateLevelInfo(_currentLevel);
         _betDescription += _myGameGen.levelDescription;
+        UpdateSaveData(null);
+    }
+
+    void GetNewBonusInfo()
+    {
+        _currentLevelInfo = _myGameGen.GenerateBonusInfo();
+        _betDescription += _myGameGen.GetBonusDescription(_currentLevelInfo);
         UpdateSaveData(null);
     }
     void MoneyCollected() //La llama la señal Collect, del UIManager

@@ -13,6 +13,7 @@ public class HexNode : Node
     public bool bonus = false;
     public bool asigned = false;
     public bool pressed = false;
+    public double bonusMultiplier;
     AnimatedSprite sprite;
 
     Label myName;
