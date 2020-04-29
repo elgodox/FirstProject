@@ -33,7 +33,7 @@ public class Panner : Node
         CheckAcceleration(delta);
     }
 
-    public void BackToOrigin(bool win)
+    public void BackToOrigin(bool win, bool bonus)
     {
         Panning();
         destiny = 0;
