@@ -239,7 +239,7 @@ public class UIButtonsManager : Control
     }
     #region Timer
 
-    void StopTimer()
+    public void StopTimer()
     {
         _timer.Stop();
         _myTimeLabel.Text = "--";
