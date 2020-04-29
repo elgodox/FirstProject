@@ -7,14 +7,14 @@ using System.Diagnostics;
 public class GameManager : Godot.Control
 {
     [Signal] public delegate void CanCollect();
-    [Signal] public delegate void GameOver(bool win);
+    [Signal] public delegate void GameOver();
     [Signal] public delegate void LevelsOver(bool win, bool bonus);
     [Signal] public delegate void GameStarted();
     [Signal] public delegate void RoundWined();
     [Signal] public delegate void SetCurrencyManager(double credit, double minBet, double maxBet);
     [Signal] public delegate void GameReady(bool ready);
     [Signal] public delegate void StartTimer(float secs);
-    [Signal] public delegate void StartBonus();
+    [Signal] public delegate void BonusStarted();
     [Signal] public delegate void NodeWithBonus();
     [Signal] public delegate void BonusOver();
 
@@ -228,6 +228,7 @@ public class GameManager : Godot.Control
     {
         GD.Print("Instancia Bonus!");
         CreateBonusLevel(Constants.PATH_BONUS);
+        EmitSignal(nameof(BonusStarted));
     }
 
     public void StartGame() //La llama UIManager, señal RestartGame
@@ -291,8 +292,11 @@ public class GameManager : Godot.Control
     public void EndGame(bool win)
     {
         currentLevelMngr.ExitAnimation();
-        EmitSignal(nameof(GameOver), win);
         EmitSignal(nameof(LevelsOver), win, _gotBonus);
+        if (!win)
+        {
+            _currencyManager.ResetCurrencyToCollect();
+        }
         if (_currentLevel > 0)
         {
             // ESTO SE HACE DESPUES DE JUGAR EL BONUS!
@@ -309,20 +313,20 @@ public class GameManager : Godot.Control
         if(!_gotBonus)
         {
             GameCompletelyOver();
-            EmitSignal(nameof(GameOver), win);
         }
     }
 
-    public void BonusFinished()
+    public void BonusFinished(double multiplier)
     {
+        _currencyManager.UpdateBonusReward(multiplier);
         EmitSignal(nameof(BonusOver));
-        EmitSignal(nameof(GameOver), true);
         GameCompletelyOver();
     }
     
     void GameCompletelyOver()
     {
         GD.Print("gameCompletely Over");
+        EmitSignal(nameof(GameOver));
         _myGameGen.ResetBonus();
         _gotBonus = false;
         _isPlaying = false;
