@@ -18,7 +18,10 @@ public class Constants
     public const string CREDITS = "credits";
     public const string CURRENCY_TO_COLLECT = "currencyToCollect";
     public const string CURRENCY_WINNED = "winnedCurrency";
+    public const string CURRENCY_BONUS_REWARD = "bonusReward";
         
     #endregion
-    
+
+
+    public static readonly double[] BONUS_MULTIPLIERS = new double[] { 1, 1.5d, 2, 3};
 }

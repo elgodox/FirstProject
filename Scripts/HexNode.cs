@@ -8,11 +8,13 @@ public class HexNode : Node
     public AudioStreamPlayer2D audio;
     [Export] AudioStream isGood;
     [Export] AudioStream isBad;
+    [Export] AudioStream isBonus;
 
     public bool goodOne = true;
     public bool bonus = false;
     public bool asigned = false;
     public bool pressed = false;
+    public double bonusMultiplier;
     AnimatedSprite sprite;
 
     Label myName;
@@ -29,7 +31,12 @@ public class HexNode : Node
         if (!pressed)
         {
             pressed = true;
-            if (goodOne)
+            if (bonus)
+            {
+                sprite.Animation = "isBonus";
+                audio.Stream = isBonus;    
+            }
+            else if (goodOne)
             {
                 sprite.Animation = "isGood";
                 audio.Stream = isGood;   
@@ -39,6 +46,8 @@ public class HexNode : Node
                 sprite.Animation = "isBad";
                 audio.Stream = isBad;
             }
+
+            audio.VolumeDb = 1;
             audio.Play();
             nodePressed(this);
         }

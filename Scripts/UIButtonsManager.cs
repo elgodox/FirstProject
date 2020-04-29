@@ -1,13 +1,16 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 public class UIButtonsManager : Control
 {
     Dictionary<string, CurrencyLabel> _myCurrencyLabels = new Dictionary<string, CurrencyLabel>();
     [Export] AudioStream PlayFX;
     [Export] AudioStream ButtonFX;
+    [Signal] public delegate void BonusAccepted();
     [Signal] public delegate void restartGame();
+    [Signal] public delegate void ClearGameOver();
     [Signal] public delegate void bet();
     [Signal] public delegate void maxBet();
     [Signal] public delegate void collect();
@@ -16,7 +19,7 @@ public class UIButtonsManager : Control
     [Signal] public delegate void TimerDone(bool win);
     [Signal] public delegate void ControlMasterVolume(float volume);
     TextureButton _playButton, _helpButton, _betButton, _maxBetButton, _collectButton, _endAndCollectButton;
-    TextureRect _helpCanvas, _controlPanel, _timeButton;
+    TextureRect _helpCanvas, _controlPanel, _timeButton, _incomingBonus, _finishedBonus;
     TextureButton _volumeButton;
 
     AudioStreamPlayer _audio;
@@ -26,8 +29,6 @@ public class UIButtonsManager : Control
     Label _myTimeLabel;
 
     Timer _timer = new Timer();
-
-    Control _gameOverMessage;
 
     float volume = -20;
 
@@ -103,6 +104,12 @@ public class UIButtonsManager : Control
         ActivatePlayButton(false);
         DeactivateButtons();
     }
+    void OnOkButtonUp()
+    {
+        GD.Print("El bonus fue aceptado");
+        EmitSignal(nameof(BonusAccepted));
+        _incomingBonus.Hide();
+    }
     void DeactivateButtons()
     {
         _helpButton.Disabled = true;
@@ -135,7 +142,6 @@ public class UIButtonsManager : Control
     }
     void ActivateCollectButton()
     {
-        _collectButton.Disabled = false;
         ActivateEndAndCollectButton(true);
     }
 
@@ -146,21 +152,29 @@ public class UIButtonsManager : Control
     }
 
     #endregion
+    
     void InitChilds()
     {
-        _myTimeLabel = GetNode("Tiempo/timer") as Label;
+        #region GetNodes
+
+        _incomingBonus = GetNode("ui_IncomingBonus") as TextureRect;
+        _finishedBonus = GetNode("ui_FinishedBonus") as TextureRect;
         _controlPanel = GetNode("ControlPanel") as TextureRect;
+        _helpCanvas = GetNode("ui_Help") as TextureRect;
         _timeButton = GetNode("Tiempo") as TextureRect;
         _volumeButton = GetNode("VolumeButton") as TextureButton;
-        _spriteVolumeButton = GetNode("VolumeButton/AnimatedSprite") as AnimatedSprite;
         _endAndCollectButton = GetNode("ControlPanel/button_end_collect") as TextureButton;
         _playButton = GetNode("ControlPanel/button_Play") as TextureButton;
         _helpButton = GetNode("button_Help") as TextureButton;
         _betButton = GetNode("ControlPanel/button_Bet") as TextureButton;
         _maxBetButton = GetNode("ControlPanel/button_MaxBet") as TextureButton;
         _collectButton = GetNode("ControlPanel/button_Collect") as TextureButton;
-        _helpCanvas = GetNode("ui_Help") as TextureRect;
+        _myTimeLabel = GetNode("Tiempo/timer") as Label;
         _audio = GetNode("AudioStreamPlayer") as AudioStreamPlayer;
+        _spriteVolumeButton = GetNode("VolumeButton/AnimatedSprite") as AnimatedSprite;
+
+        #endregion
+        
         _myTimeLabel.Text = "--";
         LoadScene(Constants.PATH_UI_GAMEOVR_WIN);
         LoadScene(Constants.PATH_UI_GAMEOVR_LOSE);
@@ -182,16 +196,35 @@ public class UIButtonsManager : Control
         _myCurrencyLabels[currencyType].UpdateLabel(Convert.ToInt32(currency).ToString());
     }
 
-    void SetGameOverMessage(bool win) //La llama GameManager, señal GameOver
+    void SetGameOverMessage(bool win, bool bonus) //La llama GameManager, señal GameOver
     {
-        _timer.Stop();
-        _myTimeLabel.Text = "--";
+        ActivateEndAndCollectButton(false);
+        StopTimer();
         EmitSignal(nameof(GameOverPopUp), win);
+        if(bonus)
+        {
+            _incomingBonus.Show();
+            StopTimer();
+        }
     }
 
-    void BonusStarted()
+    void BonusStarted() //La llama GameManager, señal StartBonus
     {
         GD.Print("UI recibe que el bonus inició");
+        EmitSignal(nameof(ClearGameOver));
+    }
+
+    void BonusPicked() //La llama GameManager, señal bonusOver
+    {
+        GD.Print("UI recibe que bonus fue pickeado");
+        _finishedBonus.Show();
+    }
+
+    void FinishBonus()
+    {
+        _finishedBonus.Hide();
+        GD.Print("UI recibe que bonus fue pickeado");
+        ActivateAgain(true);
     }
 
     void LoadScene(string pathScene)
@@ -202,9 +235,15 @@ public class UIButtonsManager : Control
         AddChildBelowNode(GetNode("GameOverMessageContainer") as Node, go);
         Connect(nameof(GameOverPopUp), go, nameof(go.ReceiveGameOverPopUp));
         Connect(nameof(restartGame), go, nameof(go.ClearGameOverMessage));
-        go.ClearMe += BonusStarted;
+        Connect(nameof(ClearGameOver), go, nameof(go.ClearGameOverMessage));
     }
     #region Timer
+
+    public void StopTimer()
+    {
+        _timer.Stop();
+        _myTimeLabel.Text = "--";
+    }
     void StartTimer(float seconds)
     {
         _timer.WaitTime = seconds;
@@ -218,7 +257,6 @@ public class UIButtonsManager : Control
     }
 
     void SetUpTimer()
-
     {
         AddChild(_timer);
         _timer.Connect("timeout", this, "TimerFinished");

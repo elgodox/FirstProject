@@ -2,41 +2,47 @@ using Godot;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 public class GameManager : Godot.Control
 {
     [Signal] public delegate void CanCollect();
     [Signal] public delegate void GameOver(bool win);
+    [Signal] public delegate void LevelsOver(bool win, bool bonus);
     [Signal] public delegate void GameStarted();
     [Signal] public delegate void RoundWined();
     [Signal] public delegate void SetCurrencyManager(double credit, double minBet, double maxBet);
     [Signal] public delegate void GameReady(bool ready);
     [Signal] public delegate void StartTimer(float secs);
     [Signal] public delegate void StartBonus();
+    [Signal] public delegate void NodeWithBonus();
+    [Signal] public delegate void BonusOver();
 
     public LevelManager currentLevelMngr;
-    int currentLevel;
-    string bet_description;
-    [Export] bool UseDB = false;
-    bool gotBonus = false;
-    bool bonusAssigned = false;
-    [Export] int levels, timerInLevel;
-    [Export] int[] badOnes = new int[10];
-    bool isPlaying = false;
-    GameRecover myRecover;
-    OMenuCommunication oMenu = new OMenuCommunication();
-    GameGenerator myGameGen = new GameGenerator();
-    CurrencyManager currencyManager;
-    int[] currentLevelInfo;
-    bool isResuming;
+    int _currentLevel;
+    string _betDescription;
+    [Export] bool _useDb = false;
+    bool _gotBonus = false;
+    [Export] int _levels, _timerInLevel;
+    [Export] int[] _badOnes = new int[10];
+    bool _isPlaying = false;
+    GameRecover _myRecover;
+    OMenuCommunication _oMenu = new OMenuCommunication();
+    GameGenerator _myGameGen = new GameGenerator();
+    UIButtonsManager _buttonsManager = new UIButtonsManager();
+    CurrencyManager _currencyManager;
+    int[] _currentLevelInfo;
+    bool _isResuming;
 
     public override void _Ready()
     {
-        currencyManager = GetNode("CurrencyManager") as CurrencyManager;
+        _currencyManager = GetNode("CurrencyManager") as CurrencyManager;
+        _buttonsManager = GetNode("UI_Template") as UIButtonsManager;
+        Console.WriteLine(_currencyManager.Name);
 
-        if (UseDB)
+        if (_useDb)
         {
-            oMenu.Start(OnStartCompletation, null);
+            _oMenu.Start(OnStartCompletation, null);
         }
         else
         {
@@ -47,13 +53,13 @@ public class GameManager : Godot.Control
     #region BBDD Methods
     private void OnStartCompletation()
     {
-        oMenu.IsPlaying(delegate { GetBetDescription(delegate (string value) { CheckBetDescription(value); }, null); }, null);
+        _oMenu.IsPlaying(delegate { GetBetDescription(delegate (string value) { CheckBetDescription(value); }, null); }, null);
         // Puede llegar a explotar
-        oMenu.GetMoney(delegate (double money) { EmitSignal(nameof(SetCurrencyManager), money, oMenu.MinBet(), oMenu.MaxBet()); }, null);
+        _oMenu.GetMoney(delegate (double money) { EmitSignal(nameof(SetCurrencyManager), money, _oMenu.MinBet(), _oMenu.MaxBet()); }, null);
     }
-    private void GetBetDescription(Action<string> OnSuccess, Action OnFail)
+    private void GetBetDescription(Action<string> onSuccess, Action onFail)
     {
-        oMenu.GetBetDescription(OnSuccess, OnFail);
+        _oMenu.GetBetDescription(onSuccess, onFail);
     }
     void CheckBetDescription(string betToCheck)
     {
@@ -61,18 +67,18 @@ public class GameManager : Godot.Control
         {
             if (betToCheck.Contains("P"))
             {
-                bet_description = betToCheck;
-                myRecover = new GameRecover(bet_description);
-                myRecover.FillDictionarys(levels);
+                _betDescription = betToCheck;
+                _myRecover = new GameRecover(_betDescription);
+                _myRecover.FillDictionarys(_levels);
 
-                oMenu.GetMoney(
+                _oMenu.GetMoney(
                     delegate (double money)
                     {
-                        currencyManager.credit = money;
+                        _currencyManager.credit = money;
 
-                        oMenu.GetCurrentBet(delegate (double bet)
+                        _oMenu.GetCurrentBet(delegate (double bet)
                         {
-                            currencyManager.currentBet = bet;
+                            _currencyManager.currentBet = bet;
                             ResumeCrashedGame();
 
                         }, null);
@@ -87,7 +93,7 @@ public class GameManager : Godot.Control
     }
     void PrepareBetDescription()
     {
-        oMenu.GetSaveData(UpdateSaveDataLocal, null);
+        _oMenu.GetSaveData(UpdateSaveDataLocal, null);
     }
     void UpdateSaveDataLocal(OMenuClient.Structs.SaveData saveData)
     {
@@ -95,25 +101,25 @@ public class GameManager : Godot.Control
         double bet = saveData.betAmount;
         double betToMoney = bet + money;
         OMenuClient.Structs.SaveData newSaveData = new OMenuClient.Structs.SaveData(false, betToMoney, 0, DateTime.Now, "");
-        oMenu.UpdateSaveData(newSaveData, null, null);
+        _oMenu.UpdateSaveData(newSaveData, null, null);
     }
-    void UpdateSaveData(String nodePressed)
+    void UpdateSaveData(string nodePressed)
     {
-        if (UseDB)
+        if (_useDb)
         {
             if (nodePressed != null)
             {
-                bet_description += nodePressed.Replace("Hex", "");
-                bet_description += ";";
+                _betDescription += nodePressed.Replace("Hex", "");
+                _betDescription += ";";
             }
             else
             {
-                bet_description += "|";
+                _betDescription += "|";
             }
 
-            OMenuClient.Structs.SaveData saveData = new OMenuClient.Structs.SaveData(isPlaying, currencyManager.credit, currencyManager.currentBet, DateTime.Now, bet_description);
+            OMenuClient.Structs.SaveData saveData = new OMenuClient.Structs.SaveData(_isPlaying, _currencyManager.credit, _currencyManager.currentBet, DateTime.Now, _betDescription);
 
-            oMenu.UpdateSaveData(saveData, null, null);
+            _oMenu.UpdateSaveData(saveData, null, null);
         }
     }
     private void FillBetDescription(int restOfLevels)
@@ -123,54 +129,71 @@ public class GameManager : Godot.Control
             for (int i = 0; i < restOfLevels; i++)
             {
                 var intendedLevel = restOfLevels - i;
-                myGameGen.SetBadOnes(badOnes[intendedLevel]);
-                currentLevelInfo = myGameGen.GenerateLevelInfo(intendedLevel);
-                string restOfLevelsDescription = myGameGen.GetLevelDescription(currentLevelInfo);
-                bet_description += restOfLevelsDescription;
+                _myGameGen.SetBadOnes(_badOnes[intendedLevel]);
+                _currentLevelInfo = _myGameGen.GenerateLevelInfo(intendedLevel);
+                string restOfLevelsDescription = _myGameGen.GetLevelDescription(_currentLevelInfo);
+                _betDescription += restOfLevelsDescription;
                 UpdateSaveData("|-2");
             }
         }
-        GD.Print(bet_description);
+        GD.Print(_betDescription);
     }
 
     #endregion
 
-
     void CreateBonusLevel(string path)
     {
         var newLevelManager = ResourceLoader.Load(path) as PackedScene;
-        currentLevelMngr = newLevelManager.Instance() as LevelManager;
+        if (newLevelManager != null) currentLevelMngr = newLevelManager.Instance() as LevelManager;
         AddChild(currentLevelMngr);
         currentLevelMngr.myGameManager = this;
+        
+        if (_isResuming)
+        {
+            _isResuming = false;
+            //_currentLevelInfo = _myRecover.GetLastLevelInfo(0);
+            //Debería decirle a BonusManager que asigne los slots como los tenía en la BetDescription
+        }
+        else
+        {
+            //Debería crearse la jugada y ser guardada en la betDescription
+            GetNewBonusInfo();
+            //
+        }
+
+        var bonusMngr = currentLevelMngr as BonusManager;
+        bonusMngr.SetMultipliersPositions(_currentLevelInfo);
     }
 
     void CreateLevel(string path)
     {
-        currencyManager.SetMultiplier(levels - currentLevel);
+        _currencyManager.SetMultiplier(_levels - _currentLevel);
 
-        if (!isResuming)
+        if (!_isResuming)
         {
             GetNewLevelInfo();
         }
         else
         {
-            isResuming = false;
+            _isResuming = false;
         }
         var newLevelManager = ResourceLoader.Load(path) as PackedScene;
         currentLevelMngr = newLevelManager.Instance() as LevelManager;
         AddChild(currentLevelMngr);
         currentLevelMngr.myGameManager = this;
-        if(myGameGen.bonusGenerated && currentLevel == 8)
+        if(_myGameGen.bonusGenerated && _currentLevel == 8)
         {
-            currentLevelMngr.SetBonusPosition(myGameGen.bonusSlot);
+            currentLevelMngr.SetBonusPosition(_myGameGen.bonusSlot);
             currentLevelMngr.gotABonus = true;
         }
-        currentLevelMngr.SetActivesPositions(currentLevelInfo, badOnes[levels - currentLevel]);
-        currentLevel--;
+        currentLevelMngr.SetActivesPositions(_currentLevelInfo, _badOnes[_levels - _currentLevel]);
+        _currentLevel--;
     }
 
-    public void CheckHexSelected(bool win, String nodeName, bool bonus)
+    public void CheckHexSelected(bool win, string nodeName, bool bonus)
     {
+        _buttonsManager.StopTimer();
+        GD.Print(_currentLevel);
         UpdateSaveData(nodeName);
         
         if (win)
@@ -178,10 +201,11 @@ public class GameManager : Godot.Control
             EmitSignal(nameof(RoundWined));
             if(bonus)
             {
-                gotBonus = true;
-                GD.Print("El nodo " + nodeName + " tenía Bonus!");
+                _gotBonus = true;
+                EmitSignal(nameof(NodeWithBonus));
+                CreateTimer(1.5f, "CreateCurrentLevel");
             }
-            if (currentLevel <= 0)
+            else if (_currentLevel <= 0)
             {
                 EndGame(true);
             }
@@ -198,33 +222,30 @@ public class GameManager : Godot.Control
     }
     void CheckToFinishGame()
     {
-        if (currentLevel <= 8)
+        if (_currentLevel <= 8)
         {
             EmitSignal(nameof(CanCollect));
-            EmitSignal(nameof(StartTimer), timerInLevel);
+            EmitSignal(nameof(StartTimer), _timerInLevel);
         }
     }
-    private void InstantiateBonus()
+    public void InstantiateBonus() // La llama UI Manager, señal BonusAccepted
     {
-        EmitSignal(nameof(StartBonus));
+        GD.Print("Instancia Bonus!");
         CreateBonusLevel(Constants.PATH_BONUS);
     }
 
     public void StartGame() //La llama UIManager, señal RestartGame
     {
-        if (!isResuming)
-        {
-            bet_description = "P";
-        }
-        isPlaying = true;
+        _isPlaying = true;
         EmitSignal(nameof(GameStarted));
         if (currentLevelMngr != null)
         {
             currentLevelMngr.QueueFree();
         }
-        if (!isResuming)
+        if(!_isResuming)
         {
-            currentLevel = 10;
+            _betDescription = "P";
+            _currentLevel = 10;
             CreateLevel(Constants.PATH_LEVEL_MANAGER);
         }
     }
@@ -244,21 +265,28 @@ public class GameManager : Godot.Control
     }
     void GameHaveBetNow(bool haveBet) //La llama CurrencyManager, señal GameHaveBet
     {
-        if (!isPlaying)
+        if (!_isPlaying)
         {
             EmitSignal(nameof(GameReady), haveBet);
         }
     }
     void GetNewLevelInfo()
     {
-        myGameGen.SetBadOnes(badOnes[levels - currentLevel]);
-        currentLevelInfo = myGameGen.GenerateLevelInfo(currentLevel);
-        bet_description += myGameGen.levelDescription;
+        _myGameGen.SetBadOnes(_badOnes[_levels - _currentLevel]);
+        _currentLevelInfo = _myGameGen.GenerateLevelInfo(_currentLevel);
+        _betDescription += _myGameGen.levelDescription;
+        UpdateSaveData(null);
+    }
+
+    void GetNewBonusInfo()
+    {
+        _currentLevelInfo = _myGameGen.GenerateBonusInfo();
+        _betDescription += _myGameGen.GetBonusDescription(_currentLevelInfo);
         UpdateSaveData(null);
     }
     void MoneyCollected() //La llama la señal Collect, del UIManager
     {
-        if (isPlaying)
+        if (_isPlaying)
         {
             EndGame(true);
         }
@@ -266,64 +294,78 @@ public class GameManager : Godot.Control
 
     public void EndGame(bool win)
     {
-        if(gotBonus)
+        currentLevelMngr.ExitAnimation();
+        EmitSignal(nameof(GameOver), win);
+        EmitSignal(nameof(LevelsOver), win, _gotBonus);
+        if (_currentLevel > 0)
         {
-            EmitSignal(nameof(StartBonus));
-        }
-        else
-        {
-            gotBonus = false;
-            myGameGen.ResetBonus(); // Game Generator debería saber cuándo tiene que resetear su bonus, (Game Over)
-            if (!win)
-            {
-                // ESTO SE HACE DESPUES DE JUGAR EL BONUS!
-                GD.Print("Perdí, generando " + (currentLevel) + " niveles faltantes");
-                FillBetDescription(currentLevel);
-            }
-            isPlaying = false;
-            EmitSignal(nameof(GameOver), win);
-            bet_description = "";
-            currentLevelMngr.ExitAnimation();
-
-            if (UseDB)
-            {
-                OMenuClient.Structs.SaveData saveData = new OMenuClient.Structs.SaveData(isPlaying, currencyManager.credit, currencyManager.currentBet, DateTime.Now, bet_description);
-                oMenu.UpdateSaveData(saveData, null, null);
-            }
+            // ESTO SE HACE DESPUES DE JUGAR EL BONUS!
+            GD.Print("Perdí o finalicé antes de llegar al final, generando " + (_currentLevel) + " niveles faltantes");
+            FillBetDescription(_currentLevel);
         }
 
+        if (_useDb)
+        {
+            OMenuClient.Structs.SaveData saveData = new OMenuClient.Structs.SaveData(_isPlaying, _currencyManager.credit, _currencyManager.currentBet, DateTime.Now, _betDescription);
+            _oMenu.UpdateSaveData(saveData, null, null);
+        }
         
+        if(!_gotBonus)
+        {
+            GameCompletelyOver();
+            EmitSignal(nameof(GameOver), win);
+        }
     }
 
+    public void BonusFinished()
+    {
+        EmitSignal(nameof(BonusOver));
+        EmitSignal(nameof(GameOver), true);
+        GameCompletelyOver();
+    }
+    
+    void GameCompletelyOver()
+    {
+        GD.Print("gameCompletely Over");
+        _myGameGen.ResetBonus();
+        _gotBonus = false;
+        _isPlaying = false;
+        _betDescription = "";
+        if (_useDb)
+        {
+            OMenuClient.Structs.SaveData saveData = new OMenuClient.Structs.SaveData(_isPlaying, _currencyManager.credit, _currencyManager.currentBet, DateTime.Now, _betDescription);
+            _oMenu.UpdateSaveData(saveData, null, null);
+        }
+    }
 
     void ResumeCrashedGame()
     {
-        isResuming = true;
-        currentLevel = myRecover.GetLevelReached();
+        _isResuming = true;
+        _currentLevel = _myRecover.GetLevelReached();
 
-        myGameGen.bonusGenerated = myRecover.GetPossibleBonus();
-        if(myGameGen.bonusGenerated)
+        _myGameGen.bonusGenerated = _myRecover.GetPossibleBonus();
+        
+        if(_myGameGen.bonusGenerated)
         {
-            myGameGen.bonusSlot = myRecover.bonuSlot;
-            gotBonus = myRecover.GetIfBonusGained();
-            myGameGen.bonusAssigned = true;
+            _myGameGen.bonusSlot = _myRecover.bonuSlot;
+            _gotBonus = _myRecover.GetIfBonusGained();
+            _myGameGen.bonusAssigned = true;
         }
 
-        if(currentLevel > 0)
+        if(_currentLevel > 0)
         {
             CheckToFinishGame();
-            currencyManager.SetMultiplier((levels - currentLevel) - 1);
-            currentLevelInfo = myRecover.GetLastLevelInfo(currentLevel);
+            _currencyManager.SetMultiplier((_levels - _currentLevel) - 1);
+            _currentLevelInfo = _myRecover.GetLastLevelInfo(_currentLevel);
             EmitSignal(nameof(RoundWined));
             StartGame();
             CreateCurrentLevel();
         }
-        else if(gotBonus)
+        else if(_gotBonus)
         {
             GD.Print("Resuming Bonus");
             StartGame();
-            EmitSignal(nameof(StartBonus));
-            gotBonus = false;
+            InstantiateBonus();
         }
         
     }

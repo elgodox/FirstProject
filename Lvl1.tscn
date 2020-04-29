@@ -47,7 +47,7 @@ color_ramp = SubResource( 2 )
 hue_variation = -1.0
 
 [sub_resource type="Animation" id=6]
-resource_name = "Bad"
+resource_name = "Bonus"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Lineas:modulate")
 tracks/0/interp = 1
@@ -58,7 +58,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2, 0.5, 0.7, 1 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0.972549, 0.294118, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 0.972549, 0.294118, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Luz:modulate")
@@ -70,7 +70,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.2, 0.5, 0.7, 1 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 0.458824, 0.858824, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 0.458824, 0.858824, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 0.458824, 0.858824, 1, 1 ) ]
+"values": [ Color( 0.458824, 0.858824, 1, 1 ), Color( 0.917647, 0.901961, 0.517647, 1 ), Color( 0.458824, 0.858824, 1, 1 ), Color( 0.917647, 0.901961, 0.517647, 1 ), Color( 0.458824, 0.858824, 1, 1 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("HaloLuz:modulate")
@@ -79,10 +79,10 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.2, 0.5, 0.7, 1 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.2, 0.7, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 0.458824, 0.858824, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 0.458824, 0.858824, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 0.458824, 0.858824, 1, 1 ) ]
+"values": [ Color( 0.458824, 0.858824, 1, 1 ), Color( 0.917647, 0.901961, 0.517647, 1 ), Color( 0.917647, 0.901961, 0.517647, 1 ), Color( 0.458824, 0.858824, 1, 1 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath(".:self_modulate")
@@ -91,10 +91,10 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.2, 0.5, 0.7, 1 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0.384314, 0.384314, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 0.384314, 0.384314, 1 ), Color( 1, 1, 1, 1 ) ]
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=7]
@@ -233,10 +233,9 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-UseDB = true
-levels = 10
-timerInLevel = 10
-badOnes = PoolIntArray( 1, 1, 1, 1, 0, 0, 0, 0, 0, 0 )
+_useDb = true
+_levels = 10
+_timerInLevel = 10
 
 [node name="Panner" type="Control" parent="."]
 anchor_right = 1.0
@@ -343,6 +342,7 @@ texture = ExtResource( 5 )
 autoplay = "Init"
 method_call_mode = 1
 anims/Bad = SubResource( 6 )
+anims/Bonus = SubResource( 6 )
 anims/Good = SubResource( 7 )
 anims/Idle = SubResource( 8 )
 anims/Init = SubResource( 9 )
@@ -376,25 +376,31 @@ stream = ExtResource( 13 )
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 17 )
 autoplay = true
+[connection signal="BonusOver" from="." to="UI_Template" method="BonusPicked"]
+[connection signal="BonusOver" from="." to="Background" method="TurnOff"]
 [connection signal="CanCollect" from="." to="UI_Template" method="ActivateCollectButton"]
 [connection signal="GameOver" from="." to="AudioManager" method="GameOverSound"]
 [connection signal="GameOver" from="." to="CurrencyManager" method="AddCurrencyToCredits"]
-[connection signal="GameOver" from="." to="Background" method="IsBad"]
-[connection signal="GameOver" from="." to="Panner" method="BackToOrigin"]
 [connection signal="GameOver" from="." to="UI_Template" method="ActivateAgain"]
-[connection signal="GameOver" from="." to="UI_Template" method="SetGameOverMessage"]
+[connection signal="GameOver" from="." to="Panner" method="BackToOrigin"]
+[connection signal="GameOver" from="." to="Background" method="IsBad"]
 [connection signal="GameReady" from="." to="UI_Template" method="ActivatePlayButton"]
 [connection signal="GameStarted" from="." to="AudioManager" method="PlayLevelMusic"]
-[connection signal="GameStarted" from="." to="Background" method="TurnOn"]
 [connection signal="GameStarted" from="." to="UI_Template" method="DeactivateButtons"]
+[connection signal="GameStarted" from="." to="Background" method="TurnOn"]
+[connection signal="LevelsOver" from="." to="UI_Template" method="SetGameOverMessage"]
+[connection signal="NodeWithBonus" from="." to="Background" method="IsBonus"]
 [connection signal="RoundWined" from="." to="CurrencyManager" method="AddBetToCurrency"]
-[connection signal="RoundWined" from="." to="Background" method="IsGood"]
 [connection signal="RoundWined" from="." to="Panner" method="Panning"]
+[connection signal="RoundWined" from="." to="Background" method="IsGood"]
 [connection signal="SetCurrencyManager" from="." to="CurrencyManager" method="SetCurrency"]
+[connection signal="StartBonus" from="." to="UI_Template" method="BonusStarted"]
 [connection signal="StartTimer" from="." to="UI_Template" method="StartTimer"]
 [connection signal="animation_finished" from="Background/AnimationPlayer" to="Background" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="CurrencyChanged" from="CurrencyManager" to="UI_Template" method="UpdateCurrencyUI"]
 [connection signal="GameHaveBet" from="CurrencyManager" to="." method="GameHaveBetNow"]
+[connection signal="BonusAccepted" from="UI_Template" to="UI_Template" method="BonusStarted"]
+[connection signal="BonusAccepted" from="UI_Template" to="." method="InstantiateBonus"]
 [connection signal="ControlMasterVolume" from="UI_Template" to="AudioManager" method="_on_UI_ControlMasterVolume"]
 [connection signal="TimerDone" from="UI_Template" to="." method="EndGame"]
 [connection signal="bet" from="UI_Template" to="CurrencyManager" method="Bet"]
