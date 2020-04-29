@@ -35,7 +35,7 @@ public class AudioManager : Node
         audioSource.Play();
     }
 
-    public void GameOverSound(bool win)
+    public void GameOverSound(bool win, bool bonus) //La llama GameManager, señal LevelsOver
     {
         _backGroundMusic.Stop();
 
