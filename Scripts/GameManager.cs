@@ -29,6 +29,7 @@ public class GameManager : Godot.Control
     GameRecover _myRecover;
     OMenuCommunication _oMenu = new OMenuCommunication();
     GameGenerator _myGameGen = new GameGenerator();
+    UIButtonsManager _buttonsManager = new UIButtonsManager();
     CurrencyManager _currencyManager;
     int[] _currentLevelInfo;
     bool _isResuming;
@@ -36,6 +37,7 @@ public class GameManager : Godot.Control
     public override void _Ready()
     {
         _currencyManager = GetNode("CurrencyManager") as CurrencyManager;
+        _buttonsManager = GetNode("UI_Template") as UIButtonsManager;
         Console.WriteLine(_currencyManager.Name);
 
         if (_useDb)
@@ -190,6 +192,7 @@ public class GameManager : Godot.Control
 
     public void CheckHexSelected(bool win, string nodeName, bool bonus)
     {
+        _buttonsManager.StopTimer();
         GD.Print(_currentLevel);
         UpdateSaveData(nodeName);
         
@@ -200,8 +203,9 @@ public class GameManager : Godot.Control
             {
                 _gotBonus = true;
                 EmitSignal(nameof(NodeWithBonus));
+                CreateTimer(1.5f, "CreateCurrentLevel");
             }
-            if (_currentLevel <= 0)
+            else if (_currentLevel <= 0)
             {
                 EndGame(true);
             }

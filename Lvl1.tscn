@@ -374,7 +374,6 @@ stream = ExtResource( 13 )
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 17 )
 autoplay = true
-[connection signal="BonusOver" from="." to="Background" method="TurnOff"]
 [connection signal="BonusOver" from="." to="UI_Template" method="BonusPicked"]
 [connection signal="BonusStarted" from="." to="CurrencyManager" method="UpdateBonusPrices"]
 [connection signal="CanCollect" from="." to="UI_Template" method="ActivateCollectButton"]
@@ -382,7 +381,6 @@ autoplay = true
 [connection signal="GameOver" from="." to="UI_Template" method="ActivateAgain"]
 [connection signal="GameReady" from="." to="UI_Template" method="ActivatePlayButton"]
 [connection signal="GameStarted" from="." to="AudioManager" method="PlayLevelMusic"]
-[connection signal="GameStarted" from="." to="Background" method="TurnOn"]
 [connection signal="GameStarted" from="." to="UI_Template" method="DeactivateButtons"]
 [connection signal="LevelsOver" from="." to="AudioManager" method="GameOverSound"]
 [connection signal="LevelsOver" from="." to="UI_Template" method="SetGameOverMessage"]
