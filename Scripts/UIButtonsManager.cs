@@ -49,7 +49,7 @@ public class UIButtonsManager : Control
 
     #region Funciones de Botones
 
-    void ActivateAgain(bool win) //La llama GameManager, señal GameOver
+    void ActivateAgain() //La llama GameManager, señal GameOver!
     {
         _helpButton.Disabled = false;
         _maxBetButton.Disabled = false;
@@ -204,7 +204,6 @@ public class UIButtonsManager : Control
         if(bonus)
         {
             _incomingBonus.Show();
-            StopTimer();
         }
     }
 
@@ -224,7 +223,7 @@ public class UIButtonsManager : Control
     {
         _finishedBonus.Hide();
         GD.Print("UI recibe que bonus fue pickeado");
-        ActivateAgain(true);
+        ActivateAgain();
     }
 
     void LoadScene(string pathScene)

@@ -31,11 +31,19 @@ public class LightAnimations : TextureRect
     { 
         animation.CurrentAnimation = "Bonus";
     }
-    public void IsBad(bool win)
+    public void SetBackgroundAnimation(bool win, bool bonus) //La llama 
     {
-        if (!win)
+        if (bonus)
+        {
+            animation.CurrentAnimation = "Bonus";
+        }
+        else if (!win)
         {
             animation.CurrentAnimation = "Bad";
+        }
+        else
+        {
+            animation.CurrentAnimation = "Good";
         }
     }
     public void _on_AnimationPlayer_animation_finished(string animationIdle)
