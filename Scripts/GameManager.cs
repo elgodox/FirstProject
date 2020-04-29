@@ -200,8 +200,9 @@ public class GameManager : Godot.Control
             {
                 _gotBonus = true;
                 EmitSignal(nameof(NodeWithBonus));
+                CreateTimer(1.5f, "CreateCurrentLevel");
             }
-            if (_currentLevel <= 0)
+            else if (_currentLevel <= 0)
             {
                 EndGame(true);
             }

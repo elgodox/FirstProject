@@ -8,6 +8,7 @@ public class HexNode : Node
     public AudioStreamPlayer2D audio;
     [Export] AudioStream isGood;
     [Export] AudioStream isBad;
+    [Export] AudioStream isBonus;
 
     public bool goodOne = true;
     public bool bonus = false;
@@ -33,7 +34,7 @@ public class HexNode : Node
             if (bonus)
             {
                 sprite.Animation = "isBonus";
-                audio.Stream = isGood;    
+                audio.Stream = isBonus;    
             }
             else if (goodOne)
             {
@@ -45,6 +46,8 @@ public class HexNode : Node
                 sprite.Animation = "isBad";
                 audio.Stream = isBad;
             }
+
+            audio.VolumeDb = 1;
             audio.Play();
             nodePressed(this);
         }
