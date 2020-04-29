@@ -6,24 +6,11 @@ public class CurrencyManager : Node
     
 	[Signal] public delegate void CurrencyChanged(params object[] parameters);
 	[Signal] public delegate void GameHaveBet(bool haveBet);
-    double[] multipliers = new double[10];
+    double[] multipliers = { 0, 0.9, 1.2, 1.4, 1.68, 2.1, 2.8, 4.2, 8.4, 16.8 };
     public double credit, maxBetAmount, minBetAmount;
     public double currentBet, currencyToCollect;
 
     double multiplier;
-    public override void _Ready()
-    {
-        multipliers[0]= 0;
-        multipliers[1]= 0.9;
-        multipliers[2]= 1.2;
-        multipliers[3]= 1.4;
-        multipliers[4]= 1.68;
-        multipliers[5]= 2.1;
-        multipliers[6]= 2.8;
-        multipliers[7]= 4.2;
-        multipliers[8]= 8.4;
-        multipliers[9]= 16.8;
-    }
 
     void SetCurrency(double money, double minBet,double maxBet)
     {
@@ -87,15 +74,30 @@ public class CurrencyManager : Node
     {
         EmitSignal(nameof(CurrencyChanged), Constants.CURRENCY_WINNED, currencyToCollect);
     }
-    void AddCurrencyToCredits(bool win) // La llama GameManager, señal GameOver
-    {
-        if(win)
-        {
-            GD.Print(currencyToCollect);
-            UpdateWinnedCurrency();
-            credit += currencyToCollect;
-        }
 
+    void UpdateBonusPrices() //La llama GameManager, señal BonusStarted
+    {
+        EmitSignal(nameof(CurrencyChanged), Constants.BONUS_MULTIPLIERS[0], Constants.BONUS_MULTIPLIERS[0] * currentBet);
+        EmitSignal(nameof(CurrencyChanged), Constants.BONUS_MULTIPLIERS[1], Constants.BONUS_MULTIPLIERS[1] * currentBet);
+        EmitSignal(nameof(CurrencyChanged), Constants.BONUS_MULTIPLIERS[2], Constants.BONUS_MULTIPLIERS[2] * currentBet);
+        EmitSignal(nameof(CurrencyChanged), Constants.BONUS_MULTIPLIERS[3], Constants.BONUS_MULTIPLIERS[3] * currentBet);
+    }
+
+    public void UpdateBonusReward(double multiplier)
+    {
+        EmitSignal(nameof(CurrencyChanged), Constants.CURRENCY_BONUS_REWARD, currentBet * multiplier);
+    }
+
+    public void ResetCurrencyToCollect()
+    {
+        currencyToCollect = 0;
+        EmitSignal(nameof(CurrencyChanged), Constants.CURRENCY_TO_COLLECT, currencyToCollect);
+    }
+    void AddCurrencyToCredits() // La llama GameManager, señal GameOver
+    {
+        UpdateWinnedCurrency();
+        credit += currencyToCollect;
+        
         currencyToCollect = 0;
         currentBet = 0;
         
