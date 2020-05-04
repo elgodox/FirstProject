@@ -33,7 +33,7 @@ public class LightAnimations : TextureRect
     }
     public void SetBackgroundAnimation(bool win, bool bonus) //La llama 
     {
-        if (bonus)
+        if (win && bonus)
         {
             animation.CurrentAnimation = "Bonus";
         }
