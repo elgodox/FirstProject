@@ -13,6 +13,8 @@ public class AudioManager : Node
     [Export] AudioStream gamePlayMusic;
     [Export] AudioStream gameOverWinMusic;
     [Export] AudioStream gameOverLoseMusic;
+    [Export] AudioStream bonusMusic;
+    [Export] AudioStream winBonusMusic;
         
     #endregion
 
@@ -21,6 +23,11 @@ public class AudioManager : Node
         InitChilds();
         _backGroundMusic.Stream = idleMusic;
         _backGroundMusic.Play();
+    }
+
+    public void BonusWinSound()
+    {
+        PlayAudioTrack(winBonusMusic,_backGroundMusic);
     }
 
     void InitChilds()
@@ -54,6 +61,12 @@ public class AudioManager : Node
         _notificationSounds.Stop();
         PlayAudioTrack(gamePlayMusic, _backGroundMusic);
     }
+    
+    public void PlayBonusMusic()
+    {
+        _notificationSounds.Stop();
+        PlayAudioTrack(bonusMusic, _backGroundMusic);
+    }
 
     public void _on_NotificationSounds_finished()
     {
@@ -61,6 +74,12 @@ public class AudioManager : Node
             PlayAudioTrack(idleMusic, _backGroundMusic);
     }
 
+    public void _on_BackGroundMusic_finished()
+    {
+        if (!_backGroundMusic.Playing)
+            PlayAudioTrack(idleMusic, _backGroundMusic);
+    }
+    
     public void _on_UI_ControlMasterVolume(float volume)
     {
         AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("Master"),volume);

@@ -17,7 +17,7 @@ public class HexNode : Node
     public double bonusMultiplier;
     AnimatedSprite sprite;
 
-    Label myName;
+    public Label myName;
     public override void _Ready()
     {
         sprite = GetChild(0) as AnimatedSprite;
@@ -67,5 +67,17 @@ public class HexNode : Node
         sprite.Playing = true;
         sprite.Play();
     }
+
+    public void SetMultiply(string multipliers)
+    {
+        myName.Text = multipliers;
+    }
+    
+    public void ShowMultiply()
+    {
+        myName.Show();
+    }
+    
+    
 }
 
