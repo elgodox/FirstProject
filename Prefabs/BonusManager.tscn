@@ -1,9 +1,7 @@
-[gd_scene load_steps=192 format=2]
+[gd_scene load_steps=191 format=2]
 
 [ext_resource path="res://Scripts/CurrencyLabel.cs" type="Script" id=1]
 [ext_resource path="res://Fonts/Dynamic Fonts/Apuestas.tres" type="DynamicFont" id=2]
-[ext_resource path="res://Sounds/SelectSC.ogg" type="AudioStream" id=3]
-[ext_resource path="res://Sounds/Appear.ogg" type="AudioStream" id=4]
 [ext_resource path="res://Scripts/BonusManager.cs" type="Script" id=5]
 [ext_resource path="res://Scripts/HexAnim.cs" type="Script" id=6]
 [ext_resource path="res://Scripts/HexNode.cs" type="Script" id=7]
@@ -188,17 +186,18 @@
 [ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00020.png" type="Texture" id=186]
 [ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00029.png" type="Texture" id=187]
 [ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00035.png" type="Texture" id=188]
+[ext_resource path="res://Sounds/HexBonus.ogg" type="AudioStream" id=189]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 53 ), ExtResource( 58 ), ExtResource( 47 ), ExtResource( 62 ), ExtResource( 48 ), ExtResource( 96 ), ExtResource( 49 ), ExtResource( 101 ), ExtResource( 45 ), ExtResource( 59 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 50 ), ExtResource( 73 ), ExtResource( 64 ), ExtResource( 56 ), ExtResource( 60 ), ExtResource( 95 ), ExtResource( 54 ), ExtResource( 93 ), ExtResource( 90 ), ExtResource( 46 ), ExtResource( 67 ), ExtResource( 83 ), ExtResource( 97 ), ExtResource( 61 ), ExtResource( 55 ), ExtResource( 74 ), ExtResource( 91 ), ExtResource( 77 ), ExtResource( 76 ), ExtResource( 88 ), ExtResource( 92 ), ExtResource( 84 ), ExtResource( 78 ), ExtResource( 98 ), ExtResource( 75 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 6.0
-}, {
 "frames": [ ExtResource( 152 ), ExtResource( 156 ), ExtResource( 173 ), ExtResource( 139 ), ExtResource( 131 ), ExtResource( 118 ), ExtResource( 145 ), ExtResource( 130 ), ExtResource( 126 ), ExtResource( 120 ), ExtResource( 147 ), ExtResource( 137 ), ExtResource( 141 ), ExtResource( 117 ), ExtResource( 116 ), ExtResource( 136 ), ExtResource( 143 ), ExtResource( 115 ), ExtResource( 124 ), ExtResource( 133 ), ExtResource( 135 ), ExtResource( 129 ), ExtResource( 142 ), ExtResource( 138 ), ExtResource( 144 ), ExtResource( 122 ), ExtResource( 177 ), ExtResource( 146 ), ExtResource( 134 ), ExtResource( 121 ), ExtResource( 132 ), ExtResource( 119 ), ExtResource( 155 ), ExtResource( 123 ) ],
 "loop": false,
 "name": "Exit",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 123 ), ExtResource( 119 ), ExtResource( 132 ), ExtResource( 121 ), ExtResource( 134 ), ExtResource( 146 ), ExtResource( 177 ), ExtResource( 122 ), ExtResource( 144 ), ExtResource( 138 ), ExtResource( 142 ), ExtResource( 129 ), ExtResource( 135 ), ExtResource( 133 ), ExtResource( 124 ), ExtResource( 115 ), ExtResource( 143 ), ExtResource( 136 ), ExtResource( 116 ), ExtResource( 117 ), ExtResource( 141 ), ExtResource( 137 ), ExtResource( 147 ), ExtResource( 120 ), ExtResource( 126 ), ExtResource( 130 ), ExtResource( 145 ), ExtResource( 118 ), ExtResource( 131 ), ExtResource( 139 ) ],
+"loop": false,
+"name": "Appear",
 "speed": 10.0
 }, {
 "frames": [ ExtResource( 99 ), ExtResource( 94 ), ExtResource( 85 ), ExtResource( 109 ), ExtResource( 79 ), ExtResource( 112 ), ExtResource( 80 ), ExtResource( 71 ), ExtResource( 70 ), ExtResource( 100 ), ExtResource( 104 ), ExtResource( 81 ), ExtResource( 89 ), ExtResource( 105 ), ExtResource( 72 ), ExtResource( 86 ), ExtResource( 82 ), ExtResource( 66 ), ExtResource( 87 ), ExtResource( 106 ), ExtResource( 23 ), ExtResource( 38 ), ExtResource( 102 ), ExtResource( 103 ), ExtResource( 24 ), ExtResource( 113 ), ExtResource( 16 ), ExtResource( 37 ), ExtResource( 108 ), ExtResource( 17 ), ExtResource( 111 ), ExtResource( 25 ), ExtResource( 12 ), ExtResource( 26 ), ExtResource( 22 ), ExtResource( 107 ) ],
@@ -206,20 +205,20 @@ animations = [ {
 "name": "isGood",
 "speed": 6.0
 }, {
+"frames": [ ExtResource( 166 ), ExtResource( 165 ), ExtResource( 158 ), ExtResource( 174 ), ExtResource( 179 ), ExtResource( 167 ), ExtResource( 157 ), ExtResource( 176 ), ExtResource( 159 ), ExtResource( 151 ), ExtResource( 164 ), ExtResource( 175 ), ExtResource( 163 ), ExtResource( 150 ), ExtResource( 162 ), ExtResource( 148 ), ExtResource( 183 ), ExtResource( 154 ), ExtResource( 182 ), ExtResource( 180 ), ExtResource( 186 ), ExtResource( 171 ), ExtResource( 172 ), ExtResource( 153 ), ExtResource( 161 ), ExtResource( 149 ), ExtResource( 184 ), ExtResource( 170 ), ExtResource( 185 ), ExtResource( 187 ), ExtResource( 160 ), ExtResource( 178 ), ExtResource( 168 ), ExtResource( 169 ), ExtResource( 181 ), ExtResource( 188 ) ],
+"loop": false,
+"name": "isBonus",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 19 ), ExtResource( 30 ), ExtResource( 18 ), ExtResource( 32 ), ExtResource( 36 ), ExtResource( 39 ), ExtResource( 15 ), ExtResource( 9 ), ExtResource( 11 ), ExtResource( 28 ), ExtResource( 110 ), ExtResource( 14 ), ExtResource( 114 ), ExtResource( 33 ), ExtResource( 40 ), ExtResource( 10 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 21 ), ExtResource( 127 ), ExtResource( 8 ), ExtResource( 128 ), ExtResource( 27 ), ExtResource( 13 ), ExtResource( 20 ), ExtResource( 29 ), ExtResource( 31 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 69 ), ExtResource( 68 ), ExtResource( 51 ), ExtResource( 63 ), ExtResource( 57 ), ExtResource( 65 ), ExtResource( 52 ) ],
 "loop": false,
 "name": "isBad",
 "speed": 6.0
 }, {
-"frames": [ ExtResource( 123 ), ExtResource( 119 ), ExtResource( 132 ), ExtResource( 121 ), ExtResource( 134 ), ExtResource( 146 ), ExtResource( 177 ), ExtResource( 122 ), ExtResource( 144 ), ExtResource( 138 ), ExtResource( 142 ), ExtResource( 129 ), ExtResource( 135 ), ExtResource( 133 ), ExtResource( 124 ), ExtResource( 115 ), ExtResource( 143 ), ExtResource( 136 ), ExtResource( 116 ), ExtResource( 117 ), ExtResource( 141 ), ExtResource( 137 ), ExtResource( 147 ), ExtResource( 120 ), ExtResource( 126 ), ExtResource( 130 ), ExtResource( 145 ), ExtResource( 118 ), ExtResource( 131 ), ExtResource( 139 ) ],
-"loop": false,
-"name": "Appear",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 166 ), ExtResource( 165 ), ExtResource( 158 ), ExtResource( 174 ), ExtResource( 179 ), ExtResource( 167 ), ExtResource( 157 ), ExtResource( 176 ), ExtResource( 159 ), ExtResource( 151 ), ExtResource( 164 ), ExtResource( 175 ), ExtResource( 163 ), ExtResource( 150 ), ExtResource( 162 ), ExtResource( 148 ), ExtResource( 183 ), ExtResource( 154 ), ExtResource( 182 ), ExtResource( 180 ), ExtResource( 186 ), ExtResource( 171 ), ExtResource( 172 ), ExtResource( 153 ), ExtResource( 161 ), ExtResource( 149 ), ExtResource( 184 ), ExtResource( 170 ), ExtResource( 185 ), ExtResource( 187 ), ExtResource( 160 ), ExtResource( 178 ), ExtResource( 168 ), ExtResource( 169 ), ExtResource( 181 ), ExtResource( 188 ) ],
-"loop": false,
-"name": "isBonus",
-"speed": 5.0
+"frames": [ ExtResource( 53 ), ExtResource( 58 ), ExtResource( 47 ), ExtResource( 62 ), ExtResource( 48 ), ExtResource( 96 ), ExtResource( 49 ), ExtResource( 101 ), ExtResource( 45 ), ExtResource( 59 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 50 ), ExtResource( 73 ), ExtResource( 64 ), ExtResource( 56 ), ExtResource( 60 ), ExtResource( 95 ), ExtResource( 54 ), ExtResource( 93 ), ExtResource( 90 ), ExtResource( 46 ), ExtResource( 67 ), ExtResource( 83 ), ExtResource( 97 ), ExtResource( 61 ), ExtResource( 55 ), ExtResource( 74 ), ExtResource( 91 ), ExtResource( 77 ), ExtResource( 76 ), ExtResource( 88 ), ExtResource( 92 ), ExtResource( 84 ), ExtResource( 78 ), ExtResource( 98 ), ExtResource( 75 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 6.0
 } ]
 
 [sub_resource type="Animation" id=2]
@@ -264,20 +263,6 @@ tracks/2/keys = {
 "method": "DestroyHexManager"
 } ]
 }
-tracks/3/type = "audio"
-tracks/3/path = NodePath("AudioStreamPlayer")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"clips": [ {
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource( 3 )
-} ],
-"times": PoolRealArray( 0 )
-}
 
 [sub_resource type="Animation" id=3]
 length = 0.5
@@ -295,27 +280,13 @@ tracks/0/keys = {
 "method": "ShowActivesOnes"
 } ]
 }
-tracks/1/type = "audio"
-tracks/1/path = NodePath("AudioStreamPlayer")
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"clips": [ {
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource( 4 )
-} ],
-"times": PoolRealArray( 0 )
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath(".:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
@@ -325,6 +296,8 @@ tracks/2/keys = {
 [node name="BonusManager" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 1.01256
+margin_right = 1.01257
 rect_pivot_offset = Vector2( 797.928, 450.438 )
 mouse_filter = 2
 script = ExtResource( 5 )
@@ -350,6 +323,7 @@ __meta__ = {
 }
 isGood = ExtResource( 140 )
 isBad = ExtResource( 125 )
+isBonus = ExtResource( 189 )
 
 [node name="Sprite" type="AnimatedSprite" parent="Hex1"]
 position = Vector2( 40.0278, 43.1763 )
@@ -362,6 +336,7 @@ playing = true
 script = ExtResource( 6 )
 
 [node name="BonusPrice1" type="Label" parent="Hex1"]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -399,6 +374,7 @@ __meta__ = {
 }
 isGood = ExtResource( 140 )
 isBad = ExtResource( 125 )
+isBonus = ExtResource( 189 )
 
 [node name="Sprite" type="AnimatedSprite" parent="Hex3"]
 position = Vector2( 40.0278, 43.1763 )
@@ -411,6 +387,7 @@ playing = true
 script = ExtResource( 6 )
 
 [node name="BonusPrice3" type="Label" parent="Hex3"]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -448,6 +425,7 @@ __meta__ = {
 }
 isGood = ExtResource( 140 )
 isBad = ExtResource( 125 )
+isBonus = ExtResource( 189 )
 
 [node name="Sprite" type="AnimatedSprite" parent="Hex0"]
 position = Vector2( 40.0278, 43.1763 )
@@ -460,6 +438,7 @@ playing = true
 script = ExtResource( 6 )
 
 [node name="BonusPrice0" type="Label" parent="Hex0"]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -497,6 +476,7 @@ __meta__ = {
 }
 isGood = ExtResource( 140 )
 isBad = ExtResource( 125 )
+isBonus = ExtResource( 189 )
 
 [node name="Sprite" type="AnimatedSprite" parent="Hex2"]
 position = Vector2( 40.0278, 43.1763 )
@@ -509,6 +489,7 @@ playing = true
 script = ExtResource( 6 )
 
 [node name="BonusPrice2" type="Label" parent="Hex2"]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -535,12 +516,8 @@ pause_mode = 1
 autoplay = "Init"
 anims/Exit = SubResource( 2 )
 anims/Init = SubResource( 3 )
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 3 )
-volume_db = 5.0
-[connection signal="BonusPicked" from="." to="Hex2/BonusPrice2" method="UnsuscribeMe"]
 [connection signal="BonusPicked" from="." to="Hex3/BonusPrice3" method="UnsuscribeMe"]
+[connection signal="BonusPicked" from="." to="Hex2/BonusPrice2" method="UnsuscribeMe"]
 [connection signal="BonusPicked" from="." to="Hex1/BonusPrice1" method="UnsuscribeMe"]
 [connection signal="BonusPicked" from="." to="Hex0/BonusPrice0" method="UnsuscribeMe"]
 [connection signal="button_down" from="Hex1" to="Hex1" method="_on_button_down"]

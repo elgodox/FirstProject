@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.Collections.Generic;
+using System.Text;
 
 public class BonusManager : LevelManager
 {
@@ -26,6 +27,7 @@ public class BonusManager : LevelManager
 			if(item != null)
 			{
 				item.pressed = true;
+				item.ShowMultiply();
 			}
 		}
         
@@ -39,9 +41,12 @@ public class BonusManager : LevelManager
 		    var currentRandomIndex = randomPos[i];
 
 		    _nodes[i].bonusMultiplier = Constants.BONUS_MULTIPLIERS[currentRandomIndex];
+		    _nodes[i].bonus = true;
+		    _nodes[i].goodOne = false;
 		    var price = _nodes[i].bonusMultiplier.ToString();
 		    price = price.Replace(',', '.');
 		    bonusPrices[i].UpdateMyType(price);
+		    _nodes[i].SetMultiply("X"+bonusPrices[i].myType);
 		    GD.Print(bonusPrices[i].myType);
 	    }
     }
