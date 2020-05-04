@@ -157,4 +157,63 @@ public class GameRecover
 
         return levelInfo;
     }
+
+    public int[] GetBonusLevelInfo()
+    {
+        List<int> listInfo = new List<int>();
+        int[] levelInfo = new int[4];
+        if (myLevels.ContainsKey(0))
+        {
+            GD.Print("Level 0 contiene algo en el diccionario!");
+            for (int i = 0; i < myLevels[0].Length; i++)
+            {
+                var current = myLevels[0][i];
+                if (current == '3')
+                {
+                    listInfo.Add(3);
+                }
+                else if(current == '2')
+                {
+                    listInfo.Add(2);
+                }
+                else if (current == '1')
+                {
+                    if (i < myLevels[0].Length - 1) //si hay un próximo después del 1 y es un .
+                    {
+                        GD.Print(i + " es menor que " + (myLevels[0].Length - 1));
+                        if (myLevels[0][i + 1] == '.')
+                        {
+                            string decimalNumber = current.ToString() + "," + (myLevels[0][i + 2]).ToString();
+                            double decimalNumberDouble = Convert.ToDouble(decimalNumber);
+                            GD.Print("decimal = " + current + " + " + myLevels[0][i + 1]  + " + " + myLevels[0][i + 2] + " : " + decimalNumberDouble);
+                            i += 2;
+                            listInfo.Add(1); 
+                        }
+                        else
+                        {
+                            listInfo.Add(0);
+                        }
+                    }
+                    else
+                    {
+                        listInfo.Add(0);
+                    }
+                    
+                }
+            }
+
+            GD.Print("El orden en la lista es: ");
+            for (int i = 0; i < listInfo.Count; i++)
+            {
+                GD.Print(listInfo[i]);
+                levelInfo[i] = listInfo[i];
+            }
+        }
+        else
+        {
+            GD.Print("El level 0 no existe en el diccionario!");
+        }
+        
+        return levelInfo;
+    }
 }

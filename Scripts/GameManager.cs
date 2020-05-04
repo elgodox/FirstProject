@@ -33,9 +33,14 @@ public class GameManager : Godot.Control
     CurrencyManager _currencyManager;
     int[] _currentLevelInfo;
     bool _isResuming;
+    
+    
+    Timer timer;
 
     public override void _Ready()
     {
+        IntiTimer();
+
         _currencyManager = GetNode("CurrencyManager") as CurrencyManager;
         _buttonsManager = GetNode("UI_Template") as UIButtonsManager;
         Console.WriteLine(_currencyManager.Name);
@@ -48,6 +53,13 @@ public class GameManager : Godot.Control
         {
             EmitSignal(nameof(SetCurrencyManager), 1000, 5, 25);
         }
+    }
+
+    void IntiTimer()
+    {
+        timer = new Timer();
+        AddChild(timer);
+        timer.OneShot = true;
     }
 
     #region BBDD Methods
@@ -148,16 +160,16 @@ public class GameManager : Godot.Control
         AddChild(currentLevelMngr);
         currentLevelMngr.myGameManager = this;
         
-        if (_isResuming)
+        if (!_isResuming)
         {
-            _isResuming = false;
-            //_currentLevelInfo = _myRecover.GetLastLevelInfo(0);
+            GetNewBonusInfo();
             //Debería decirle a BonusManager que asigne los slots como los tenía en la BetDescription
         }
         else
         {
+            //
+            _isResuming = false;
             //Debería crearse la jugada y ser guardada en la betDescription
-            GetNewBonusInfo();
             //
         }
 
@@ -193,7 +205,6 @@ public class GameManager : Godot.Control
     public void CheckHexSelected(bool win, string nodeName, bool bonus)
     {
         _buttonsManager.StopTimer();
-        GD.Print(_currentLevel);
         UpdateSaveData(nodeName);
         
         if (win)
@@ -203,7 +214,7 @@ public class GameManager : Godot.Control
             {
                 _gotBonus = true;
                 EmitSignal(nameof(NodeWithBonus));
-                CreateTimer(1.5f, "CreateCurrentLevel");
+                SetTimeOutMethod(1.5f, "CreateCurrentLevel");
             }
             else if (_currentLevel <= 0)
             {
@@ -212,7 +223,7 @@ public class GameManager : Godot.Control
             else
             {
                 CheckToFinishGame();
-                CreateTimer(.4f, "CreateCurrentLevel");
+                SetTimeOutMethod(.65f, "CreateCurrentLevel");
             }
         }
         else
@@ -250,14 +261,15 @@ public class GameManager : Godot.Control
             CreateLevel(Constants.PATH_LEVEL_MANAGER);
         }
     }
-    void CreateTimer(float secs, string method)
+    void SetTimeOutMethod(float secs, string method)
     {
-        var timer = new Timer();
+        timer.Stop();
         timer.WaitTime = secs;
-        timer.OneShot = true;
-        AddChild(timer);
+        if (!timer.IsConnected("timeout", this, method))
+        {
+            timer.Connect("timeout", this, method);
+        }
         timer.Start();
-        timer.Connect("timeout", this, method);
     }
 
     void CreateCurrentLevel() //Se llama dentro de la función CheckHexsSelected, la recibe CreateTimer
@@ -303,8 +315,12 @@ public class GameManager : Godot.Control
         }
         if (_currentLevel > 0)
         {
-            // ESTO SE HACE DESPUES DE JUGAR EL BONUS!
-            GD.Print("Perdí o finalicé antes de llegar al final, generando " + (_currentLevel) + " niveles faltantes");
+            if (win)
+            {
+                GD.Print("Gané pero el nivel actual" + _currentLevel +" es mayor a 0, por lo que o se me acabó el tiempo, o finalicé sin apretar ningún nodo.");
+                _betDescription += "-2;";
+            }
+            GD.Print("Finalicé antes de llegar al final, generando " + (_currentLevel) + " niveles faltantes");
             FillBetDescription(_currentLevel);
         }
 
@@ -323,8 +339,8 @@ public class GameManager : Godot.Control
     public void BonusFinished(double multiplier)
     {
         _currencyManager.UpdateBonusReward(multiplier);
-        EmitSignal(nameof(BonusOver));
         GameCompletelyOver();
+        EmitSignal(nameof(BonusOver));
     }
     
     void GameCompletelyOver()
@@ -346,6 +362,7 @@ public class GameManager : Godot.Control
     {
         _isResuming = true;
         _currentLevel = _myRecover.GetLevelReached();
+        GD.Print("GameManager recibe que el último nivel alcanzado es " + _currentLevel);
 
         _myGameGen.bonusGenerated = _myRecover.GetPossibleBonus();
         
@@ -356,7 +373,7 @@ public class GameManager : Godot.Control
             _myGameGen.bonusAssigned = true;
         }
 
-        if(_currentLevel > 0)
+        if(_currentLevel > 1)
         {
             CheckToFinishGame();
             _currencyManager.SetMultiplier((_levels - _currentLevel) - 1);
@@ -368,6 +385,7 @@ public class GameManager : Godot.Control
         else if(_gotBonus)
         {
             GD.Print("Resuming Bonus");
+            _currentLevelInfo = _myRecover.GetBonusLevelInfo();
             StartGame();
             InstantiateBonus();
         }
