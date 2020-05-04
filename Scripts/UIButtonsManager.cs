@@ -180,6 +180,16 @@ public class UIButtonsManager : Control
         LoadScene(Constants.PATH_UI_GAMEOVR_LOSE);
         SetUpTimer();
     }
+    
+    void CreateTimer(float secs, string method)
+    {
+        var timer = new Timer();
+        timer.WaitTime = secs;
+        timer.OneShot = true;
+        AddChild(timer);
+        timer.Start();
+        timer.Connect("timeout", this, method);
+    }
     public void SubscribeCurrencyLabel(CurrencyLabel cl)
     {
         _myCurrencyLabels.Add(cl.myType, cl);
@@ -216,8 +226,14 @@ public class UIButtonsManager : Control
     void BonusPicked() //La llama GameManager, señal bonusOver
     {
         GD.Print("UI recibe que bonus fue pickeado");
+        CreateTimer(2f,"ShowFinishedBonus");
+    }
+
+    void ShowFinishedBonus()
+    {
         _finishedBonus.Show();
     }
+    
 
     void FinishBonus()
     {
