@@ -10,6 +10,7 @@ public class GameManager : Godot.Control
     [Signal] public delegate void GameOver();
     [Signal] public delegate void LevelsOver(bool win, bool bonus);
     [Signal] public delegate void GameStarted();
+    [Signal] public delegate void PlayMusicGame();
     [Signal] public delegate void RoundWined();
     [Signal] public delegate void SetCurrencyManager(double credit, double minBet, double maxBet);
     [Signal] public delegate void GameReady(bool ready);
@@ -262,6 +263,7 @@ public class GameManager : Godot.Control
         {
             _betDescription = "P";
             _currentLevel = 10;
+            EmitSignal(nameof(PlayMusicGame));
             CreateLevel(Constants.PATH_LEVEL_MANAGER);
         }
     }
@@ -388,6 +390,7 @@ public class GameManager : Godot.Control
             _currentLevelInfo = _myRecover.GetLastLevelInfo(_currentLevel);
             EmitSignal(nameof(RoundWined));
             CreateCurrentLevel();
+            EmitSignal(nameof(PlayMusicGame));
         }
         else if(_gotBonus)
         {
