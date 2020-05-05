@@ -163,14 +163,18 @@ public class GameManager : Godot.Control
         if (!_isResuming)
         {
             GetNewBonusInfo();
-            //Debería decirle a BonusManager que asigne los slots como los tenía en la BetDescription
         }
         else
         {
-            //
+            if (_myRecover.GetIfBonusInfoGenerated())
+            {
+                _currentLevelInfo = _myRecover.GetBonusLevelInfo();
+            }
+            else
+            {
+                GetNewBonusInfo();
+            }
             _isResuming = false;
-            //Debería crearse la jugada y ser guardada en la betDescription
-            //
         }
 
         var bonusMngr = currentLevelMngr as BonusManager;
@@ -293,6 +297,7 @@ public class GameManager : Godot.Control
 
     void GetNewBonusInfo()
     {
+        GD.Print("Generando Nueva info de bonus");
         _currentLevelInfo = _myGameGen.GenerateBonusInfo();
         _betDescription += _myGameGen.GetBonusDescription(_currentLevelInfo);
         UpdateSaveData(null);
@@ -307,7 +312,7 @@ public class GameManager : Godot.Control
 
     public void EndGame(bool win)
     {
-        currentLevelMngr.ExitAnimation();
+        currentLevelMngr?.ExitAnimation();
         EmitSignal(nameof(LevelsOver), win, _gotBonus);
         if (!win)
         {
@@ -318,7 +323,7 @@ public class GameManager : Godot.Control
             if (win)
             {
                 GD.Print("Gané pero el nivel actual" + _currentLevel +" es mayor a 0, por lo que o se me acabó el tiempo, o finalicé sin apretar ningún nodo.");
-                _betDescription += "-2;";
+                _betDescription += "-1;";
             }
             GD.Print("Finalicé antes de llegar al final, generando " + (_currentLevel) + " niveles faltantes");
             FillBetDescription(_currentLevel);
@@ -326,6 +331,7 @@ public class GameManager : Godot.Control
 
         if (_useDb)
         {
+            GD.Print("guardando en base de datos, isplaying es " + _isPlaying );
             OMenuClient.Structs.SaveData saveData = new OMenuClient.Structs.SaveData(_isPlaying, _currencyManager.credit, _currencyManager.currentBet, DateTime.Now, _betDescription);
             _oMenu.UpdateSaveData(saveData, null, null);
         }
@@ -373,21 +379,20 @@ public class GameManager : Godot.Control
             _myGameGen.bonusAssigned = true;
         }
 
+        StartGame();
+        
         if(_currentLevel > 1)
         {
             CheckToFinishGame();
             _currencyManager.SetMultiplier((_levels - _currentLevel) - 1);
             _currentLevelInfo = _myRecover.GetLastLevelInfo(_currentLevel);
             EmitSignal(nameof(RoundWined));
-            StartGame();
             CreateCurrentLevel();
         }
         else if(_gotBonus)
         {
             GD.Print("Resuming Bonus");
-            _currentLevelInfo = _myRecover.GetBonusLevelInfo();
-            StartGame();
-            InstantiateBonus();
+            EndGame(_myRecover.CheckIfWin());
         }
         
     }

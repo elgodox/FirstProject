@@ -162,7 +162,7 @@ public class GameRecover
     {
         List<int> listInfo = new List<int>();
         int[] levelInfo = new int[4];
-        if (myLevels.ContainsKey(0))
+        if (GetIfBonusInfoGenerated())
         {
             GD.Print("Level 0 contiene algo en el diccionario!");
             for (int i = 0; i < myLevels[0].Length; i++)
@@ -215,5 +215,51 @@ public class GameRecover
         }
         
         return levelInfo;
+    }
+
+    public bool GetIfBonusInfoGenerated()
+    {
+        if (myLevels.ContainsKey(0))
+        {
+            if (myLevels[0][0] == 0 && myLevels[0][1] == 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+        else return false;
+    }
+
+    public bool CheckIfWin()
+    {
+        for (int i = 1; i < myPlays.Count + 1; i++)
+        {
+            var currentPlay = myPlays[i];
+            var intPlay = int.Parse(currentPlay);
+            //GD.Print("jugada en el índice " + i + " es " + currentPlay);
+
+            if (intPlay == -1)
+            {
+                //GD.Print("El jugador no presionó ningún nodo o finalizó la partida, por lo que Ganó");
+                return true;
+            }
+            
+            else if (intPlay > -2)
+            {
+                //GD.Print("Hasta este nivel, " + i + " llegó a jugar, el nivel era " + myLevels[i]);
+                
+                if (myLevels[i][intPlay] == '1' || myLevels[i][intPlay] == '3')
+                {
+                    //GD.Print("En el índice " + intPlay + " había un nodo Bueno o de Bonus! por lo que el jugador Ganó");
+                    return true;
+                }
+                
+                break;
+            }
+        }
+        return false;
     }
 }
