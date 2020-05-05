@@ -70,7 +70,7 @@ public class CurrencyManager : Node
         currencyToCollect = currentBet * multiplier;
         EmitSignal(nameof(CurrencyChanged), Constants.CURRENCY_TO_COLLECT, currencyToCollect);
     }
-    void UpdateWinnedCurrency()
+    public void UpdateWinnedCurrency()
     {
         EmitSignal(nameof(CurrencyChanged), Constants.CURRENCY_WINNED, currencyToCollect);
     }

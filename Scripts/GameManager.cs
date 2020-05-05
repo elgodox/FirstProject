@@ -312,6 +312,7 @@ public class GameManager : Godot.Control
     public void EndGame(bool win)
     {
         currentLevelMngr?.ExitAnimation();
+        _currencyManager.UpdateWinnedCurrency();
         EmitSignal(nameof(LevelsOver), win, _gotBonus);
         if (!win)
         {
