@@ -18,6 +18,8 @@ public class GameManager : Godot.Control
     [Signal] public delegate void BonusStarted();
     [Signal] public delegate void NodeWithBonus();
     [Signal] public delegate void BonusOver();
+    [Signal] public delegate void NodePicked();
+    [Signal] public delegate void LevelCreated();
 
     public LevelManager currentLevelMngr;
     int _currentLevel;
@@ -30,7 +32,7 @@ public class GameManager : Godot.Control
     GameRecover _myRecover;
     OMenuCommunication _oMenu = new OMenuCommunication();
     GameGenerator _myGameGen = new GameGenerator();
-    UIButtonsManager _buttonsManager = new UIButtonsManager();
+    UIButtonsManager _uiManager = new UIButtonsManager();
     CurrencyManager _currencyManager;
     int[] _currentLevelInfo;
     bool _isResuming;
@@ -43,7 +45,7 @@ public class GameManager : Godot.Control
         IntiTimer();
 
         _currencyManager = GetNode("CurrencyManager") as CurrencyManager;
-        _buttonsManager = GetNode("UI_Template") as UIButtonsManager;
+        _uiManager = GetNode("UI_Template") as UIButtonsManager;
         Console.WriteLine(_currencyManager.Name);
 
         if (_useDb)
@@ -205,11 +207,15 @@ public class GameManager : Godot.Control
         }
         currentLevelMngr.SetActivesPositions(_currentLevelInfo, _badOnes[_levels - _currentLevel]);
         _currentLevel--;
+        //New level created
+        EmitSignal(nameof(LevelCreated));
     }
 
     public void CheckHexSelected(bool win, string nodeName, bool bonus)
     {
-        _buttonsManager.StopTimer();
+        //NodePicked
+        EmitSignal(nameof(NodePicked));
+        _uiManager.StopTimer();
         UpdateSaveData(nodeName);
         
         if (win)

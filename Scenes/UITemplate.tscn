@@ -114,14 +114,14 @@ animations = [ {
 "name": "Volume2",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 24 ) ],
-"loop": false,
-"name": "Volume1",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 21 ) ],
 "loop": false,
 "name": "Volume3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 24 ) ],
+"loop": false,
+"name": "Volume1",
 "speed": 5.0
 } ]
 
@@ -160,7 +160,7 @@ __meta__ = {
 position = Vector2( 718.484, 105.917 )
 frames = SubResource( 1 )
 animation = "Idle"
-frame = 48
+frame = 26
 playing = true
 
 [node name="ui_MaxBet" parent="ControlPanel" instance=ExtResource( 4 )]
@@ -248,15 +248,14 @@ stretch_mode = 0
 
 [node name="button_end_collect" parent="ControlPanel" instance=ExtResource( 84 )]
 visible = false
-anchor_left = 0.776
-anchor_top = 0.036
-anchor_right = 0.776
-anchor_bottom = 0.036
-margin_left = -95.0668
-margin_top = 61.51
-margin_right = 90.9332
-margin_bottom = 207.51
-texture_pressed = ExtResource( 12 )
+anchor_left = 0.775
+anchor_top = 0.5
+anchor_right = 0.775
+anchor_bottom = 0.5
+margin_left = -93.6228
+margin_top = -56.3461
+margin_right = 92.3772
+margin_bottom = 89.6539
 
 [node name="Tiempo" type="TextureRect" parent="."]
 anchor_left = 0.932
@@ -438,10 +437,14 @@ valign = 1
 
 [node name="ui_IncomingBonus" type="TextureRect" parent="."]
 visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = -3.97174
-margin_bottom = -3.97174
+anchor_left = 0.5
+anchor_top = 0.496
+anchor_right = 0.5
+anchor_bottom = 0.496
+margin_left = -800.0
+margin_top = -450.372
+margin_right = 800.0
+margin_bottom = 449.628
 texture = SubResource( 4 )
 expand = true
 __meta__ = {

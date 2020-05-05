@@ -232,6 +232,14 @@ public class UIButtonsManager : Control
     {
         _finishedBonus.Show();
     }
+    void DeactivateFinishButton() //Lo llama GameManager, señal NodePicked
+    {
+        _endAndCollectButton.Disabled = true;
+    }
+    void ActivateFinishButton() //Lo llama GameManager, señal LevelCreated
+    {
+        _endAndCollectButton.Disabled = false;
+    }
     
 
     void FinishBonus() //La llama el botón
@@ -275,6 +283,8 @@ public class UIButtonsManager : Control
         _timer.Connect("timeout", this, "TimerFinished");
     }
     #endregion
+
+    
     void _on_VolumeButton_pressed()
     {
         volume -= 20;
