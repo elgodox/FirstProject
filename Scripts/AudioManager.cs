@@ -30,6 +30,11 @@ public class AudioManager : Node
         PlayAudioTrack(winBonusMusic,_backGroundMusic);
     }
 
+    public void StopCurrentMusic()
+    {
+        _backGroundMusic.Stop();
+    }
+
     void InitChilds()
     {
         _backGroundMusic = GetNode("BackGroundMusic") as AudioStreamPlayer;
