@@ -77,7 +77,13 @@ public class HexNode : Node
     {
         myName.Show();
     }
-    
+
+    public void IdleAnimation()
+    {
+        sprite.Animation = "Idle";
+        sprite.Playing = true;
+        sprite.Play();
+    }
     
 }
 

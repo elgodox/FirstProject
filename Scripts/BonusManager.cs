@@ -8,14 +8,17 @@ public class BonusManager : LevelManager
 	[Signal] public delegate void BonusPicked();
 
 	CurrencyLabel[] bonusPrices = new CurrencyLabel[4];
+	private AnimatedSprite _imageBonusCenter;
     public override void _Ready()
     {
+	    _imageBonusCenter = GetNode("ImageBonus/AnimatedSprite") as AnimatedSprite;
 	    bonusPrices[0] = GetNode("Hex0/BonusPrice0") as CurrencyLabel;
 	    bonusPrices[1] = GetNode("Hex1/BonusPrice1") as CurrencyLabel;
 	    bonusPrices[2] = GetNode("Hex2/BonusPrice2") as CurrencyLabel;
 	    bonusPrices[3] = GetNode("Hex3/BonusPrice3") as CurrencyLabel;
         _nodes = new HexNode[4];
         base._Ready();
+        _imageBonusCenter.Playing = true;
     }
     public override void ReceiveNodePressed(HexNode node)
     {
