@@ -192,12 +192,14 @@ public class UIButtonsManager : Control
     }
     public void SubscribeCurrencyLabel(CurrencyLabel cl)
     {
+        GD.Print("Suscribing " + cl.myType);
         _myCurrencyLabels.Add(cl.myType, cl);
     }
     public void UnsuscribeCurrencyLabel(CurrencyLabel cl)
     {
         if (_myCurrencyLabels.ContainsValue(cl))
         {
+            GD.Print("Desuscribing " + cl.myType);
             _myCurrencyLabels.Remove(cl.myType);
         }
     }
