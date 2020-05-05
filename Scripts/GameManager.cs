@@ -399,6 +399,8 @@ public class GameManager : Godot.Control
         else if(_gotBonus)
         {
             GD.Print("Resuming Bonus");
+            _currencyManager.SetMultiplier((_levels - _myRecover.GetLastLevelWinned()));
+            _currencyManager.AddBetToCurrency();
             EndGame(_myRecover.CheckIfWin());
         }
         

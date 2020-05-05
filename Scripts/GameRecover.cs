@@ -259,4 +259,22 @@ public class GameRecover
         }
         return false;
     }
+
+    public int GetLastLevelWinned()
+    {
+        for (int i = 1; i < myPlays.Count + 1; i++)
+        {
+            var currentPlay = myPlays[i];
+            var intPlay = int.Parse(currentPlay);
+            GD.Print("jugada en el índice " + i + " es " + currentPlay);
+
+            if (intPlay > -1)
+            {
+                GD.Print("Hasta este nivel, " + i + " llegó a jugar, el nivel era " + myLevels[i]);
+                return i;
+            }
+        }
+
+        return 0;
+    }
 }
