@@ -1,402 +1,227 @@
-[gd_scene load_steps=356 format=2]
+[gd_scene load_steps=191 format=2]
 
 [ext_resource path="res://Scripts/CurrencyLabel.cs" type="Script" id=1]
 [ext_resource path="res://Fonts/Dynamic Fonts/Apuestas.tres" type="DynamicFont" id=2]
-[ext_resource path="res://Sprites/Bonus/Inicio/Bonus_inicio_00029.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/Bonus/Inicio/Bonus_inicio_00030.png" type="Texture" id=4]
 [ext_resource path="res://Scripts/BonusManager.cs" type="Script" id=5]
-[ext_resource path="res://Sprites/Bonus/Pink/Btn_pink (21).png" type="Texture" id=6]
+[ext_resource path="res://Scripts/HexAnim.cs" type="Script" id=6]
 [ext_resource path="res://Scripts/HexNode.cs" type="Script" id=7]
-[ext_resource path="res://Sprites/Bonus/Pink/Btn_pink (22).png" type="Texture" id=8]
-[ext_resource path="res://Sprites/Bonus/Pink/Btn_pink (23).png" type="Texture" id=9]
-[ext_resource path="res://Sprites/Bonus/Pink/Btn_pink (47).png" type="Texture" id=10]
-[ext_resource path="res://Sprites/Bonus/Pink/Btn_pink (49).png" type="Texture" id=11]
-[ext_resource path="res://Sprites/Bonus/Pink/Btn_pink (50).png" type="Texture" id=12]
-[ext_resource path="res://Sprites/Bonus/Pink/Btn_pink (51).png" type="Texture" id=13]
-[ext_resource path="res://Sprites/Bonus/Pink/Btn_pink (48).png" type="Texture" id=14]
-[ext_resource path="res://Sprites/Bonus/Pink/Btn_pink (31).png" type="Texture" id=15]
-[ext_resource path="res://Sprites/Bonus/Pink/Btn_pink (30).png" type="Texture" id=16]
-[ext_resource path="res://Sprites/Bonus/Pink/Btn_pink (37).png" type="Texture" id=17]
-[ext_resource path="res://Sprites/Bonus/Pink/Btn_pink (27).png" type="Texture" id=18]
-[ext_resource path="res://Sprites/Bonus/Pink/Btn_pink (42).png" type="Texture" id=19]
-[ext_resource path="res://Sprites/Bonus/Pink/Btn_pink (44).png" type="Texture" id=20]
-[ext_resource path="res://Sprites/Bonus/Pink/Btn_pink (46).png" type="Texture" id=21]
-[ext_resource path="res://Sprites/Bonus/Pink/Btn_pink (35).png" type="Texture" id=22]
-[ext_resource path="res://Sprites/Bonus/Pink/Btn_pink (39).png" type="Texture" id=23]
-[ext_resource path="res://Sprites/Bonus/Pink/Btn_pink (45).png" type="Texture" id=24]
-[ext_resource path="res://Sprites/Bonus/Pink/Btn_pink (52).png" type="Texture" id=25]
-[ext_resource path="res://Sprites/Bonus/Pink/Btn_pink (32).png" type="Texture" id=26]
-[ext_resource path="res://Sprites/Bonus/Pink/Btn_pink (53).png" type="Texture" id=27]
-[ext_resource path="res://Sprites/Bonus/Pink/Btn_pink (54).png" type="Texture" id=28]
-[ext_resource path="res://Sprites/Bonus/Pink/Btn_pink (41).png" type="Texture" id=29]
-[ext_resource path="res://Sprites/Bonus/Pink/Btn_pink (33).png" type="Texture" id=30]
-[ext_resource path="res://Sprites/Bonus/Pink/Btn_pink (43).png" type="Texture" id=31]
-[ext_resource path="res://Sprites/Bonus/Pink/Btn_pink (55).png" type="Texture" id=32]
-[ext_resource path="res://Sprites/Bonus/Pink/Btn_pink (29).png" type="Texture" id=33]
-[ext_resource path="res://Sprites/Bonus/Pink/Btn_pink (56).png" type="Texture" id=34]
-[ext_resource path="res://Sprites/Bonus/Purple/Btn_purple (1).png" type="Texture" id=35]
-[ext_resource path="res://Sprites/Bonus/Pink/Btn_pink (26).png" type="Texture" id=36]
-[ext_resource path="res://Sprites/Bonus/Pink/Btn_pink (36).png" type="Texture" id=37]
-[ext_resource path="res://Sprites/Bonus/Pink/Btn_pink (28).png" type="Texture" id=38]
-[ext_resource path="res://Sprites/Bonus/Pink/Btn_pink (38).png" type="Texture" id=39]
-[ext_resource path="res://Sprites/Bonus/Pink/Btn_pink (34).png" type="Texture" id=40]
-[ext_resource path="res://Sprites/Bonus/Pink/Btn_pink (40).png" type="Texture" id=41]
-[ext_resource path="res://Sprites/Bonus/Violet/Btn_violet (25).png" type="Texture" id=42]
-[ext_resource path="res://Sprites/Bonus/Violet/Btn_violet (10).png" type="Texture" id=43]
-[ext_resource path="res://Sprites/Bonus/Violet/Btn_violet (6).png" type="Texture" id=44]
-[ext_resource path="res://Sprites/Bonus/Violet/Btn_violet (26).png" type="Texture" id=45]
-[ext_resource path="res://Sprites/Bonus/Violet/Btn_violet (28).png" type="Texture" id=46]
-[ext_resource path="res://Sprites/Bonus/Violet/Btn_violet (2).png" type="Texture" id=47]
-[ext_resource path="res://Sprites/Bonus/Violet/Btn_violet (7).png" type="Texture" id=48]
-[ext_resource path="res://Sprites/Bonus/Violet/Btn_violet (3).png" type="Texture" id=49]
-[ext_resource path="res://Sprites/Bonus/Violet/Btn_violet (19).png" type="Texture" id=50]
-[ext_resource path="res://Sprites/Bonus/Violet/Btn_violet (4).png" type="Texture" id=51]
-[ext_resource path="res://Sprites/Bonus/Violet/Btn_violet (29).png" type="Texture" id=52]
-[ext_resource path="res://Sprites/Bonus/Violet/Btn_violet (11).png" type="Texture" id=53]
-[ext_resource path="res://Sprites/Bonus/Violet/Btn_violet (32).png" type="Texture" id=54]
-[ext_resource path="res://Sprites/Bonus/Violet/Btn_violet (33).png" type="Texture" id=55]
-[ext_resource path="res://Sprites/Bonus/Violet/Btn_violet (18).png" type="Texture" id=56]
-[ext_resource path="res://Sprites/Bonus/Violet/Btn_violet (22).png" type="Texture" id=57]
-[ext_resource path="res://Sprites/Bonus/Violet/Btn_violet (16).png" type="Texture" id=58]
-[ext_resource path="res://Sprites/Bonus/Violet/Btn_violet (5).png" type="Texture" id=59]
-[ext_resource path="res://Sprites/Bonus/Violet/Btn_violet (27).png" type="Texture" id=60]
-[ext_resource path="res://Sprites/Bonus/Violet/Btn_violet (24).png" type="Texture" id=61]
-[ext_resource path="res://Sprites/Bonus/Violet/Btn_violet (9).png" type="Texture" id=62]
-[ext_resource path="res://Sprites/Bonus/Violet/Btn_violet (30).png" type="Texture" id=63]
-[ext_resource path="res://Sprites/Bonus/Violet/Btn_violet (31).png" type="Texture" id=64]
-[ext_resource path="res://Sprites/Bonus/Violet/Btn_violet (12).png" type="Texture" id=65]
-[ext_resource path="res://Sprites/Bonus/Violet/Btn_violet (21).png" type="Texture" id=66]
-[ext_resource path="res://Sprites/Bonus/Violet/Btn_violet (13).png" type="Texture" id=67]
-[ext_resource path="res://Sprites/Bonus/Violet/Btn_violet (8).png" type="Texture" id=68]
-[ext_resource path="res://Sprites/Bonus/Violet/Btn_violet (15).png" type="Texture" id=69]
-[ext_resource path="res://Sprites/Bonus/Violet/Btn_violet (20).png" type="Texture" id=70]
-[ext_resource path="res://Sprites/Bonus/Violet/Btn_violet (14).png" type="Texture" id=71]
-[ext_resource path="res://Sprites/Bonus/Violet/Btn_violet (17).png" type="Texture" id=72]
-[ext_resource path="res://Sprites/Bonus/Violet/Btn_violet (23).png" type="Texture" id=73]
-[ext_resource path="res://Sprites/Bonus/Violet/Btn_violet (1).png" type="Texture" id=74]
-[ext_resource path="res://Sprites/Bonus/Violet/Btn_violet (43).png" type="Texture" id=75]
-[ext_resource path="res://Sprites/Bonus/Violet/Btn_violet (55).png" type="Texture" id=76]
-[ext_resource path="res://Sprites/Bonus/Violet/Btn_violet (41).png" type="Texture" id=77]
-[ext_resource path="res://Sprites/Bonus/Violet/Btn_violet (44).png" type="Texture" id=78]
-[ext_resource path="res://Sprites/Bonus/Violet/Btn_violet (54).png" type="Texture" id=79]
-[ext_resource path="res://Sprites/Bonus/Purple/Btn_purple (7).png" type="Texture" id=80]
-[ext_resource path="res://Sprites/Bonus/Violet/Btn_violet (39).png" type="Texture" id=81]
-[ext_resource path="res://Sprites/Bonus/Violet/Btn_violet (52).png" type="Texture" id=82]
-[ext_resource path="res://Sprites/Bonus/Violet/Btn_violet (47).png" type="Texture" id=83]
-[ext_resource path="res://Sprites/Bonus/Violet/Btn_violet (48).png" type="Texture" id=84]
-[ext_resource path="res://Sprites/Bonus/Violet/Btn_violet (50).png" type="Texture" id=85]
-[ext_resource path="res://Sprites/Bonus/Purple/Btn_purple (3).png" type="Texture" id=86]
-[ext_resource path="res://Sprites/Bonus/Violet/Btn_violet (35).png" type="Texture" id=87]
-[ext_resource path="res://Sprites/Bonus/Violet/Btn_violet (45).png" type="Texture" id=88]
-[ext_resource path="res://Sprites/Bonus/Purple/Btn_purple (2).png" type="Texture" id=89]
-[ext_resource path="res://Sprites/Bonus/Purple/Btn_purple (4).png" type="Texture" id=90]
-[ext_resource path="res://Sprites/Bonus/Purple/Btn_purple (5).png" type="Texture" id=91]
-[ext_resource path="res://Sprites/Bonus/Violet/Btn_violet (40).png" type="Texture" id=92]
-[ext_resource path="res://Sprites/Bonus/Purple/Btn_purple (6).png" type="Texture" id=93]
-[ext_resource path="res://Sprites/Bonus/Purple/Btn_purple (8).png" type="Texture" id=94]
-[ext_resource path="res://Sprites/Bonus/Violet/Btn_violet (51).png" type="Texture" id=95]
-[ext_resource path="res://Sprites/Bonus/Violet/Btn_violet (46).png" type="Texture" id=96]
-[ext_resource path="res://Sprites/Bonus/Purple/Btn_purple (9).png" type="Texture" id=97]
-[ext_resource path="res://Sprites/Bonus/Violet/Btn_violet (53).png" type="Texture" id=98]
-[ext_resource path="res://Sprites/Bonus/Violet/Btn_violet (37).png" type="Texture" id=99]
-[ext_resource path="res://Sprites/Bonus/Violet/Btn_violet (49).png" type="Texture" id=100]
-[ext_resource path="res://Sprites/Bonus/Violet/Btn_violet (56).png" type="Texture" id=101]
-[ext_resource path="res://Sprites/Bonus/Violet/Btn_violet (34).png" type="Texture" id=102]
-[ext_resource path="res://Sprites/Bonus/Violet/Btn_violet (36).png" type="Texture" id=103]
-[ext_resource path="res://Sprites/Bonus/Violet/Btn_violet (38).png" type="Texture" id=104]
-[ext_resource path="res://Sprites/Bonus/Violet/Btn_violet (42).png" type="Texture" id=105]
-[ext_resource path="res://Sprites/Bonus/Purple/Btn_purple (37).png" type="Texture" id=106]
-[ext_resource path="res://Sprites/Bonus/Purple/Btn_purple (33).png" type="Texture" id=107]
-[ext_resource path="res://Sprites/Bonus/Purple/Btn_purple (34).png" type="Texture" id=108]
-[ext_resource path="res://Sprites/Bonus/Purple/Btn_purple (19).png" type="Texture" id=109]
-[ext_resource path="res://Sprites/Bonus/Purple/Btn_purple (38).png" type="Texture" id=110]
-[ext_resource path="res://Sprites/Bonus/Purple/Btn_purple (16).png" type="Texture" id=111]
-[ext_resource path="res://Sprites/Bonus/Purple/Btn_purple (12).png" type="Texture" id=112]
-[ext_resource path="res://Sprites/Bonus/Purple/Btn_purple (18).png" type="Texture" id=113]
-[ext_resource path="res://Sprites/Bonus/Purple/Btn_purple (24).png" type="Texture" id=114]
-[ext_resource path="res://Sprites/Bonus/Purple/Btn_purple (26).png" type="Texture" id=115]
-[ext_resource path="res://Sprites/Bonus/Purple/Btn_purple (39).png" type="Texture" id=116]
-[ext_resource path="res://Sprites/Bonus/Purple/Btn_purple (40).png" type="Texture" id=117]
-[ext_resource path="res://Sprites/Bonus/Purple/Btn_purple (41).png" type="Texture" id=118]
-[ext_resource path="res://Sprites/Bonus/Purple/Btn_purple (11).png" type="Texture" id=119]
-[ext_resource path="res://Sprites/Bonus/Purple/Btn_purple (15).png" type="Texture" id=120]
-[ext_resource path="res://Sprites/Bonus/Purple/Btn_purple (22).png" type="Texture" id=121]
-[ext_resource path="res://Sprites/Bonus/Purple/Btn_purple (23).png" type="Texture" id=122]
-[ext_resource path="res://Sprites/Bonus/Purple/Btn_purple (10).png" type="Texture" id=123]
-[ext_resource path="res://Sprites/Bonus/Purple/Btn_purple (13).png" type="Texture" id=124]
+[ext_resource path="res://Sprites/Animations/HexNode/BadOne/Hexa-malo_00020.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Animations/HexNode/BadOne/Hexa-malo_00007.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Animations/HexNode/BadOne/Hexa-malo_00015.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Animations/HexNode/BadOne/Hexa-malo_00008.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Animations/HexNode/GoodOne/Hexa-bueno_00032.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Animations/HexNode/BadOne/Hexa-malo_00023.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/Animations/HexNode/BadOne/Hexa-malo_00011.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/Animations/HexNode/BadOne/Hexa-malo_00006.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Animations/HexNode/GoodOne/Hexa-bueno_00026.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/Animations/HexNode/GoodOne/Hexa-bueno_00029.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/Animations/HexNode/BadOne/Hexa-malo_00002.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/Animations/HexNode/BadOne/Hexa-malo_00000.png" type="Texture" id=19]
+[ext_resource path="res://Sprites/Animations/HexNode/BadOne/Hexa-malo_00024.png" type="Texture" id=20]
+[ext_resource path="res://Sprites/Animations/HexNode/BadOne/Hexa-malo_00018.png" type="Texture" id=21]
+[ext_resource path="res://Sprites/Animations/HexNode/GoodOne/Hexa-bueno_00034.png" type="Texture" id=22]
+[ext_resource path="res://Sprites/Animations/HexNode/GoodOne/Hexa-bueno_00020.png" type="Texture" id=23]
+[ext_resource path="res://Sprites/Animations/HexNode/GoodOne/Hexa-bueno_00024.png" type="Texture" id=24]
+[ext_resource path="res://Sprites/Animations/HexNode/GoodOne/Hexa-bueno_00031.png" type="Texture" id=25]
+[ext_resource path="res://Sprites/Animations/HexNode/GoodOne/Hexa-bueno_00033.png" type="Texture" id=26]
+[ext_resource path="res://Sprites/Animations/HexNode/BadOne/Hexa-malo_00022.png" type="Texture" id=27]
+[ext_resource path="res://Sprites/Animations/HexNode/BadOne/Hexa-malo_00009.png" type="Texture" id=28]
+[ext_resource path="res://Sprites/Animations/HexNode/BadOne/Hexa-malo_00025.png" type="Texture" id=29]
+[ext_resource path="res://Sprites/Animations/HexNode/BadOne/Hexa-malo_00001.png" type="Texture" id=30]
+[ext_resource path="res://Sprites/Animations/HexNode/BadOne/Hexa-malo_00026.png" type="Texture" id=31]
+[ext_resource path="res://Sprites/Animations/HexNode/BadOne/Hexa-malo_00003.png" type="Texture" id=32]
+[ext_resource path="res://Sprites/Animations/HexNode/BadOne/Hexa-malo_00013.png" type="Texture" id=33]
+[ext_resource path="res://Sprites/Animations/HexNode/BadOne/Hexa-malo_00016.png" type="Texture" id=34]
+[ext_resource path="res://Sprites/Animations/HexNode/BadOne/Hexa-malo_00017.png" type="Texture" id=35]
+[ext_resource path="res://Sprites/Animations/HexNode/BadOne/Hexa-malo_00004.png" type="Texture" id=36]
+[ext_resource path="res://Sprites/Animations/HexNode/GoodOne/Hexa-bueno_00027.png" type="Texture" id=37]
+[ext_resource path="res://Sprites/Animations/HexNode/GoodOne/Hexa-bueno_00021.png" type="Texture" id=38]
+[ext_resource path="res://Sprites/Animations/HexNode/BadOne/Hexa-malo_00005.png" type="Texture" id=39]
+[ext_resource path="res://Sprites/Animations/HexNode/BadOne/Hexa-malo_00014.png" type="Texture" id=40]
+[ext_resource path="res://Sprites/Animations/HexNode/BadOne/Hexa-malo_00027.png" type="Texture" id=41]
+[ext_resource path="res://Sprites/Animations/HexNode/BadOne/Hexa-malo_00028.png" type="Texture" id=42]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00010.png" type="Texture" id=43]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00011.png" type="Texture" id=44]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00008.png" type="Texture" id=45]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00021.png" type="Texture" id=46]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00002.png" type="Texture" id=47]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00004.png" type="Texture" id=48]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00006.png" type="Texture" id=49]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00012.png" type="Texture" id=50]
+[ext_resource path="res://Sprites/Animations/HexNode/BadOne/Hexa-malo_00031.png" type="Texture" id=51]
+[ext_resource path="res://Sprites/Animations/HexNode/BadOne/Hexa-malo_00035.png" type="Texture" id=52]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00000.png" type="Texture" id=53]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00018.png" type="Texture" id=54]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00026.png" type="Texture" id=55]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00015.png" type="Texture" id=56]
+[ext_resource path="res://Sprites/Animations/HexNode/BadOne/Hexa-malo_00033.png" type="Texture" id=57]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00001.png" type="Texture" id=58]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00009.png" type="Texture" id=59]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00016.png" type="Texture" id=60]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00025.png" type="Texture" id=61]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00003.png" type="Texture" id=62]
+[ext_resource path="res://Sprites/Animations/HexNode/BadOne/Hexa-malo_00032.png" type="Texture" id=63]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00014.png" type="Texture" id=64]
+[ext_resource path="res://Sprites/Animations/HexNode/BadOne/Hexa-malo_00034.png" type="Texture" id=65]
+[ext_resource path="res://Sprites/Animations/HexNode/GoodOne/Hexa-bueno_00017.png" type="Texture" id=66]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00022.png" type="Texture" id=67]
+[ext_resource path="res://Sprites/Animations/HexNode/BadOne/Hexa-malo_00030.png" type="Texture" id=68]
+[ext_resource path="res://Sprites/Animations/HexNode/BadOne/Hexa-malo_00029.png" type="Texture" id=69]
+[ext_resource path="res://Sprites/Animations/HexNode/GoodOne/Hexa-bueno_00008.png" type="Texture" id=70]
+[ext_resource path="res://Sprites/Animations/HexNode/GoodOne/Hexa-bueno_00007.png" type="Texture" id=71]
+[ext_resource path="res://Sprites/Animations/HexNode/GoodOne/Hexa-bueno_00014.png" type="Texture" id=72]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00013.png" type="Texture" id=73]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00027.png" type="Texture" id=74]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00036.png" type="Texture" id=75]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00030.png" type="Texture" id=76]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00029.png" type="Texture" id=77]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00034.png" type="Texture" id=78]
+[ext_resource path="res://Sprites/Animations/HexNode/GoodOne/Hexa-bueno_00004.png" type="Texture" id=79]
+[ext_resource path="res://Sprites/Animations/HexNode/GoodOne/Hexa-bueno_00006.png" type="Texture" id=80]
+[ext_resource path="res://Sprites/Animations/HexNode/GoodOne/Hexa-bueno_00011.png" type="Texture" id=81]
+[ext_resource path="res://Sprites/Animations/HexNode/GoodOne/Hexa-bueno_00016.png" type="Texture" id=82]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00023.png" type="Texture" id=83]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00033.png" type="Texture" id=84]
+[ext_resource path="res://Sprites/Animations/HexNode/GoodOne/Hexa-bueno_00002.png" type="Texture" id=85]
+[ext_resource path="res://Sprites/Animations/HexNode/GoodOne/Hexa-bueno_00015.png" type="Texture" id=86]
+[ext_resource path="res://Sprites/Animations/HexNode/GoodOne/Hexa-bueno_00018.png" type="Texture" id=87]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00031.png" type="Texture" id=88]
+[ext_resource path="res://Sprites/Animations/HexNode/GoodOne/Hexa-bueno_00012.png" type="Texture" id=89]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00020.png" type="Texture" id=90]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00028.png" type="Texture" id=91]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00032.png" type="Texture" id=92]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00019.png" type="Texture" id=93]
+[ext_resource path="res://Sprites/Animations/HexNode/GoodOne/Hexa-bueno_00001.png" type="Texture" id=94]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00017.png" type="Texture" id=95]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00005.png" type="Texture" id=96]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00024.png" type="Texture" id=97]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00035.png" type="Texture" id=98]
+[ext_resource path="res://Sprites/Animations/HexNode/GoodOne/Hexa-bueno_00000.png" type="Texture" id=99]
+[ext_resource path="res://Sprites/Animations/HexNode/GoodOne/Hexa-bueno_00009.png" type="Texture" id=100]
+[ext_resource path="res://Sprites/Animations/HexNode/Idle/Hexa-idle_00007.png" type="Texture" id=101]
+[ext_resource path="res://Sprites/Animations/HexNode/GoodOne/Hexa-bueno_00022.png" type="Texture" id=102]
+[ext_resource path="res://Sprites/Animations/HexNode/GoodOne/Hexa-bueno_00023.png" type="Texture" id=103]
+[ext_resource path="res://Sprites/Animations/HexNode/GoodOne/Hexa-bueno_00010.png" type="Texture" id=104]
+[ext_resource path="res://Sprites/Animations/HexNode/GoodOne/Hexa-bueno_00013.png" type="Texture" id=105]
+[ext_resource path="res://Sprites/Animations/HexNode/GoodOne/Hexa-bueno_00019.png" type="Texture" id=106]
+[ext_resource path="res://Sprites/Animations/HexNode/GoodOne/Hexa-bueno_00035.png" type="Texture" id=107]
+[ext_resource path="res://Sprites/Animations/HexNode/GoodOne/Hexa-bueno_00028.png" type="Texture" id=108]
+[ext_resource path="res://Sprites/Animations/HexNode/GoodOne/Hexa-bueno_00003.png" type="Texture" id=109]
+[ext_resource path="res://Sprites/Animations/HexNode/BadOne/Hexa-malo_00010.png" type="Texture" id=110]
+[ext_resource path="res://Sprites/Animations/HexNode/GoodOne/Hexa-bueno_00030.png" type="Texture" id=111]
+[ext_resource path="res://Sprites/Animations/HexNode/GoodOne/Hexa-bueno_00005.png" type="Texture" id=112]
+[ext_resource path="res://Sprites/Animations/HexNode/GoodOne/Hexa-bueno_00025.png" type="Texture" id=113]
+[ext_resource path="res://Sprites/Animations/HexNode/BadOne/Hexa-malo_00012.png" type="Texture" id=114]
+[ext_resource path="res://Sprites/Animations/HexNode/Appear/Hexa-hologram_00016.png" type="Texture" id=115]
+[ext_resource path="res://Sprites/Animations/HexNode/Appear/Hexa-hologram_00019.png" type="Texture" id=116]
+[ext_resource path="res://Sprites/Animations/HexNode/Appear/Hexa-hologram_00020.png" type="Texture" id=117]
+[ext_resource path="res://Sprites/Animations/HexNode/Appear/Hexa-hologram_00028.png" type="Texture" id=118]
+[ext_resource path="res://Sprites/Animations/HexNode/Appear/Hexa-hologram_00002.png" type="Texture" id=119]
+[ext_resource path="res://Sprites/Animations/HexNode/Appear/Hexa-hologram_00024.png" type="Texture" id=120]
+[ext_resource path="res://Sprites/Animations/HexNode/Appear/Hexa-hologram_00004.png" type="Texture" id=121]
+[ext_resource path="res://Sprites/Animations/HexNode/Appear/Hexa-hologram_00008.png" type="Texture" id=122]
+[ext_resource path="res://Sprites/Animations/HexNode/Appear/Hexa-hologram_00001.png" type="Texture" id=123]
+[ext_resource path="res://Sprites/Animations/HexNode/Appear/Hexa-hologram_00015.png" type="Texture" id=124]
 [ext_resource path="res://Sounds/Deined_01.ogg" type="AudioStream" id=125]
-[ext_resource path="res://Sprites/Bonus/Purple/Btn_purple (27).png" type="Texture" id=126]
-[ext_resource path="res://Sprites/Bonus/Purple/Btn_purple (28).png" type="Texture" id=127]
-[ext_resource path="res://Sprites/Bonus/Purple/Btn_purple (20).png" type="Texture" id=128]
-[ext_resource path="res://Sprites/Bonus/Purple/Btn_purple (29).png" type="Texture" id=129]
-[ext_resource path="res://Sprites/Bonus/Purple/Btn_purple (32).png" type="Texture" id=130]
-[ext_resource path="res://Sprites/Bonus/Purple/Btn_purple (31).png" type="Texture" id=131]
-[ext_resource path="res://Sprites/Bonus/Purple/Btn_purple (25).png" type="Texture" id=132]
-[ext_resource path="res://Sprites/Bonus/Purple/Btn_purple (17).png" type="Texture" id=133]
-[ext_resource path="res://Sprites/Bonus/Purple/Btn_purple (14).png" type="Texture" id=134]
-[ext_resource path="res://Sprites/Bonus/Purple/Btn_purple (30).png" type="Texture" id=135]
-[ext_resource path="res://Sprites/Bonus/Purple/Btn_purple (35).png" type="Texture" id=136]
-[ext_resource path="res://Sprites/Bonus/Purple/Btn_purple (21).png" type="Texture" id=137]
-[ext_resource path="res://Sprites/Bonus/Purple/Btn_purple (36).png" type="Texture" id=138]
-[ext_resource path="res://Sprites/Bonus/Purple/Btn_purple (45).png" type="Texture" id=139]
+[ext_resource path="res://Sprites/Animations/HexNode/Appear/Hexa-hologram_00025.png" type="Texture" id=126]
+[ext_resource path="res://Sprites/Animations/HexNode/BadOne/Hexa-malo_00019.png" type="Texture" id=127]
+[ext_resource path="res://Sprites/Animations/HexNode/BadOne/Hexa-malo_00021.png" type="Texture" id=128]
+[ext_resource path="res://Sprites/Animations/HexNode/Appear/Hexa-hologram_00012.png" type="Texture" id=129]
+[ext_resource path="res://Sprites/Animations/HexNode/Appear/Hexa-hologram_00026.png" type="Texture" id=130]
+[ext_resource path="res://Sprites/Animations/HexNode/Appear/Hexa-hologram_00029.png" type="Texture" id=131]
+[ext_resource path="res://Sprites/Animations/HexNode/Appear/Hexa-hologram_00003.png" type="Texture" id=132]
+[ext_resource path="res://Sprites/Animations/HexNode/Appear/Hexa-hologram_00014.png" type="Texture" id=133]
+[ext_resource path="res://Sprites/Animations/HexNode/Appear/Hexa-hologram_00005.png" type="Texture" id=134]
+[ext_resource path="res://Sprites/Animations/HexNode/Appear/Hexa-hologram_00013.png" type="Texture" id=135]
+[ext_resource path="res://Sprites/Animations/HexNode/Appear/Hexa-hologram_00018.png" type="Texture" id=136]
+[ext_resource path="res://Sprites/Animations/HexNode/Appear/Hexa-hologram_00022.png" type="Texture" id=137]
+[ext_resource path="res://Sprites/Animations/HexNode/Appear/Hexa-hologram_00010.png" type="Texture" id=138]
+[ext_resource path="res://Sprites/Animations/HexNode/Appear/Hexa-hologram_00030.png" type="Texture" id=139]
 [ext_resource path="res://Sounds/Correct.ogg" type="AudioStream" id=140]
-[ext_resource path="res://Sprites/Bonus/Purple/Btn_purple (54).png" type="Texture" id=141]
-[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_00001.png" type="Texture" id=142]
-[ext_resource path="res://Sprites/Bonus/Purple/Btn_purple (43).png" type="Texture" id=143]
-[ext_resource path="res://Sprites/Bonus/Purple/Btn_purple (49).png" type="Texture" id=144]
-[ext_resource path="res://Sprites/Bonus/Purple/Btn_purple (52).png" type="Texture" id=145]
-[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_00004.png" type="Texture" id=146]
-[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_00006.png" type="Texture" id=147]
-[ext_resource path="res://Sprites/Bonus/Purple/Btn_purple (55).png" type="Texture" id=148]
-[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_00007.png" type="Texture" id=149]
-[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_00008.png" type="Texture" id=150]
-[ext_resource path="res://Sprites/Bonus/Purple/Btn_purple (51).png" type="Texture" id=151]
-[ext_resource path="res://Sprites/Bonus/Purple/Btn_purple (53).png" type="Texture" id=152]
-[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_00009.png" type="Texture" id=153]
-[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_00010.png" type="Texture" id=154]
-[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_00011.png" type="Texture" id=155]
-[ext_resource path="res://Sprites/Bonus/Purple/Btn_purple (44).png" type="Texture" id=156]
-[ext_resource path="res://Sprites/Bonus/Purple/Btn_purple (46).png" type="Texture" id=157]
-[ext_resource path="res://Sprites/Bonus/Purple/Btn_purple (48).png" type="Texture" id=158]
-[ext_resource path="res://Sprites/Bonus/Purple/Btn_purple (50).png" type="Texture" id=159]
-[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_00002.png" type="Texture" id=160]
-[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_00013.png" type="Texture" id=161]
-[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_00014.png" type="Texture" id=162]
-[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_00003.png" type="Texture" id=163]
-[ext_resource path="res://Sprites/Bonus/Purple/Btn_purple (56).png" type="Texture" id=164]
-[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_00000.png" type="Texture" id=165]
-[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_00012.png" type="Texture" id=166]
-[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_00015.png" type="Texture" id=167]
-[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_00005.png" type="Texture" id=168]
-[ext_resource path="res://Sprites/Bonus/Purple/Btn_purple (47).png" type="Texture" id=169]
-[ext_resource path="res://Sprites/Bonus/Purple/Btn_purple (42).png" type="Texture" id=170]
-[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_00027.png" type="Texture" id=171]
-[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_00037.png" type="Texture" id=172]
-[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_00043.png" type="Texture" id=173]
-[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_00045.png" type="Texture" id=174]
-[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_00017.png" type="Texture" id=175]
-[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_00046.png" type="Texture" id=176]
-[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_00033.png" type="Texture" id=177]
-[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_00042.png" type="Texture" id=178]
-[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_00036.png" type="Texture" id=179]
-[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_00047.png" type="Texture" id=180]
-[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_00031.png" type="Texture" id=181]
-[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_00030.png" type="Texture" id=182]
-[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_00020.png" type="Texture" id=183]
-[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_00019.png" type="Texture" id=184]
-[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_00025.png" type="Texture" id=185]
-[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_00029.png" type="Texture" id=186]
-[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_00016.png" type="Texture" id=187]
-[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_00018.png" type="Texture" id=188]
+[ext_resource path="res://Sprites/Animations/HexNode/Appear/Hexa-hologram_00021.png" type="Texture" id=141]
+[ext_resource path="res://Sprites/Animations/HexNode/Appear/Hexa-hologram_00011.png" type="Texture" id=142]
+[ext_resource path="res://Sprites/Animations/HexNode/Appear/Hexa-hologram_00017.png" type="Texture" id=143]
+[ext_resource path="res://Sprites/Animations/HexNode/Appear/Hexa-hologram_00009.png" type="Texture" id=144]
+[ext_resource path="res://Sprites/Animations/HexNode/Appear/Hexa-hologram_00027.png" type="Texture" id=145]
+[ext_resource path="res://Sprites/Animations/HexNode/Appear/Hexa-hologram_00006.png" type="Texture" id=146]
+[ext_resource path="res://Sprites/Animations/HexNode/Appear/Hexa-hologram_00023.png" type="Texture" id=147]
+[ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00015.png" type="Texture" id=148]
+[ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00025.png" type="Texture" id=149]
+[ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00013.png" type="Texture" id=150]
+[ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00009.png" type="Texture" id=151]
+[ext_resource path="res://Sprites/Animations/HexNode/Appear/Hexa-hologram_00033.png" type="Texture" id=152]
+[ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00023.png" type="Texture" id=153]
+[ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00017.png" type="Texture" id=154]
+[ext_resource path="res://Sprites/Animations/HexNode/Appear/Hexa-hologram_00000.png" type="Texture" id=155]
+[ext_resource path="res://Sprites/Animations/HexNode/Appear/Hexa-hologram_00032.png" type="Texture" id=156]
+[ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00006.png" type="Texture" id=157]
+[ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00002.png" type="Texture" id=158]
+[ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00008.png" type="Texture" id=159]
+[ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00030.png" type="Texture" id=160]
+[ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00024.png" type="Texture" id=161]
+[ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00014.png" type="Texture" id=162]
+[ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00012.png" type="Texture" id=163]
+[ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00010.png" type="Texture" id=164]
+[ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00001.png" type="Texture" id=165]
+[ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00000.png" type="Texture" id=166]
+[ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00005.png" type="Texture" id=167]
+[ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00032.png" type="Texture" id=168]
+[ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00033.png" type="Texture" id=169]
+[ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00027.png" type="Texture" id=170]
+[ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00021.png" type="Texture" id=171]
+[ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00022.png" type="Texture" id=172]
+[ext_resource path="res://Sprites/Animations/HexNode/Appear/Hexa-hologram_00031.png" type="Texture" id=173]
+[ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00003.png" type="Texture" id=174]
+[ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00011.png" type="Texture" id=175]
+[ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00007.png" type="Texture" id=176]
+[ext_resource path="res://Sprites/Animations/HexNode/Appear/Hexa-hologram_00007.png" type="Texture" id=177]
+[ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00031.png" type="Texture" id=178]
+[ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00004.png" type="Texture" id=179]
+[ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00019.png" type="Texture" id=180]
+[ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00034.png" type="Texture" id=181]
+[ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00018.png" type="Texture" id=182]
+[ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00016.png" type="Texture" id=183]
+[ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00026.png" type="Texture" id=184]
+[ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00028.png" type="Texture" id=185]
+[ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00020.png" type="Texture" id=186]
+[ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00029.png" type="Texture" id=187]
+[ext_resource path="res://Sprites/Animations/HexNode/Bonus_v2/Bonus_00035.png" type="Texture" id=188]
 [ext_resource path="res://Sounds/HexBonus.ogg" type="AudioStream" id=189]
-[ext_resource path="res://Sprites/Bonus/Inicio/Bonus_inicio_00028.png" type="Texture" id=190]
-[ext_resource path="res://Sprites/Bonus/Inicio/Bonus_inicio_00005.png" type="Texture" id=191]
-[ext_resource path="res://Sprites/Bonus/Inicio/Bonus_inicio_00017.png" type="Texture" id=192]
-[ext_resource path="res://Sprites/Bonus/Inicio/Bonus_inicio_00011.png" type="Texture" id=193]
-[ext_resource path="res://Sprites/Bonus/Inicio/Bonus_inicio_00020.png" type="Texture" id=194]
-[ext_resource path="res://Sprites/Bonus/Inicio/Bonus_inicio_00018.png" type="Texture" id=195]
-[ext_resource path="res://Sprites/Bonus/Inicio/Bonus_inicio_00001.png" type="Texture" id=196]
-[ext_resource path="res://Sprites/Bonus/Inicio/Bonus_inicio_00002.png" type="Texture" id=197]
-[ext_resource path="res://Sprites/Bonus/Inicio/Bonus_inicio_00004.png" type="Texture" id=198]
-[ext_resource path="res://Sprites/Bonus/Inicio/Bonus_inicio_00019.png" type="Texture" id=199]
-[ext_resource path="res://Sprites/Bonus/Inicio/Bonus_inicio_00012.png" type="Texture" id=200]
-[ext_resource path="res://Sprites/Bonus/Inicio/Bonus_inicio_00010.png" type="Texture" id=201]
-[ext_resource path="res://Sprites/Bonus/Inicio/Bonus_inicio_00021.png" type="Texture" id=202]
-[ext_resource path="res://Sprites/Bonus/Inicio/Bonus_inicio_00015.png" type="Texture" id=203]
-[ext_resource path="res://Sprites/Bonus/Inicio/Bonus_inicio_00003.png" type="Texture" id=204]
-[ext_resource path="res://Sprites/Bonus/Inicio/Bonus_inicio_00000.png" type="Texture" id=205]
-[ext_resource path="res://Sprites/Bonus/Inicio/Bonus_inicio_00014.png" type="Texture" id=206]
-[ext_resource path="res://Sprites/Bonus/Inicio/Bonus_inicio_00006.png" type="Texture" id=207]
-[ext_resource path="res://Sprites/Bonus/Inicio/Bonus_inicio_00007.png" type="Texture" id=208]
-[ext_resource path="res://Sprites/Bonus/Inicio/Bonus_inicio_00009.png" type="Texture" id=209]
-[ext_resource path="res://Sprites/Bonus/Inicio/Bonus_inicio_00016.png" type="Texture" id=210]
-[ext_resource path="res://Sprites/Bonus/Inicio/Bonus_inicio_00022.png" type="Texture" id=211]
-[ext_resource path="res://Sprites/Bonus/Inicio/Bonus_inicio_00008.png" type="Texture" id=212]
-[ext_resource path="res://Sprites/Bonus/Inicio/Bonus_inicio_00024.png" type="Texture" id=213]
-[ext_resource path="res://Sprites/Bonus/Inicio/Bonus_inicio_00025.png" type="Texture" id=214]
-[ext_resource path="res://Sprites/Bonus/Inicio/Bonus_inicio_00013.png" type="Texture" id=215]
-[ext_resource path="res://Sprites/Bonus/Inicio/Bonus_inicio_00023.png" type="Texture" id=216]
-[ext_resource path="res://Sprites/Bonus/Inicio/Bonus_inicio_00026.png" type="Texture" id=217]
-[ext_resource path="res://Sprites/Bonus/Inicio/Bonus_inicio_00027.png" type="Texture" id=218]
-[ext_resource path="res://Sprites/Bonus/Inicio/Bonus_inicio_00034.png" type="Texture" id=219]
-[ext_resource path="res://Sprites/Bonus/Inicio/Bonus_inicio_00038.png" type="Texture" id=220]
-[ext_resource path="res://Sprites/Bonus/Inicio/Bonus_inicio_00054.png" type="Texture" id=221]
-[ext_resource path="res://Sprites/Bonus/Inicio/Bonus_inicio_00033.png" type="Texture" id=222]
-[ext_resource path="res://Sprites/Bonus/Inicio/Bonus_inicio_00045.png" type="Texture" id=223]
-[ext_resource path="res://Sprites/Bonus/Inicio/Bonus_inicio_00047.png" type="Texture" id=224]
-[ext_resource path="res://Sprites/Bonus/Inicio/Bonus_inicio_00041.png" type="Texture" id=225]
-[ext_resource path="res://Sprites/Bonus/Inicio/Bonus_inicio_00042.png" type="Texture" id=226]
-[ext_resource path="res://Sprites/Bonus/Inicio/Bonus_inicio_00036.png" type="Texture" id=227]
-[ext_resource path="res://Sprites/Bonus/Inicio/Bonus_inicio_00056.png" type="Texture" id=228]
-[ext_resource path="res://Sprites/Bonus/Inicio/Bonus_inicio_00039.png" type="Texture" id=229]
-[ext_resource path="res://Sprites/Bonus/Inicio/Bonus_inicio_00032.png" type="Texture" id=230]
-[ext_resource path="res://Sprites/Bonus/Inicio/Bonus_inicio_00046.png" type="Texture" id=231]
-[ext_resource path="res://Sprites/Bonus/Inicio/Bonus_inicio_00052.png" type="Texture" id=232]
-[ext_resource path="res://Sprites/Bonus/Inicio/Bonus_inicio_00037.png" type="Texture" id=233]
-[ext_resource path="res://Sprites/Bonus/Inicio/Bonus_inicio_00040.png" type="Texture" id=234]
-[ext_resource path="res://Sprites/Bonus/Inicio/Bonus_inicio_00051.png" type="Texture" id=235]
-[ext_resource path="res://Sprites/Bonus/Inicio/Bonus_inicio_00053.png" type="Texture" id=236]
-[ext_resource path="res://Sprites/Bonus/Inicio/Bonus_inicio_00058.png" type="Texture" id=237]
-[ext_resource path="res://Sprites/Bonus/Inicio/Bonus_inicio_00031.png" type="Texture" id=238]
-[ext_resource path="res://Sprites/Bonus/Inicio/Bonus_inicio_00044.png" type="Texture" id=239]
-[ext_resource path="res://Sprites/Bonus/Inicio/Bonus_inicio_00048.png" type="Texture" id=240]
-[ext_resource path="res://Sprites/Bonus/Inicio/Bonus_inicio_00050.png" type="Texture" id=241]
-[ext_resource path="res://Sprites/Bonus/Inicio/Bonus_inicio_00049.png" type="Texture" id=242]
-[ext_resource path="res://Sprites/Bonus/Inicio/Bonus_inicio_00035.png" type="Texture" id=243]
-[ext_resource path="res://Sprites/Bonus/Inicio/Bonus_inicio_00057.png" type="Texture" id=244]
-[ext_resource path="res://Sprites/Bonus/Inicio/Bonus_inicio_00055.png" type="Texture" id=245]
-[ext_resource path="res://Sprites/Bonus/Inicio/Bonus_inicio_00043.png" type="Texture" id=246]
-[ext_resource path="res://Sprites/Bonus/Inicio/Bonus_inicio_00059.png" type="Texture" id=247]
-[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_00024.png" type="Texture" id=248]
-[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_00023.png" type="Texture" id=249]
-[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_00034.png" type="Texture" id=250]
-[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_00035.png" type="Texture" id=251]
-[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_00040.png" type="Texture" id=252]
-[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_00041.png" type="Texture" id=253]
-[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_00022.png" type="Texture" id=254]
-[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_00039.png" type="Texture" id=255]
-[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_00028.png" type="Texture" id=256]
-[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_00026.png" type="Texture" id=257]
-[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_00032.png" type="Texture" id=258]
-[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_00021.png" type="Texture" id=259]
-[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_00038.png" type="Texture" id=260]
-[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_00044.png" type="Texture" id=261]
-[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_00051.png" type="Texture" id=262]
-[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_00054.png" type="Texture" id=263]
-[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_00049.png" type="Texture" id=264]
-[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_00052.png" type="Texture" id=265]
-[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_00053.png" type="Texture" id=266]
-[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_00050.png" type="Texture" id=267]
-[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_00055.png" type="Texture" id=268]
-[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_00048.png" type="Texture" id=269]
-[ext_resource path="res://Sprites/Bonus/Pink/Btn_pink (24).png" type="Texture" id=270]
-[ext_resource path="res://Sprites/Bonus/Pink/Btn_pink (25).png" type="Texture" id=271]
-[ext_resource path="res://Sprites/Bonus/Bluee/Btn_blue (45).png" type="Texture" id=272]
-[ext_resource path="res://Sprites/Bonus/Bluee/Btn_blue (55).png" type="Texture" id=273]
-[ext_resource path="res://Sprites/Bonus/Pink/Btn_pink (5).png" type="Texture" id=274]
-[ext_resource path="res://Sprites/Bonus/Pink/Btn_pink (11).png" type="Texture" id=275]
-[ext_resource path="res://Sprites/Bonus/Pink/Btn_pink (14).png" type="Texture" id=276]
-[ext_resource path="res://Sprites/Bonus/Pink/Btn_pink (13).png" type="Texture" id=277]
-[ext_resource path="res://Sprites/Bonus/Bluee/Btn_blue (46).png" type="Texture" id=278]
-[ext_resource path="res://Sprites/Bonus/Pink/Btn_pink (8).png" type="Texture" id=279]
-[ext_resource path="res://Sprites/Bonus/Pink/Btn_pink (12).png" type="Texture" id=280]
-[ext_resource path="res://Sprites/Bonus/Pink/Btn_pink (15).png" type="Texture" id=281]
-[ext_resource path="res://Sprites/Bonus/Bluee/Btn_blue (49).png" type="Texture" id=282]
-[ext_resource path="res://Sprites/Bonus/Pink/Btn_pink (18).png" type="Texture" id=283]
-[ext_resource path="res://Sprites/Bonus/Bluee/Btn_blue (54).png" type="Texture" id=284]
-[ext_resource path="res://Sprites/Bonus/Pink/Btn_pink (16).png" type="Texture" id=285]
-[ext_resource path="res://Sprites/Bonus/Pink/Btn_pink (20).png" type="Texture" id=286]
-[ext_resource path="res://Sprites/Bonus/Pink/Btn_pink (19).png" type="Texture" id=287]
-[ext_resource path="res://Sprites/Bonus/Bluee/Btn_blue (47).png" type="Texture" id=288]
-[ext_resource path="res://Sprites/Bonus/Pink/Btn_pink (10).png" type="Texture" id=289]
-[ext_resource path="res://Sprites/Bonus/Bluee/Btn_blue (52).png" type="Texture" id=290]
-[ext_resource path="res://Sprites/Bonus/Pink/Btn_pink (17).png" type="Texture" id=291]
-[ext_resource path="res://Sprites/Bonus/Bluee/Btn_blue (56).png" type="Texture" id=292]
-[ext_resource path="res://Sprites/Bonus/Bluee/Btn_blue (51).png" type="Texture" id=293]
-[ext_resource path="res://Sprites/Bonus/Pink/Btn_pink (3).png" type="Texture" id=294]
-[ext_resource path="res://Sprites/Bonus/Pink/Btn_pink (6).png" type="Texture" id=295]
-[ext_resource path="res://Sprites/Bonus/Bluee/Btn_blue (48).png" type="Texture" id=296]
-[ext_resource path="res://Sprites/Bonus/Pink/Btn_pink (4).png" type="Texture" id=297]
-[ext_resource path="res://Sprites/Bonus/Pink/Btn_pink (7).png" type="Texture" id=298]
-[ext_resource path="res://Sprites/Bonus/Bluee/Btn_blue (53).png" type="Texture" id=299]
-[ext_resource path="res://Sprites/Bonus/Bluee/Btn_blue (50).png" type="Texture" id=300]
-[ext_resource path="res://Sprites/Bonus/Pink/Btn_pink (9).png" type="Texture" id=301]
-[ext_resource path="res://Sprites/Bonus/Bluee/Btn_blue (12).png" type="Texture" id=302]
-[ext_resource path="res://Sprites/Bonus/Bluee/Btn_blue (27).png" type="Texture" id=303]
-[ext_resource path="res://Sprites/Bonus/Bluee/Btn_blue (13).png" type="Texture" id=304]
-[ext_resource path="res://Sprites/Bonus/Bluee/Btn_blue (29).png" type="Texture" id=305]
-[ext_resource path="res://Sprites/Bonus/Bluee/Btn_blue (4).png" type="Texture" id=306]
-[ext_resource path="res://Sprites/Bonus/Bluee/Btn_blue (8).png" type="Texture" id=307]
-[ext_resource path="res://Sprites/Bonus/Bluee/Btn_blue (20).png" type="Texture" id=308]
-[ext_resource path="res://Sprites/Bonus/Bluee/Btn_blue (30).png" type="Texture" id=309]
-[ext_resource path="res://Sprites/Bonus/Bluee/Btn_blue (24).png" type="Texture" id=310]
-[ext_resource path="res://Sprites/Bonus/Bluee/Btn_blue (31).png" type="Texture" id=311]
-[ext_resource path="res://Sprites/Bonus/Bluee/Btn_blue (28).png" type="Texture" id=312]
-[ext_resource path="res://Sprites/Bonus/Bluee/Btn_blue (26).png" type="Texture" id=313]
-[ext_resource path="res://Sprites/Bonus/Bluee/Btn_blue (2).png" type="Texture" id=314]
-[ext_resource path="res://Sprites/Bonus/Bluee/Btn_blue (15).png" type="Texture" id=315]
-[ext_resource path="res://Sprites/Bonus/Bluee/Btn_blue (11).png" type="Texture" id=316]
-[ext_resource path="res://Sprites/Bonus/Bluee/Btn_blue (16).png" type="Texture" id=317]
-[ext_resource path="res://Sprites/Bonus/Bluee/Btn_blue (10).png" type="Texture" id=318]
-[ext_resource path="res://Sprites/Bonus/Bluee/Btn_blue (7).png" type="Texture" id=319]
-[ext_resource path="res://Sprites/Bonus/Bluee/Btn_blue (17).png" type="Texture" id=320]
-[ext_resource path="res://Sprites/Bonus/Bluee/Btn_blue (22).png" type="Texture" id=321]
-[ext_resource path="res://Sprites/Bonus/Bluee/Btn_blue (23).png" type="Texture" id=322]
-[ext_resource path="res://Sprites/Bonus/Bluee/Btn_blue (19).png" type="Texture" id=323]
-[ext_resource path="res://Sprites/Bonus/Pink/Btn_pink (1).png" type="Texture" id=324]
-[ext_resource path="res://Sprites/Bonus/Bluee/Btn_blue (6).png" type="Texture" id=325]
-[ext_resource path="res://Sprites/Bonus/Bluee/Btn_blue (1).png" type="Texture" id=326]
-[ext_resource path="res://Sprites/Bonus/Bluee/Btn_blue (3).png" type="Texture" id=327]
-[ext_resource path="res://Sprites/Bonus/Bluee/Btn_blue (18).png" type="Texture" id=328]
-[ext_resource path="res://Sprites/Bonus/Bluee/Btn_blue (5).png" type="Texture" id=329]
-[ext_resource path="res://Sprites/Bonus/Bluee/Btn_blue (9).png" type="Texture" id=330]
-[ext_resource path="res://Sprites/Bonus/Bluee/Btn_blue (14).png" type="Texture" id=331]
-[ext_resource path="res://Sprites/Bonus/Bluee/Btn_blue (21).png" type="Texture" id=332]
-[ext_resource path="res://Sprites/Bonus/Bluee/Btn_blue (25).png" type="Texture" id=333]
-[ext_resource path="res://Sprites/Bonus/Pink/Btn_pink (2).png" type="Texture" id=334]
-[ext_resource path="res://Sprites/Bonus/Bluee/Btn_blue (42).png" type="Texture" id=335]
-[ext_resource path="res://Sprites/Bonus/Bluee/Btn_blue (32).png" type="Texture" id=336]
-[ext_resource path="res://Sprites/Bonus/Bluee/Btn_blue (43).png" type="Texture" id=337]
-[ext_resource path="res://Sprites/Bonus/Bluee/Btn_blue (33).png" type="Texture" id=338]
-[ext_resource path="res://Sprites/Bonus/Bluee/Btn_blue (40).png" type="Texture" id=339]
-[ext_resource path="res://Sprites/Bonus/Bluee/Btn_blue (41).png" type="Texture" id=340]
-[ext_resource path="res://Sprites/Bonus/Bluee/Btn_blue (44).png" type="Texture" id=341]
-[ext_resource path="res://Sprites/Bonus/Bluee/Btn_blue (39).png" type="Texture" id=342]
-[ext_resource path="res://Sprites/Bonus/Bluee/Btn_blue (36).png" type="Texture" id=343]
-[ext_resource path="res://Sprites/Bonus/Bluee/Btn_blue (38).png" type="Texture" id=344]
-[ext_resource path="res://Sprites/Bonus/Bluee/Btn_blue (35).png" type="Texture" id=345]
-[ext_resource path="res://Sprites/Bonus/Bluee/Btn_blue (34).png" type="Texture" id=346]
-[ext_resource path="res://Sprites/Bonus/Bluee/Btn_blue (37).png" type="Texture" id=347]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 205 ), ExtResource( 196 ), ExtResource( 197 ), ExtResource( 204 ), ExtResource( 198 ), ExtResource( 191 ), ExtResource( 207 ), ExtResource( 208 ), ExtResource( 212 ), ExtResource( 209 ), ExtResource( 201 ), ExtResource( 193 ), ExtResource( 200 ), ExtResource( 215 ), ExtResource( 206 ), ExtResource( 203 ), ExtResource( 210 ), ExtResource( 192 ), ExtResource( 195 ), ExtResource( 199 ), ExtResource( 194 ), ExtResource( 202 ), ExtResource( 211 ), ExtResource( 216 ), ExtResource( 213 ), ExtResource( 214 ), ExtResource( 217 ), ExtResource( 218 ), ExtResource( 190 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 238 ), ExtResource( 230 ), ExtResource( 222 ), ExtResource( 219 ), ExtResource( 243 ), ExtResource( 227 ), ExtResource( 233 ), ExtResource( 220 ), ExtResource( 229 ), ExtResource( 234 ), ExtResource( 225 ), ExtResource( 226 ), ExtResource( 246 ), ExtResource( 239 ), ExtResource( 223 ), ExtResource( 231 ), ExtResource( 224 ), ExtResource( 240 ), ExtResource( 242 ), ExtResource( 241 ), ExtResource( 235 ), ExtResource( 232 ), ExtResource( 236 ), ExtResource( 221 ), ExtResource( 245 ), ExtResource( 228 ), ExtResource( 244 ), ExtResource( 237 ), ExtResource( 247 ) ],
+"frames": [ ExtResource( 152 ), ExtResource( 156 ), ExtResource( 173 ), ExtResource( 139 ), ExtResource( 131 ), ExtResource( 118 ), ExtResource( 145 ), ExtResource( 130 ), ExtResource( 126 ), ExtResource( 120 ), ExtResource( 147 ), ExtResource( 137 ), ExtResource( 141 ), ExtResource( 117 ), ExtResource( 116 ), ExtResource( 136 ), ExtResource( 143 ), ExtResource( 115 ), ExtResource( 124 ), ExtResource( 133 ), ExtResource( 135 ), ExtResource( 129 ), ExtResource( 142 ), ExtResource( 138 ), ExtResource( 144 ), ExtResource( 122 ), ExtResource( 177 ), ExtResource( 146 ), ExtResource( 134 ), ExtResource( 121 ), ExtResource( 132 ), ExtResource( 119 ), ExtResource( 155 ), ExtResource( 123 ) ],
+"loop": false,
+"name": "Exit",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 123 ), ExtResource( 119 ), ExtResource( 132 ), ExtResource( 121 ), ExtResource( 134 ), ExtResource( 146 ), ExtResource( 177 ), ExtResource( 122 ), ExtResource( 144 ), ExtResource( 138 ), ExtResource( 142 ), ExtResource( 129 ), ExtResource( 135 ), ExtResource( 133 ), ExtResource( 124 ), ExtResource( 115 ), ExtResource( 143 ), ExtResource( 136 ), ExtResource( 116 ), ExtResource( 117 ), ExtResource( 141 ), ExtResource( 137 ), ExtResource( 147 ), ExtResource( 120 ), ExtResource( 126 ), ExtResource( 130 ), ExtResource( 145 ), ExtResource( 118 ), ExtResource( 131 ), ExtResource( 139 ) ],
+"loop": false,
+"name": "Appear",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 99 ), ExtResource( 94 ), ExtResource( 85 ), ExtResource( 109 ), ExtResource( 79 ), ExtResource( 112 ), ExtResource( 80 ), ExtResource( 71 ), ExtResource( 70 ), ExtResource( 100 ), ExtResource( 104 ), ExtResource( 81 ), ExtResource( 89 ), ExtResource( 105 ), ExtResource( 72 ), ExtResource( 86 ), ExtResource( 82 ), ExtResource( 66 ), ExtResource( 87 ), ExtResource( 106 ), ExtResource( 23 ), ExtResource( 38 ), ExtResource( 102 ), ExtResource( 103 ), ExtResource( 24 ), ExtResource( 113 ), ExtResource( 16 ), ExtResource( 37 ), ExtResource( 108 ), ExtResource( 17 ), ExtResource( 111 ), ExtResource( 25 ), ExtResource( 12 ), ExtResource( 26 ), ExtResource( 22 ), ExtResource( 107 ) ],
+"loop": false,
+"name": "isGood",
+"speed": 6.0
+}, {
+"frames": [ ExtResource( 166 ), ExtResource( 165 ), ExtResource( 158 ), ExtResource( 174 ), ExtResource( 179 ), ExtResource( 167 ), ExtResource( 157 ), ExtResource( 176 ), ExtResource( 159 ), ExtResource( 151 ), ExtResource( 164 ), ExtResource( 175 ), ExtResource( 163 ), ExtResource( 150 ), ExtResource( 162 ), ExtResource( 148 ), ExtResource( 183 ), ExtResource( 154 ), ExtResource( 182 ), ExtResource( 180 ), ExtResource( 186 ), ExtResource( 171 ), ExtResource( 172 ), ExtResource( 153 ), ExtResource( 161 ), ExtResource( 149 ), ExtResource( 184 ), ExtResource( 170 ), ExtResource( 185 ), ExtResource( 187 ), ExtResource( 160 ), ExtResource( 178 ), ExtResource( 168 ), ExtResource( 169 ), ExtResource( 181 ), ExtResource( 188 ) ],
+"loop": false,
+"name": "isBonus",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 19 ), ExtResource( 30 ), ExtResource( 18 ), ExtResource( 32 ), ExtResource( 36 ), ExtResource( 39 ), ExtResource( 15 ), ExtResource( 9 ), ExtResource( 11 ), ExtResource( 28 ), ExtResource( 110 ), ExtResource( 14 ), ExtResource( 114 ), ExtResource( 33 ), ExtResource( 40 ), ExtResource( 10 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 21 ), ExtResource( 127 ), ExtResource( 8 ), ExtResource( 128 ), ExtResource( 27 ), ExtResource( 13 ), ExtResource( 20 ), ExtResource( 29 ), ExtResource( 31 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 69 ), ExtResource( 68 ), ExtResource( 51 ), ExtResource( 63 ), ExtResource( 57 ), ExtResource( 65 ), ExtResource( 52 ) ],
+"loop": false,
+"name": "isBad",
+"speed": 6.0
+}, {
+"frames": [ ExtResource( 53 ), ExtResource( 58 ), ExtResource( 47 ), ExtResource( 62 ), ExtResource( 48 ), ExtResource( 96 ), ExtResource( 49 ), ExtResource( 101 ), ExtResource( 45 ), ExtResource( 59 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 50 ), ExtResource( 73 ), ExtResource( 64 ), ExtResource( 56 ), ExtResource( 60 ), ExtResource( 95 ), ExtResource( 54 ), ExtResource( 93 ), ExtResource( 90 ), ExtResource( 46 ), ExtResource( 67 ), ExtResource( 83 ), ExtResource( 97 ), ExtResource( 61 ), ExtResource( 55 ), ExtResource( 74 ), ExtResource( 91 ), ExtResource( 77 ), ExtResource( 76 ), ExtResource( 88 ), ExtResource( 92 ), ExtResource( 84 ), ExtResource( 78 ), ExtResource( 98 ), ExtResource( 75 ) ],
 "loop": true,
-"name": "default",
-"speed": 20.0
+"name": "Idle",
+"speed": 6.0
 } ]
 
-[sub_resource type="SpriteFrames" id=5]
-animations = [ {
-"frames": [ ExtResource( 165 ), ExtResource( 142 ), ExtResource( 160 ), ExtResource( 163 ), ExtResource( 146 ), ExtResource( 168 ), ExtResource( 147 ), ExtResource( 149 ), ExtResource( 150 ), ExtResource( 153 ), ExtResource( 154 ), ExtResource( 155 ), ExtResource( 166 ), ExtResource( 161 ), ExtResource( 162 ), ExtResource( 167 ), ExtResource( 187 ), ExtResource( 175 ), ExtResource( 188 ), ExtResource( 184 ), ExtResource( 183 ), ExtResource( 259 ), ExtResource( 254 ), ExtResource( 249 ), ExtResource( 248 ), ExtResource( 185 ), ExtResource( 257 ), ExtResource( 171 ), ExtResource( 256 ), ExtResource( 186 ), ExtResource( 182 ), ExtResource( 181 ), ExtResource( 258 ), ExtResource( 177 ), ExtResource( 250 ), ExtResource( 251 ), ExtResource( 179 ), ExtResource( 172 ), ExtResource( 260 ), ExtResource( 255 ), ExtResource( 252 ), ExtResource( 253 ), ExtResource( 178 ), ExtResource( 173 ), ExtResource( 261 ), ExtResource( 174 ), ExtResource( 176 ), ExtResource( 180 ), ExtResource( 269 ), ExtResource( 264 ), ExtResource( 267 ), ExtResource( 262 ), ExtResource( 265 ), ExtResource( 266 ), ExtResource( 263 ), ExtResource( 268 ) ],
-"loop": true,
-"name": "default",
-"speed": 20.0
-} ]
-
-[sub_resource type="SpriteFrames" id=6]
-animations = [ {
-"frames": [ ExtResource( 326 ), ExtResource( 314 ), ExtResource( 327 ), ExtResource( 306 ), ExtResource( 329 ), ExtResource( 325 ), ExtResource( 319 ), ExtResource( 307 ), ExtResource( 330 ), ExtResource( 318 ), ExtResource( 316 ), ExtResource( 302 ), ExtResource( 304 ), ExtResource( 331 ), ExtResource( 315 ), ExtResource( 317 ), ExtResource( 320 ), ExtResource( 328 ), ExtResource( 323 ), ExtResource( 308 ), ExtResource( 332 ), ExtResource( 321 ), ExtResource( 322 ), ExtResource( 310 ), ExtResource( 333 ), ExtResource( 313 ), ExtResource( 303 ), ExtResource( 312 ), ExtResource( 305 ), ExtResource( 309 ), ExtResource( 311 ), ExtResource( 336 ), ExtResource( 338 ), ExtResource( 346 ), ExtResource( 345 ), ExtResource( 343 ), ExtResource( 347 ), ExtResource( 344 ), ExtResource( 342 ), ExtResource( 339 ), ExtResource( 340 ), ExtResource( 335 ), ExtResource( 337 ), ExtResource( 341 ), ExtResource( 272 ), ExtResource( 278 ), ExtResource( 288 ), ExtResource( 296 ), ExtResource( 282 ), ExtResource( 300 ), ExtResource( 293 ), ExtResource( 290 ), ExtResource( 299 ), ExtResource( 284 ), ExtResource( 273 ), ExtResource( 292 ) ],
-"loop": true,
-"name": "default",
-"speed": 20.0
-} ]
-
-[sub_resource type="SpriteFrames" id=7]
-animations = [ {
-"frames": [ ExtResource( 324 ), ExtResource( 334 ), ExtResource( 294 ), ExtResource( 297 ), ExtResource( 274 ), ExtResource( 295 ), ExtResource( 298 ), ExtResource( 279 ), ExtResource( 301 ), ExtResource( 289 ), ExtResource( 275 ), ExtResource( 280 ), ExtResource( 277 ), ExtResource( 276 ), ExtResource( 281 ), ExtResource( 285 ), ExtResource( 291 ), ExtResource( 283 ), ExtResource( 287 ), ExtResource( 286 ), ExtResource( 6 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 270 ), ExtResource( 271 ), ExtResource( 36 ), ExtResource( 18 ), ExtResource( 38 ), ExtResource( 33 ), ExtResource( 16 ), ExtResource( 15 ), ExtResource( 26 ), ExtResource( 30 ), ExtResource( 40 ), ExtResource( 22 ), ExtResource( 37 ), ExtResource( 17 ), ExtResource( 39 ), ExtResource( 23 ), ExtResource( 41 ), ExtResource( 29 ), ExtResource( 19 ), ExtResource( 31 ), ExtResource( 20 ), ExtResource( 24 ), ExtResource( 21 ), ExtResource( 10 ), ExtResource( 14 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 25 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 32 ), ExtResource( 34 ) ],
-"loop": true,
-"name": "default",
-"speed": 20.0
-} ]
-
-[sub_resource type="SpriteFrames" id=8]
-animations = [ {
-"frames": [ ExtResource( 74 ), ExtResource( 47 ), ExtResource( 49 ), ExtResource( 51 ), ExtResource( 59 ), ExtResource( 44 ), ExtResource( 48 ), ExtResource( 68 ), ExtResource( 62 ), ExtResource( 43 ), ExtResource( 53 ), ExtResource( 65 ), ExtResource( 67 ), ExtResource( 71 ), ExtResource( 69 ), ExtResource( 58 ), ExtResource( 72 ), ExtResource( 56 ), ExtResource( 50 ), ExtResource( 70 ), ExtResource( 66 ), ExtResource( 57 ), ExtResource( 73 ), ExtResource( 61 ), ExtResource( 42 ), ExtResource( 45 ), ExtResource( 60 ), ExtResource( 46 ), ExtResource( 52 ), ExtResource( 63 ), ExtResource( 64 ), ExtResource( 54 ), ExtResource( 55 ), ExtResource( 102 ), ExtResource( 87 ), ExtResource( 103 ), ExtResource( 99 ), ExtResource( 104 ), ExtResource( 81 ), ExtResource( 92 ), ExtResource( 77 ), ExtResource( 105 ), ExtResource( 75 ), ExtResource( 78 ), ExtResource( 88 ), ExtResource( 96 ), ExtResource( 83 ), ExtResource( 84 ), ExtResource( 100 ), ExtResource( 85 ), ExtResource( 95 ), ExtResource( 82 ), ExtResource( 98 ), ExtResource( 79 ), ExtResource( 76 ), ExtResource( 101 ) ],
-"loop": true,
-"name": "default",
-"speed": 20.0
-} ]
-
-[sub_resource type="SpriteFrames" id=9]
-animations = [ {
-"frames": [ ExtResource( 35 ), ExtResource( 89 ), ExtResource( 86 ), ExtResource( 90 ), ExtResource( 91 ), ExtResource( 93 ), ExtResource( 80 ), ExtResource( 94 ), ExtResource( 97 ), ExtResource( 123 ), ExtResource( 119 ), ExtResource( 112 ), ExtResource( 124 ), ExtResource( 134 ), ExtResource( 120 ), ExtResource( 111 ), ExtResource( 133 ), ExtResource( 113 ), ExtResource( 109 ), ExtResource( 128 ), ExtResource( 137 ), ExtResource( 121 ), ExtResource( 122 ), ExtResource( 114 ), ExtResource( 132 ), ExtResource( 115 ), ExtResource( 126 ), ExtResource( 127 ), ExtResource( 129 ), ExtResource( 135 ), ExtResource( 131 ), ExtResource( 130 ), ExtResource( 107 ), ExtResource( 108 ), ExtResource( 136 ), ExtResource( 138 ), ExtResource( 106 ), ExtResource( 110 ), ExtResource( 116 ), ExtResource( 117 ), ExtResource( 118 ), ExtResource( 170 ), ExtResource( 143 ), ExtResource( 156 ), ExtResource( 139 ), ExtResource( 157 ), ExtResource( 169 ), ExtResource( 158 ), ExtResource( 144 ), ExtResource( 159 ), ExtResource( 151 ), ExtResource( 145 ), ExtResource( 152 ), ExtResource( 141 ), ExtResource( 148 ), ExtResource( 164 ) ],
-"loop": true,
-"name": "default",
-"speed": 20.0
-} ]
-
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rect_scale")
 tracks/0/interp = 1
@@ -439,7 +264,7 @@ tracks/2/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 length = 0.5
 tracks/0/type = "method"
 tracks/0/path = NodePath(".")
@@ -477,64 +302,49 @@ rect_pivot_offset = Vector2( 797.928, 450.438 )
 mouse_filter = 2
 script = ExtResource( 5 )
 __meta__ = {
-"_edit_use_anchors_": false,
-"_edit_vertical_guides_": [  ]
+"_edit_use_anchors_": false
 }
 activeOnes = 4
 pathAnimation = "AnimationPlayer"
 
-[node name="InitAnimation" type="AnimatedSprite" parent="."]
-position = Vector2( 800.153, 452.238 )
+[node name="Hex1" type="TextureButton" parent="."]
+anchor_left = 0.500436
+anchor_top = 0.5
+anchor_right = 0.500436
+anchor_bottom = 0.5
+margin_left = 54.7158
+margin_top = -141.008
+margin_right = 137.715
+margin_bottom = -58.0069
+rect_scale = Vector2( 1, 1.00955 )
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+isGood = ExtResource( 140 )
+isBad = ExtResource( 125 )
+isBonus = ExtResource( 189 )
+
+[node name="Sprite" type="AnimatedSprite" parent="Hex1"]
+position = Vector2( 40.0278, 43.1763 )
+scale = Vector2( 0.483959, 0.483959 )
 frames = SubResource( 1 )
-
-[node name="BonusCircleInteractive" type="Control" parent="."]
-visible = false
-margin_left = 802.12
-margin_top = 448.56
-margin_right = 842.12
-margin_bottom = 488.56
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="BonusCircleInteractive"]
-frames = SubResource( 5 )
-frame = 52
+animation = "Exit"
+frame = 33
+speed_scale = 6.0
 playing = true
+script = ExtResource( 6 )
 
-[node name="BTN" type="TextureButton" parent="BonusCircleInteractive"]
+[node name="BonusPrice1" type="Label" parent="Hex1"]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -194.12
-margin_top = -198.56
-margin_right = -43.1195
-margin_bottom = -39.5603
-rect_scale = Vector2( 1, 1.00955 )
-script = ExtResource( 7 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-isGood = ExtResource( 140 )
-isBad = ExtResource( 125 )
-isBonus = ExtResource( 189 )
-
-[node name="Color" type="AnimatedSprite" parent="BonusCircleInteractive/BTN"]
-position = Vector2( 66.9888, 72.9906 )
-frames = SubResource( 6 )
-playing = true
-
-[node name="BonusPrice" type="Label" parent="BonusCircleInteractive/BTN"]
-visible = false
-anchor_left = 0.533
-anchor_top = 0.537
-anchor_right = 0.533
-anchor_bottom = 0.537
-margin_left = -50.0339
-margin_top = -26.9517
-margin_right = 49.9661
-margin_bottom = 27.0483
+margin_left = -23.3277
+margin_top = -11.4916
+margin_right = 24.6723
+margin_bottom = 15.5084
 custom_fonts/font = ExtResource( 2 )
 text = "0000"
 align = 1
@@ -546,17 +356,17 @@ __meta__ = {
 myType = "1.5"
 bonusPrice = true
 
-[node name="HexAudio" type="AudioStreamPlayer2D" parent="BonusCircleInteractive/BTN"]
+[node name="HexAudio" type="AudioStreamPlayer2D" parent="Hex1"]
 
-[node name="BTN2" type="TextureButton" parent="BonusCircleInteractive"]
+[node name="Hex3" type="TextureButton" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -18.1215
-margin_top = -198.56
-margin_right = 132.879
-margin_bottom = -39.5603
+margin_left = 54.4993
+margin_top = 86.8242
+margin_right = 137.499
+margin_bottom = 169.825
 rect_scale = Vector2( 1, 1.00955 )
 script = ExtResource( 7 )
 __meta__ = {
@@ -566,22 +376,26 @@ isGood = ExtResource( 140 )
 isBad = ExtResource( 125 )
 isBonus = ExtResource( 189 )
 
-[node name="Color" type="AnimatedSprite" parent="BonusCircleInteractive/BTN2"]
-position = Vector2( 104.121, 71.8625 )
-frames = SubResource( 7 )
-frame = 44
+[node name="Sprite" type="AnimatedSprite" parent="Hex3"]
+position = Vector2( 40.0278, 43.1763 )
+scale = Vector2( 0.483959, 0.483959 )
+frames = SubResource( 1 )
+animation = "Exit"
+frame = 33
+speed_scale = 6.0
 playing = true
+script = ExtResource( 6 )
 
-[node name="BonusPrice" type="Label" parent="BonusCircleInteractive/BTN2"]
+[node name="BonusPrice3" type="Label" parent="Hex3"]
 visible = false
-anchor_left = 0.533
-anchor_top = 0.537
-anchor_right = 0.533
-anchor_bottom = 0.537
-margin_left = -50.0339
-margin_top = -26.9517
-margin_right = 49.9661
-margin_bottom = 27.0483
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -24.5648
+margin_top = -14.8834
+margin_right = 23.4352
+margin_bottom = 12.1166
 custom_fonts/font = ExtResource( 2 )
 text = "0000"
 align = 1
@@ -590,20 +404,20 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-myType = "1.5"
+myType = "3"
 bonusPrice = true
 
-[node name="HexAudio" type="AudioStreamPlayer2D" parent="BonusCircleInteractive/BTN2"]
+[node name="HexAudio" type="AudioStreamPlayer2D" parent="Hex3"]
 
-[node name="BTN3" type="TextureButton" parent="BonusCircleInteractive"]
-anchor_left = 0.5
+[node name="Hex0" type="TextureButton" parent="."]
+anchor_left = 0.500436
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 0.500436
 anchor_bottom = 0.5
-margin_left = -18.1215
-margin_top = -21.2186
-margin_right = 132.879
-margin_bottom = 137.781
+margin_left = -142.324
+margin_top = -141.008
+margin_right = -59.3241
+margin_bottom = -58.0069
 rect_scale = Vector2( 1, 1.00955 )
 script = ExtResource( 7 )
 __meta__ = {
@@ -613,22 +427,26 @@ isGood = ExtResource( 140 )
 isBad = ExtResource( 125 )
 isBonus = ExtResource( 189 )
 
-[node name="Color" type="AnimatedSprite" parent="BonusCircleInteractive/BTN3"]
-position = Vector2( 101.941, 103.83 )
-frames = SubResource( 8 )
-frame = 54
+[node name="Sprite" type="AnimatedSprite" parent="Hex0"]
+position = Vector2( 40.0278, 43.1763 )
+scale = Vector2( 0.483959, 0.483959 )
+frames = SubResource( 1 )
+animation = "Exit"
+frame = 33
+speed_scale = 6.0
 playing = true
+script = ExtResource( 6 )
 
-[node name="BonusPrice" type="Label" parent="BonusCircleInteractive/BTN3"]
+[node name="BonusPrice0" type="Label" parent="Hex0"]
 visible = false
-anchor_left = 0.533
-anchor_top = 0.537
-anchor_right = 0.533
-anchor_bottom = 0.537
-margin_left = -50.0339
-margin_top = -26.9517
-margin_right = 49.9661
-margin_bottom = 27.0483
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -24.6199
+margin_top = -13.3184
+margin_right = 23.3801
+margin_bottom = 13.6816
 custom_fonts/font = ExtResource( 2 )
 text = "0000"
 align = 1
@@ -637,20 +455,20 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-myType = "1.5"
+myType = "1"
 bonusPrice = true
 
-[node name="HexAudio" type="AudioStreamPlayer2D" parent="BonusCircleInteractive/BTN3"]
+[node name="HexAudio" type="AudioStreamPlayer2D" parent="Hex0"]
 
-[node name="BTN4" type="TextureButton" parent="BonusCircleInteractive"]
+[node name="Hex2" type="TextureButton" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -199.543
-margin_top = -21.2186
-margin_right = -48.5427
-margin_bottom = 137.781
+margin_left = -142.54
+margin_top = 86.8242
+margin_right = -59.5406
+margin_bottom = 169.825
 rect_scale = Vector2( 1, 1.00955 )
 script = ExtResource( 7 )
 __meta__ = {
@@ -660,22 +478,26 @@ isGood = ExtResource( 140 )
 isBad = ExtResource( 125 )
 isBonus = ExtResource( 189 )
 
-[node name="Color" type="AnimatedSprite" parent="BonusCircleInteractive/BTN4"]
-position = Vector2( 73.1445, 104.971 )
-frames = SubResource( 9 )
-frame = 46
+[node name="Sprite" type="AnimatedSprite" parent="Hex2"]
+position = Vector2( 40.0278, 43.1763 )
+scale = Vector2( 0.483959, 0.483959 )
+frames = SubResource( 1 )
+animation = "Exit"
+frame = 33
+speed_scale = 6.0
 playing = true
+script = ExtResource( 6 )
 
-[node name="BonusPrice" type="Label" parent="BonusCircleInteractive/BTN4"]
+[node name="BonusPrice2" type="Label" parent="Hex2"]
 visible = false
-anchor_left = 0.533
-anchor_top = 0.537
-anchor_right = 0.533
-anchor_bottom = 0.537
-margin_left = -50.0339
-margin_top = -26.9517
-margin_right = 49.9661
-margin_bottom = 27.0483
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -23.706
+margin_top = -14.4995
+margin_right = 24.294
+margin_bottom = 12.5005
 custom_fonts/font = ExtResource( 2 )
 text = "0000"
 align = 1
@@ -684,19 +506,25 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-myType = "1.5"
+myType = "2"
 bonusPrice = true
 
-[node name="HexAudio" type="AudioStreamPlayer2D" parent="BonusCircleInteractive/BTN4"]
+[node name="HexAudio" type="AudioStreamPlayer2D" parent="Hex2"]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 pause_mode = 1
 autoplay = "Init"
-anims/Exit = SubResource( 3 )
-anims/Init = SubResource( 4 )
-[connection signal="BonusPicked" from="." to="BonusCircleInteractive/BTN/BonusPrice" method="UnsuscribeMe"]
-[connection signal="animation_finished" from="InitAnimation" to="." method="ShowBonusCircleInteractive"]
-[connection signal="button_down" from="BonusCircleInteractive/BTN" to="BonusCircleInteractive/BTN" method="_on_button_down"]
-[connection signal="button_down" from="BonusCircleInteractive/BTN2" to="BonusCircleInteractive/BTN2" method="_on_button_down"]
-[connection signal="button_down" from="BonusCircleInteractive/BTN3" to="BonusCircleInteractive/BTN3" method="_on_button_down"]
-[connection signal="button_down" from="BonusCircleInteractive/BTN4" to="BonusCircleInteractive/BTN4" method="_on_button_down"]
+anims/Exit = SubResource( 2 )
+anims/Init = SubResource( 3 )
+[connection signal="BonusPicked" from="." to="Hex3/BonusPrice3" method="UnsuscribeMe"]
+[connection signal="BonusPicked" from="." to="Hex2/BonusPrice2" method="UnsuscribeMe"]
+[connection signal="BonusPicked" from="." to="Hex1/BonusPrice1" method="UnsuscribeMe"]
+[connection signal="BonusPicked" from="." to="Hex0/BonusPrice0" method="UnsuscribeMe"]
+[connection signal="button_down" from="Hex1" to="Hex1" method="_on_button_down"]
+[connection signal="animation_finished" from="Hex1/Sprite" to="Hex1/Sprite" method="StartIdle"]
+[connection signal="button_down" from="Hex3" to="Hex3" method="_on_button_down"]
+[connection signal="animation_finished" from="Hex3/Sprite" to="Hex3/Sprite" method="StartIdle"]
+[connection signal="button_down" from="Hex0" to="Hex0" method="_on_button_down"]
+[connection signal="animation_finished" from="Hex0/Sprite" to="Hex0/Sprite" method="StartIdle"]
+[connection signal="button_down" from="Hex2" to="Hex2" method="_on_button_down"]
+[connection signal="animation_finished" from="Hex2/Sprite" to="Hex2/Sprite" method="StartIdle"]
