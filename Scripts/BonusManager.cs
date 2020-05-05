@@ -47,7 +47,6 @@ public class BonusManager : LevelManager
 		    price = price.Replace(',', '.');
 		    bonusPrices[i].UpdateMyType(price);
 		    _nodes[i].SetMultiply("X"+bonusPrices[i].myType);
-		    GD.Print(bonusPrices[i].myType);
 	    }
     }
 }

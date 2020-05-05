@@ -106,7 +106,6 @@ public class UIButtonsManager : Control
     }
     void OnOkButtonUp()
     {
-        GD.Print("El bonus fue aceptado");
         EmitSignal(nameof(BonusAccepted));
         _incomingBonus.Hide();
     }
@@ -192,14 +191,14 @@ public class UIButtonsManager : Control
     }
     public void SubscribeCurrencyLabel(CurrencyLabel cl)
     {
-        GD.Print("Suscribing " + cl.myType);
+        //GD.Print("Suscribing " + cl.myType);
         _myCurrencyLabels.Add(cl.myType, cl);
     }
     public void UnsuscribeCurrencyLabel(CurrencyLabel cl)
     {
         if (_myCurrencyLabels.ContainsValue(cl))
         {
-            GD.Print("Desuscribing " + cl.myType);
+            //GD.Print("Desuscribing " + cl.myType);
             _myCurrencyLabels.Remove(cl.myType);
         }
     }
@@ -221,13 +220,11 @@ public class UIButtonsManager : Control
 
     void BonusStarted() //La llama GameManager, señal StartBonus
     {
-        GD.Print("UI recibe que el bonus inició");
         EmitSignal(nameof(ClearGameOver));
     }
 
     void BonusPicked() //La llama GameManager, señal bonusOver
     {
-        GD.Print("UI recibe que bonus fue pickeado");
         CreateTimer(2f,"ShowFinishedBonus");
     }
 
@@ -237,10 +234,9 @@ public class UIButtonsManager : Control
     }
     
 
-    void FinishBonus()
+    void FinishBonus() //La llama el botón
     {
         _finishedBonus.Hide();
-        GD.Print("UI recibe que bonus fue pickeado");
         ActivateAgain();
     }
 

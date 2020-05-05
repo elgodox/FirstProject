@@ -34,7 +34,7 @@ public class GameRecover
             {
                 if(currentChar == '3')
                 {
-                    GD.Print("Encontré un Bonus Generado! en el slot " + (bonuSlot -= 1));
+                    bonuSlot -= 1;
                     return true;
                 }
                 else
@@ -44,7 +44,7 @@ public class GameRecover
             }
         }
         
-        GD.Print("No encontré Bonus Generado");
+        //GD.Print("No encontré Bonus Generado");
         bonuSlot = 0;
         return false;
     }
@@ -56,11 +56,11 @@ public class GameRecover
 
         if(myPlays[levelOfBonus] == bonuSlot.ToString())
         {
-            GD.Print("El jugador había conseguido el Bonus!");
+            //GD.Print("El jugador había conseguido el Bonus!");
             return true;
         }
 
-        GD.Print("El jugador NO había conseguido el Bonus");
+        //GD.Print("El jugador NO había conseguido el Bonus");
         return false;
     }
 
@@ -180,12 +180,10 @@ public class GameRecover
                 {
                     if (i < myLevels[0].Length - 1) //si hay un próximo después del 1 y es un .
                     {
-                        GD.Print(i + " es menor que " + (myLevels[0].Length - 1));
                         if (myLevels[0][i + 1] == '.')
                         {
                             string decimalNumber = current.ToString() + "," + (myLevels[0][i + 2]).ToString();
                             double decimalNumberDouble = Convert.ToDouble(decimalNumber);
-                            GD.Print("decimal = " + current + " + " + myLevels[0][i + 1]  + " + " + myLevels[0][i + 2] + " : " + decimalNumberDouble);
                             i += 2;
                             listInfo.Add(1); 
                         }
@@ -202,10 +200,9 @@ public class GameRecover
                 }
             }
 
-            GD.Print("El orden en la lista es: ");
             for (int i = 0; i < listInfo.Count; i++)
             {
-                GD.Print(listInfo[i]);
+                //GD.Print(listInfo[i]);
                 levelInfo[i] = listInfo[i];
             }
         }
