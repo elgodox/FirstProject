@@ -65,7 +65,7 @@ public class CurrencyManager : Node
         credit -= currentBet;
         EmitSignal(nameof(CurrencyChanged), Constants.CREDITS, credit);
     }
-    void AddBetToCurrency() // La llama GameManager, señal roundWinned
+    public void AddBetToCurrency() // La llama GameManager, señal roundWinned
     {
         currencyToCollect = currentBet * multiplier;
         EmitSignal(nameof(CurrencyChanged), Constants.CURRENCY_TO_COLLECT, currencyToCollect);
@@ -108,7 +108,7 @@ public class CurrencyManager : Node
         CheckBet();
     }
     
-    void CheckAllCurrency()
+    public void CheckAllCurrency()
     {
         EmitSignal(nameof(CurrencyChanged), Constants.CREDITS, credit);
         EmitSignal(nameof(CurrencyChanged), Constants.CURRENCY_TO_COLLECT, currencyToCollect);
