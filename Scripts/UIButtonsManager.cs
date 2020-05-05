@@ -12,6 +12,7 @@ public class UIButtonsManager : Control
     [Signal] public delegate void restartGame();
     [Signal] public delegate void ClearGameOver();
     [Signal] public delegate void bet();
+    [Signal] public delegate void StopGameMusic();
     [Signal] public delegate void maxBet();
     [Signal] public delegate void collect();
     [Signal] public delegate void end_collect();
@@ -238,6 +239,7 @@ public class UIButtonsManager : Control
     {
         _finishedBonus.Hide();
         ActivateAgain();
+        EmitSignal(nameof(StopGameMusic));
     }
 
     void LoadScene(string pathScene)

@@ -406,6 +406,7 @@ autoplay = true
 [connection signal="BonusAccepted" from="UI_Template" to="." method="InstantiateBonus"]
 [connection signal="BonusAccepted" from="UI_Template" to="UI_Template" method="BonusStarted"]
 [connection signal="ControlMasterVolume" from="UI_Template" to="AudioManager" method="_on_UI_ControlMasterVolume"]
+[connection signal="StopGameMusic" from="UI_Template" to="AudioManager" method="StopCurrentMusic"]
 [connection signal="TimerDone" from="UI_Template" to="." method="EndGame"]
 [connection signal="bet" from="UI_Template" to="CurrencyManager" method="Bet"]
 [connection signal="end_collect" from="UI_Template" to="." method="MoneyCollected"]
