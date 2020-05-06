@@ -86,7 +86,10 @@ public class CurrencyManager : Node
     public void UpdateBonusReward(double multiplier)
     {
         EmitSignal(nameof(CurrencyChanged), Constants.CURRENCY_BONUS_REWARD, currentBet * multiplier);
+
+        credit += currentBet * multiplier;
     }
+
 
     public void ResetCurrencyToCollect()
     {
@@ -115,13 +118,16 @@ public class CurrencyManager : Node
         EmitSignal(nameof(CurrencyChanged), Constants.CURRENT_BET, currentBet);
     }
 
-    public void SetMultiplier(int levelMultiplier)
+    public void SetLevelMultiplier(int levelMultiplier)
     {
+        //GD.Print("Set Multiplier recibe " + levelMultiplier);
         if(levelMultiplier < 0) // Checkeo que si al enviar un -1 no intente acceder al indice [-1] del array
         {
+            //GD.Print("Set Multiplier clampea " + levelMultiplier + " a 0");
             levelMultiplier = 0;
         }
         multiplier = multipliers[levelMultiplier];
+        //GD.Print("Set Multiplier setea el muliplicador " + multiplier + " que esta en el índice " + levelMultiplier);
     }
 
     void CheckBet() 

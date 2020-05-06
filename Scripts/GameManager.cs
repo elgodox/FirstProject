@@ -186,7 +186,7 @@ public class GameManager : Godot.Control
 
     void CreateLevel(string path)
     {
-        _currencyManager.SetMultiplier(_levels - _currentLevel);
+        _currencyManager.SetLevelMultiplier(_levels - _currentLevel);
 
         if (!_isResuming)
         {
@@ -215,7 +215,6 @@ public class GameManager : Godot.Control
     {
         //NodePicked
         EmitSignal(nameof(NodePicked));
-        _uiManager.StopTimer();
         UpdateSaveData(nodeName);
         
         if (win)
@@ -319,6 +318,7 @@ public class GameManager : Godot.Control
 
     public void EndGame(bool win)
     {
+        GD.Print("End Game, el nivel actual es " + _currentLevel + " y el bool de win es " + win);
         currentLevelMngr?.ExitAnimation();
         _currencyManager.UpdateWinnedCurrency();
         EmitSignal(nameof(LevelsOver), win, _gotBonus);
@@ -326,7 +326,7 @@ public class GameManager : Godot.Control
         {
             _currencyManager.ResetCurrencyToCollect();
         }
-        if (_currentLevel > 0)
+        if (_currentLevel >= 0)
         {
             if (win)
             {
@@ -387,10 +387,10 @@ public class GameManager : Godot.Control
 
         StartGame();
         
-        if(_currentLevel > 1)
+        if(_currentLevel > 0)
         {
             CheckToFinishGame();
-            _currencyManager.SetMultiplier((_levels - _currentLevel) - 1);
+            _currencyManager.SetLevelMultiplier((_levels - _currentLevel) - 1);
             _currentLevelInfo = _myRecover.GetLastLevelInfo(_currentLevel);
             EmitSignal(nameof(RoundWined));
             CreateCurrentLevel();
@@ -399,7 +399,7 @@ public class GameManager : Godot.Control
         else if(_gotBonus)
         {
             GD.Print("Resuming Bonus");
-            _currencyManager.SetMultiplier((_levels - _myRecover.GetLastLevelWinned()));
+            _currencyManager.SetLevelMultiplier((_levels - _myRecover.GetLastLevelWinned()));
             _currencyManager.AddBetToCurrency();
             EndGame(_myRecover.CheckIfWin());
         }
