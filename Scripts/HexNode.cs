@@ -9,6 +9,7 @@ public class HexNode : Node
     [Export] AudioStream isGood;
     [Export] AudioStream isBad;
     [Export] AudioStream isBonus;
+    [Signal] public delegate void EndAnimaionIsBonus();
 
     public bool goodOne = true;
     public bool bonus = false;
@@ -77,12 +78,25 @@ public class HexNode : Node
     {
         myName.Show();
     }
+    
+    public void HideMultiply()
+    {
+        myName.Hide();
+    }
 
     public void IdleAnimation()
     {
-        sprite.Animation = "Idle";
-        sprite.Playing = true;
-        sprite.Play();
+        if (sprite.Animation == "Appear")
+        { 
+            sprite.Animation = "Idle";
+            sprite.Playing = true;
+            sprite.Play();
+        }
+
+        if (sprite.Animation == "isBonus")
+        {
+            EmitSignal(nameof(EndAnimaionIsBonus));
+        }
     }
     
 }

@@ -121,7 +121,7 @@ public class LevelManager : Node
 	// 	}
 	// }
 
-	public void DestroyHexManager() //La llama la animación de Exit
+	protected virtual void DestroyHexManager() //La llama la animación de Exit
 	{
 		if(myGameManager.currentLevelMngr == this)
 		{

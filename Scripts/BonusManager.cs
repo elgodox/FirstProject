@@ -33,8 +33,6 @@ public class BonusManager : LevelManager
 				item.ShowMultiply();
 			}
 		}
-        
-        animation.CurrentAnimation = "Exit";
     }
 
     public void SetMultipliersPositions(int[] randomPos)
@@ -51,5 +49,15 @@ public class BonusManager : LevelManager
 		    bonusPrices[i].UpdateMyType(price);
 		    _nodes[i].SetMultiply("X"+bonusPrices[i].myType);
 	    }
+    }
+
+    protected override void DestroyHexManager()
+    {
+	    base.DestroyHexManager();
+    }
+
+    public void DestroyBonusAnimation()//La llama el nodo cuando finaliza su animacion de isBonus
+    {
+	    animation.CurrentAnimation = "Exit";
     }
 }

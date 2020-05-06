@@ -1,4 +1,4 @@
-[gd_scene load_steps=495 format=2]
+[gd_scene load_steps=545 format=2]
 
 [ext_resource path="res://Scripts/CurrencyLabel.cs" type="Script" id=1]
 [ext_resource path="res://Fonts/Dynamic Fonts/Apuestas.tres" type="DynamicFont" id=2]
@@ -487,6 +487,7 @@
 [ext_resource path="res://Sprites/Bonus/Bonus aparece/04/Bonus_aparece_junto00026.png" type="Texture" id=485]
 [ext_resource path="res://Sprites/Bonus/Bonus aparece/04/Bonus_aparece_junto00018.png" type="Texture" id=486]
 [ext_resource path="res://Sprites/Bonus/Bonus aparece/04/Bonus_aparece_junto00042.png" type="Texture" id=487]
+[ext_resource path="res://Sprites/Bonus/BonusSelected/Azul-win.png" type="Texture" id=488]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -495,10 +496,20 @@ animations = [ {
 "name": "Idle",
 "speed": 20.0
 }, {
+"frames": [  ],
+"loop": false,
+"name": "isBonus",
+"speed": 20.0
+}, {
 "frames": [ ExtResource( 304 ), ExtResource( 322 ), ExtResource( 316 ), ExtResource( 323 ), ExtResource( 315 ), ExtResource( 313 ), ExtResource( 308 ), ExtResource( 325 ), ExtResource( 326 ), ExtResource( 327 ), ExtResource( 312 ), ExtResource( 328 ), ExtResource( 329 ), ExtResource( 305 ), ExtResource( 306 ), ExtResource( 324 ), ExtResource( 314 ), ExtResource( 319 ), ExtResource( 307 ), ExtResource( 309 ), ExtResource( 310 ), ExtResource( 318 ), ExtResource( 321 ), ExtResource( 311 ), ExtResource( 317 ), ExtResource( 320 ), ExtResource( 335 ), ExtResource( 334 ), ExtResource( 361 ), ExtResource( 341 ), ExtResource( 345 ), ExtResource( 333 ), ExtResource( 351 ), ExtResource( 348 ), ExtResource( 353 ), ExtResource( 330 ), ExtResource( 339 ), ExtResource( 331 ), ExtResource( 332 ), ExtResource( 359 ), ExtResource( 352 ), ExtResource( 354 ), ExtResource( 349 ), ExtResource( 336 ), ExtResource( 340 ), ExtResource( 337 ), ExtResource( 342 ), ExtResource( 343 ), ExtResource( 355 ), ExtResource( 338 ), ExtResource( 344 ), ExtResource( 356 ), ExtResource( 346 ), ExtResource( 347 ), ExtResource( 357 ), ExtResource( 350 ), ExtResource( 358 ), ExtResource( 360 ), ExtResource( 366 ), ExtResource( 47 ) ],
 "loop": false,
 "name": "Appear",
 "speed": 20.0
+}, {
+"frames": [ ExtResource( 366 ), ExtResource( 360 ), ExtResource( 358 ), ExtResource( 350 ), ExtResource( 357 ), ExtResource( 347 ), ExtResource( 346 ), ExtResource( 356 ), ExtResource( 344 ), ExtResource( 338 ), ExtResource( 355 ), ExtResource( 343 ), ExtResource( 342 ), ExtResource( 337 ), ExtResource( 340 ), ExtResource( 336 ), ExtResource( 349 ), ExtResource( 354 ), ExtResource( 352 ), ExtResource( 359 ), ExtResource( 332 ), ExtResource( 331 ), ExtResource( 339 ), ExtResource( 330 ), ExtResource( 353 ), ExtResource( 348 ), ExtResource( 351 ), ExtResource( 333 ), ExtResource( 345 ), ExtResource( 341 ), ExtResource( 361 ), ExtResource( 334 ), ExtResource( 335 ), ExtResource( 320 ), ExtResource( 317 ), ExtResource( 321 ), ExtResource( 311 ), ExtResource( 318 ), ExtResource( 310 ), ExtResource( 309 ), ExtResource( 307 ), ExtResource( 319 ), ExtResource( 314 ), ExtResource( 324 ), ExtResource( 306 ), ExtResource( 305 ), ExtResource( 329 ), ExtResource( 328 ), ExtResource( 312 ), ExtResource( 327 ), ExtResource( 326 ), ExtResource( 325 ), ExtResource( 308 ), ExtResource( 313 ), ExtResource( 315 ), ExtResource( 323 ), ExtResource( 316 ), ExtResource( 322 ), ExtResource( 304 ) ],
+"loop": false,
+"name": "Exit",
+"speed": 30.0
 } ]
 
 [sub_resource type="SpriteFrames" id=2]
@@ -508,39 +519,314 @@ animations = [ {
 "name": "Idle",
 "speed": 20.0
 }, {
+"frames": [  ],
+"loop": true,
+"name": "isBonus",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 428 ), ExtResource( 428 ), ExtResource( 428 ), ExtResource( 428 ), ExtResource( 428 ), ExtResource( 428 ), ExtResource( 428 ), ExtResource( 428 ), ExtResource( 428 ), ExtResource( 428 ), ExtResource( 428 ), ExtResource( 428 ), ExtResource( 428 ), ExtResource( 428 ), ExtResource( 428 ), ExtResource( 428 ), ExtResource( 428 ), ExtResource( 385 ), ExtResource( 386 ), ExtResource( 382 ), ExtResource( 363 ), ExtResource( 378 ), ExtResource( 376 ), ExtResource( 364 ), ExtResource( 365 ), ExtResource( 383 ), ExtResource( 384 ), ExtResource( 380 ), ExtResource( 387 ), ExtResource( 381 ), ExtResource( 388 ), ExtResource( 379 ), ExtResource( 389 ), ExtResource( 372 ), ExtResource( 367 ), ExtResource( 368 ), ExtResource( 390 ), ExtResource( 369 ), ExtResource( 373 ), ExtResource( 370 ), ExtResource( 391 ), ExtResource( 371 ), ExtResource( 374 ), ExtResource( 375 ), ExtResource( 392 ), ExtResource( 393 ), ExtResource( 377 ), ExtResource( 362 ), ExtResource( 422 ), ExtResource( 423 ), ExtResource( 416 ), ExtResource( 413 ), ExtResource( 424 ), ExtResource( 407 ), ExtResource( 406 ), ExtResource( 418 ), ExtResource( 417 ), ExtResource( 408 ) ],
 "loop": false,
 "name": "Appear",
 "speed": 20.0
+}, {
+"frames": [ ExtResource( 408 ), ExtResource( 417 ), ExtResource( 418 ), ExtResource( 406 ), ExtResource( 407 ), ExtResource( 424 ), ExtResource( 413 ), ExtResource( 416 ), ExtResource( 423 ), ExtResource( 422 ), ExtResource( 362 ), ExtResource( 377 ), ExtResource( 393 ), ExtResource( 392 ), ExtResource( 375 ), ExtResource( 374 ), ExtResource( 371 ), ExtResource( 391 ), ExtResource( 370 ), ExtResource( 373 ), ExtResource( 369 ), ExtResource( 390 ), ExtResource( 368 ), ExtResource( 367 ), ExtResource( 372 ), ExtResource( 389 ), ExtResource( 379 ), ExtResource( 388 ), ExtResource( 381 ), ExtResource( 387 ), ExtResource( 380 ), ExtResource( 384 ), ExtResource( 383 ), ExtResource( 365 ), ExtResource( 364 ), ExtResource( 376 ), ExtResource( 378 ), ExtResource( 363 ), ExtResource( 382 ), ExtResource( 386 ), ExtResource( 385 ), null ],
+"loop": false,
+"name": "Exit",
+"speed": 30.0
 } ]
 
-[sub_resource type="SpriteFrames" id=3]
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 488 )
+region = Rect2( 0, 0, 200, 200 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 488 )
+region = Rect2( 200, 0, 200, 200 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 488 )
+region = Rect2( 400, 0, 200, 200 )
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 488 )
+region = Rect2( 600, 0, 200, 200 )
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
+atlas = ExtResource( 488 )
+region = Rect2( 800, 0, 200, 200 )
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
+atlas = ExtResource( 488 )
+region = Rect2( 1000, 0, 200, 200 )
+
+[sub_resource type="AtlasTexture" id=9]
+flags = 4
+atlas = ExtResource( 488 )
+region = Rect2( 1200, 0, 200, 200 )
+
+[sub_resource type="AtlasTexture" id=10]
+flags = 4
+atlas = ExtResource( 488 )
+region = Rect2( 0, 200, 200, 200 )
+
+[sub_resource type="AtlasTexture" id=11]
+flags = 4
+atlas = ExtResource( 488 )
+region = Rect2( 200, 200, 200, 200 )
+
+[sub_resource type="AtlasTexture" id=12]
+flags = 4
+atlas = ExtResource( 488 )
+region = Rect2( 400, 200, 200, 200 )
+
+[sub_resource type="AtlasTexture" id=13]
+flags = 4
+atlas = ExtResource( 488 )
+region = Rect2( 600, 200, 200, 200 )
+
+[sub_resource type="AtlasTexture" id=14]
+flags = 4
+atlas = ExtResource( 488 )
+region = Rect2( 800, 200, 200, 200 )
+
+[sub_resource type="AtlasTexture" id=15]
+flags = 4
+atlas = ExtResource( 488 )
+region = Rect2( 1000, 200, 200, 200 )
+
+[sub_resource type="AtlasTexture" id=16]
+flags = 4
+atlas = ExtResource( 488 )
+region = Rect2( 1200, 200, 200, 200 )
+
+[sub_resource type="AtlasTexture" id=17]
+flags = 4
+atlas = ExtResource( 488 )
+region = Rect2( 0, 400, 200, 200 )
+
+[sub_resource type="AtlasTexture" id=18]
+flags = 4
+atlas = ExtResource( 488 )
+region = Rect2( 200, 400, 200, 200 )
+
+[sub_resource type="AtlasTexture" id=19]
+flags = 4
+atlas = ExtResource( 488 )
+region = Rect2( 400, 400, 200, 200 )
+
+[sub_resource type="AtlasTexture" id=20]
+flags = 4
+atlas = ExtResource( 488 )
+region = Rect2( 600, 400, 200, 200 )
+
+[sub_resource type="AtlasTexture" id=21]
+flags = 4
+atlas = ExtResource( 488 )
+region = Rect2( 800, 400, 200, 200 )
+
+[sub_resource type="AtlasTexture" id=22]
+flags = 4
+atlas = ExtResource( 488 )
+region = Rect2( 1000, 400, 200, 200 )
+
+[sub_resource type="AtlasTexture" id=23]
+flags = 4
+atlas = ExtResource( 488 )
+region = Rect2( 1200, 400, 200, 200 )
+
+[sub_resource type="AtlasTexture" id=24]
+flags = 4
+atlas = ExtResource( 488 )
+region = Rect2( 0, 600, 200, 200 )
+
+[sub_resource type="AtlasTexture" id=25]
+flags = 4
+atlas = ExtResource( 488 )
+region = Rect2( 200, 600, 200, 200 )
+
+[sub_resource type="AtlasTexture" id=26]
+flags = 4
+atlas = ExtResource( 488 )
+region = Rect2( 400, 600, 200, 200 )
+
+[sub_resource type="AtlasTexture" id=27]
+flags = 4
+atlas = ExtResource( 488 )
+region = Rect2( 600, 600, 200, 200 )
+
+[sub_resource type="AtlasTexture" id=28]
+flags = 4
+atlas = ExtResource( 488 )
+region = Rect2( 800, 600, 200, 200 )
+
+[sub_resource type="AtlasTexture" id=29]
+flags = 4
+atlas = ExtResource( 488 )
+region = Rect2( 1000, 600, 200, 200 )
+
+[sub_resource type="AtlasTexture" id=30]
+flags = 4
+atlas = ExtResource( 488 )
+region = Rect2( 1200, 600, 200, 200 )
+
+[sub_resource type="AtlasTexture" id=31]
+flags = 4
+atlas = ExtResource( 488 )
+region = Rect2( 0, 800, 200, 200 )
+
+[sub_resource type="AtlasTexture" id=32]
+flags = 4
+atlas = ExtResource( 488 )
+region = Rect2( 200, 800, 200, 200 )
+
+[sub_resource type="AtlasTexture" id=33]
+flags = 4
+atlas = ExtResource( 488 )
+region = Rect2( 400, 800, 200, 200 )
+
+[sub_resource type="AtlasTexture" id=34]
+flags = 4
+atlas = ExtResource( 488 )
+region = Rect2( 600, 800, 200, 200 )
+
+[sub_resource type="AtlasTexture" id=35]
+flags = 4
+atlas = ExtResource( 488 )
+region = Rect2( 800, 800, 200, 200 )
+
+[sub_resource type="AtlasTexture" id=36]
+flags = 4
+atlas = ExtResource( 488 )
+region = Rect2( 1000, 800, 200, 200 )
+
+[sub_resource type="AtlasTexture" id=37]
+flags = 4
+atlas = ExtResource( 488 )
+region = Rect2( 1200, 800, 200, 200 )
+
+[sub_resource type="AtlasTexture" id=38]
+flags = 4
+atlas = ExtResource( 488 )
+region = Rect2( 0, 1000, 200, 200 )
+
+[sub_resource type="AtlasTexture" id=39]
+flags = 4
+atlas = ExtResource( 488 )
+region = Rect2( 200, 1000, 200, 200 )
+
+[sub_resource type="AtlasTexture" id=40]
+flags = 4
+atlas = ExtResource( 488 )
+region = Rect2( 400, 1000, 200, 200 )
+
+[sub_resource type="AtlasTexture" id=41]
+flags = 4
+atlas = ExtResource( 488 )
+region = Rect2( 600, 1000, 200, 200 )
+
+[sub_resource type="AtlasTexture" id=42]
+flags = 4
+atlas = ExtResource( 488 )
+region = Rect2( 800, 1000, 200, 200 )
+
+[sub_resource type="AtlasTexture" id=43]
+flags = 4
+atlas = ExtResource( 488 )
+region = Rect2( 1000, 1000, 200, 200 )
+
+[sub_resource type="AtlasTexture" id=44]
+flags = 4
+atlas = ExtResource( 488 )
+region = Rect2( 1200, 1000, 200, 200 )
+
+[sub_resource type="AtlasTexture" id=45]
+flags = 4
+atlas = ExtResource( 488 )
+region = Rect2( 0, 1200, 200, 200 )
+
+[sub_resource type="AtlasTexture" id=46]
+flags = 4
+atlas = ExtResource( 488 )
+region = Rect2( 200, 1200, 200, 200 )
+
+[sub_resource type="AtlasTexture" id=47]
+flags = 4
+atlas = ExtResource( 488 )
+region = Rect2( 400, 1200, 200, 200 )
+
+[sub_resource type="AtlasTexture" id=48]
+flags = 4
+atlas = ExtResource( 488 )
+region = Rect2( 600, 1200, 200, 200 )
+
+[sub_resource type="AtlasTexture" id=49]
+flags = 4
+atlas = ExtResource( 488 )
+region = Rect2( 800, 1200, 200, 200 )
+
+[sub_resource type="AtlasTexture" id=50]
+flags = 4
+atlas = ExtResource( 488 )
+region = Rect2( 1000, 1200, 200, 200 )
+
+[sub_resource type="AtlasTexture" id=51]
+flags = 4
+atlas = ExtResource( 488 )
+region = Rect2( 1200, 1200, 200, 200 )
+
+[sub_resource type="SpriteFrames" id=52]
 animations = [ {
 "frames": [ ExtResource( 3 ), ExtResource( 205 ), ExtResource( 210 ), ExtResource( 203 ), ExtResource( 199 ), ExtResource( 217 ), ExtResource( 200 ), ExtResource( 218 ), ExtResource( 193 ), ExtResource( 219 ), ExtResource( 201 ), ExtResource( 4 ), ExtResource( 194 ), ExtResource( 195 ), ExtResource( 214 ), ExtResource( 206 ), ExtResource( 207 ), ExtResource( 212 ), ExtResource( 213 ), ExtResource( 208 ), ExtResource( 220 ), ExtResource( 190 ), ExtResource( 192 ), ExtResource( 191 ), ExtResource( 211 ), ExtResource( 202 ), ExtResource( 197 ), ExtResource( 215 ), ExtResource( 196 ), ExtResource( 209 ), ExtResource( 204 ), ExtResource( 198 ), ExtResource( 216 ), ExtResource( 226 ), ExtResource( 235 ), ExtResource( 227 ), ExtResource( 225 ), ExtResource( 233 ), ExtResource( 241 ), ExtResource( 231 ), ExtResource( 232 ), ExtResource( 240 ), ExtResource( 229 ), ExtResource( 224 ), ExtResource( 239 ), ExtResource( 234 ), ExtResource( 221 ), ExtResource( 223 ), ExtResource( 230 ), ExtResource( 243 ), ExtResource( 236 ), ExtResource( 242 ), ExtResource( 238 ), ExtResource( 228 ), ExtResource( 237 ), ExtResource( 222 ) ],
 "loop": true,
 "name": "Idle",
 "speed": 20.0
 }, {
+"frames": [ SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ), SubResource( 40 ), SubResource( 41 ), SubResource( 42 ), SubResource( 43 ), SubResource( 44 ), SubResource( 45 ), SubResource( 46 ), SubResource( 47 ), SubResource( 48 ), SubResource( 49 ), SubResource( 50 ), SubResource( 51 ) ],
+"loop": false,
+"name": "isBonus",
+"speed": 20.0
+}, {
 "frames": [ ExtResource( 428 ), ExtResource( 428 ), ExtResource( 428 ), ExtResource( 428 ), ExtResource( 428 ), ExtResource( 428 ), ExtResource( 428 ), ExtResource( 428 ), ExtResource( 428 ), ExtResource( 428 ), ExtResource( 428 ), ExtResource( 428 ), ExtResource( 428 ), ExtResource( 428 ), ExtResource( 428 ), ExtResource( 428 ), ExtResource( 428 ), ExtResource( 428 ), ExtResource( 421 ), ExtResource( 394 ), ExtResource( 404 ), ExtResource( 409 ), ExtResource( 420 ), ExtResource( 403 ), ExtResource( 425 ), ExtResource( 414 ), ExtResource( 395 ), ExtResource( 396 ), ExtResource( 419 ), ExtResource( 412 ), ExtResource( 410 ), ExtResource( 415 ), ExtResource( 397 ), ExtResource( 398 ), ExtResource( 399 ), ExtResource( 400 ), ExtResource( 411 ), ExtResource( 401 ), ExtResource( 402 ), ExtResource( 405 ), ExtResource( 437 ), ExtResource( 430 ), ExtResource( 452 ), ExtResource( 441 ), ExtResource( 451 ), ExtResource( 453 ), ExtResource( 435 ), ExtResource( 440 ), ExtResource( 427 ), ExtResource( 429 ), ExtResource( 454 ), ExtResource( 445 ), ExtResource( 433 ), ExtResource( 456 ), ExtResource( 442 ), ExtResource( 439 ), ExtResource( 448 ), ExtResource( 457 ), ExtResource( 436 ) ],
 "loop": false,
 "name": "Appear",
 "speed": 20.0
+}, {
+"frames": [ ExtResource( 436 ), ExtResource( 457 ), ExtResource( 448 ), ExtResource( 439 ), ExtResource( 442 ), ExtResource( 456 ), ExtResource( 433 ), ExtResource( 445 ), ExtResource( 454 ), ExtResource( 429 ), ExtResource( 427 ), ExtResource( 440 ), ExtResource( 435 ), ExtResource( 453 ), ExtResource( 451 ), ExtResource( 441 ), ExtResource( 452 ), ExtResource( 430 ), ExtResource( 437 ), ExtResource( 405 ), ExtResource( 402 ), ExtResource( 401 ), ExtResource( 411 ), ExtResource( 400 ), ExtResource( 399 ), ExtResource( 398 ), ExtResource( 397 ), ExtResource( 415 ), ExtResource( 410 ), ExtResource( 412 ), ExtResource( 419 ), ExtResource( 396 ), ExtResource( 395 ), ExtResource( 414 ), ExtResource( 425 ), ExtResource( 403 ), ExtResource( 420 ), ExtResource( 409 ), ExtResource( 404 ), ExtResource( 394 ), ExtResource( 421 ), null ],
+"loop": false,
+"name": "Exit",
+"speed": 30.0
 } ]
 
-[sub_resource type="SpriteFrames" id=4]
+[sub_resource type="SpriteFrames" id=53]
 animations = [ {
 "frames": [ ExtResource( 59 ), ExtResource( 61 ), ExtResource( 77 ), ExtResource( 65 ), ExtResource( 99 ), ExtResource( 94 ), ExtResource( 104 ), ExtResource( 102 ), ExtResource( 103 ), ExtResource( 100 ), ExtResource( 81 ), ExtResource( 95 ), ExtResource( 84 ), ExtResource( 105 ), ExtResource( 101 ), ExtResource( 97 ), ExtResource( 89 ), ExtResource( 90 ), ExtResource( 98 ), ExtResource( 83 ), ExtResource( 87 ), ExtResource( 106 ), ExtResource( 93 ), ExtResource( 85 ), ExtResource( 107 ), ExtResource( 88 ), ExtResource( 108 ), ExtResource( 111 ), ExtResource( 110 ), ExtResource( 86 ), ExtResource( 82 ), ExtResource( 96 ), ExtResource( 109 ), ExtResource( 91 ), ExtResource( 92 ), ExtResource( 112 ), ExtResource( 121 ), ExtResource( 117 ), ExtResource( 113 ), ExtResource( 119 ), ExtResource( 116 ), ExtResource( 118 ), ExtResource( 115 ), ExtResource( 114 ), ExtResource( 122 ), ExtResource( 123 ), ExtResource( 120 ), ExtResource( 124 ), ExtResource( 126 ), ExtResource( 15 ), ExtResource( 12 ), ExtResource( 14 ), ExtResource( 16 ), ExtResource( 10 ), ExtResource( 13 ), ExtResource( 11 ) ],
 "loop": true,
 "name": "Idle",
 "speed": 20.0
 }, {
+"frames": [  ],
+"loop": false,
+"name": "isBonus",
+"speed": 20.0
+}, {
 "frames": [ ExtResource( 428 ), ExtResource( 447 ), ExtResource( 444 ), ExtResource( 449 ), ExtResource( 455 ), ExtResource( 446 ), ExtResource( 426 ), ExtResource( 431 ), ExtResource( 438 ), ExtResource( 432 ), ExtResource( 443 ), ExtResource( 450 ), ExtResource( 434 ), ExtResource( 467 ), ExtResource( 464 ), ExtResource( 482 ), ExtResource( 459 ), ExtResource( 486 ), ExtResource( 474 ), ExtResource( 472 ), ExtResource( 462 ), ExtResource( 466 ), ExtResource( 458 ), ExtResource( 460 ), ExtResource( 471 ), ExtResource( 485 ), ExtResource( 479 ), ExtResource( 469 ), ExtResource( 463 ), ExtResource( 475 ), ExtResource( 470 ), ExtResource( 465 ), ExtResource( 477 ), ExtResource( 478 ), ExtResource( 473 ), ExtResource( 484 ), ExtResource( 461 ), ExtResource( 476 ), ExtResource( 480 ), ExtResource( 481 ), ExtResource( 468 ), ExtResource( 487 ), ExtResource( 483 ), ExtResource( 288 ), ExtResource( 293 ), ExtResource( 303 ), ExtResource( 298 ), ExtResource( 299 ), ExtResource( 300 ), ExtResource( 291 ), ExtResource( 290 ), ExtResource( 292 ), ExtResource( 294 ), ExtResource( 297 ), ExtResource( 301 ), ExtResource( 296 ), ExtResource( 295 ), ExtResource( 302 ), ExtResource( 289 ) ],
 "loop": false,
 "name": "Appear",
 "speed": 20.0
+}, {
+"frames": [ ExtResource( 289 ), ExtResource( 302 ), ExtResource( 295 ), ExtResource( 296 ), ExtResource( 301 ), ExtResource( 297 ), ExtResource( 294 ), ExtResource( 292 ), ExtResource( 290 ), ExtResource( 291 ), ExtResource( 300 ), ExtResource( 299 ), ExtResource( 298 ), ExtResource( 303 ), ExtResource( 293 ), ExtResource( 288 ), ExtResource( 483 ), ExtResource( 487 ), ExtResource( 468 ), ExtResource( 481 ), ExtResource( 480 ), ExtResource( 476 ), ExtResource( 461 ), ExtResource( 484 ), ExtResource( 473 ), ExtResource( 478 ), ExtResource( 477 ), ExtResource( 465 ), ExtResource( 470 ), ExtResource( 475 ), ExtResource( 463 ), ExtResource( 469 ), ExtResource( 479 ), ExtResource( 485 ), ExtResource( 471 ), ExtResource( 460 ), ExtResource( 458 ), ExtResource( 466 ), ExtResource( 462 ), ExtResource( 472 ), ExtResource( 474 ), ExtResource( 486 ), ExtResource( 459 ), ExtResource( 482 ), ExtResource( 464 ), ExtResource( 467 ), ExtResource( 434 ), ExtResource( 450 ), ExtResource( 443 ), ExtResource( 432 ), ExtResource( 438 ), ExtResource( 431 ), ExtResource( 426 ), ExtResource( 446 ), ExtResource( 455 ), ExtResource( 449 ), ExtResource( 444 ), ExtResource( 447 ), ExtResource( 428 ) ],
+"loop": false,
+"name": "Exit",
+"speed": 30.0
 } ]
 
-[sub_resource type="SpriteFrames" id=5]
+[sub_resource type="SpriteFrames" id=54]
 animations = [ {
 "frames": [ ExtResource( 260 ), ExtResource( 183 ), ExtResource( 248 ), ExtResource( 261 ), ExtResource( 253 ), ExtResource( 244 ), ExtResource( 184 ), ExtResource( 259 ), ExtResource( 180 ), ExtResource( 249 ), ExtResource( 252 ), ExtResource( 185 ), ExtResource( 186 ), ExtResource( 182 ), ExtResource( 256 ), ExtResource( 177 ), ExtResource( 245 ), ExtResource( 257 ), ExtResource( 179 ), ExtResource( 254 ), ExtResource( 246 ), ExtResource( 178 ), ExtResource( 258 ), ExtResource( 187 ), ExtResource( 181 ), ExtResource( 188 ), ExtResource( 247 ), ExtResource( 251 ), ExtResource( 250 ), ExtResource( 255 ), ExtResource( 282 ), ExtResource( 276 ), ExtResource( 275 ), ExtResource( 273 ), ExtResource( 264 ), ExtResource( 280 ), ExtResource( 284 ), ExtResource( 274 ), ExtResource( 269 ), ExtResource( 262 ), ExtResource( 286 ), ExtResource( 265 ), ExtResource( 279 ), ExtResource( 270 ), ExtResource( 272 ), ExtResource( 277 ), ExtResource( 263 ), ExtResource( 281 ), ExtResource( 283 ), ExtResource( 271 ), ExtResource( 285 ), ExtResource( 266 ), ExtResource( 278 ), ExtResource( 267 ), ExtResource( 287 ), ExtResource( 268 ) ],
 "loop": true,
@@ -548,51 +834,105 @@ animations = [ {
 "speed": 20.0
 } ]
 
-[sub_resource type="Animation" id=6]
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:rect_scale")
+[sub_resource type="Animation" id=55]
+length = 4.0
+tracks/0/type = "method"
+tracks/0/path = NodePath("Hex0")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
-tracks/0/enabled = false
+tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 0.5, 0.1 ) ]
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "HideMe"
+}, {
+"args": [  ],
+"method": "HideMultiply"
+} ]
 }
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:modulate")
+tracks/1/type = "method"
+tracks/1/path = NodePath("Hex1")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
-tracks/1/enabled = false
+tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.3, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "HideMe"
+}, {
+"args": [  ],
+"method": "HideMultiply"
+} ]
 }
 tracks/2/type = "method"
-tracks/2/path = NodePath(".")
+tracks/2/path = NodePath("Hex2")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.3, 0.7 ),
+"times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "values": [ {
 "args": [  ],
-"method": "HideNodes"
+"method": "HideMe"
 }, {
+"args": [  ],
+"method": "HideMultiply"
+} ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("Hex3")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "HideMe"
+}, {
+"args": [  ],
+"method": "HideMultiply"
+} ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
 "args": [  ],
 "method": "DestroyHexManager"
 } ]
 }
+tracks/5/type = "value"
+tracks/5/path = NodePath("ImageBonus/AnimatedSprite:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 1, 1.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
 
-[sub_resource type="Animation" id=7]
-length = 0.5
+[sub_resource type="Animation" id=56]
+length = 2.0
 tracks/0/type = "method"
 tracks/0/path = NodePath(".")
 tracks/0/interp = 1
@@ -608,33 +948,31 @@ tracks/0/keys = {
 } ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath(".:modulate")
+tracks/1/path = NodePath("ImageBonus/AnimatedSprite:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0.5, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
 [node name="BonusManager" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 1.01256
-margin_right = 1.01257
+margin_left = 1.20873
+margin_right = 1.20874
 rect_pivot_offset = Vector2( 797.928, 450.438 )
 mouse_filter = 2
 script = ExtResource( 5 )
 __meta__ = {
-"_edit_horizontal_guides_": [ 450.78 ],
-"_edit_use_anchors_": false,
-"_edit_vertical_guides_": [ 798.932 ]
+"_edit_use_anchors_": false
 }
 activeOnes = 4
-pathAnimation = "AnimationPlayer"
+pathAnimation = "AnimationPlayerBonus"
 
 [node name="Hex0" type="TextureButton" parent="."]
 anchor_left = 0.500436
@@ -656,9 +994,9 @@ isBad = ExtResource( 125 )
 isBonus = ExtResource( 189 )
 
 [node name="Sprite" type="AnimatedSprite" parent="Hex0"]
-position = Vector2( 66.4723, 84.1799 )
+position = Vector2( 73.7296, 81.0713 )
 frames = SubResource( 1 )
-animation = "Appear"
+animation = "isBonus"
 
 [node name="BonusPrice0" type="Label" parent="Hex0"]
 visible = false
@@ -703,9 +1041,9 @@ isBad = ExtResource( 125 )
 isBonus = ExtResource( 189 )
 
 [node name="Sprite2" type="AnimatedSprite" parent="Hex1"]
-position = Vector2( 97.9254, 68.647 )
+position = Vector2( 90.3146, 71.4867 )
 frames = SubResource( 2 )
-animation = "Appear"
+animation = "isBonus"
 
 [node name="BonusPrice1" type="Label" parent="Hex1"]
 visible = false
@@ -750,9 +1088,9 @@ isBad = ExtResource( 125 )
 isBonus = ExtResource( 189 )
 
 [node name="Sprite" type="AnimatedSprite" parent="Hex2"]
-position = Vector2( 63.924, 68.647 )
-frames = SubResource( 3 )
-animation = "Appear"
+position = Vector2( 68.3344, 71.1099 )
+frames = SubResource( 52 )
+animation = "isBonus"
 
 [node name="BonusPrice2" type="Label" parent="Hex2"]
 visible = false
@@ -797,9 +1135,9 @@ isBad = ExtResource( 125 )
 isBonus = ExtResource( 189 )
 
 [node name="Sprite2" type="AnimatedSprite" parent="Hex3"]
-position = Vector2( 89.8339, 86.1288 )
-frames = SubResource( 4 )
-animation = "Appear"
+position = Vector2( 83.7234, 81.2716 )
+frames = SubResource( 53 )
+animation = "isBonus"
 
 [node name="BonusPrice3" type="Label" parent="Hex3"]
 visible = false
@@ -839,24 +1177,27 @@ __meta__ = {
 }
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="ImageBonus"]
+modulate = Color( 1, 1, 1, 0.98724 )
 position = Vector2( 58.9344, 50.7516 )
-frames = SubResource( 5 )
+frames = SubResource( 54 )
 animation = "Idle"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-pause_mode = 1
-autoplay = "Init"
-anims/Exit = SubResource( 6 )
-anims/Init = SubResource( 7 )
-[connection signal="BonusPicked" from="." to="Hex1/BonusPrice1" method="UnsuscribeMe"]
-[connection signal="BonusPicked" from="." to="Hex0/BonusPrice0" method="UnsuscribeMe"]
+[node name="AnimationPlayerBonus" type="AnimationPlayer" parent="."]
+anims/Exit = SubResource( 55 )
+anims/Init = SubResource( 56 )
 [connection signal="BonusPicked" from="." to="Hex3/BonusPrice3" method="UnsuscribeMe"]
+[connection signal="BonusPicked" from="." to="Hex0/BonusPrice0" method="UnsuscribeMe"]
+[connection signal="BonusPicked" from="." to="Hex1/BonusPrice1" method="UnsuscribeMe"]
 [connection signal="BonusPicked" from="." to="Hex2/BonusPrice2" method="UnsuscribeMe"]
+[connection signal="EndAnimaionIsBonus" from="Hex0" to="." method="DestroyBonusAnimation"]
 [connection signal="button_down" from="Hex0" to="Hex0" method="_on_button_down"]
 [connection signal="animation_finished" from="Hex0/Sprite" to="Hex0" method="IdleAnimation"]
+[connection signal="EndAnimaionIsBonus" from="Hex1" to="." method="DestroyBonusAnimation"]
 [connection signal="button_down" from="Hex1" to="Hex1" method="_on_button_down"]
 [connection signal="animation_finished" from="Hex1/Sprite2" to="Hex1" method="IdleAnimation"]
+[connection signal="EndAnimaionIsBonus" from="Hex2" to="." method="DestroyBonusAnimation"]
 [connection signal="button_down" from="Hex2" to="Hex2" method="_on_button_down"]
 [connection signal="animation_finished" from="Hex2/Sprite" to="Hex2" method="IdleAnimation"]
+[connection signal="EndAnimaionIsBonus" from="Hex3" to="." method="DestroyBonusAnimation"]
 [connection signal="button_down" from="Hex3" to="Hex3" method="_on_button_down"]
 [connection signal="animation_finished" from="Hex3/Sprite2" to="Hex3" method="IdleAnimation"]
