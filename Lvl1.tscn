@@ -238,7 +238,6 @@ __meta__ = {
 _useDb = true
 _levels = 10
 _timerInLevel = 10
-_badOnes = PoolIntArray( 0, 0, 0, 0, 0, 5, 0, 0, 0, 0 )
 
 [node name="Panner" type="Control" parent="."]
 anchor_right = 1.0
@@ -391,15 +390,15 @@ autoplay = true
 [connection signal="GameStarted" from="." to="UI_Template" method="DeactivateButtons"]
 [connection signal="LevelCreated" from="." to="UI_Template" method="ActivateFinishButton"]
 [connection signal="LevelsOver" from="." to="AudioManager" method="GameOverSound"]
-[connection signal="LevelsOver" from="." to="Panner" method="BackToOrigin"]
 [connection signal="LevelsOver" from="." to="Background" method="SetBackgroundAnimation"]
+[connection signal="LevelsOver" from="." to="Panner" method="BackToOrigin"]
 [connection signal="LevelsOver" from="." to="UI_Template" method="SetGameOverMessage"]
 [connection signal="NodePicked" from="." to="UI_Template" method="DeactivateFinishButton"]
 [connection signal="NodeWithBonus" from="." to="Background" method="IsBonus"]
 [connection signal="PlayMusicGame" from="." to="AudioManager" method="PlayLevelMusic"]
 [connection signal="RoundWined" from="." to="CurrencyManager" method="AddBetToCurrency"]
-[connection signal="RoundWined" from="." to="Panner" method="Panning"]
 [connection signal="RoundWined" from="." to="Background" method="IsGood"]
+[connection signal="RoundWined" from="." to="Panner" method="Panning"]
 [connection signal="SetCurrencyManager" from="." to="CurrencyManager" method="SetCurrency"]
 [connection signal="StartTimer" from="." to="UI_Template" method="StartTimer"]
 [connection signal="animation_finished" from="Background/AnimationPlayer" to="Background" method="_on_AnimationPlayer_animation_finished"]
@@ -416,4 +415,3 @@ autoplay = true
 [connection signal="restartGame" from="UI_Template" to="CurrencyManager" method="ConfirmBet"]
 [connection signal="restartGame" from="UI_Template" to="." method="StartGame"]
 [connection signal="finished" from="AudioManager/BackGroundMusic" to="AudioManager" method="_on_BackGroundMusic_finished"]
-[connection signal="finished" from="AudioManager/NotificationSounds" to="AudioManager" method="_on_NotificationSounds_finished"]

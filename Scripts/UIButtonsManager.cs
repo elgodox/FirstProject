@@ -226,7 +226,7 @@ public class UIButtonsManager : Control
 
     void BonusPicked() //La llama GameManager, señal bonusOver
     {
-        CreateTimer(4.5f,"ShowFinishedBonus");
+        CreateTimer(2.5f,"ShowFinishedBonus");
     }
 
     void ShowFinishedBonus()
