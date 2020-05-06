@@ -186,6 +186,7 @@ public class GameManager : Godot.Control
 
     void CreateLevel(string path)
     {
+        CheckToFinishGame();
         _currencyManager.SetLevelMultiplier(_levels - _currentLevel);
 
         if (!_isResuming)
@@ -232,7 +233,7 @@ public class GameManager : Godot.Control
             }
             else
             {
-                CheckToFinishGame();
+                
                 SetTimeOutMethod(.65f, "CreateCurrentLevel");
             }
         }
