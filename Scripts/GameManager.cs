@@ -34,6 +34,7 @@ public class GameManager : Godot.Control
     GameGenerator _myGameGen = new GameGenerator();
     UIButtonsManager _uiManager = new UIButtonsManager();
     CurrencyManager _currencyManager;
+    Panner _panner;
     int[] _currentLevelInfo;
     bool _isResuming;
     
@@ -46,6 +47,7 @@ public class GameManager : Godot.Control
 
         _currencyManager = GetNode("CurrencyManager") as CurrencyManager;
         _uiManager = GetNode("UI_Template") as UIButtonsManager;
+        _panner = GetNode("Panner") as Panner;
         Console.WriteLine(_currencyManager.Name);
 
         if (_useDb)
@@ -221,6 +223,7 @@ public class GameManager : Godot.Control
         if (win)
         {
             EmitSignal(nameof(RoundWined));
+            _panner.Panning(_currentLevel);
             if(bonus)
             {
                 _gotBonus = true;
@@ -327,7 +330,7 @@ public class GameManager : Godot.Control
         {
             _currencyManager.ResetCurrencyToCollect();
         }
-        if (_currentLevel >= 0)
+        if (_currentLevel > 0)
         {
             if (win)
             {
@@ -394,6 +397,7 @@ public class GameManager : Godot.Control
             _currencyManager.SetLevelMultiplier((_levels - _currentLevel) - 1);
             _currentLevelInfo = _myRecover.GetLastLevelInfo(_currentLevel);
             EmitSignal(nameof(RoundWined));
+            _panner.Panning(_currentLevel);
             CreateCurrentLevel();
             EmitSignal(nameof(PlayMusicGame));
         }
