@@ -15,8 +15,22 @@ public class Panner : Node
 
     public void BackToOrigin(bool win, bool bonus)
     {
-        Panning(10);
+        if (win)
+        {
+            Panning(0);
+        }
+        else
+        {
+            Panning(10);
+        }
     }
+
+    public void BackToInitAnimation()
+    {
+        _animation.CurrentAnimation = "10";
+        _animation.Play();
+    }
+    
     public void Panning(int currentLevel)
     {
         float currentAnimation = currentLevel;

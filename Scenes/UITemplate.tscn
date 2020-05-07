@@ -165,14 +165,14 @@ animations = [ {
 "name": "Mute",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 21 ) ],
-"loop": false,
-"name": "Volume3",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 24 ) ],
 "loop": false,
 "name": "Volume1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 21 ) ],
+"loop": false,
+"name": "Volume3",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 22 ) ],
@@ -233,7 +233,7 @@ __meta__ = {
 position = Vector2( 718.484, 105.917 )
 frames = SubResource( 1 )
 animation = "Idle"
-frame = 33
+frame = 36
 playing = true
 
 [node name="ui_MaxBet" parent="ControlPanel" instance=ExtResource( 4 )]
@@ -266,9 +266,9 @@ anchor_top = 0.5
 anchor_right = 0.774
 anchor_bottom = 0.5
 margin_left = -93.1155
-margin_top = -56.0023
+margin_top = -57.1243
 margin_right = 92.8845
-margin_bottom = 89.9977
+margin_bottom = 88.8758
 texture_disabled = ExtResource( 87 )
 
 [node name="ui_Creditos2" parent="ControlPanel" instance=ExtResource( 5 )]
@@ -483,7 +483,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="BonusFeedback"]
 position = Vector2( 73.3888, 61.2637 )
 frames = SubResource( 4 )
-frame = 24
+frame = 7
 playing = true
 
 [node name="Label" type="Label" parent="BonusFeedback"]
