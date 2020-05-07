@@ -21,7 +21,7 @@
 [ext_resource path="res://Sounds/bonus_Win_Music_01.ogg" type="AudioStream" id=19]
 [ext_resource path="res://Sprites/BackGround/fondo_largo.png" type="Texture" id=20]
 
-[sub_resource type="Animation" id=23]
+[sub_resource type="Animation" id=1]
 resource_name = "0"
 length = 0.5
 tracks/0/type = "value"
@@ -37,7 +37,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, -809 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=2]
 resource_name = "1"
 length = 0.5
 tracks/0/type = "value"
@@ -53,8 +53,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, -1619 ), Vector2( 0, -809 ) ]
 }
 
-[sub_resource type="Animation" id=1]
-resource_name = "10"
+[sub_resource type="Animation" id=3]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rect_position")
 tracks/0/interp = 1
@@ -68,7 +67,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, -8098.92 ) ]
 }
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=4]
 resource_name = "2"
 length = 0.5
 tracks/0/type = "value"
@@ -84,7 +83,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, -2429 ), Vector2( 0, -1619 ) ]
 }
 
-[sub_resource type="Animation" id=17]
+[sub_resource type="Animation" id=5]
 resource_name = "3"
 length = 0.5
 tracks/0/type = "value"
@@ -100,7 +99,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, -3239 ), Vector2( 0, -2429 ) ]
 }
 
-[sub_resource type="Animation" id=18]
+[sub_resource type="Animation" id=6]
 resource_name = "4"
 length = 0.5
 tracks/0/type = "value"
@@ -116,7 +115,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, -4049 ), Vector2( 0, -3239 ) ]
 }
 
-[sub_resource type="Animation" id=19]
+[sub_resource type="Animation" id=7]
 resource_name = "5"
 length = 0.5
 tracks/0/type = "value"
@@ -132,7 +131,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, -4859 ), Vector2( 0, -4049 ) ]
 }
 
-[sub_resource type="Animation" id=20]
+[sub_resource type="Animation" id=8]
 resource_name = "6"
 length = 0.5
 tracks/0/type = "value"
@@ -148,7 +147,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, -5669 ), Vector2( 0, -4859 ) ]
 }
 
-[sub_resource type="Animation" id=21]
+[sub_resource type="Animation" id=9]
 resource_name = "7"
 length = 0.5
 tracks/0/type = "value"
@@ -164,7 +163,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, -6479 ), Vector2( 0, -5669 ) ]
 }
 
-[sub_resource type="Animation" id=22]
+[sub_resource type="Animation" id=10]
 resource_name = "8"
 length = 0.5
 tracks/0/type = "value"
@@ -180,8 +179,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, -7289.02 ), Vector2( 0, -6479 ) ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "9"
+[sub_resource type="Animation" id=11]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rect_position")
@@ -196,20 +194,20 @@ tracks/0/keys = {
 "values": [ Vector2( 0, -8098.92 ), Vector2( 0, -7289.02 ) ]
 }
 
-[sub_resource type="Gradient" id=3]
+[sub_resource type="Gradient" id=12]
 offsets = PoolRealArray( 0.193258, 1 )
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
 
-[sub_resource type="GradientTexture" id=4]
-gradient = SubResource( 3 )
+[sub_resource type="GradientTexture" id=13]
+gradient = SubResource( 12 )
 
-[sub_resource type="Curve" id=5]
+[sub_resource type="Curve" id=14]
 _data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.651136 ), -3.76363, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=6]
-curve = SubResource( 5 )
+[sub_resource type="CurveTexture" id=15]
+curve = SubResource( 14 )
 
-[sub_resource type="ParticlesMaterial" id=7]
+[sub_resource type="ParticlesMaterial" id=16]
 emission_shape = 1
 emission_sphere_radius = 62.88
 flag_disable_z = true
@@ -220,11 +218,11 @@ orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 linear_accel = -31.75
 scale = 0.05
-scale_curve = SubResource( 6 )
-color_ramp = SubResource( 4 )
+scale_curve = SubResource( 15 )
+color_ramp = SubResource( 13 )
 hue_variation = -1.0
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=17]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Lineas:modulate")
 tracks/0/interp = 1
@@ -286,8 +284,7 @@ tracks/4/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=9]
-resource_name = "Bonus"
+[sub_resource type="Animation" id=18]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
 tracks/0/interp = 1
@@ -349,7 +346,7 @@ tracks/4/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=19]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Luz:modulate")
@@ -400,7 +397,7 @@ tracks/3/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 0.364706, 1, 0.611765, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=20]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
@@ -414,7 +411,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=21]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("HaloLuz:modulate")
@@ -441,7 +438,7 @@ tracks/1/keys = {
 "values": [ Color( 0, 0, 0, 1 ), Color( 0.6, 0.6, 0.6, 1 ) ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=22]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
 tracks/0/interp = 1
@@ -455,7 +452,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 0.211765, 0.211765, 0.211765, 1 ) ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=23]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
@@ -501,8 +498,9 @@ __meta__ = {
 anchor_top = 0.989
 anchor_right = 0.997
 anchor_bottom = 1.0
+margin_left = 2.0
 margin_top = -8990.01
-margin_right = -0.18811
+margin_right = 1.81189
 margin_bottom = -9.89453
 rect_pivot_offset = Vector2( 789.233, 5.63574 )
 texture = ExtResource( 20 )
@@ -514,24 +512,25 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="PannerAnimation/Background"]
 autoplay = "10"
-anims/0 = SubResource( 23 )
-anims/1 = SubResource( 15 )
-anims/10 = SubResource( 1 )
-anims/2 = SubResource( 16 )
-anims/3 = SubResource( 17 )
-anims/4 = SubResource( 18 )
-anims/5 = SubResource( 19 )
-anims/6 = SubResource( 20 )
-anims/7 = SubResource( 21 )
-anims/8 = SubResource( 22 )
-anims/9 = SubResource( 2 )
+anims/0 = SubResource( 1 )
+anims/1 = SubResource( 2 )
+anims/10 = SubResource( 3 )
+anims/2 = SubResource( 4 )
+anims/3 = SubResource( 5 )
+anims/4 = SubResource( 6 )
+anims/5 = SubResource( 7 )
+anims/6 = SubResource( 8 )
+anims/7 = SubResource( 9 )
+anims/8 = SubResource( 10 )
+anims/9 = SubResource( 11 )
 
 [node name="Background" type="TextureRect" parent="."]
 anchor_right = 1.002
 anchor_bottom = 0.999
 margin_left = 1.0
+margin_top = -2.0
 margin_right = -0.200195
-margin_bottom = 2.89996
+margin_bottom = 0.899963
 rect_pivot_offset = Vector2( -563.085, -98.034 )
 texture = ExtResource( 11 )
 expand = true
@@ -612,19 +611,19 @@ position = Vector2( 20.5558, 19.3859 )
 amount = 20
 lifetime = 4.0
 randomness = 1.0
-process_material = SubResource( 7 )
+process_material = SubResource( 16 )
 texture = ExtResource( 5 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Background"]
 autoplay = "Init"
 method_call_mode = 1
-anims/Bad = SubResource( 8 )
-anims/Bonus = SubResource( 9 )
-anims/Good = SubResource( 10 )
-anims/Idle = SubResource( 11 )
-anims/Init = SubResource( 12 )
-anims/TurnOff = SubResource( 13 )
-anims/TurnOn = SubResource( 14 )
+anims/Bad = SubResource( 17 )
+anims/Bonus = SubResource( 18 )
+anims/Good = SubResource( 19 )
+anims/Idle = SubResource( 20 )
+anims/Init = SubResource( 21 )
+anims/TurnOff = SubResource( 22 )
+anims/TurnOn = SubResource( 23 )
 
 [node name="CurrencyManager" type="Node" parent="."]
 script = ExtResource( 4 )
@@ -664,12 +663,12 @@ autoplay = true
 [connection signal="GameReady" from="." to="UI_Template" method="ActivatePlayButton"]
 [connection signal="GameStarted" from="." to="UI_Template" method="DeactivateButtons"]
 [connection signal="LevelCreated" from="." to="UI_Template" method="ActivateFinishButton"]
-[connection signal="LevelsOver" from="." to="Background" method="SetBackgroundAnimation"]
 [connection signal="LevelsOver" from="." to="PannerAnimation" method="BackToOrigin"]
+[connection signal="LevelsOver" from="." to="Background" method="SetBackgroundAnimation"]
 [connection signal="LevelsOver" from="." to="UI_Template" method="SetGameOverMessage"]
 [connection signal="LevelsOver" from="." to="AudioManager" method="GameOverSound"]
-[connection signal="NodePicked" from="." to="UI_Template" method="StopTimer"]
 [connection signal="NodePicked" from="." to="UI_Template" method="DeactivateFinishButton"]
+[connection signal="NodePicked" from="." to="UI_Template" method="StopTimer"]
 [connection signal="NodeWithBonus" from="." to="Background" method="IsBonus"]
 [connection signal="NodeWithBonus" from="." to="UI_Template" method="BonusFeedback"]
 [connection signal="PlayMusicGame" from="." to="AudioManager" method="PlayLevelMusic"]
