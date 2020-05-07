@@ -1,4 +1,4 @@
-[gd_scene load_steps=96 format=2]
+[gd_scene load_steps=154 format=2]
 
 [ext_resource path="res://Prefabs/UI/Buttons/button_Collect.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Prefabs/UI/Buttons/button_Bet.tscn" type="PackedScene" id=2]
@@ -90,6 +90,62 @@
 [ext_resource path="res://Sprites/Botones/btn_abajo_des.png" type="Texture" id=88]
 [ext_resource path="res://Fonts/Dynamic Fonts/Apuestas.tres" type="DynamicFont" id=89]
 [ext_resource path="res://Scripts/CurrencyLabel.cs" type="Script" id=90]
+[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_idle_00013.png" type="Texture" id=91]
+[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_idle_00016.png" type="Texture" id=92]
+[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_idle_00019.png" type="Texture" id=93]
+[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_idle_00011.png" type="Texture" id=94]
+[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_idle_00006.png" type="Texture" id=95]
+[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_idle_00014.png" type="Texture" id=96]
+[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_idle_00020.png" type="Texture" id=97]
+[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_idle_00004.png" type="Texture" id=98]
+[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_idle_00008.png" type="Texture" id=99]
+[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_idle_00010.png" type="Texture" id=100]
+[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_idle_00012.png" type="Texture" id=101]
+[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_idle_00017.png" type="Texture" id=102]
+[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_idle_00021.png" type="Texture" id=103]
+[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_idle_00022.png" type="Texture" id=104]
+[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_idle_00015.png" type="Texture" id=105]
+[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_idle_00000.png" type="Texture" id=106]
+[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_idle_00018.png" type="Texture" id=107]
+[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_idle_00003.png" type="Texture" id=108]
+[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_idle_00005.png" type="Texture" id=109]
+[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_idle_00002.png" type="Texture" id=110]
+[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_idle_00009.png" type="Texture" id=111]
+[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_idle_00001.png" type="Texture" id=112]
+[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_idle_00007.png" type="Texture" id=113]
+[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_idle_00039.png" type="Texture" id=114]
+[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_idle_00026.png" type="Texture" id=115]
+[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_idle_00029.png" type="Texture" id=116]
+[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_idle_00031.png" type="Texture" id=117]
+[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_idle_00044.png" type="Texture" id=118]
+[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_idle_00046.png" type="Texture" id=119]
+[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_idle_00037.png" type="Texture" id=120]
+[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_idle_00047.png" type="Texture" id=121]
+[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_idle_00048.png" type="Texture" id=122]
+[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_idle_00043.png" type="Texture" id=123]
+[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_idle_00049.png" type="Texture" id=124]
+[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_idle_00050.png" type="Texture" id=125]
+[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_idle_00041.png" type="Texture" id=126]
+[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_idle_00045.png" type="Texture" id=127]
+[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_idle_00051.png" type="Texture" id=128]
+[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_idle_00052.png" type="Texture" id=129]
+[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_idle_00034.png" type="Texture" id=130]
+[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_idle_00035.png" type="Texture" id=131]
+[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_idle_00027.png" type="Texture" id=132]
+[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_idle_00033.png" type="Texture" id=133]
+[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_idle_00053.png" type="Texture" id=134]
+[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_idle_00054.png" type="Texture" id=135]
+[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_idle_00042.png" type="Texture" id=136]
+[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_idle_00023.png" type="Texture" id=137]
+[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_idle_00025.png" type="Texture" id=138]
+[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_idle_00028.png" type="Texture" id=139]
+[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_idle_00038.png" type="Texture" id=140]
+[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_idle_00040.png" type="Texture" id=141]
+[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_idle_00024.png" type="Texture" id=142]
+[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_idle_00036.png" type="Texture" id=143]
+[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_idle_00030.png" type="Texture" id=144]
+[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_idle_00032.png" type="Texture" id=145]
+[ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_idle_00055.png" type="Texture" id=146]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -125,10 +181,22 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="StreamTexture" id=4]
-flags = 4
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 106 ), ExtResource( 112 ), ExtResource( 110 ), ExtResource( 108 ), ExtResource( 98 ), ExtResource( 109 ), ExtResource( 95 ), ExtResource( 113 ), ExtResource( 99 ), ExtResource( 111 ), ExtResource( 100 ), ExtResource( 94 ), ExtResource( 101 ), ExtResource( 91 ), ExtResource( 96 ), ExtResource( 105 ), ExtResource( 92 ), ExtResource( 102 ), ExtResource( 107 ), ExtResource( 93 ), ExtResource( 97 ), ExtResource( 103 ), ExtResource( 104 ), ExtResource( 137 ), ExtResource( 142 ), ExtResource( 138 ), ExtResource( 115 ), ExtResource( 132 ), ExtResource( 139 ), ExtResource( 116 ), ExtResource( 144 ), ExtResource( 117 ), ExtResource( 145 ), ExtResource( 133 ), ExtResource( 130 ), ExtResource( 131 ), ExtResource( 143 ), ExtResource( 120 ), ExtResource( 140 ), ExtResource( 114 ), ExtResource( 141 ), ExtResource( 126 ), ExtResource( 136 ), ExtResource( 123 ), ExtResource( 118 ), ExtResource( 127 ), ExtResource( 119 ), ExtResource( 121 ), ExtResource( 122 ), ExtResource( 124 ), ExtResource( 125 ), ExtResource( 128 ), ExtResource( 129 ), ExtResource( 134 ), ExtResource( 135 ), ExtResource( 146 ) ],
+"loop": true,
+"name": "default",
+"speed": 20.0
+} ]
 
 [sub_resource type="DynamicFont" id=5]
+size = 22
+font_data = ExtResource( 19 )
+
+[sub_resource type="StreamTexture" id=6]
+flags = 4
+
+[sub_resource type="DynamicFont" id=7]
 size = 100
 font_data = ExtResource( 19 )
 
@@ -141,6 +209,7 @@ margin_right = -0.295654
 margin_bottom = 3.97174
 script = ExtResource( 9 )
 __meta__ = {
+"_edit_horizontal_guides_": [ 298.799 ],
 "_edit_use_anchors_": false
 }
 PlayFX = ExtResource( 15 )
@@ -164,7 +233,7 @@ __meta__ = {
 position = Vector2( 718.484, 105.917 )
 frames = SubResource( 1 )
 animation = "Idle"
-frame = 27
+frame = 6
 playing = true
 
 [node name="ui_MaxBet" parent="ControlPanel" instance=ExtResource( 4 )]
@@ -359,6 +428,44 @@ scale = Vector2( 0.111646, 0.111646 )
 frames = SubResource( 3 )
 animation = "Volume2"
 
+[node name="BonusFeedback" type="Control" parent="."]
+visible = false
+anchor_left = 0.067
+anchor_top = 0.332
+anchor_right = 0.067
+anchor_bottom = 0.332
+margin_left = -67.2
+margin_top = -64.8
+margin_right = 68.8
+margin_bottom = 64.2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="BonusFeedback"]
+position = Vector2( 73.3888, 61.2637 )
+frames = SubResource( 4 )
+frame = 53
+playing = true
+
+[node name="Label" type="Label" parent="BonusFeedback"]
+anchor_left = 0.486
+anchor_top = 0.461
+anchor_right = 0.486
+anchor_bottom = 0.461
+margin_left = -56.5786
+margin_top = -33.6704
+margin_right = 63.4214
+margin_bottom = 31.3296
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "BONUS"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="GameOverMessageContainer" type="Node" parent="."]
 
 [node name="ui_Help" type="TextureRect" parent="."]
@@ -367,7 +474,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -3.97174
 margin_bottom = -3.97174
-texture = SubResource( 4 )
+texture = SubResource( 6 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -450,7 +557,7 @@ margin_left = -800.0
 margin_top = -450.372
 margin_right = 800.0
 margin_bottom = 449.628
-texture = SubResource( 4 )
+texture = SubResource( 6 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -534,7 +641,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -3.97174
 margin_bottom = -3.97174
-texture = SubResource( 4 )
+texture = SubResource( 6 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -601,7 +708,7 @@ margin_left = -263.456
 margin_top = -91.4112
 margin_right = 263.544
 margin_bottom = 26.5887
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0.63261, 0.940249, 0.952637, 1 )
 text = "1000"
 align = 1

@@ -22,6 +22,7 @@ public class UIButtonsManager : Control
     TextureButton _playButton, _helpButton, _betButton, _maxBetButton, _collectButton, _endAndCollectButton;
     TextureRect _helpCanvas, _controlPanel, _timeButton, _incomingBonus, _finishedBonus;
     TextureButton _volumeButton;
+    Control _bonusFeedback;
 
     AudioStreamPlayer _audio;
 
@@ -107,6 +108,7 @@ public class UIButtonsManager : Control
     }
     void OnOkButtonUp()
     {
+        _bonusFeedback.Hide();
         EmitSignal(nameof(BonusAccepted));
         _incomingBonus.Hide();
     }
@@ -172,6 +174,7 @@ public class UIButtonsManager : Control
         _myTimeLabel = GetNode("Tiempo/timer") as Label;
         _audio = GetNode("AudioStreamPlayer") as AudioStreamPlayer;
         _spriteVolumeButton = GetNode("VolumeButton/AnimatedSprite") as AnimatedSprite;
+        _bonusFeedback = GetNode("BonusFeedback") as Control;
 
         #endregion
         
@@ -241,7 +244,11 @@ public class UIButtonsManager : Control
     {
         _endAndCollectButton.Disabled = false;
     }
-    
+
+    public void BonusFeedback()
+    {
+        _bonusFeedback.Show();
+    }
 
     void FinishBonus() //La llama el botón
     {
