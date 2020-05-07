@@ -396,6 +396,10 @@ public class GameManager : Godot.Control
             EmitSignal(nameof(RoundWined));
             CreateCurrentLevel();
             EmitSignal(nameof(PlayMusicGame));
+            if (_gotBonus)
+            {
+                EmitSignal(nameof(NodeWithBonus));
+            }
         }
         else if(_gotBonus)
         {
