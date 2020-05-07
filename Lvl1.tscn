@@ -248,7 +248,6 @@ __meta__ = {
 }
 speed = 3.0
 time = 3.0
-jumpDistance = 900.0
 
 [node name="Background" type="TextureRect" parent="."]
 anchor_right = 1.002
@@ -399,7 +398,6 @@ autoplay = true
 [connection signal="NodeWithBonus" from="." to="Background" method="IsBonus"]
 [connection signal="PlayMusicGame" from="." to="AudioManager" method="PlayLevelMusic"]
 [connection signal="RoundWined" from="." to="CurrencyManager" method="AddBetToCurrency"]
-[connection signal="RoundWined" from="." to="Panner" method="Panning"]
 [connection signal="RoundWined" from="." to="Background" method="IsGood"]
 [connection signal="SetCurrencyManager" from="." to="CurrencyManager" method="SetCurrency"]
 [connection signal="StartTimer" from="." to="UI_Template" method="StartTimer"]

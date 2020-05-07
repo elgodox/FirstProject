@@ -6,7 +6,8 @@ public class Panner : Node
 {
     [Export] float speed = 1;
     [Export] float time;
-    [Export] float jumpDistance;
+    float jumpDistance;
+    int allLevels = 10;
 
     bool accelerating;
     Control backGround;
@@ -24,6 +25,7 @@ public class Panner : Node
         LoadScenes();
         nextPos = backGround.RectPosition;
         initPosition = backGround.RectPosition;
+        jumpDistance =  (initPosition.y / 10) + 200;
     }
 
     public override void _Process(float delta)
@@ -33,17 +35,19 @@ public class Panner : Node
 
     public void BackToOrigin(bool win, bool bonus)
     {
-        Panning();
+        Panning(10);
         destiny = initPosition.y;
     }
-    public void Panning()
+    public void Panning(int currentLevel)
     {
+        float newDistance = jumpDistance * currentLevel;
+        GD.Print(newDistance);
         if(!accelerating)
         {
             accelerating = true;
             currenTime = 0;
             origin = backGround.RectPosition.y;
-            destiny = backGround.RectPosition.y - (-jumpDistance);
+            destiny = newDistance;
         }
     }
     void CheckAcceleration(float delta)
@@ -57,7 +61,7 @@ public class Panner : Node
         //     Descelerate(delta);
         // }
     }
-    private void Accelerate(float delta)
+    void Accelerate(float delta)
     {
         if(currenTime < 1)
         {
@@ -70,11 +74,12 @@ public class Panner : Node
         
         if(nextPos.y == destiny)
         {
+            GD.Print("NextPos.Y " + nextPos.y + ", y destiny son iguales");
             currentSpeed = speed;
             accelerating = false;
         }
     }
-    private void Descelerate(float delta)
+    void Descelerate(float delta)
     {
         if(currentSpeed != speed)
         {
