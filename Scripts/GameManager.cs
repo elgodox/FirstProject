@@ -32,23 +32,25 @@ public class GameManager : Godot.Control
     GameRecover _myRecover;
     OMenuCommunication _oMenu = new OMenuCommunication();
     GameGenerator _myGameGen = new GameGenerator();
-    UIButtonsManager _uiManager = new UIButtonsManager();
     CurrencyManager _currencyManager;
     Panner _panner;
     int[] _currentLevelInfo;
     bool _isResuming;
-    
+
+    PackedScene levelManagerPrefab;
+    PackedScene bonusManagerPrefab;
     
     Timer timer;
 
     public override void _Ready()
     {
+        levelManagerPrefab = ResourceLoader.Load(Constants.PATH_LEVEL_MANAGER) as PackedScene;
+        bonusManagerPrefab = ResourceLoader.Load(Constants.PATH_BONUS) as PackedScene;
+        
         IntiTimer();
 
         _currencyManager = GetNode("CurrencyManager") as CurrencyManager;
-        _uiManager = GetNode("UI_Template") as UIButtonsManager;
         _panner = GetNode("PannerAnimation") as Panner;
-        Console.WriteLine(_currencyManager.Name);
 
         if (_useDb)
         {
@@ -158,10 +160,9 @@ public class GameManager : Godot.Control
 
     #endregion
 
-    void CreateBonusLevel(string path)
+    void CreateBonusLevel()
     {
-        var newLevelManager = ResourceLoader.Load(path) as PackedScene;
-        if (newLevelManager != null) currentLevelMngr = newLevelManager.Instance() as LevelManager;
+        currentLevelMngr = bonusManagerPrefab.Instance() as LevelManager;
         AddChild(currentLevelMngr);
         currentLevelMngr.myGameManager = this;
         
@@ -179,14 +180,13 @@ public class GameManager : Godot.Control
             {
                 GetNewBonusInfo();
             }
-            _isResuming = false;
         }
 
         var bonusMngr = currentLevelMngr as BonusManager;
         bonusMngr.SetMultipliersPositions(_currentLevelInfo);
     }
 
-    void CreateLevel(string path)
+    void CreateLevel()
     {
         CheckToFinishGame();
         _currencyManager.SetLevelMultiplier(_levels - _currentLevel);
@@ -195,12 +195,8 @@ public class GameManager : Godot.Control
         {
             GetNewLevelInfo();
         }
-        else
-        {
-            _isResuming = false;
-        }
-        var newLevelManager = ResourceLoader.Load(path) as PackedScene;
-        currentLevelMngr = newLevelManager.Instance() as LevelManager;
+        
+        currentLevelMngr = levelManagerPrefab.Instance() as LevelManager;
         AddChild(currentLevelMngr);
         currentLevelMngr.myGameManager = this;
         if(_myGameGen.bonusGenerated && _currentLevel == 8)
@@ -228,7 +224,7 @@ public class GameManager : Godot.Control
             {
                 _gotBonus = true;
                 EmitSignal(nameof(NodeWithBonus));
-                SetTimeOutMethod(1.5f, "CreateCurrentLevel");
+                SetTimeOutMethod(1.5f, "CreateLevel");
             }
             else if (_currentLevel <= 0)
             {
@@ -237,7 +233,7 @@ public class GameManager : Godot.Control
             else
             {
                 
-                SetTimeOutMethod(.65f, "CreateCurrentLevel");
+                SetTimeOutMethod(.65f, "CreateLevel");
             }
         }
         else
@@ -255,7 +251,7 @@ public class GameManager : Godot.Control
     }
     public void InstantiateBonus() // La llama UI Manager, señal BonusAccepted
     {
-        CreateBonusLevel(Constants.PATH_BONUS);
+        CreateBonusLevel();
         EmitSignal(nameof(BonusStarted));
     }
 
@@ -272,7 +268,7 @@ public class GameManager : Godot.Control
             _betDescription = "P";
             _currentLevel = 10;
             EmitSignal(nameof(PlayMusicGame));
-            CreateLevel(Constants.PATH_LEVEL_MANAGER);
+            CreateLevel();
         }
     }
     void SetTimeOutMethod(float secs, string method)
@@ -286,10 +282,6 @@ public class GameManager : Godot.Control
         timer.Start();
     }
 
-    void CreateCurrentLevel() //Se llama dentro de la función CheckHexsSelected, la recibe CreateTimer
-    {
-        CreateLevel(Constants.PATH_LEVEL_MANAGER);
-    }
     void GameHaveBetNow(bool haveBet) //La llama CurrencyManager, señal GameHaveBet
     {
         if (!_isPlaying)
@@ -398,8 +390,8 @@ public class GameManager : Godot.Control
             _currentLevelInfo = _myRecover.GetLastLevelInfo(_currentLevel);
             EmitSignal(nameof(RoundWined));
             _panner.Panning(_currentLevel);
-            CreateCurrentLevel();
-                EmitSignal(nameof(PlayMusicGame));
+            CreateLevel();
+            EmitSignal(nameof(PlayMusicGame));
             if (_gotBonus)
             {
                 EmitSignal(nameof(NodeWithBonus));
@@ -412,6 +404,7 @@ public class GameManager : Godot.Control
             _currencyManager.AddBetToCurrency();
             EndGame(_myRecover.CheckIfWin());
         }
-        
+
+        _isResuming = false;
     }
 }
