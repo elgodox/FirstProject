@@ -233,7 +233,7 @@ __meta__ = {
 position = Vector2( 718.484, 105.917 )
 frames = SubResource( 1 )
 animation = "Idle"
-frame = 48
+frame = 33
 playing = true
 
 [node name="ui_MaxBet" parent="ControlPanel" instance=ExtResource( 4 )]
@@ -329,6 +329,44 @@ margin_left = -93.6228
 margin_top = -56.3461
 margin_right = 92.3772
 margin_bottom = 89.6539
+
+[node name="buttonStartBonus" type="TextureButton" parent="ControlPanel"]
+visible = false
+self_modulate = Color( 1, 1, 0, 1 )
+anchor_left = 0.774
+anchor_top = 0.568
+anchor_right = 0.774
+anchor_bottom = 0.568
+margin_left = -92.4579
+margin_top = -73.1255
+margin_right = 93.5421
+margin_bottom = 72.8745
+texture_normal = ExtResource( 13 )
+texture_pressed = ExtResource( 12 )
+texture_disabled = ExtResource( 87 )
+stretch_mode = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ControlPanel/buttonStartBonus"]
+anchor_left = 0.5
+anchor_top = 0.459
+anchor_right = 0.5
+anchor_bottom = 0.459
+margin_left = -56.4999
+margin_top = -56.014
+margin_right = 55.7501
+margin_bottom = 59.475
+custom_fonts/font = ExtResource( 89 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "COMENZAR"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Tiempo" type="TextureRect" parent="."]
 anchor_left = 0.932
@@ -445,7 +483,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="BonusFeedback"]
 position = Vector2( 73.3888, 61.2637 )
 frames = SubResource( 4 )
-frame = 31
+frame = 24
 playing = true
 
 [node name="Label" type="Label" parent="BonusFeedback"]
@@ -496,21 +534,19 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="helpText" type="Label" parent="ui_Help/ui_HelpText"]
-anchor_left = 0.054
-anchor_top = 0.151
-anchor_right = 0.964
-anchor_bottom = 0.842
-margin_left = 0.287994
-margin_top = -0.264008
-margin_right = -0.192017
-margin_bottom = -0.0880737
-custom_fonts/font = ExtResource( 16 )
-custom_colors/font_color = Color( 0.63261, 0.940249, 0.952637, 1 )
+[node name="RichTextLabel" type="RichTextLabel" parent="ui_Help/ui_HelpText"]
+anchor_left = 0.025
+anchor_top = 0.095
+anchor_right = 0.991
+anchor_bottom = 0.932
+margin_left = 7.752
+margin_top = 5.17452
+margin_right = -7.27081
+margin_bottom = -4.05627
+custom_fonts/normal_font = ExtResource( 16 )
+tab_size = 0
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-align = 1
-autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -549,14 +585,11 @@ valign = 1
 
 [node name="ui_IncomingBonus" type="TextureRect" parent="."]
 visible = false
-anchor_left = 0.5
-anchor_top = 0.496
-anchor_right = 0.5
-anchor_bottom = 0.496
-margin_left = -800.0
-margin_top = -450.372
-margin_right = 800.0
-margin_bottom = 449.628
+anchor_top = 0.462
+anchor_right = 1.0
+anchor_bottom = 0.751
+margin_top = 0.18399
+margin_bottom = 0.231934
 texture = SubResource( 6 )
 expand = true
 __meta__ = {
@@ -565,13 +598,14 @@ __meta__ = {
 
 [node name="ui_BonusTexture" type="TextureRect" parent="ui_IncomingBonus"]
 self_modulate = Color( 1, 0.937255, 0, 0.921569 )
-anchor_left = 0.125
-anchor_top = 0.087
-anchor_right = 0.869
-anchor_bottom = 0.773
-margin_top = 437.7
-margin_right = -0.400024
-margin_bottom = 0.299988
+anchor_left = 0.5
+anchor_top = 0.673
+anchor_right = 0.5
+anchor_bottom = 0.673
+margin_left = -497.0
+margin_top = -117.406
+margin_right = 498.0
+margin_bottom = 64.594
 texture = ExtResource( 14 )
 expand = true
 stretch_mode = 1
@@ -580,57 +614,20 @@ __meta__ = {
 }
 
 [node name="helpText" type="Label" parent="ui_IncomingBonus/ui_BonusTexture"]
-anchor_left = 0.046
-anchor_top = 0.151
-anchor_right = 0.967
-anchor_bottom = 0.772
-margin_left = 0.259995
-margin_top = -0.179998
-margin_right = 0.269897
-margin_bottom = 0.0399933
+anchor_left = 0.507
+anchor_top = 0.504
+anchor_right = 0.507
+anchor_bottom = 0.504
+margin_left = -468.577
+margin_top = -72.0161
+margin_right = 468.09
+margin_bottom = 71.9838
 custom_fonts/font = ExtResource( 16 )
 custom_colors/font_color = Color( 0.63261, 0.940249, 0.952637, 1 )
 text = "¡Has ganado un Bonus!
 Escoge un nodo y multiplica tu apuesta, todos los nodos son ganadores!"
 align = 1
 autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="button_Ok" type="TextureButton" parent="ui_IncomingBonus"]
-self_modulate = Color( 1, 1, 0, 1 )
-anchor_left = 0.748
-anchor_top = 0.911
-anchor_right = 0.748
-anchor_bottom = 0.911
-margin_left = -90.3547
-margin_top = -71.3544
-margin_right = 95.6453
-margin_bottom = 74.6456
-texture_normal = ExtResource( 13 )
-texture_pressed = ExtResource( 12 )
-texture_disabled = ExtResource( 87 )
-stretch_mode = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="ui_IncomingBonus/button_Ok"]
-anchor_left = 0.5
-anchor_top = 0.459
-anchor_right = 0.5
-anchor_bottom = 0.459
-margin_left = -56.4999
-margin_top = -56.014
-margin_right = 55.7501
-margin_bottom = 59.475
-custom_fonts/font = ExtResource( 89 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "COMENZAR"
-align = 1
-valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -764,8 +761,8 @@ volume_db = 1.0
 [connection signal="button_up" from="ControlPanel/button_Bet" to="." method="OnBetButtonUp"]
 [connection signal="button_up" from="ControlPanel/button_MaxBet" to="." method="OnMaxBetButtonUp"]
 [connection signal="button_up" from="ControlPanel/button_end_collect" to="." method="OnEndAndCollectButtonUp"]
+[connection signal="button_up" from="ControlPanel/buttonStartBonus" to="." method="OnOkButtonUp"]
 [connection signal="button_up" from="button_Help" to="." method="OnHelpButtonUp"]
 [connection signal="pressed" from="VolumeButton" to="." method="_on_VolumeButton_pressed"]
 [connection signal="button_up" from="ui_Help/button_Back" to="." method="OnBackButtonUp"]
-[connection signal="button_up" from="ui_IncomingBonus/button_Ok" to="." method="OnOkButtonUp"]
 [connection signal="button_up" from="ui_FinishedBonus/button_Ok" to="." method="FinishBonus"]

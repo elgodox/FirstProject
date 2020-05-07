@@ -21,7 +21,7 @@ public class UIButtonsManager : Control
     [Signal] public delegate void ControlMasterVolume(float volume);
     TextureButton _playButton, _helpButton, _betButton, _maxBetButton, _collectButton, _endAndCollectButton;
     TextureRect _helpCanvas, _controlPanel, _timeButton, _incomingBonus, _finishedBonus;
-    TextureButton _volumeButton;
+    TextureButton _volumeButton, _buttonStartBonus;
     Control _bonusFeedback;
 
     AudioStreamPlayer _audio;
@@ -111,6 +111,7 @@ public class UIButtonsManager : Control
         _bonusFeedback.Hide();
         EmitSignal(nameof(BonusAccepted));
         _incomingBonus.Hide();
+        _buttonStartBonus.Hide();
     }
     void DeactivateButtons()
     {
@@ -175,6 +176,7 @@ public class UIButtonsManager : Control
         _audio = GetNode("AudioStreamPlayer") as AudioStreamPlayer;
         _spriteVolumeButton = GetNode("VolumeButton/AnimatedSprite") as AnimatedSprite;
         _bonusFeedback = GetNode("BonusFeedback") as Control;
+        _buttonStartBonus = GetNode("ControlPanel/buttonStartBonus") as TextureButton;
 
         #endregion
         
@@ -219,6 +221,7 @@ public class UIButtonsManager : Control
         if(bonus)
         {
             _incomingBonus.Show();
+            _buttonStartBonus.Show();
         }
     }
 
