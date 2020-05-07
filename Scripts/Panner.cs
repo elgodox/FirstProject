@@ -4,96 +4,26 @@ using System.Collections.Generic;
 
 public class Panner : Node
 {
-    [Export] float speed = 1;
-    [Export] float time;
-    float jumpDistance;
+    private AnimationPlayer _animation;
     int allLevels = 10;
-
-    bool accelerating;
-    Control backGround;
-    Vector2 nextPos;
-    Vector2 initPosition;
-    float currentSpeed;
-    float currenTime;
-    float origin;
-    float destiny;
+    
 
     public override void _Ready()
     {
-        currentSpeed = speed;
-        currenTime = time;
-        LoadScenes();
-        nextPos = backGround.RectPosition;
-        initPosition = backGround.RectPosition;
-        jumpDistance =  (initPosition.y / 10) + 200;
-    }
-
-    public override void _Process(float delta)
-    {
-        CheckAcceleration(delta);
+        _animation = GetNode("Background/AnimationPlayer") as AnimationPlayer;
     }
 
     public void BackToOrigin(bool win, bool bonus)
     {
         Panning(10);
-        destiny = initPosition.y;
     }
     public void Panning(int currentLevel)
     {
-        float newDistance = jumpDistance * currentLevel;
-        GD.Print(newDistance);
-        if(!accelerating)
-        {
-            accelerating = true;
-            currenTime = 0;
-            origin = backGround.RectPosition.y;
-            destiny = newDistance;
-        }
+        float currentAnimation = currentLevel;
+        _animation.CurrentAnimation = currentAnimation.ToString();
+        _animation.Play();
     }
-    void CheckAcceleration(float delta)
-    {
-        if(accelerating)
-        {
-            Accelerate(delta);
-        }
-        // else
-        // {
-        //     Descelerate(delta);
-        // }
-    }
-    void Accelerate(float delta)
-    {
-        if(currenTime < 1)
-        {
-            currenTime += delta * currentSpeed;
-        }
-        else if(currenTime >= 1){ currenTime = 1;}
-        nextPos.x = backGround.RectPosition.x;
-        nextPos.y = Mathf.Lerp(origin, destiny, currenTime);
-        backGround.RectPosition = nextPos;
-        
-        if(nextPos.y == destiny)
-        {
-            GD.Print("NextPos.Y " + nextPos.y + ", y destiny son iguales");
-            currentSpeed = speed;
-            accelerating = false;
-        }
-    }
-    void Descelerate(float delta)
-    {
-        if(currentSpeed != speed)
-        {
-            currenTime += delta;
-            currentSpeed = Mathf.Lerp(currentSpeed, speed, currenTime);
-        }
-    }
-
-    void LoadScenes()
-    {
-        var scene = ResourceLoader.Load(Constants.PATH_BACKGROUND) as PackedScene;
-		backGround = scene.Instance() as Control;
-        AddChild(backGround);
-    }
+   
 
     // public void Panning()
     // {

@@ -47,7 +47,7 @@ public class GameManager : Godot.Control
 
         _currencyManager = GetNode("CurrencyManager") as CurrencyManager;
         _uiManager = GetNode("UI_Template") as UIButtonsManager;
-        _panner = GetNode("Panner") as Panner;
+        _panner = GetNode("PannerAnimation") as Panner;
         Console.WriteLine(_currencyManager.Name);
 
         if (_useDb)
@@ -399,7 +399,7 @@ public class GameManager : Godot.Control
             EmitSignal(nameof(RoundWined));
             _panner.Panning(_currentLevel);
             CreateCurrentLevel();
-            EmitSignal(nameof(PlayMusicGame));
+                EmitSignal(nameof(PlayMusicGame));
             if (_gotBonus)
             {
                 EmitSignal(nameof(NodeWithBonus));

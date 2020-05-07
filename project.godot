@@ -24,8 +24,6 @@ boot_splash/use_filter=false
 
 window/size/width=1600
 window/size/height=900
-window/size/test_width=1600
-window/size/test_height=900
 window/vsync/use_vsync=false
 
 [input]
