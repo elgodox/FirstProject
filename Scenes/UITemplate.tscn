@@ -170,14 +170,14 @@ animations = [ {
 "name": "Volume1",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 21 ) ],
-"loop": false,
-"name": "Volume3",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 22 ) ],
 "loop": false,
 "name": "Volume2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 21 ) ],
+"loop": false,
+"name": "Volume3",
 "speed": 5.0
 } ]
 
@@ -233,7 +233,7 @@ __meta__ = {
 position = Vector2( 718.484, 105.917 )
 frames = SubResource( 1 )
 animation = "Idle"
-frame = 36
+frame = 3
 playing = true
 
 [node name="ui_MaxBet" parent="ControlPanel" instance=ExtResource( 4 )]
@@ -483,7 +483,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="BonusFeedback"]
 position = Vector2( 73.3888, 61.2637 )
 frames = SubResource( 4 )
-frame = 7
+frame = 46
 playing = true
 
 [node name="Label" type="Label" parent="BonusFeedback"]
