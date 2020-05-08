@@ -86,6 +86,8 @@ public class CurrencyManager : Node
     public void UpdateBonusReward(double multiplier)
     {
         EmitSignal(nameof(CurrencyChanged), Constants.CURRENCY_BONUS_REWARD, currentBet * multiplier);
+        EmitSignal(nameof(CurrencyChanged), Constants.CURRENCY_WINNED_IN_BONUS, currencyToCollect);
+        EmitSignal(nameof(CurrencyChanged), Constants.CURRENCY_TOTAL_BONUS_REWARD, currencyToCollect + currentBet * multiplier);
 
         credit += currentBet * multiplier;
     }
