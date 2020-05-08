@@ -197,6 +197,14 @@ font_data = ExtResource( 19 )
 [sub_resource type="StreamTexture" id=6]
 flags = 4
 
+[sub_resource type="DynamicFont" id=7]
+size = 26
+font_data = ExtResource( 19 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 100
+font_data = ExtResource( 19 )
+
 [node name="UI_Manager" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
