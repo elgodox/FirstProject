@@ -146,6 +146,7 @@
 [ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_idle_00030.png" type="Texture" id=144]
 [ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_idle_00032.png" type="Texture" id=145]
 [ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_idle_00055.png" type="Texture" id=146]
+[ext_resource path="res://Fonts/Dynamic Fonts/font_Roboto_100.tres" type="DynamicFont" id=147]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -165,6 +166,11 @@ animations = [ {
 "name": "Mute",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 21 ) ],
+"loop": false,
+"name": "Volume3",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 24 ) ],
 "loop": false,
 "name": "Volume1",
@@ -173,11 +179,6 @@ animations = [ {
 "frames": [ ExtResource( 22 ) ],
 "loop": false,
 "name": "Volume2",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 21 ) ],
-"loop": false,
-"name": "Volume3",
 "speed": 5.0
 } ]
 
@@ -195,10 +196,6 @@ font_data = ExtResource( 19 )
 
 [sub_resource type="StreamTexture" id=6]
 flags = 4
-
-[sub_resource type="DynamicFont" id=7]
-size = 100
-font_data = ExtResource( 19 )
 
 [node name="UI_Manager" type="Control"]
 anchor_right = 1.0
@@ -233,7 +230,7 @@ __meta__ = {
 position = Vector2( 718.484, 105.917 )
 frames = SubResource( 1 )
 animation = "Idle"
-frame = 3
+frame = 58
 playing = true
 
 [node name="ui_MaxBet" parent="ControlPanel" instance=ExtResource( 4 )]
@@ -483,7 +480,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="BonusFeedback"]
 position = Vector2( 73.3888, 61.2637 )
 frames = SubResource( 4 )
-frame = 46
+frame = 25
 playing = true
 
 [node name="Label" type="Label" parent="BonusFeedback"]
@@ -660,7 +657,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="FinishedBonusText" type="Label" parent="ui_FinishedBonus/ui_BonusTexture"]
+[node name="TextYourReward!" type="Label" parent="ui_FinishedBonus/ui_BonusTexture"]
 anchor_left = 0.5
 anchor_top = 0.191
 anchor_right = 0.5
@@ -678,36 +675,112 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="FinishedBonusText2" type="Label" parent="ui_FinishedBonus/ui_BonusTexture"]
-anchor_left = 0.5
+[node name="TextYouWon" type="Label" parent="ui_FinishedBonus/ui_BonusTexture"]
+anchor_left = 0.354
 anchor_top = 0.568
-anchor_right = 0.5
+anchor_right = 0.354
 anchor_bottom = 0.568
-margin_left = -540.0
-margin_top = -25.2223
-margin_right = 556.0
-margin_bottom = 24.7777
+margin_left = -127.029
+margin_top = -25.024
+margin_right = 125.971
+margin_bottom = 24.976
 custom_fonts/font = ExtResource( 16 )
 custom_colors/font_color = Color( 0.63261, 0.940249, 0.952637, 1 )
-text = "CREDITOS"
+text = "TU GANAS : "
 align = 1
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="FinishedBonusReward" type="Label" parent="ui_FinishedBonus/ui_BonusTexture"]
-anchor_left = 0.5
-anchor_top = 0.427
-anchor_right = 0.5
-anchor_bottom = 0.427
-margin_left = -263.456
-margin_top = -91.4112
-margin_right = 263.544
-margin_bottom = 26.5887
-custom_fonts/font = SubResource( 7 )
+[node name="TextWinnedInBonus" type="Label" parent="ui_FinishedBonus/ui_BonusTexture"]
+anchor_left = 0.366
+anchor_top = 0.419
+anchor_right = 0.366
+anchor_bottom = 0.419
+margin_left = -172.812
+margin_top = -24.942
+margin_right = 172.188
+margin_bottom = 25.058
+custom_fonts/font = ExtResource( 16 )
 custom_colors/font_color = Color( 0.63261, 0.940249, 0.952637, 1 )
-text = "1000"
+text = "Ganado en Bonus : "
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextWinnedInGame" type="Label" parent="ui_FinishedBonus/ui_BonusTexture"]
+anchor_left = 0.366
+anchor_top = 0.323
+anchor_right = 0.366
+anchor_bottom = 0.323
+margin_left = -172.812
+margin_top = -25.046
+margin_right = 173.188
+margin_bottom = 24.954
+custom_fonts/font = ExtResource( 16 )
+custom_colors/font_color = Color( 0.63261, 0.940249, 0.952637, 1 )
+text = "Ganado en Juego : "
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WinnedInBonus" type="Label" parent="ui_FinishedBonus/ui_BonusTexture"]
+anchor_left = 0.613
+anchor_top = 0.419
+anchor_right = 0.613
+anchor_bottom = 0.419
+margin_left = -106.239
+margin_top = -23.7757
+margin_right = 106.761
+margin_bottom = 26.2243
+custom_fonts/font = ExtResource( 16 )
+custom_colors/font_color = Color( 0.63261, 0.940249, 0.952637, 1 )
+text = "--"
+align = 1
+autowrap = true
+script = ExtResource( 90 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+myType = "bonusReward"
+
+[node name="WinnedInGame" type="Label" parent="ui_FinishedBonus/ui_BonusTexture"]
+anchor_left = 0.614
+anchor_top = 0.325
+anchor_right = 0.614
+anchor_bottom = 0.325
+margin_left = -96.4289
+margin_top = -24.85
+margin_right = 97.5711
+margin_bottom = 25.15
+custom_fonts/font = ExtResource( 16 )
+custom_colors/font_color = Color( 0.63261, 0.940249, 0.952637, 1 )
+text = "--"
+align = 1
+autowrap = true
+script = ExtResource( 90 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+myType = "winnedCurrencyInBonus"
+
+[node name="TotalWinned" type="Label" parent="ui_FinishedBonus/ui_BonusTexture"]
+anchor_left = 0.614
+anchor_top = 0.559
+anchor_right = 0.614
+anchor_bottom = 0.559
+margin_left = -177.66
+margin_top = -44.462
+margin_right = 178.34
+margin_bottom = 44.538
+custom_fonts/font = ExtResource( 147 )
+custom_colors/font_color = Color( 0.63261, 0.940249, 0.952637, 1 )
+text = "--"
 align = 1
 valign = 1
 autowrap = true
@@ -715,7 +788,7 @@ script = ExtResource( 90 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-myType = "bonusReward"
+myType = "totalBonusReward"
 
 [node name="button_Ok" type="TextureButton" parent="ui_FinishedBonus"]
 anchor_left = 0.493

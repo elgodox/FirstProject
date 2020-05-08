@@ -21,7 +21,6 @@ public class GameOverMessage : Control
 
     public void ClearGameOverMessage()
     {
-        GD.Print("clear this");
         myAnim.StartExitAnimation();
     }
 }
