@@ -23,7 +23,7 @@
 
 [sub_resource type="Animation" id=1]
 resource_name = "0"
-length = 0.5
+length = 0.8
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rect_position")
 tracks/0/interp = 1
@@ -31,15 +31,15 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 0.18, 0.18 ),
+"times": PoolRealArray( 0, 0.3, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 0.18 ),
 "update": 0,
-"values": [ Vector2( 0, -809 ), Vector2( 0, 0 ) ]
+"values": [ Vector2( 0, -809 ), Vector2( 0, -909 ), Vector2( 0, 40 ), Vector2( 0, 0 ) ]
 }
 
 [sub_resource type="Animation" id=2]
 resource_name = "1"
-length = 0.5
+length = 0.8
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rect_position")
 tracks/0/interp = 1
@@ -47,140 +47,15 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 0.18, 0.18 ),
+"times": PoolRealArray( 0, 0.3, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 0.18 ),
 "update": 0,
-"values": [ Vector2( 0, -1619 ), Vector2( 0, -809 ) ]
+"values": [ Vector2( 0, -1619 ), Vector2( 0, -1719 ), Vector2( 0, -709 ), Vector2( 0, -809 ) ]
 }
 
 [sub_resource type="Animation" id=3]
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:rect_position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 0, -8098.92 ) ]
-}
-
-[sub_resource type="Animation" id=4]
-resource_name = "2"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:rect_position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 0.18, 0.18 ),
-"update": 0,
-"values": [ Vector2( 0, -2429 ), Vector2( 0, -1619 ) ]
-}
-
-[sub_resource type="Animation" id=5]
-resource_name = "3"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:rect_position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 0.18, 0.18 ),
-"update": 0,
-"values": [ Vector2( 0, -3239 ), Vector2( 0, -2429 ) ]
-}
-
-[sub_resource type="Animation" id=6]
-resource_name = "4"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:rect_position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 0.18, 0.18 ),
-"update": 0,
-"values": [ Vector2( 0, -4049 ), Vector2( 0, -3239 ) ]
-}
-
-[sub_resource type="Animation" id=7]
-resource_name = "5"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:rect_position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 0.18, 0.18 ),
-"update": 0,
-"values": [ Vector2( 0, -4859 ), Vector2( 0, -4049 ) ]
-}
-
-[sub_resource type="Animation" id=8]
-resource_name = "6"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:rect_position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 0.18, 0.18 ),
-"update": 0,
-"values": [ Vector2( 0, -5669 ), Vector2( 0, -4859 ) ]
-}
-
-[sub_resource type="Animation" id=9]
-resource_name = "7"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:rect_position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 0.18, 0.18 ),
-"update": 0,
-"values": [ Vector2( 0, -6479 ), Vector2( 0, -5669 ) ]
-}
-
-[sub_resource type="Animation" id=10]
-resource_name = "8"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:rect_position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 0.18, 0.18 ),
-"update": 0,
-"values": [ Vector2( 0, -7289.02 ), Vector2( 0, -6479 ) ]
-}
-
-[sub_resource type="Animation" id=11]
-length = 0.5
+length = 5.0
+loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rect_position")
 tracks/0/interp = 2
@@ -188,10 +63,137 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 0.176777, 0.18 ),
+"times": PoolRealArray( 0, 2.5, 5 ),
+"transitions": PoolRealArray( 0.366021, 0.435275, 1 ),
 "update": 0,
-"values": [ Vector2( 0, -8098.92 ), Vector2( 0, -7289.02 ) ]
+"values": [ Vector2( 0, -8098.92 ), Vector2( 0, -8110.92 ), Vector2( 0, -8098.92 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "2"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 0.18 ),
+"update": 0,
+"values": [ Vector2( 0, -2429 ), Vector2( 0, -2529 ), Vector2( 0, -1519 ), Vector2( 0, -1619 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "3"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 0.18 ),
+"update": 0,
+"values": [ Vector2( 0, -3239 ), Vector2( 0, -3339 ), Vector2( 0, -2329 ), Vector2( 0, -2429 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "4"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 0.18 ),
+"update": 0,
+"values": [ Vector2( 0, -4049 ), Vector2( 0, -4149 ), Vector2( 0, -3239 ), Vector2( 0, -3339 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "5"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 0.18 ),
+"update": 0,
+"values": [ Vector2( 0, -4859 ), Vector2( 0, -4959 ), Vector2( 0, -3949 ), Vector2( 0, -4049 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "6"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 0.18 ),
+"update": 0,
+"values": [ Vector2( 0, -5669 ), Vector2( 0, -5769 ), Vector2( 0, -4759 ), Vector2( 0, -4859 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "7"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 0.18 ),
+"update": 0,
+"values": [ Vector2( 0, -6479 ), Vector2( 0, -6579 ), Vector2( 0, -5569 ), Vector2( 0, -5669 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "8"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 0.18 ),
+"update": 0,
+"values": [ Vector2( 0, -7289.02 ), Vector2( 0, -7389.02 ), Vector2( 0, -6379 ), Vector2( 0, -6479 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 0.18 ),
+"update": 0,
+"values": [ Vector2( 0, -8098.92 ), Vector2( 0, -8198.92 ), Vector2( 0, -7189.02 ), Vector2( 0, -7289.02 ) ]
 }
 
 [sub_resource type="Gradient" id=12]
@@ -498,10 +500,9 @@ __meta__ = {
 anchor_top = 0.989
 anchor_right = 0.997
 anchor_bottom = 1.0
-margin_left = 2.0
-margin_top = -8990.01
-margin_right = 1.81189
-margin_bottom = -9.89453
+margin_top = -8994.94
+margin_right = -0.18811
+margin_bottom = -14.7573
 rect_pivot_offset = Vector2( 789.233, 5.63574 )
 texture = ExtResource( 20 )
 expand = true
@@ -664,9 +665,9 @@ autoplay = true
 [connection signal="GameStarted" from="." to="UI_Template" method="DeactivateButtons"]
 [connection signal="LevelCreated" from="." to="UI_Template" method="ActivateFinishButton"]
 [connection signal="LevelsOver" from="." to="AudioManager" method="GameOverSound"]
-[connection signal="LevelsOver" from="." to="PannerAnimation" method="BackToOrigin"]
 [connection signal="LevelsOver" from="." to="UI_Template" method="SetGameOverMessage"]
 [connection signal="LevelsOver" from="." to="Background" method="SetBackgroundAnimation"]
+[connection signal="LevelsOver" from="." to="PannerAnimation" method="BackToOrigin"]
 [connection signal="NodePicked" from="." to="UI_Template" method="DeactivateFinishButton"]
 [connection signal="NodePicked" from="." to="UI_Template" method="StopTimer"]
 [connection signal="NodeWithBonus" from="." to="UI_Template" method="BonusFeedback"]
@@ -679,8 +680,8 @@ autoplay = true
 [connection signal="animation_finished" from="Background/AnimationPlayer" to="Background" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="CurrencyChanged" from="CurrencyManager" to="UI_Template" method="UpdateCurrencyUI"]
 [connection signal="GameHaveBet" from="CurrencyManager" to="." method="GameHaveBetNow"]
-[connection signal="BonusAccepted" from="UI_Template" to="." method="InstantiateBonus"]
 [connection signal="BonusAccepted" from="UI_Template" to="UI_Template" method="BonusStarted"]
+[connection signal="BonusAccepted" from="UI_Template" to="." method="InstantiateBonus"]
 [connection signal="ControlMasterVolume" from="UI_Template" to="AudioManager" method="_on_UI_ControlMasterVolume"]
 [connection signal="StopGameMusic" from="UI_Template" to="AudioManager" method="StopCurrentMusic"]
 [connection signal="StopGameMusic" from="UI_Template" to="PannerAnimation" method="BackToInitAnimation"]
