@@ -230,7 +230,7 @@ __meta__ = {
 position = Vector2( 718.484, 105.917 )
 frames = SubResource( 1 )
 animation = "Idle"
-frame = 58
+frame = 52
 playing = true
 
 [node name="ui_MaxBet" parent="ControlPanel" instance=ExtResource( 4 )]
@@ -480,7 +480,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="BonusFeedback"]
 position = Vector2( 73.3888, 61.2637 )
 frames = SubResource( 4 )
-frame = 25
+frame = 55
 playing = true
 
 [node name="Label" type="Label" parent="BonusFeedback"]
@@ -740,7 +740,7 @@ margin_right = 106.761
 margin_bottom = 26.2243
 custom_fonts/font = ExtResource( 16 )
 custom_colors/font_color = Color( 0.63261, 0.940249, 0.952637, 1 )
-text = "--"
+text = "0"
 align = 1
 autowrap = true
 script = ExtResource( 90 )
@@ -760,7 +760,7 @@ margin_right = 97.5711
 margin_bottom = 25.15
 custom_fonts/font = ExtResource( 16 )
 custom_colors/font_color = Color( 0.63261, 0.940249, 0.952637, 1 )
-text = "--"
+text = "0"
 align = 1
 autowrap = true
 script = ExtResource( 90 )
@@ -780,7 +780,7 @@ margin_right = 178.34
 margin_bottom = 44.538
 custom_fonts/font = ExtResource( 147 )
 custom_colors/font_color = Color( 0.63261, 0.940249, 0.952637, 1 )
-text = "--"
+text = "0"
 align = 1
 valign = 1
 autowrap = true

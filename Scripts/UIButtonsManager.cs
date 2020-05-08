@@ -214,7 +214,7 @@ public class UIButtonsManager : Control
     }
     void UpdateCurrencyUI(string currencyType, float currency)
     {
-        _myCurrencyLabels[currencyType].UpdateLabel(Convert.ToInt32(currency).ToString());
+        _myCurrencyLabels[currencyType].UpdateLabel(currency);
     }
 
     void SetGameOverMessage(bool win, bool bonus) //La llama GameManager, señal GameOver
