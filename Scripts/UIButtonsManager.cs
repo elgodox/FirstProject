@@ -31,6 +31,7 @@ public class UIButtonsManager : Control
     Label _myTimeLabel;
 
     Timer _timer = new Timer();
+    Timer _timerToSetIdle = new Timer();
 
     float volume = -20;
     float timeToSetIdle = 10;
@@ -101,6 +102,7 @@ public class UIButtonsManager : Control
     }
     void OnPlayButtonUp()
     {
+        _timerToSetIdle.Stop();
         _audio.Stream = PlayFX;
         _audio.Play();
         EmitSignal(nameof(restartGame));
@@ -184,7 +186,7 @@ public class UIButtonsManager : Control
         _myTimeLabel.Text = "--";
         LoadScene(Constants.PATH_UI_GAMEOVR_WIN);
         LoadScene(Constants.PATH_UI_GAMEOVR_LOSE);
-        SetUpTimer();
+        SetUpTimers();
     }
     
     void CreateTimer(float secs, string method)
@@ -231,14 +233,16 @@ public class UIButtonsManager : Control
         }
         else
         {
-            CreateTimer(timeToSetIdle, "SetIdle");
+            _timerToSetIdle.WaitTime = 10;
+            _timerToSetIdle.Start();
         }
     }
 
+    
     void SetIdle()
     {
+        GD.Print("Setting Idle");
         EmitSignal(nameof(ClearGameOver));
-        
     }
 
     void BonusStarted() //La llama GameManager, señal StartBonus
@@ -306,10 +310,12 @@ public class UIButtonsManager : Control
         EmitSignal(nameof(TimerDone), true);
     }
 
-    void SetUpTimer()
+    void SetUpTimers()
     {
         AddChild(_timer);
+        AddChild(_timerToSetIdle);
         _timer.Connect("timeout", this, "TimerFinished");
+        _timerToSetIdle.Connect("timeout", this, "SetIdle");
     }
     #endregion
 
