@@ -29,7 +29,7 @@ margin_bottom = 16.512
 custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "/// GANADO"
+text = "/// PRÓXIMO NIVEL"
 valign = 1
 
 [node name="current_CreditsCollect" type="Label" parent="."]
@@ -52,4 +52,4 @@ script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-myType = "currencyToCollect"
+myType = "currencyToCollectNextLevel"

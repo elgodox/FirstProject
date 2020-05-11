@@ -17,6 +17,7 @@ public class Constants
     public const string CURRENT_BET = "currentBet";
     public const string CREDITS = "credits";
     public const string CURRENCY_TO_COLLECT = "currencyToCollect";
+    public const string CURRENCY_TO_COLLECT_NEXT = "currencyToCollectNextLevel";
     public const string CURRENCY_WINNED = "winnedCurrency";
     public const string CURRENCY_WINNED_IN_BONUS = "winnedCurrencyInBonus";
     public const string CURRENCY_BONUS_REWARD = "bonusReward";

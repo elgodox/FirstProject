@@ -1,5 +1,7 @@
 using Godot;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 public class CurrencyManager : Node
 {
@@ -9,7 +11,6 @@ public class CurrencyManager : Node
     double[] multipliers = { 0, 0.9, 1.2, 1.4, 1.68, 2.1, 2.8, 4.2, 8.4, 16.8 };
     public double credit, maxBetAmount, minBetAmount;
     public double currentBet, currencyToCollect;
-
     double multiplier;
 
     void SetCurrency(double money, double minBet,double maxBet)
@@ -69,6 +70,14 @@ public class CurrencyManager : Node
     {
         currencyToCollect = currentBet * multiplier;
         EmitSignal(nameof(CurrencyChanged), Constants.CURRENCY_TO_COLLECT, currencyToCollect);
+        for (int i = 0; i < multipliers.Length; i++)
+        {
+            if (multipliers[i] == multiplier && i < multipliers.Length - 1)
+            {
+                GD.Print(multiplier + " es el multiplicador actual, el siguiente multiplicador es " + multipliers[i + 1]);
+                EmitSignal(nameof(CurrencyChanged), Constants.CURRENCY_TO_COLLECT_NEXT, currentBet * multipliers[i + 1]);
+            }
+        }
     }
     public void UpdateWinnedCurrency()
     {
@@ -108,6 +117,7 @@ public class CurrencyManager : Node
         
         EmitSignal(nameof(CurrencyChanged), Constants.CURRENT_BET, currentBet);
         EmitSignal(nameof(CurrencyChanged), Constants.CURRENCY_TO_COLLECT, currencyToCollect);
+        EmitSignal(nameof(CurrencyChanged), Constants.CURRENCY_TO_COLLECT_NEXT, currencyToCollect);
         EmitSignal(nameof(CurrencyChanged), Constants.CREDITS, credit);
 
         CheckBet();
