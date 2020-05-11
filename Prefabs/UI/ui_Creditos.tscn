@@ -42,11 +42,12 @@ margin_left = -112.556
 margin_top = -23.5
 margin_right = 112.444
 margin_bottom = 22.5
+rect_pivot_offset = Vector2( 1.22879, 23.5 )
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "0"
-valign = 2
+valign = 1
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false

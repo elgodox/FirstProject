@@ -12,6 +12,8 @@ public class CurrencyLabel : Label
     float originalCurrency;
     float speedOfChange = 3;
     bool changingCurrency;
+    Vector2 scaleUp = new Vector2(1.75f, 1.75f);
+    Vector2 vectorChanging = new Vector2();
 
     public UIButtonsManager uIButtonsManager;
     public void UpdateLabel(float currency)
@@ -20,6 +22,7 @@ public class CurrencyLabel : Label
         currencyToGo = currency;
         originalCurrency = Convert.ToInt32(Text);
         changingCurrency = true;
+        RectScale = scaleUp;
     }
     public override void _Ready()
     {
@@ -37,7 +40,8 @@ public class CurrencyLabel : Label
                 elapsedLerpTime += delta * speedOfChange;
                 elapsedLerpTime = Mathf.Clamp(elapsedLerpTime, 0, 1);
                 newCurrency = Mathf.Lerp(originalCurrency, currencyToGo, elapsedLerpTime);
-                
+                vectorChanging.x = vectorChanging.y = Mathf.Lerp(scaleUp.y, 1, elapsedLerpTime);
+                RectScale = vectorChanging;
                 Text = Convert.ToInt32(newCurrency).ToString();
             }
             else
