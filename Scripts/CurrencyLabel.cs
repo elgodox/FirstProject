@@ -6,7 +6,7 @@ public class CurrencyLabel : Label
     [Export] public string myType;
     [Export] public bool bonusPrice;
 
-    float time;
+    float elapsedLerpTime;
     float newCurrency;
     float currencyToGo;
     float originalCurrency;
@@ -16,11 +16,10 @@ public class CurrencyLabel : Label
     public UIButtonsManager uIButtonsManager;
     public void UpdateLabel(float currency)
     {
-        time = 0;
+        elapsedLerpTime = 0;
         currencyToGo = currency;
         originalCurrency = Convert.ToInt32(Text);
         changingCurrency = true;
-
     }
     public override void _Ready()
     {
@@ -33,23 +32,20 @@ public class CurrencyLabel : Label
     {
         if (changingCurrency)
         {
-            if (time <= 1)
+            if (elapsedLerpTime <= 1)
             {
-                time += delta * speedOfChange;
-                time = Mathf.Clamp(time, 0, 1);
-                newCurrency = Mathf.Lerp(originalCurrency, currencyToGo, time);
+                elapsedLerpTime += delta * speedOfChange;
+                elapsedLerpTime = Mathf.Clamp(elapsedLerpTime, 0, 1);
+                newCurrency = Mathf.Lerp(originalCurrency, currencyToGo, elapsedLerpTime);
                 
                 Text = Convert.ToInt32(newCurrency).ToString();
             }
-            else if(time >= 1)
+            else
             {
-                time = 1;
+                elapsedLerpTime = 1;
                 changingCurrency = false;
             }
-            
         }
-
-        
     }
 
     public void UpdateMyType(string myNewType)
