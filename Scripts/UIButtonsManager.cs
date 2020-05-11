@@ -19,9 +19,8 @@ public class UIButtonsManager : Control
     [Signal] public delegate void GameOverPopUp();
     [Signal] public delegate void TimerDone(bool win);
     [Signal] public delegate void ControlMasterVolume(float volume);
-    TextureButton _playButton, _helpButton, _betButton, _maxBetButton, _collectButton, _endAndCollectButton;
+    TextureButton _playButton, _helpButton, _betButton, _maxBetButton, _collectButton, _endAndCollectButton, _okFinishBonusButton, _volumeButton, _buttonStartBonus;
     TextureRect _helpCanvas, _controlPanel, _timeButton, _incomingBonus, _finishedBonus;
-    TextureButton _volumeButton, _buttonStartBonus;
     Control _bonusFeedback;
 
     AudioStreamPlayer _audio;
@@ -175,6 +174,7 @@ public class UIButtonsManager : Control
         _betButton = GetNode("ControlPanel/button_Bet") as TextureButton;
         _maxBetButton = GetNode("ControlPanel/button_MaxBet") as TextureButton;
         _collectButton = GetNode("ControlPanel/button_Collect") as TextureButton;
+        _okFinishBonusButton = GetNode("ControlPanel/button_OkFinishBonus") as TextureButton;
         _myTimeLabel = GetNode("Tiempo/timer") as Label;
         _audio = GetNode("AudioStreamPlayer") as AudioStreamPlayer;
         _spriteVolumeButton = GetNode("VolumeButton/AnimatedSprite") as AnimatedSprite;
@@ -259,6 +259,7 @@ public class UIButtonsManager : Control
     void ShowFinishedBonus()
     {
         _finishedBonus.Show();
+        _okFinishBonusButton.Show();
     }
     void DeactivateFinishButton() //Lo llama GameManager, señal NodePicked
     {
@@ -277,6 +278,7 @@ public class UIButtonsManager : Control
     void FinishBonus() //La llama el botón
     {
         _finishedBonus.Hide();
+        _okFinishBonusButton.Hide();
         ActivateAgain();
         EmitSignal(nameof(StopGameMusic));
     }
