@@ -10,7 +10,7 @@ public class AnimationControl : AnimationPlayer
 
 	public void StartExitAnimation()
 	{
-		CurrentAnimation = "Salir";
+		Play("Salir");
 	}
 	public void StartEnterAnimation()
 	{

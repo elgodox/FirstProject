@@ -33,6 +33,7 @@ public class UIButtonsManager : Control
     Timer _timer = new Timer();
 
     float volume = -20;
+    float timeToSetIdle = 10;
 
     public override void _Ready()
     {
@@ -194,6 +195,7 @@ public class UIButtonsManager : Control
         AddChild(timer);
         timer.Start();
         timer.Connect("timeout", this, method);
+        timer.Connect("timeout", timer, "queue_free");
     }
     public void SubscribeCurrencyLabel(CurrencyLabel cl)
     {
@@ -227,6 +229,16 @@ public class UIButtonsManager : Control
             _incomingBonus.Show();
             _buttonStartBonus.Show();
         }
+        else
+        {
+            CreateTimer(timeToSetIdle, "SetIdle");
+        }
+    }
+
+    void SetIdle()
+    {
+        EmitSignal(nameof(ClearGameOver));
+        
     }
 
     void BonusStarted() //La llama GameManager, señal StartBonus

@@ -21,6 +21,10 @@ public class GameOverMessage : Control
 
     public void ClearGameOverMessage()
     {
-        myAnim.StartExitAnimation();
+        if (RectScale.y > 0.1f)
+        {
+            GD.Print(RectScale.x + " es mayor a 0");
+            myAnim.StartExitAnimation();
+        }
     }
 }
