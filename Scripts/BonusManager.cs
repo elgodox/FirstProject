@@ -24,7 +24,6 @@ public class BonusManager : LevelManager
     {
 	    EmitSignal(nameof(BonusPicked));
         myGameManager.BonusFinished(node.bonusMultiplier);
-        GD.Print("El nodo presionado tenía un multiplicador de x" + node.bonusMultiplier);
         foreach (var item in _nodes)
 		{
 			if(item != null)

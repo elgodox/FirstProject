@@ -266,11 +266,11 @@ public class GameRecover
         {
             var currentPlay = myPlays[i];
             var intPlay = int.Parse(currentPlay);
-            GD.Print("jugada en el índice " + i + " es " + currentPlay);
+            //GD.Print("jugada en el índice " + i + " es " + currentPlay);
 
             if (intPlay > -1)
             {
-                GD.Print("Hasta este nivel, " + i + " llegó a jugar, el nivel era " + myLevels[i]);
+                //GD.Print("Hasta este nivel, " + i + " llegó a jugar, el nivel era " + myLevels[i]);
                 return i;
             }
         }

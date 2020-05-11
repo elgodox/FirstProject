@@ -23,7 +23,6 @@ public class GameOverMessage : Control
     {
         if (RectScale.y > 0.1f || myAnim.CurrentAnimation == "Entrar")
         {
-            GD.Print(RectScale.x + " es mayor a 0");
             myAnim.StartExitAnimation();
         }
     }

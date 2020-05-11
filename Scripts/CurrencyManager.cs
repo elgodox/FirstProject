@@ -74,7 +74,6 @@ public class CurrencyManager : Node
         {
             if (multipliers[i] == multiplier && i < multipliers.Length - 1)
             {
-                GD.Print(multiplier + " es el multiplicador actual, el siguiente multiplicador es " + multipliers[i + 1]);
                 EmitSignal(nameof(CurrencyChanged), Constants.CURRENCY_TO_COLLECT_NEXT, currentBet * multipliers[i + 1]);
             }
         }
