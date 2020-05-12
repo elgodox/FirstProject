@@ -1,4 +1,4 @@
-[gd_scene load_steps=158 format=2]
+[gd_scene load_steps=178 format=2]
 
 [ext_resource path="res://Prefabs/UI/Buttons/button_Collect.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Prefabs/UI/Buttons/button_Bet.tscn" type="PackedScene" id=2]
@@ -148,6 +148,7 @@
 [ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_idle_00055.png" type="Texture" id=146]
 [ext_resource path="res://Fonts/Dynamic Fonts/font_Roboto_100.tres" type="DynamicFont" id=147]
 [ext_resource path="res://Sprites/BonusWin_box.png" type="Texture" id=148]
+[ext_resource path="res://Sprites/Bonus/PrevioABonus/Cartel_previobonus.png" type="Texture" id=149]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -172,14 +173,14 @@ animations = [ {
 "name": "Volume3",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 24 ) ],
-"loop": false,
-"name": "Volume1",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 22 ) ],
 "loop": false,
 "name": "Volume2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 24 ) ],
+"loop": false,
+"name": "Volume1",
 "speed": 5.0
 } ]
 
@@ -218,11 +219,133 @@ flags = 4
 size = 26
 font_data = ExtResource( 19 )
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="AtlasTexture" id=9]
+flags = 4
+atlas = ExtResource( 149 )
+region = Rect2( 0, 0, 480, 400 )
+
+[sub_resource type="AtlasTexture" id=10]
+flags = 4
+atlas = ExtResource( 149 )
+region = Rect2( 480, 0, 480, 400 )
+
+[sub_resource type="AtlasTexture" id=11]
+flags = 4
+atlas = ExtResource( 149 )
+region = Rect2( 960, 0, 480, 400 )
+
+[sub_resource type="AtlasTexture" id=12]
+flags = 4
+atlas = ExtResource( 149 )
+region = Rect2( 1440, 0, 480, 400 )
+
+[sub_resource type="AtlasTexture" id=13]
+flags = 4
+atlas = ExtResource( 149 )
+region = Rect2( 0, 400, 480, 400 )
+
+[sub_resource type="AtlasTexture" id=14]
+flags = 4
+atlas = ExtResource( 149 )
+region = Rect2( 480, 400, 480, 400 )
+
+[sub_resource type="AtlasTexture" id=15]
+flags = 4
+atlas = ExtResource( 149 )
+region = Rect2( 960, 400, 480, 400 )
+
+[sub_resource type="AtlasTexture" id=16]
+flags = 4
+atlas = ExtResource( 149 )
+region = Rect2( 1440, 400, 480, 400 )
+
+[sub_resource type="AtlasTexture" id=17]
+flags = 4
+atlas = ExtResource( 149 )
+region = Rect2( 0, 800, 480, 400 )
+
+[sub_resource type="AtlasTexture" id=18]
+flags = 4
+atlas = ExtResource( 149 )
+region = Rect2( 480, 800, 480, 400 )
+
+[sub_resource type="AtlasTexture" id=19]
+flags = 4
+atlas = ExtResource( 149 )
+region = Rect2( 960, 800, 480, 400 )
+
+[sub_resource type="AtlasTexture" id=20]
+flags = 4
+atlas = ExtResource( 149 )
+region = Rect2( 1440, 800, 480, 400 )
+
+[sub_resource type="AtlasTexture" id=21]
+flags = 4
+atlas = ExtResource( 149 )
+region = Rect2( 0, 1200, 480, 400 )
+
+[sub_resource type="AtlasTexture" id=22]
+flags = 4
+atlas = ExtResource( 149 )
+region = Rect2( 480, 1200, 480, 400 )
+
+[sub_resource type="AtlasTexture" id=23]
+flags = 4
+atlas = ExtResource( 149 )
+region = Rect2( 960, 1200, 480, 400 )
+
+[sub_resource type="AtlasTexture" id=24]
+flags = 4
+atlas = ExtResource( 149 )
+region = Rect2( 1440, 1200, 480, 400 )
+
+[sub_resource type="SpriteFrames" id=25]
+animations = [ {
+"frames": [ SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 16.0
+} ]
+
+[sub_resource type="DynamicFont" id=27]
+size = 28
+outline_size = 1
+outline_color = Color( 0.380392, 0.0705882, 0, 1 )
+use_filter = true
+font_data = ExtResource( 19 )
+
+[sub_resource type="Animation" id=28]
 resource_name = "Entrar"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 1.46, 0 ), Vector2( 1.47652, 1.47199 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimatedSprite/helpText:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=26]
 length = 0.3
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:rect_scale")
+tracks/0/path = NodePath("ui_BonusTexture:rect_scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -266,7 +389,7 @@ __meta__ = {
 position = Vector2( 718.484, 105.917 )
 frames = SubResource( 1 )
 animation = "Idle"
-frame = 54
+frame = 3
 playing = true
 
 [node name="ui_MaxBet" parent="ControlPanel" instance=ExtResource( 4 )]
@@ -546,6 +669,7 @@ margin_left = -67.2
 margin_top = -64.8
 margin_right = 68.8
 margin_bottom = 64.2
+rect_scale = Vector2( 1e-05, 1e-05 )
 rect_pivot_offset = Vector2( 68, 64.5 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -554,7 +678,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="BonusFeedback"]
 position = Vector2( 73.3888, 61.2637 )
 frames = SubResource( 4 )
-frame = 37
+frame = 14
 playing = true
 
 [node name="Label" type="Label" parent="BonusFeedback"]
@@ -695,52 +819,50 @@ valign = 1
 
 [node name="ui_IncomingBonus" type="TextureRect" parent="."]
 visible = false
-anchor_top = 0.462
-anchor_right = 1.0
-anchor_bottom = 0.751
-margin_top = 0.18399
-margin_bottom = 0.231934
+anchor_left = 0.5
+anchor_top = 0.423
+anchor_right = 0.5
+anchor_bottom = 0.423
+margin_left = -354.0
+margin_top = -296.7
+margin_right = 355.0
+margin_bottom = 296.3
 texture = SubResource( 7 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ui_BonusTexture" type="TextureRect" parent="ui_IncomingBonus"]
-self_modulate = Color( 1, 0.937255, 0, 0.921569 )
-anchor_left = 0.5
-anchor_top = 0.673
-anchor_right = 0.5
-anchor_bottom = 0.673
-margin_left = -497.0
-margin_top = -117.406
-margin_right = 498.0
-margin_bottom = 64.594
-texture = ExtResource( 14 )
-expand = true
-stretch_mode = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="AnimatedSprite" type="AnimatedSprite" parent="ui_IncomingBonus"]
+position = Vector2( 356.862, 314.28 )
+scale = Vector2( 1.47652, 1.47199 )
+frames = SubResource( 25 )
+animation = "Idle"
+frame = 10
+playing = true
 
-[node name="helpText" type="Label" parent="ui_IncomingBonus/ui_BonusTexture"]
-anchor_left = 0.507
-anchor_top = 0.504
-anchor_right = 0.507
-anchor_bottom = 0.504
-margin_left = -468.577
-margin_top = -72.0161
-margin_right = 468.09
-margin_bottom = 71.9838
-custom_fonts/font = ExtResource( 16 )
-custom_colors/font_color = Color( 0.63261, 0.940249, 0.952637, 1 )
+[node name="helpText" type="Label" parent="ui_IncomingBonus/AnimatedSprite"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -417.0
+margin_top = -330.0
+margin_right = -61.0
+margin_bottom = -68.0
+custom_fonts/font = SubResource( 27 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "¡Has ganado un Bonus!
 Escoge un nodo y multiplica tu apuesta, todos los nodos son ganadores!"
 align = 1
+valign = 1
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ui_IncomingBonus"]
+anims/Entrar = SubResource( 28 )
 
 [node name="ui_FinishedBonus" type="TextureRect" parent="."]
 visible = false
@@ -748,7 +870,7 @@ anchor_right = 1.0
 anchor_bottom = 0.81
 margin_top = -4.0
 margin_bottom = -6.10352e-05
-rect_pivot_offset = Vector2( 800, 419.984 )
+rect_pivot_offset = Vector2( 512, 318.947 )
 stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -756,15 +878,17 @@ __meta__ = {
 
 [node name="ui_BonusTexture" type="TextureRect" parent="ui_FinishedBonus"]
 self_modulate = Color( 1, 1, 1, 0.921569 )
-anchor_left = 0.192
-anchor_top = 0.087
-anchor_right = 0.801
-anchor_bottom = 0.985
-margin_left = -0.200012
-margin_top = -3.771
-margin_right = 0.399902
-margin_bottom = -0.00506592
+anchor_left = 0.496
+anchor_top = 0.533
+anchor_right = 0.496
+anchor_bottom = 0.533
+margin_left = -380.904
+margin_top = -259.701
+margin_right = 381.096
+margin_bottom = 260.299
+rect_pivot_offset = Vector2( 380.904, 259.701 )
 texture = ExtResource( 148 )
+expand = true
 stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -904,7 +1028,7 @@ __meta__ = {
 myType = "totalBonusReward"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ui_FinishedBonus"]
-anims/Entrar = SubResource( 9 )
+anims/Entrar = SubResource( 26 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
@@ -920,4 +1044,5 @@ volume_db = 1.0
 [connection signal="pressed" from="VolumeButton" to="." method="_on_VolumeButton_pressed"]
 [connection signal="visibility_changed" from="BonusFeedback" to="BonusFeedback/AnimationPlayer" method="play" binds= [ "PopUp" ]]
 [connection signal="button_up" from="ui_Help/button_Back" to="." method="OnBackButtonUp"]
+[connection signal="visibility_changed" from="ui_IncomingBonus" to="ui_IncomingBonus/AnimationPlayer" method="play" binds= [ "Entrar" ]]
 [connection signal="visibility_changed" from="ui_FinishedBonus" to="ui_FinishedBonus/AnimationPlayer" method="play" binds= [ "Entrar" ]]
