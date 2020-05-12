@@ -1,4 +1,4 @@
-[gd_scene load_steps=178 format=2]
+[gd_scene load_steps=179 format=2]
 
 [ext_resource path="res://Prefabs/UI/Buttons/button_Collect.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Prefabs/UI/Buttons/button_Bet.tscn" type="PackedScene" id=2]
@@ -196,6 +196,22 @@ animations = [ {
 size = 22
 font_data = ExtResource( 19 )
 
+[sub_resource type="Animation" id=29]
+resource_name = "Exit"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0, 0 ) ]
+}
+
 [sub_resource type="Animation" id=6]
 resource_name = "PopUp"
 length = 0.3
@@ -307,7 +323,7 @@ animations = [ {
 "speed": 16.0
 } ]
 
-[sub_resource type="DynamicFont" id=26]
+[sub_resource type="DynamicFont" id=30]
 size = 28
 outline_size = 1
 outline_color = Color( 0.380392, 0.0705882, 0, 1 )
@@ -354,6 +370,28 @@ tracks/2/keys = {
 "args": [  ],
 "method": "BonusStarted"
 } ]
+}
+tracks/3/type = "animation"
+tracks/3/path = NodePath("../BonusFeedback/AnimationPlayer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"clips": PoolStringArray( "Exit" ),
+"times": PoolRealArray( 2.3 )
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("../ControlPanel/buttonStartBonus:rect_scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 2.4, 2.6, 2.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 1, 0 ), Vector2( 1, 1.1 ), Vector2( 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=28]
@@ -403,7 +441,7 @@ __meta__ = {
 position = Vector2( 718.484, 105.917 )
 frames = SubResource( 1 )
 animation = "Idle"
-frame = 33
+frame = 52
 playing = true
 
 [node name="ui_MaxBet" parent="ControlPanel" instance=ExtResource( 4 )]
@@ -548,6 +586,8 @@ margin_left = -92.4579
 margin_top = -73.1255
 margin_right = 93.5421
 margin_bottom = 72.8745
+rect_scale = Vector2( 1e-05, 1e-05 )
+rect_pivot_offset = Vector2( 93, 73 )
 texture_normal = ExtResource( 13 )
 texture_pressed = ExtResource( 12 )
 texture_disabled = ExtResource( 87 )
@@ -692,6 +732,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="BonusFeedback"]
 position = Vector2( 73.3888, 61.2637 )
 frames = SubResource( 4 )
+frame = 35
 playing = true
 
 [node name="Label" type="Label" parent="BonusFeedback"]
@@ -713,6 +754,7 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="BonusFeedback"]
+anims/Exit = SubResource( 29 )
 anims/PopUp = SubResource( 6 )
 blend_times = [ "PopUp", "PopUp", 0.003 ]
 
@@ -848,10 +890,10 @@ __meta__ = {
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="ui_IncomingBonus"]
 position = Vector2( 356.862, 314.28 )
-scale = Vector2( 0.584, 1e-05 )
+scale = Vector2( 1e-05, 1e-05 )
 frames = SubResource( 25 )
 animation = "Idle"
-frame = 3
+frame = 2
 playing = true
 
 [node name="helpText" type="Label" parent="ui_IncomingBonus/AnimatedSprite"]
@@ -864,7 +906,7 @@ margin_left = -417.0
 margin_top = -330.0
 margin_right = -61.0
 margin_bottom = -68.0
-custom_fonts/font = SubResource( 26 )
+custom_fonts/font = SubResource( 30 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "¡Has ganado un Bonus!
 Escoge un nodo y multiplica tu apuesta, todos los nodos son ganadores!"
@@ -900,7 +942,6 @@ margin_left = -380.904
 margin_top = -259.701
 margin_right = 381.096
 margin_bottom = 260.299
-rect_scale = Vector2( 1e-05, 1e-05 )
 rect_pivot_offset = Vector2( 380.904, 259.701 )
 texture = ExtResource( 148 )
 expand = true
