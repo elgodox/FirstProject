@@ -65,7 +65,6 @@
     <Compile Include="Scripts\GameManager.cs" />
     <Compile Include="Scripts\GameOverMessage.cs" />
     <Compile Include="Scripts\GameRecover.cs" />
-    <Compile Include="Scripts\HexAnim.cs" />
     <Compile Include="Scripts\LevelManager.cs" />
     <Compile Include="Scripts\HexNode.cs" />
     <Compile Include="Scripts\LightAnimations.cs" />
