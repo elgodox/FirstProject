@@ -64,7 +64,15 @@ public class HexNode : Node
 
     public void HideMe()
     {
-        sprite.Animation = "Exit";
+        if (bonus)
+        {
+            GD.Print("ExitBonus!");
+            sprite.Animation = "ExitBonus";
+        }
+        else
+        {
+            sprite.Animation = "Exit";
+        }
         sprite.Playing = true;
         sprite.Play();
     }
