@@ -196,11 +196,6 @@ animations = [ {
 "name": "Exit",
 "speed": 20.0
 }, {
-"frames": [ ExtResource( 112 ), ExtResource( 114 ), ExtResource( 116 ), ExtResource( 113 ), ExtResource( 115 ), ExtResource( 117 ), ExtResource( 143 ), ExtResource( 129 ), ExtResource( 138 ), ExtResource( 135 ), ExtResource( 130 ), ExtResource( 131 ), ExtResource( 124 ), ExtResource( 134 ), ExtResource( 119 ), ExtResource( 141 ), ExtResource( 137 ), ExtResource( 128 ), ExtResource( 142 ), ExtResource( 121 ), ExtResource( 136 ), ExtResource( 133 ), ExtResource( 140 ), ExtResource( 123 ), ExtResource( 127 ), ExtResource( 132 ), ExtResource( 139 ), ExtResource( 118 ), ExtResource( 120 ), ExtResource( 122 ) ],
-"loop": false,
-"name": "Appear",
-"speed": 15.0
-}, {
 "frames": [ ExtResource( 48 ), ExtResource( 49 ), ExtResource( 51 ), ExtResource( 62 ), ExtResource( 50 ), ExtResource( 66 ), ExtResource( 52 ), ExtResource( 55 ), ExtResource( 54 ), ExtResource( 53 ), ExtResource( 63 ), ExtResource( 57 ), ExtResource( 61 ), ExtResource( 64 ), ExtResource( 56 ), ExtResource( 58 ), ExtResource( 59 ), ExtResource( 16 ), ExtResource( 60 ), ExtResource( 65 ), ExtResource( 80 ), ExtResource( 88 ), ExtResource( 68 ), ExtResource( 73 ), ExtResource( 93 ), ExtResource( 67 ), ExtResource( 90 ), ExtResource( 82 ), ExtResource( 72 ), ExtResource( 83 ), ExtResource( 74 ), ExtResource( 91 ), ExtResource( 75 ), ExtResource( 85 ), ExtResource( 77 ), ExtResource( 69 ) ],
 "loop": false,
 "name": "isGood",
@@ -210,6 +205,11 @@ animations = [ {
 "loop": false,
 "name": "isBonus",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 112 ), ExtResource( 114 ), ExtResource( 116 ), ExtResource( 113 ), ExtResource( 115 ), ExtResource( 117 ), ExtResource( 143 ), ExtResource( 129 ), ExtResource( 138 ), ExtResource( 135 ), ExtResource( 130 ), ExtResource( 131 ), ExtResource( 124 ), ExtResource( 134 ), ExtResource( 119 ), ExtResource( 141 ), ExtResource( 137 ), ExtResource( 128 ), ExtResource( 142 ), ExtResource( 121 ), ExtResource( 136 ), ExtResource( 133 ), ExtResource( 140 ), ExtResource( 123 ), ExtResource( 127 ), ExtResource( 132 ), ExtResource( 139 ), ExtResource( 118 ), ExtResource( 120 ), ExtResource( 122 ) ],
+"loop": false,
+"name": "Appear",
+"speed": 15.0
 }, {
 "frames": [ ExtResource( 87 ), ExtResource( 96 ), ExtResource( 94 ), ExtResource( 84 ), ExtResource( 97 ), ExtResource( 98 ), ExtResource( 81 ), ExtResource( 86 ), ExtResource( 95 ), ExtResource( 92 ), ExtResource( 70 ), ExtResource( 89 ), ExtResource( 71 ), ExtResource( 78 ), ExtResource( 76 ), ExtResource( 79 ), ExtResource( 105 ), ExtResource( 106 ), ExtResource( 100 ), ExtResource( 110 ), ExtResource( 109 ), ExtResource( 111 ), ExtResource( 102 ), ExtResource( 101 ), ExtResource( 99 ), ExtResource( 103 ), ExtResource( 104 ), ExtResource( 107 ), ExtResource( 108 ), ExtResource( 14 ), ExtResource( 11 ), ExtResource( 9 ), ExtResource( 15 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 12 ) ],
 "loop": false,
@@ -240,7 +240,7 @@ position = Vector2( 40.0278, 43.1763 )
 scale = Vector2( 0.483959, 0.483959 )
 frames = SubResource( 1 )
 animation = "Idle"
-frame = 4
+frame = 11
 speed_scale = 6.0
 playing = true
 
