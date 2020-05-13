@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://Sounds/InGameRobotShort.ogg" type="AudioStream" id=1]
 [ext_resource path="res://Scenes/UITemplate.tscn" type="PackedScene" id=2]
@@ -194,6 +194,77 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 0.18 ),
 "update": 0,
 "values": [ Vector2( 0, -8098.92 ), Vector2( 0, -8198.92 ), Vector2( 0, -7189.02 ), Vector2( 0, -7289.02 ) ]
+}
+
+[sub_resource type="Animation" id=24]
+resource_name = "SetBlack"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("AnimationPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "SetWhite" ],
+"method": "play"
+} ]
+}
+
+[sub_resource type="Animation" id=25]
+resource_name = "SetWhite"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -8098.92 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("AnimationPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "10" ],
+"method": "play"
+} ]
 }
 
 [sub_resource type="Gradient" id=12]
@@ -524,6 +595,8 @@ anims/6 = SubResource( 8 )
 anims/7 = SubResource( 9 )
 anims/8 = SubResource( 10 )
 anims/9 = SubResource( 11 )
+anims/SetBlack = SubResource( 24 )
+anims/SetWhite = SubResource( 25 )
 
 [node name="Background" type="TextureRect" parent="."]
 self_modulate = Color( 0.6, 0.6, 0.6, 1 )
@@ -688,6 +761,7 @@ stream = ExtResource( 17 )
 [connection signal="StopGameMusic" from="UI_Template" to="AudioManager" method="StopCurrentMusic"]
 [connection signal="StopGameMusic" from="UI_Template" to="PannerAnimation" method="BackToInitAnimation"]
 [connection signal="TimerDone" from="UI_Template" to="." method="EndGame"]
+[connection signal="UIIdle" from="UI_Template" to="PannerAnimation/Background/AnimationPlayer" method="play" binds= [ "SetBlack" ]]
 [connection signal="bet" from="UI_Template" to="CurrencyManager" method="Bet"]
 [connection signal="end_collect" from="UI_Template" to="." method="MoneyCollected"]
 [connection signal="maxBet" from="UI_Template" to="CurrencyManager" method="MaxBet"]
