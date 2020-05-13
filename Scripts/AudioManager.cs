@@ -22,7 +22,6 @@ public class AudioManager : Node
     {
         InitChilds();
         _backGroundMusic.Stream = idleMusic;
-        _backGroundMusic.Play();
     }
 
     public void BonusWinSound()
