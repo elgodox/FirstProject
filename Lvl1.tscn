@@ -481,9 +481,9 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-_useDb = true
 _levels = 10
 _timerInLevel = 10
+_badOnes = PoolIntArray( 1, 2, 0, 0, 2, 1, 0, 0, 0, 0 )
 
 [node name="PannerAnimation" type="Control" parent="."]
 anchor_right = 1.003
@@ -558,7 +558,6 @@ __meta__ = {
 }
 
 [node name="Luz" type="TextureRect" parent="Background"]
-modulate = Color( 0.458824, 0.858824, 1, 1 )
 anchor_left = 0.434
 anchor_top = 0.744
 anchor_right = 0.572
@@ -575,7 +574,6 @@ __meta__ = {
 }
 
 [node name="HaloLuz" type="TextureRect" parent="Background"]
-modulate = Color( 0.458824, 0.858824, 1, 1 )
 anchor_left = 0.399
 anchor_top = 0.44
 anchor_right = 0.603
@@ -655,41 +653,41 @@ stream = ExtResource( 13 )
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 17 )
 autoplay = true
-[connection signal="BonusOver" from="." to="UI_Template" method="BonusPicked"]
 [connection signal="BonusOver" from="." to="AudioManager" method="BonusWinSound"]
+[connection signal="BonusOver" from="." to="UI_Template" method="BonusPicked"]
 [connection signal="BonusStarted" from="." to="AudioManager" method="PlayBonusMusic"]
 [connection signal="CanCollect" from="." to="UI_Template" method="ActivateCollectButton"]
-[connection signal="GameOver" from="." to="UI_Template" method="ActivateAgain"]
 [connection signal="GameOver" from="." to="CurrencyManager" method="AddCurrencyToCredits"]
+[connection signal="GameOver" from="." to="UI_Template" method="ActivateAgain"]
 [connection signal="GameReady" from="." to="UI_Template" method="ActivatePlayButton"]
 [connection signal="GameStarted" from="." to="UI_Template" method="DeactivateButtons"]
 [connection signal="LevelCreated" from="." to="UI_Template" method="ActivateFinishButton"]
+[connection signal="LevelsOver" from="." to="AudioManager" method="GameOverSound"]
+[connection signal="LevelsOver" from="." to="UI_Template" method="SetGameOverMessage"]
 [connection signal="LevelsOver" from="." to="Background" method="SetBackgroundAnimation"]
 [connection signal="LevelsOver" from="." to="PannerAnimation" method="BackToOrigin"]
-[connection signal="LevelsOver" from="." to="UI_Template" method="SetGameOverMessage"]
-[connection signal="LevelsOver" from="." to="AudioManager" method="GameOverSound"]
 [connection signal="NodePicked" from="." to="UI_Template" method="StopTimer"]
 [connection signal="NodePicked" from="." to="UI_Template" method="DeactivateFinishButton"]
-[connection signal="NodeWithBonus" from="." to="Background" method="IsBonus"]
 [connection signal="NodeWithBonus" from="." to="UI_Template" method="BonusFeedback"]
+[connection signal="NodeWithBonus" from="." to="Background" method="IsBonus"]
 [connection signal="PlayMusicGame" from="." to="AudioManager" method="PlayLevelMusic"]
-[connection signal="RoundWined" from="." to="Background" method="IsGood"]
 [connection signal="RoundWined" from="." to="CurrencyManager" method="AddBetToCurrency"]
+[connection signal="RoundWined" from="." to="Background" method="IsGood"]
 [connection signal="SetCurrencyManager" from="." to="CurrencyManager" method="SetCurrency"]
 [connection signal="StartTimer" from="." to="UI_Template" method="StartTimer"]
 [connection signal="animation_finished" from="Background/AnimationPlayer" to="Background" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="CurrencyChanged" from="CurrencyManager" to="UI_Template" method="UpdateCurrencyUI"]
 [connection signal="GameHaveBet" from="CurrencyManager" to="." method="GameHaveBetNow"]
-[connection signal="BonusAccepted" from="UI_Template" to="." method="InstantiateBonus"]
 [connection signal="BonusAccepted" from="UI_Template" to="UI_Template" method="BonusStarted"]
+[connection signal="BonusAccepted" from="UI_Template" to="." method="InstantiateBonus"]
 [connection signal="ControlMasterVolume" from="UI_Template" to="AudioManager" method="_on_UI_ControlMasterVolume"]
-[connection signal="StopGameMusic" from="UI_Template" to="PannerAnimation" method="BackToInitAnimation"]
 [connection signal="StopGameMusic" from="UI_Template" to="AudioManager" method="StopCurrentMusic"]
+[connection signal="StopGameMusic" from="UI_Template" to="PannerAnimation" method="BackToInitAnimation"]
 [connection signal="TimerDone" from="UI_Template" to="." method="EndGame"]
 [connection signal="bet" from="UI_Template" to="CurrencyManager" method="Bet"]
 [connection signal="end_collect" from="UI_Template" to="." method="MoneyCollected"]
 [connection signal="maxBet" from="UI_Template" to="CurrencyManager" method="MaxBet"]
-[connection signal="restartGame" from="UI_Template" to="." method="StartGame"]
-[connection signal="restartGame" from="UI_Template" to="PannerAnimation" method="BackToInitAnimation"]
 [connection signal="restartGame" from="UI_Template" to="CurrencyManager" method="ConfirmBet"]
+[connection signal="restartGame" from="UI_Template" to="PannerAnimation" method="BackToInitAnimation"]
+[connection signal="restartGame" from="UI_Template" to="." method="StartGame"]
 [connection signal="finished" from="AudioManager/BackGroundMusic" to="AudioManager" method="_on_BackGroundMusic_finished"]

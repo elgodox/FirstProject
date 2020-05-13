@@ -179,7 +179,7 @@ public class UIButtonsManager : Control
         _audio = GetNode("AudioStreamPlayer") as AudioStreamPlayer;
         _spriteVolumeButton = GetNode("VolumeButton/AnimatedSprite") as AnimatedSprite;
         _bonusFeedback = GetNode("BonusFeedback") as Control;
-        _buttonStartBonus = GetNode("ControlPanel/buttonStartBonus") as TextureButton;
+        _buttonStartBonus = GetNode("ui_IncomingBonus/buttonStartBonus") as TextureButton;
 
         #endregion
         
@@ -229,7 +229,6 @@ public class UIButtonsManager : Control
         if(bonus)
         {
             _incomingBonus.Show();
-            _buttonStartBonus.Show();
         }
         else
         {
