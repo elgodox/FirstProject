@@ -191,7 +191,7 @@ animations = [ {
 "name": "Idle",
 "speed": 6.0
 }, {
-"frames": [ ExtResource( 144 ), ExtResource( 150 ), ExtResource( 147 ), ExtResource( 122 ), ExtResource( 120 ), ExtResource( 118 ), ExtResource( 139 ), ExtResource( 132 ), ExtResource( 127 ), ExtResource( 123 ), ExtResource( 140 ), ExtResource( 133 ), ExtResource( 136 ), ExtResource( 121 ), ExtResource( 142 ), ExtResource( 128 ), ExtResource( 137 ), ExtResource( 141 ), ExtResource( 119 ), ExtResource( 134 ), ExtResource( 124 ), ExtResource( 131 ), ExtResource( 130 ), ExtResource( 135 ), ExtResource( 138 ), ExtResource( 129 ), ExtResource( 143 ), ExtResource( 117 ), ExtResource( 115 ), ExtResource( 113 ), ExtResource( 116 ), ExtResource( 114 ), ExtResource( 149 ), ExtResource( 112 ), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+"frames": [ ExtResource( 144 ), ExtResource( 150 ), ExtResource( 147 ), ExtResource( 122 ), ExtResource( 120 ), ExtResource( 118 ), ExtResource( 139 ), ExtResource( 132 ), ExtResource( 127 ), ExtResource( 123 ), ExtResource( 140 ), ExtResource( 133 ), ExtResource( 136 ), ExtResource( 121 ), ExtResource( 142 ), ExtResource( 128 ), ExtResource( 137 ), ExtResource( 141 ), ExtResource( 119 ), ExtResource( 134 ), ExtResource( 124 ), ExtResource( 131 ), ExtResource( 130 ), ExtResource( 135 ), ExtResource( 138 ), ExtResource( 129 ), ExtResource( 143 ), ExtResource( 117 ), ExtResource( 115 ), ExtResource( 113 ), ExtResource( 116 ), ExtResource( 114 ), ExtResource( 149 ), null ],
 "loop": false,
 "name": "Exit",
 "speed": 20.0
@@ -216,7 +216,7 @@ animations = [ {
 "name": "Appear",
 "speed": 15.0
 }, {
-"frames": [ ExtResource( 155 ), ExtResource( 157 ), ExtResource( 152 ), ExtResource( 158 ), ExtResource( 153 ), ExtResource( 159 ), ExtResource( 153 ), ExtResource( 158 ), ExtResource( 152 ), ExtResource( 157 ), ExtResource( 155 ), ExtResource( 144 ), ExtResource( 122 ), ExtResource( 120 ), ExtResource( 118 ), ExtResource( 139 ), ExtResource( 132 ), ExtResource( 123 ), ExtResource( 127 ), ExtResource( 140 ), ExtResource( 133 ), ExtResource( 136 ), ExtResource( 121 ), ExtResource( 142 ), ExtResource( 128 ), ExtResource( 137 ), ExtResource( 141 ), ExtResource( 119 ), ExtResource( 134 ), ExtResource( 124 ), ExtResource( 131 ), ExtResource( 130 ), ExtResource( 135 ), ExtResource( 138 ), ExtResource( 129 ), ExtResource( 143 ), ExtResource( 117 ), ExtResource( 115 ), ExtResource( 113 ), ExtResource( 116 ), ExtResource( 114 ), ExtResource( 112 ), null, null, null, null, null, null, null, null, null, null, ExtResource( 149 ), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null ],
+"frames": [ ExtResource( 155 ), ExtResource( 157 ), ExtResource( 152 ), ExtResource( 158 ), ExtResource( 153 ), ExtResource( 159 ), ExtResource( 153 ), ExtResource( 158 ), ExtResource( 152 ), ExtResource( 157 ), ExtResource( 155 ), ExtResource( 144 ), ExtResource( 122 ), ExtResource( 120 ), ExtResource( 118 ), ExtResource( 139 ), ExtResource( 132 ), ExtResource( 123 ), ExtResource( 127 ), ExtResource( 140 ), ExtResource( 133 ), ExtResource( 136 ), ExtResource( 121 ), ExtResource( 142 ), ExtResource( 128 ), ExtResource( 137 ), ExtResource( 141 ), ExtResource( 119 ), ExtResource( 134 ), ExtResource( 124 ), ExtResource( 131 ), ExtResource( 130 ), ExtResource( 135 ), ExtResource( 138 ), ExtResource( 129 ), ExtResource( 143 ), ExtResource( 117 ), ExtResource( 115 ), ExtResource( 113 ), ExtResource( 116 ), ExtResource( 114 ), null ],
 "loop": false,
 "name": "ExitBonus",
 "speed": 16.0
@@ -244,9 +244,10 @@ isBonus = ExtResource( 184 )
 position = Vector2( 40.0278, 43.1763 )
 scale = Vector2( 0.483959, 0.483959 )
 frames = SubResource( 1 )
-animation = "Idle"
-frame = 31
+animation = "ExitBonus"
+frame = 41
 speed_scale = 6.0
+playing = true
 
 [node name="Label" type="Label" parent="."]
 anchor_left = 0.5
@@ -266,4 +267,4 @@ __meta__ = {
 
 [node name="HexAudio" type="AudioStreamPlayer2D" parent="."]
 [connection signal="button_down" from="." to="." method="_on_button_down"]
-[connection signal="animation_finished" from="Sprite" to="Sprite" method="play" binds= [ "Idle" ]]
+[connection signal="animation_finished" from="Sprite" to="." method="IdleAnimation"]
