@@ -484,6 +484,7 @@ __meta__ = {
 _useDb = true
 _levels = 10
 _timerInLevel = 10
+_badOnes = PoolIntArray( 0, 0, 0, 9, 0, 0, 0, 0, 0, 0 )
 
 [node name="PannerAnimation" type="Control" parent="."]
 anchor_right = 1.003
@@ -500,9 +501,9 @@ __meta__ = {
 anchor_top = 0.989
 anchor_right = 0.997
 anchor_bottom = 1.0
-margin_top = -8994.94
+margin_top = -1700.09
 margin_right = -0.18811
-margin_bottom = -14.7573
+margin_bottom = 7280.09
 rect_pivot_offset = Vector2( 789.233, 5.63574 )
 texture = ExtResource( 20 )
 expand = true
@@ -664,12 +665,12 @@ autoplay = true
 [connection signal="GameReady" from="." to="UI_Template" method="ActivatePlayButton"]
 [connection signal="GameStarted" from="." to="UI_Template" method="DeactivateButtons"]
 [connection signal="LevelCreated" from="." to="UI_Template" method="ActivateFinishButton"]
-[connection signal="LevelsOver" from="." to="Background" method="SetBackgroundAnimation"]
 [connection signal="LevelsOver" from="." to="PannerAnimation" method="BackToOrigin"]
+[connection signal="LevelsOver" from="." to="Background" method="SetBackgroundAnimation"]
 [connection signal="LevelsOver" from="." to="UI_Template" method="SetGameOverMessage"]
 [connection signal="LevelsOver" from="." to="AudioManager" method="GameOverSound"]
-[connection signal="NodePicked" from="." to="UI_Template" method="StopTimer"]
 [connection signal="NodePicked" from="." to="UI_Template" method="DeactivateFinishButton"]
+[connection signal="NodePicked" from="." to="UI_Template" method="StopTimer"]
 [connection signal="NodeWithBonus" from="." to="Background" method="IsBonus"]
 [connection signal="NodeWithBonus" from="." to="UI_Template" method="BonusFeedback"]
 [connection signal="PlayMusicGame" from="." to="AudioManager" method="PlayLevelMusic"]
