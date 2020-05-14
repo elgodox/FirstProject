@@ -22,7 +22,7 @@ public class GameManager : Godot.Control
     [Signal] public delegate void LevelCreated();
 
     public LevelManager currentLevelMngr;
-    int _currentLevel;
+    public int currentLevel;
     string _betDescription;
     [Export] bool _useDb = false;
     bool _gotBonus = false;
@@ -189,7 +189,7 @@ public class GameManager : Godot.Control
     void CreateLevel()
     {
         CheckToFinishGame();
-        _currencyManager.SetLevelMultiplier(_levels - _currentLevel);
+        _currencyManager.SetLevelMultiplier(_levels - currentLevel);
 
         if (!_isResuming)
         {
@@ -199,13 +199,13 @@ public class GameManager : Godot.Control
         currentLevelMngr = levelManagerPrefab.Instance() as LevelManager;
         AddChild(currentLevelMngr);
         currentLevelMngr.myGameManager = this;
-        if(_myGameGen.bonusGenerated && _currentLevel == 8)
+        if(_myGameGen.bonusGenerated && currentLevel == 8)
         {
             currentLevelMngr.SetBonusPosition(_myGameGen.bonusSlot);
             currentLevelMngr.gotABonus = true;
         }
-        currentLevelMngr.SetActivesPositions(_currentLevelInfo, _badOnes[_levels - _currentLevel]);
-        _currentLevel--;
+        currentLevelMngr.SetActivesPositions(_currentLevelInfo, _badOnes[_levels - currentLevel]);
+        currentLevel--;
         //New level created
         EmitSignal(nameof(LevelCreated));
     }
@@ -219,14 +219,14 @@ public class GameManager : Godot.Control
         if (win)
         {
             EmitSignal(nameof(RoundWined));
-            _panner.Panning(_currentLevel);
+            _panner.Panning(currentLevel);
             if(bonus)
             {
                 _gotBonus = true;
                 EmitSignal(nameof(NodeWithBonus));
                 SetTimeOutMethod(1.5f, "CreateLevel");
             }
-            else if (_currentLevel <= 0)
+            else if (currentLevel <= 0)
             {
                 EndGame(true);
             }
@@ -243,7 +243,7 @@ public class GameManager : Godot.Control
     }
     void CheckToFinishGame()
     {
-        if (_currentLevel <= 8)
+        if (currentLevel <= 8)
         {
             EmitSignal(nameof(CanCollect));
             EmitSignal(nameof(StartTimer), _timerInLevel);
@@ -266,7 +266,7 @@ public class GameManager : Godot.Control
         if(!_isResuming)
         {
             _betDescription = "P";
-            _currentLevel = 10;
+            currentLevel = 10;
             EmitSignal(nameof(PlayMusicGame));
             CreateLevel();
         }
@@ -291,8 +291,8 @@ public class GameManager : Godot.Control
     }
     void GetNewLevelInfo()
     {
-        _myGameGen.SetBadOnes(_badOnes[_levels - _currentLevel]);
-        _currentLevelInfo = _myGameGen.GenerateLevelInfo(_currentLevel);
+        _myGameGen.SetBadOnes(_badOnes[_levels - currentLevel]);
+        _currentLevelInfo = _myGameGen.GenerateLevelInfo(currentLevel);
         _betDescription += _myGameGen.levelDescription;
         UpdateSaveData(null);
     }
@@ -314,7 +314,7 @@ public class GameManager : Godot.Control
 
     public void EndGame(bool win)
     {
-        GD.Print("End Game, el nivel actual es " + _currentLevel + " y el bool de win es " + win);
+        GD.Print("End Game, el nivel actual es " + currentLevel + " y el bool de win es " + win);
         currentLevelMngr?.ExitAnimation();
         _currencyManager.UpdateWinnedCurrency();
         EmitSignal(nameof(LevelsOver), win, _gotBonus);
@@ -322,7 +322,7 @@ public class GameManager : Godot.Control
         {
             _currencyManager.ResetCurrencyToCollect();
         }
-        if (_currentLevel > 0)
+        if (currentLevel > 0)
         {
             if (win)
             {
@@ -330,7 +330,7 @@ public class GameManager : Godot.Control
                 _betDescription += "-1;";
             }
             //GD.Print("Finalicé antes de llegar al final, generando " + (_currentLevel) + " niveles faltantes");
-            FillBetDescription(_currentLevel);
+            FillBetDescription(currentLevel);
         }
 
         if (_useDb)
@@ -370,7 +370,7 @@ public class GameManager : Godot.Control
     void ResumeCrashedGame()
     {
         _isResuming = true;
-        _currentLevel = _myRecover.GetLevelReached();
+        currentLevel = _myRecover.GetLevelReached();
 
         _myGameGen.bonusGenerated = _myRecover.GetPossibleBonus();
         
@@ -383,13 +383,13 @@ public class GameManager : Godot.Control
 
         StartGame();
         
-        if(_currentLevel > 0)
+        if(currentLevel > 0)
         {
             CheckToFinishGame();
-            _currencyManager.SetLevelMultiplier((_levels - _currentLevel) - 1);
-            _currentLevelInfo = _myRecover.GetLastLevelInfo(_currentLevel);
+            _currencyManager.SetLevelMultiplier((_levels - currentLevel) - 1);
+            _currentLevelInfo = _myRecover.GetLastLevelInfo(currentLevel);
             EmitSignal(nameof(RoundWined));
-            _panner.Panning(_currentLevel);
+            _panner.Panning(currentLevel);
             CreateLevel();
             EmitSignal(nameof(PlayMusicGame));
             if (_gotBonus)

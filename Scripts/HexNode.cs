@@ -32,6 +32,7 @@ public class HexNode : Node
         if (!pressed)
         {
             pressed = true;
+            nodePressed(this);
             if (bonus)
             {
                 sprite.Animation = "isBonus";
@@ -40,7 +41,7 @@ public class HexNode : Node
             else if (goodOne)
             {
                 sprite.Animation = "isGood";
-                audio.Stream = isGood;   
+                audio.Stream = isGood;
             }
             else
             {
@@ -48,9 +49,8 @@ public class HexNode : Node
                 audio.Stream = isBad;
             }
 
-            audio.VolumeDb = 1;
+            audio.VolumeDb = 10;
             audio.Play();
-            nodePressed(this);
         }
 
     }
@@ -66,7 +66,6 @@ public class HexNode : Node
     {
         if (bonus)
         {
-            GD.Print("ExitBonus!");
             sprite.Animation = "ExitBonus";
         }
         else
