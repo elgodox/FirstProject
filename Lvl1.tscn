@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://Sounds/InGameRobotShort.ogg" type="AudioStream" id=1]
 [ext_resource path="res://Scenes/UITemplate.tscn" type="PackedScene" id=2]
@@ -426,6 +426,28 @@ scale_curve = SubResource( 17 )
 color_ramp = SubResource( 15 )
 hue_variation = -1.0
 
+[sub_resource type="Curve" id=28]
+_data = [ Vector2( 0.0097561, 0.222727 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=29]
+curve = SubResource( 28 )
+
+[sub_resource type="ParticlesMaterial" id=30]
+lifetime_randomness = 1.0
+flag_disable_z = true
+direction = Vector3( 0, -1, 0 )
+spread = 71.99
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 200.0
+initial_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.0
+scale_random = 0.01
+scale_curve = SubResource( 29 )
+hue_variation = 0.25
+hue_variation_random = 0.78
+
 [sub_resource type="Animation" id=19]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Lineas:modulate")
@@ -600,6 +622,42 @@ tracks/3/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 0.364706, 1, 0.611765, 1 ), Color( 1, 1, 1, 1 ) ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath(".:rect_scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 0.112656, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.01, 1.01 ), Vector2( 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("../UI_Template:rect_scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 0.11, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.01, 1.01 ), Vector2( 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("HaloLuz/Contenedor de Particulas/Good:emitting")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
 
 [sub_resource type="Animation" id=22]
 tracks/0/type = "value"
@@ -681,7 +739,9 @@ margin_bottom = 1.56702
 rect_min_size = Vector2( 1024, 768 )
 script = ExtResource( 3 )
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_horizontal_guides_": [ 450.592 ],
+"_edit_use_anchors_": false,
+"_edit_vertical_guides_": [ 798.594 ]
 }
 _levels = 10
 _timerInLevel = 10
@@ -699,13 +759,12 @@ __meta__ = {
 }
 
 [node name="Background" type="TextureRect" parent="PannerAnimation"]
-modulate = Color( 0, 0, 0, 1 )
 anchor_top = 0.989
 anchor_right = 0.997
 anchor_bottom = 1.0
 margin_top = -8990.01
 margin_right = -0.18811
-margin_bottom = -9.82129
+margin_bottom = -9.82031
 rect_pivot_offset = Vector2( 789.233, 5.63574 )
 texture = ExtResource( 20 )
 expand = true
@@ -732,14 +791,13 @@ anims/SetBlack = SubResource( 12 )
 anims/SetWhite = SubResource( 13 )
 
 [node name="Background" type="TextureRect" parent="."]
-self_modulate = Color( 0.6, 0.6, 0.6, 1 )
 anchor_right = 1.002
 anchor_bottom = 0.999
 margin_left = 1.0
 margin_top = -2.0
 margin_right = -0.200195
 margin_bottom = 0.899963
-rect_pivot_offset = Vector2( -563.085, -98.034 )
+rect_pivot_offset = Vector2( 799.835, 451.591 )
 texture = ExtResource( 11 )
 expand = true
 stretch_mode = 7
@@ -765,6 +823,7 @@ __meta__ = {
 }
 
 [node name="Luz" type="TextureRect" parent="Background"]
+modulate = Color( 0.458824, 0.858824, 1, 1 )
 anchor_left = 0.434
 anchor_top = 0.744
 anchor_right = 0.572
@@ -821,6 +880,18 @@ randomness = 1.0
 process_material = SubResource( 18 )
 texture = ExtResource( 5 )
 
+[node name="Good" type="Particles2D" parent="Background/HaloLuz/Contenedor de Particulas"]
+position = Vector2( 18.5231, 29.1589 )
+scale = Vector2( 7.06614, 7.06614 )
+emitting = false
+amount = 500
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+process_material = SubResource( 30 )
+texture = ExtResource( 5 )
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Background"]
 method_call_mode = 1
 anims/Bad = SubResource( 19 )
@@ -836,9 +907,10 @@ script = ExtResource( 4 )
 
 [node name="UI_Template" parent="." instance=ExtResource( 2 )]
 margin_left = 0.342408
-margin_top = 0.0
+margin_top = 3.0
 margin_right = 0.342407
-margin_bottom = 6.10352e-05
+margin_bottom = 3.00006
+rect_pivot_offset = Vector2( 799.18, 449.663 )
 
 [node name="AudioManager" type="Node" parent="."]
 script = ExtResource( 6 )
@@ -862,26 +934,26 @@ stream = ExtResource( 17 )
 [connection signal="BonusOver" from="." to="AudioManager" method="BonusWinSound"]
 [connection signal="BonusStarted" from="." to="AudioManager" method="PlayBonusMusic"]
 [connection signal="CanCollect" from="." to="UI_Template" method="ActivateCollectButton"]
-[connection signal="GameOver" from="." to="UI_Template" method="ActivateAgain"]
 [connection signal="GameOver" from="." to="CurrencyManager" method="AddCurrencyToCredits"]
+[connection signal="GameOver" from="." to="UI_Template" method="ActivateAgain"]
 [connection signal="GameReady" from="." to="UI_Template" method="ActivatePlayButton"]
 [connection signal="GameStarted" from="." to="UI_Template" method="DeactivateButtons"]
 [connection signal="LevelCreated" from="." to="UI_Template" method="ActivateFinishButton"]
+[connection signal="LevelsOver" from="." to="Background" method="SetBackgroundAnimation"]
 [connection signal="LevelsOver" from="." to="PannerAnimation" method="BackToOrigin"]
 [connection signal="LevelsOver" from="." to="UI_Template" method="SetGameOverMessage"]
-[connection signal="LevelsOver" from="." to="Background" method="SetBackgroundAnimation"]
 [connection signal="LevelsOver" from="." to="AudioManager" method="GameOverSound"]
 [connection signal="NodePicked" from="." to="UI_Template" method="DeactivateFinishButton"]
 [connection signal="NodePicked" from="." to="UI_Template" method="StopTimer"]
-[connection signal="NodeWithBonus" from="." to="UI_Template" method="BonusFeedback"]
 [connection signal="NodeWithBonus" from="." to="Background" method="IsBonus"]
+[connection signal="NodeWithBonus" from="." to="UI_Template" method="BonusFeedback"]
 [connection signal="PlayMusicGame" from="." to="AudioManager" method="PlayLevelMusic"]
-[connection signal="RoundWined" from="." to="Background" method="IsGood"]
 [connection signal="RoundWined" from="." to="CurrencyManager" method="AddBetToCurrency"]
+[connection signal="RoundWined" from="." to="Background" method="IsGood"]
 [connection signal="SetCurrencyManager" from="." to="CurrencyManager" method="SetCurrency"]
 [connection signal="StartTimer" from="." to="UI_Template" method="StartTimer"]
-[connection signal="ready" from="." to="AudioManager/BackGroundMusic" method="play"]
 [connection signal="ready" from="." to="AudioManager/PowerOn" method="play"]
+[connection signal="ready" from="." to="AudioManager/BackGroundMusic" method="play"]
 [connection signal="ready" from="." to="Background/AnimationPlayer" method="play" binds= [ "Init" ]]
 [connection signal="animation_finished" from="Background/AnimationPlayer" to="Background" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="CurrencyChanged" from="CurrencyManager" to="UI_Template" method="UpdateCurrencyUI"]
@@ -896,7 +968,7 @@ stream = ExtResource( 17 )
 [connection signal="bet" from="UI_Template" to="CurrencyManager" method="Bet"]
 [connection signal="end_collect" from="UI_Template" to="." method="MoneyCollected"]
 [connection signal="maxBet" from="UI_Template" to="CurrencyManager" method="MaxBet"]
+[connection signal="restartGame" from="UI_Template" to="CurrencyManager" method="ConfirmBet"]
 [connection signal="restartGame" from="UI_Template" to="." method="StartGame"]
 [connection signal="restartGame" from="UI_Template" to="PannerAnimation" method="BackToInitAnimation"]
-[connection signal="restartGame" from="UI_Template" to="CurrencyManager" method="ConfirmBet"]
 [connection signal="finished" from="AudioManager/BackGroundMusic" to="AudioManager" method="_on_BackGroundMusic_finished"]
