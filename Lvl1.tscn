@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://Sounds/InGameRobotShort.ogg" type="AudioStream" id=1]
 [ext_resource path="res://Scenes/UITemplate.tscn" type="PackedScene" id=2]
@@ -12,7 +12,6 @@
 [ext_resource path="res://Sprites/efecto-holograma.png" type="Texture" id=10]
 [ext_resource path="res://Sprites/BackGround/fondo.png" type="Texture" id=11]
 [ext_resource path="res://Scripts/Panner.cs" type="Script" id=12]
-[ext_resource path="res://Sounds/Menu.ogg" type="AudioStream" id=13]
 [ext_resource path="res://Sprites/luz-proyector.png" type="Texture" id=14]
 [ext_resource path="res://Sprites/BackGround/luces.png" type="Texture" id=15]
 [ext_resource path="res://Sounds/MusicMenu.ogg" type="AudioStream" id=16]
@@ -571,9 +570,9 @@ __meta__ = {
 anchor_top = 0.989
 anchor_right = 0.997
 anchor_bottom = 1.0
-margin_top = -8859.46
+margin_top = -8990.01
 margin_right = -0.18811
-margin_bottom = 120.719
+margin_bottom = -9.82617
 rect_pivot_offset = Vector2( 789.233, 5.63574 )
 texture = ExtResource( 20 )
 expand = true
@@ -719,7 +718,6 @@ bonusMusic = ExtResource( 8 )
 winBonusMusic = ExtResource( 19 )
 
 [node name="BackGroundMusic" type="AudioStreamPlayer" parent="AudioManager"]
-stream = ExtResource( 13 )
 
 [node name="NotificationSounds" type="AudioStreamPlayer" parent="AudioManager"]
 
@@ -747,14 +745,14 @@ stream = ExtResource( 17 )
 [connection signal="RoundWined" from="." to="Background" method="IsGood"]
 [connection signal="SetCurrencyManager" from="." to="CurrencyManager" method="SetCurrency"]
 [connection signal="StartTimer" from="." to="UI_Template" method="StartTimer"]
-[connection signal="ready" from="." to="Background/AnimationPlayer" method="play" binds= [ "Init" ]]
 [connection signal="ready" from="." to="AudioManager/BackGroundMusic" method="play"]
 [connection signal="ready" from="." to="AudioManager/PowerOn" method="play"]
+[connection signal="ready" from="." to="Background/AnimationPlayer" method="play" binds= [ "Init" ]]
 [connection signal="animation_finished" from="Background/AnimationPlayer" to="Background" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="CurrencyChanged" from="CurrencyManager" to="UI_Template" method="UpdateCurrencyUI"]
 [connection signal="GameHaveBet" from="CurrencyManager" to="." method="GameHaveBetNow"]
-[connection signal="BonusAccepted" from="UI_Template" to="." method="InstantiateBonus"]
 [connection signal="BonusAccepted" from="UI_Template" to="UI_Template" method="BonusStarted"]
+[connection signal="BonusAccepted" from="UI_Template" to="." method="InstantiateBonus"]
 [connection signal="ControlMasterVolume" from="UI_Template" to="AudioManager" method="_on_UI_ControlMasterVolume"]
 [connection signal="StopGameMusic" from="UI_Template" to="AudioManager" method="StopCurrentMusic"]
 [connection signal="StopGameMusic" from="UI_Template" to="PannerAnimation" method="BackToInitAnimation"]
