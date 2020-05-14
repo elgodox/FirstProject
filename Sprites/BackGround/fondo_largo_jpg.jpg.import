@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/fondo_largo.png-946d1dfab50d9b10b5dca23c4c8550e8.stex"
+path="res://.import/fondo_largo_jpg.jpg-65d4c11c19e88d1852c7891ac3f1b8f4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/BackGround/fondo_largo.png"
-dest_files=[ "res://.import/fondo_largo.png-946d1dfab50d9b10b5dca23c4c8550e8.stex" ]
+source_file="res://Sprites/BackGround/fondo_largo_jpg.jpg"
+dest_files=[ "res://.import/fondo_largo_jpg.jpg-65d4c11c19e88d1852c7891ac3f1b8f4.stex" ]
 
 [params]
 
