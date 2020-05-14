@@ -7,7 +7,6 @@ public class LevelManager : Node
 	int bonusIndex;
 	public bool gotABonus;
 	public GameManager myGameManager;
-	[Export] public int activeOnes;
 	[Export] String pathAnimation;
 
 	protected HexNode[] _nodes = new HexNode[19];
@@ -157,6 +156,8 @@ public class LevelManager : Node
 
 	public virtual void ReceiveNodePressed(HexNode node)
 	{
+		node.audio.PitchScale += .1f * (10 - myGameManager.currentLevel);
+		GD.Print(node.audio.PitchScale);
 		myGameManager.CheckHexSelected(node.goodOne, node.Name, node.bonus);
 		if (node.bonus)
 		{
