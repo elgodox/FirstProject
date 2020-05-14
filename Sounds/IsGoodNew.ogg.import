@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/IsGoodNew.ogg-7829bd98394381dca041ac835065f86a.oggstr"
+
+[deps]
+
+source_file="res://Sounds/IsGoodNew.ogg"
+dest_files=[ "res://.import/IsGoodNew.ogg-7829bd98394381dca041ac835065f86a.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

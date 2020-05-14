@@ -11,6 +11,7 @@ public class Panner : Node
     public override void _Ready()
     {
         _animation = GetNode("Background/AnimationPlayer") as AnimationPlayer;
+        _animation.Play();
     }
 
     public void BackToOrigin(bool win, bool bonus)
