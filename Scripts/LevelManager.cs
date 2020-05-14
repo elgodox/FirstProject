@@ -156,7 +156,10 @@ public class LevelManager : Node
 
 	public virtual void ReceiveNodePressed(HexNode node)
 	{
-		node.audio.PitchScale += .1f * (10 - myGameManager.currentLevel);
+		if (node.goodOne)
+		{
+			node.audio.PitchScale += .1f * (10 - myGameManager.currentLevel);
+		}
 		GD.Print(node.audio.PitchScale);
 		myGameManager.CheckHexSelected(node.goodOne, node.Name, node.bonus);
 		if (node.bonus)
