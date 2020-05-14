@@ -27,7 +27,7 @@ public class HexNode : Node
         sprite.Playing = false;
         audio = GetNode("HexAudio") as AudioStreamPlayer2D;
     }
-    void _on_button_down()
+    public void _on_button_down()
     {
         if (!pressed)
         {

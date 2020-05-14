@@ -66,60 +66,6 @@ public class LevelManager : Node
 
 	}
 
-	// private void MakeBadOnes()
-	// {
-	// 	badOnes = Mathf.Clamp(badOnes, 0, _hexes.Length);
-
-	// 	List<int> badOnesList = new List<int>();
-		
-	// 	for (int i = 0; i < badOnes; i++)
-	// 	{
-	// 		Random randomNumber = new Random();
-	// 		int badRand = (randomNumber.Next() % _hexes.Length);
-	// 		if(!badOnesList.Contains(badRand) && _hexes[badRand] != null)
-	// 		{
-	// 			badOnesList.Add(badRand);
-	// 			//GD.Print("Uno de los malos va a ser el slot: " + badRand);
-	// 			_hexes[badRand].goodOne = false;
-	// 			_hexes[badRand].asigned = true;
-	// 		}
-	// 		else
-	// 		{
-	// 			i --;
-	// 		}
-	// 	}
-	// }
-
-	// void MakeActives()
-	// {
-	// 	activeOnes = Mathf.Clamp(activeOnes, 2, _hexes.Length);
-	// 	List<int> activeOnesList = new List<int>();
-
-	// 	for (int i = 0; i < activeOnes; i++)
-	// 	{
-	// 		Random randomNumber = new Random();
-	// 		int activeRand = (randomNumber.Next() % _hexes.Length);
-
-	// 		if(!activeOnesList.Contains(activeRand))
-	// 		{
-	// 			activeOnesList.Add(activeRand);
-	// 		}
-	// 		else
-	// 		{
-	// 			i--;
-	// 		}
-	// 	}
-	// 	for (int i = 0; i < _hexes.Length; i++)
-	// 	{
-	// 		if(!activeOnesList.Contains(i))
-	// 		{
-	// 			_hexes[i].QueueFree();
-	// 			_hexes[i] = null;
-	// 			_hexes[i] = default;
-	// 		}
-	// 	}
-	// }
-
 	protected virtual void DestroyHexManager() //La llama la animación de Exit
 	{
 		if(myGameManager.currentLevelMngr == this)
@@ -234,5 +180,13 @@ public class LevelManager : Node
 	public void SetBonusPosition(int index)
 	{
 		bonusIndex = index;
+	}
+
+	void ChooseRandomNode()
+	{
+		Random random = new Random();
+		int randomNumber = (random.Next() % _nodes.Length);
+		
+		_nodes[randomNumber]._on_button_down();
 	}
 }
