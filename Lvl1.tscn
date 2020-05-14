@@ -747,9 +747,9 @@ __meta__ = {
 "_edit_use_anchors_": false,
 "_edit_vertical_guides_": [ 798.594 ]
 }
+_useDb = true
 _levels = 10
 _timerInLevel = 10
-_badOnes = PoolIntArray( 0, 1, 0, 2, 2, 1, 0, 0, 0, 0 )
 
 [node name="PannerAnimation" type="Control" parent="."]
 anchor_right = 1.003
