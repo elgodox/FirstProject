@@ -29,7 +29,6 @@ public class BonusManager : LevelManager
 			if(item != null)
 			{
 				item.pressed = true;
-				item.ShowMultiply();
 			}
 		}
     }
@@ -46,7 +45,6 @@ public class BonusManager : LevelManager
 		    var price = _nodes[i].bonusMultiplier.ToString();
 		    price = price.Replace(',', '.');
 		    bonusPrices[i].UpdateMyType(price);
-		    _nodes[i].SetMultiply("X"+bonusPrices[i].myType);
 	    }
     }
 

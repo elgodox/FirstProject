@@ -22,8 +22,6 @@ public class HexNode : Node
     public override void _Ready()
     {
         sprite = GetChild(0) as AnimatedSprite;
-        myName = GetChild(1) as Label;
-        myName.Text = Name;
         sprite.Playing = false;
         audio = GetNode("HexAudio") as AudioStreamPlayer2D;
     }
@@ -74,21 +72,6 @@ public class HexNode : Node
         }
         sprite.Playing = true;
         sprite.Play();
-    }
-
-    public void SetMultiply(string multipliers)
-    {
-        myName.Text = multipliers;
-    }
-    
-    public void ShowMultiply()
-    {
-        myName.Show();
-    }
-    
-    public void HideMultiply()
-    {
-        myName.Hide();
     }
 
     public void IdleAnimation()

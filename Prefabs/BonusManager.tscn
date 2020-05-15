@@ -1,7 +1,7 @@
-[gd_scene load_steps=695 format=2]
+[gd_scene load_steps=696 format=2]
 
 [ext_resource path="res://Scripts/CurrencyLabel.cs" type="Script" id=1]
-[ext_resource path="res://Fonts/Dynamic Fonts/Apuestas.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Fonts/Roboto-BoldCondensed.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Sprites/Bonus/Bluee/Btn_blue (1).png" type="Texture" id=3]
 [ext_resource path="res://Sprites/Bonus/Bluee/Btn_blue (12).png" type="Texture" id=4]
 [ext_resource path="res://Scripts/BonusManager.cs" type="Script" id=5]
@@ -744,6 +744,11 @@ animations = [ {
 "name": "Idle",
 "speed": 20.0
 }, {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ), SubResource( 40 ), SubResource( 41 ), SubResource( 42 ), SubResource( 43 ), SubResource( 44 ), SubResource( 45 ), SubResource( 46 ), SubResource( 47 ), SubResource( 48 ), SubResource( 49 ) ],
+"loop": false,
+"name": "isBonus",
+"speed": 40.0
+}, {
 "frames": [ ExtResource( 304 ), ExtResource( 322 ), ExtResource( 316 ), ExtResource( 323 ), ExtResource( 315 ), ExtResource( 313 ), ExtResource( 308 ), ExtResource( 325 ), ExtResource( 326 ), ExtResource( 327 ), ExtResource( 312 ), ExtResource( 328 ), ExtResource( 329 ), ExtResource( 305 ), ExtResource( 306 ), ExtResource( 324 ), ExtResource( 314 ), ExtResource( 319 ), ExtResource( 307 ), ExtResource( 309 ), ExtResource( 310 ), ExtResource( 318 ), ExtResource( 321 ), ExtResource( 311 ), ExtResource( 317 ), ExtResource( 320 ), ExtResource( 335 ), ExtResource( 334 ), ExtResource( 361 ), ExtResource( 341 ), ExtResource( 345 ), ExtResource( 333 ), ExtResource( 351 ), ExtResource( 348 ), ExtResource( 353 ), ExtResource( 330 ), ExtResource( 339 ), ExtResource( 331 ), ExtResource( 332 ), ExtResource( 359 ), ExtResource( 352 ), ExtResource( 354 ), ExtResource( 349 ), ExtResource( 336 ), ExtResource( 340 ), ExtResource( 337 ), ExtResource( 342 ), ExtResource( 343 ), ExtResource( 355 ), ExtResource( 338 ), ExtResource( 344 ), ExtResource( 356 ), ExtResource( 346 ), ExtResource( 347 ), ExtResource( 357 ), ExtResource( 350 ), ExtResource( 358 ), ExtResource( 360 ), ExtResource( 366 ), ExtResource( 47 ) ],
 "loop": false,
 "name": "Appear",
@@ -753,12 +758,14 @@ animations = [ {
 "loop": false,
 "name": "ExitBonus",
 "speed": 50.0
-}, {
-"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ), SubResource( 40 ), SubResource( 41 ), SubResource( 42 ), SubResource( 43 ), SubResource( 44 ), SubResource( 45 ), SubResource( 46 ), SubResource( 47 ), SubResource( 48 ), SubResource( 49 ) ],
-"loop": false,
-"name": "isBonus",
-"speed": 40.0
 } ]
+
+[sub_resource type="DynamicFont" id=204]
+size = 36
+outline_size = 1
+outline_color = Color( 0.964706, 0.541176, 0.105882, 1 )
+use_filter = true
+font_data = ExtResource( 2 )
 
 [sub_resource type="AtlasTexture" id=51]
 flags = 4
@@ -1012,6 +1019,11 @@ animations = [ {
 "name": "Idle",
 "speed": 20.0
 }, {
+"frames": [ SubResource( 51 ), SubResource( 52 ), SubResource( 53 ), SubResource( 54 ), SubResource( 55 ), SubResource( 56 ), SubResource( 57 ), SubResource( 58 ), SubResource( 59 ), SubResource( 60 ), SubResource( 61 ), SubResource( 62 ), SubResource( 63 ), SubResource( 64 ), SubResource( 65 ), SubResource( 66 ), SubResource( 67 ), SubResource( 68 ), SubResource( 69 ), SubResource( 70 ), SubResource( 71 ), SubResource( 72 ), SubResource( 73 ), SubResource( 74 ), SubResource( 75 ), SubResource( 76 ), SubResource( 77 ), SubResource( 78 ), SubResource( 79 ), SubResource( 80 ), SubResource( 81 ), SubResource( 82 ), SubResource( 83 ), SubResource( 84 ), SubResource( 85 ), SubResource( 86 ), SubResource( 87 ), SubResource( 88 ), SubResource( 89 ), SubResource( 90 ), SubResource( 91 ), SubResource( 92 ), SubResource( 93 ), SubResource( 94 ), SubResource( 95 ), SubResource( 96 ), SubResource( 97 ), SubResource( 98 ), SubResource( 99 ) ],
+"loop": false,
+"name": "isBonus",
+"speed": 40.0
+}, {
 "frames": [ ExtResource( 428 ), ExtResource( 428 ), ExtResource( 428 ), ExtResource( 428 ), ExtResource( 428 ), ExtResource( 428 ), ExtResource( 428 ), ExtResource( 428 ), ExtResource( 428 ), ExtResource( 428 ), ExtResource( 428 ), ExtResource( 428 ), ExtResource( 428 ), ExtResource( 428 ), ExtResource( 428 ), ExtResource( 428 ), ExtResource( 428 ), ExtResource( 385 ), ExtResource( 386 ), ExtResource( 382 ), ExtResource( 363 ), ExtResource( 378 ), ExtResource( 376 ), ExtResource( 364 ), ExtResource( 365 ), ExtResource( 383 ), ExtResource( 384 ), ExtResource( 380 ), ExtResource( 387 ), ExtResource( 381 ), ExtResource( 388 ), ExtResource( 379 ), ExtResource( 389 ), ExtResource( 372 ), ExtResource( 367 ), ExtResource( 368 ), ExtResource( 390 ), ExtResource( 369 ), ExtResource( 373 ), ExtResource( 370 ), ExtResource( 391 ), ExtResource( 371 ), ExtResource( 374 ), ExtResource( 375 ), ExtResource( 392 ), ExtResource( 393 ), ExtResource( 377 ), ExtResource( 362 ), ExtResource( 422 ), ExtResource( 423 ), ExtResource( 416 ), ExtResource( 413 ), ExtResource( 424 ), ExtResource( 407 ), ExtResource( 406 ), ExtResource( 418 ), ExtResource( 417 ), ExtResource( 408 ) ],
 "loop": false,
 "name": "Appear",
@@ -1021,11 +1033,6 @@ animations = [ {
 "loop": false,
 "name": "ExitBonus",
 "speed": 50.0
-}, {
-"frames": [ SubResource( 51 ), SubResource( 52 ), SubResource( 53 ), SubResource( 54 ), SubResource( 55 ), SubResource( 56 ), SubResource( 57 ), SubResource( 58 ), SubResource( 59 ), SubResource( 60 ), SubResource( 61 ), SubResource( 62 ), SubResource( 63 ), SubResource( 64 ), SubResource( 65 ), SubResource( 66 ), SubResource( 67 ), SubResource( 68 ), SubResource( 69 ), SubResource( 70 ), SubResource( 71 ), SubResource( 72 ), SubResource( 73 ), SubResource( 74 ), SubResource( 75 ), SubResource( 76 ), SubResource( 77 ), SubResource( 78 ), SubResource( 79 ), SubResource( 80 ), SubResource( 81 ), SubResource( 82 ), SubResource( 83 ), SubResource( 84 ), SubResource( 85 ), SubResource( 86 ), SubResource( 87 ), SubResource( 88 ), SubResource( 89 ), SubResource( 90 ), SubResource( 91 ), SubResource( 92 ), SubResource( 93 ), SubResource( 94 ), SubResource( 95 ), SubResource( 96 ), SubResource( 97 ), SubResource( 98 ), SubResource( 99 ) ],
-"loop": false,
-"name": "isBonus",
-"speed": 40.0
 } ]
 
 [sub_resource type="AtlasTexture" id=101]
@@ -1280,6 +1287,11 @@ animations = [ {
 "name": "Idle",
 "speed": 20.0
 }, {
+"frames": [ SubResource( 101 ), SubResource( 102 ), SubResource( 103 ), SubResource( 104 ), SubResource( 105 ), SubResource( 106 ), SubResource( 107 ), SubResource( 108 ), SubResource( 109 ), SubResource( 110 ), SubResource( 111 ), SubResource( 112 ), SubResource( 113 ), SubResource( 114 ), SubResource( 115 ), SubResource( 116 ), SubResource( 117 ), SubResource( 118 ), SubResource( 119 ), SubResource( 120 ), SubResource( 121 ), SubResource( 122 ), SubResource( 123 ), SubResource( 124 ), SubResource( 125 ), SubResource( 126 ), SubResource( 127 ), SubResource( 128 ), SubResource( 129 ), SubResource( 130 ), SubResource( 131 ), SubResource( 132 ), SubResource( 133 ), SubResource( 134 ), SubResource( 135 ), SubResource( 136 ), SubResource( 137 ), SubResource( 138 ), SubResource( 139 ), SubResource( 140 ), SubResource( 141 ), SubResource( 142 ), SubResource( 143 ), SubResource( 144 ), SubResource( 145 ), SubResource( 146 ), SubResource( 147 ), SubResource( 148 ), SubResource( 149 ) ],
+"loop": false,
+"name": "isBonus",
+"speed": 40.0
+}, {
 "frames": [ ExtResource( 428 ), ExtResource( 428 ), ExtResource( 428 ), ExtResource( 428 ), ExtResource( 428 ), ExtResource( 428 ), ExtResource( 428 ), ExtResource( 428 ), ExtResource( 428 ), ExtResource( 428 ), ExtResource( 428 ), ExtResource( 428 ), ExtResource( 428 ), ExtResource( 428 ), ExtResource( 428 ), ExtResource( 428 ), ExtResource( 428 ), ExtResource( 428 ), ExtResource( 421 ), ExtResource( 394 ), ExtResource( 404 ), ExtResource( 409 ), ExtResource( 420 ), ExtResource( 403 ), ExtResource( 425 ), ExtResource( 414 ), ExtResource( 395 ), ExtResource( 396 ), ExtResource( 419 ), ExtResource( 412 ), ExtResource( 410 ), ExtResource( 415 ), ExtResource( 397 ), ExtResource( 398 ), ExtResource( 399 ), ExtResource( 400 ), ExtResource( 411 ), ExtResource( 401 ), ExtResource( 402 ), ExtResource( 405 ), ExtResource( 437 ), ExtResource( 430 ), ExtResource( 452 ), ExtResource( 441 ), ExtResource( 451 ), ExtResource( 453 ), ExtResource( 435 ), ExtResource( 440 ), ExtResource( 427 ), ExtResource( 429 ), ExtResource( 454 ), ExtResource( 445 ), ExtResource( 433 ), ExtResource( 456 ), ExtResource( 442 ), ExtResource( 439 ), ExtResource( 448 ), ExtResource( 457 ), ExtResource( 436 ) ],
 "loop": false,
 "name": "Appear",
@@ -1289,11 +1301,6 @@ animations = [ {
 "loop": false,
 "name": "ExitBonus",
 "speed": 50.0
-}, {
-"frames": [ SubResource( 101 ), SubResource( 102 ), SubResource( 103 ), SubResource( 104 ), SubResource( 105 ), SubResource( 106 ), SubResource( 107 ), SubResource( 108 ), SubResource( 109 ), SubResource( 110 ), SubResource( 111 ), SubResource( 112 ), SubResource( 113 ), SubResource( 114 ), SubResource( 115 ), SubResource( 116 ), SubResource( 117 ), SubResource( 118 ), SubResource( 119 ), SubResource( 120 ), SubResource( 121 ), SubResource( 122 ), SubResource( 123 ), SubResource( 124 ), SubResource( 125 ), SubResource( 126 ), SubResource( 127 ), SubResource( 128 ), SubResource( 129 ), SubResource( 130 ), SubResource( 131 ), SubResource( 132 ), SubResource( 133 ), SubResource( 134 ), SubResource( 135 ), SubResource( 136 ), SubResource( 137 ), SubResource( 138 ), SubResource( 139 ), SubResource( 140 ), SubResource( 141 ), SubResource( 142 ), SubResource( 143 ), SubResource( 144 ), SubResource( 145 ), SubResource( 146 ), SubResource( 147 ), SubResource( 148 ), SubResource( 149 ) ],
-"loop": false,
-"name": "isBonus",
-"speed": 40.0
 } ]
 
 [sub_resource type="AtlasTexture" id=151]
@@ -1548,6 +1555,11 @@ animations = [ {
 "name": "Idle",
 "speed": 20.0
 }, {
+"frames": [ SubResource( 151 ), SubResource( 152 ), SubResource( 153 ), SubResource( 154 ), SubResource( 155 ), SubResource( 156 ), SubResource( 157 ), SubResource( 158 ), SubResource( 159 ), SubResource( 160 ), SubResource( 161 ), SubResource( 162 ), SubResource( 163 ), SubResource( 164 ), SubResource( 165 ), SubResource( 166 ), SubResource( 167 ), SubResource( 168 ), SubResource( 169 ), SubResource( 170 ), SubResource( 171 ), SubResource( 172 ), SubResource( 173 ), SubResource( 174 ), SubResource( 175 ), SubResource( 176 ), SubResource( 177 ), SubResource( 178 ), SubResource( 179 ), SubResource( 180 ), SubResource( 181 ), SubResource( 182 ), SubResource( 183 ), SubResource( 184 ), SubResource( 185 ), SubResource( 186 ), SubResource( 187 ), SubResource( 188 ), SubResource( 189 ), SubResource( 190 ), SubResource( 191 ), SubResource( 192 ), SubResource( 193 ), SubResource( 194 ), SubResource( 195 ), SubResource( 196 ), SubResource( 197 ), SubResource( 198 ), SubResource( 199 ) ],
+"loop": false,
+"name": "isBonus",
+"speed": 40.0
+}, {
 "frames": [ ExtResource( 428 ), ExtResource( 447 ), ExtResource( 444 ), ExtResource( 449 ), ExtResource( 455 ), ExtResource( 446 ), ExtResource( 426 ), ExtResource( 431 ), ExtResource( 438 ), ExtResource( 432 ), ExtResource( 443 ), ExtResource( 450 ), ExtResource( 434 ), ExtResource( 467 ), ExtResource( 464 ), ExtResource( 482 ), ExtResource( 459 ), ExtResource( 486 ), ExtResource( 474 ), ExtResource( 472 ), ExtResource( 462 ), ExtResource( 466 ), ExtResource( 458 ), ExtResource( 460 ), ExtResource( 471 ), ExtResource( 485 ), ExtResource( 479 ), ExtResource( 469 ), ExtResource( 463 ), ExtResource( 475 ), ExtResource( 470 ), ExtResource( 465 ), ExtResource( 477 ), ExtResource( 478 ), ExtResource( 473 ), ExtResource( 484 ), ExtResource( 461 ), ExtResource( 476 ), ExtResource( 480 ), ExtResource( 481 ), ExtResource( 468 ), ExtResource( 487 ), ExtResource( 483 ), ExtResource( 288 ), ExtResource( 293 ), ExtResource( 303 ), ExtResource( 298 ), ExtResource( 299 ), ExtResource( 300 ), ExtResource( 291 ), ExtResource( 290 ), ExtResource( 292 ), ExtResource( 294 ), ExtResource( 297 ), ExtResource( 301 ), ExtResource( 296 ), ExtResource( 295 ), ExtResource( 302 ), ExtResource( 289 ) ],
 "loop": false,
 "name": "Appear",
@@ -1557,11 +1569,6 @@ animations = [ {
 "loop": false,
 "name": "ExitBonus",
 "speed": 50.0
-}, {
-"frames": [ SubResource( 151 ), SubResource( 152 ), SubResource( 153 ), SubResource( 154 ), SubResource( 155 ), SubResource( 156 ), SubResource( 157 ), SubResource( 158 ), SubResource( 159 ), SubResource( 160 ), SubResource( 161 ), SubResource( 162 ), SubResource( 163 ), SubResource( 164 ), SubResource( 165 ), SubResource( 166 ), SubResource( 167 ), SubResource( 168 ), SubResource( 169 ), SubResource( 170 ), SubResource( 171 ), SubResource( 172 ), SubResource( 173 ), SubResource( 174 ), SubResource( 175 ), SubResource( 176 ), SubResource( 177 ), SubResource( 178 ), SubResource( 179 ), SubResource( 180 ), SubResource( 181 ), SubResource( 182 ), SubResource( 183 ), SubResource( 184 ), SubResource( 185 ), SubResource( 186 ), SubResource( 187 ), SubResource( 188 ), SubResource( 189 ), SubResource( 190 ), SubResource( 191 ), SubResource( 192 ), SubResource( 193 ), SubResource( 194 ), SubResource( 195 ), SubResource( 196 ), SubResource( 197 ), SubResource( 198 ), SubResource( 199 ) ],
-"loop": false,
-"name": "isBonus",
-"speed": 40.0
 } ]
 
 [sub_resource type="SpriteFrames" id=201]
@@ -1581,14 +1588,11 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.7 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
 "method": "HideMe"
-}, {
-"args": [  ],
-"method": "HideMultiply"
 } ]
 }
 tracks/1/type = "method"
@@ -1598,14 +1602,11 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
 "method": "HideMe"
-}, {
-"args": [  ],
-"method": "HideMultiply"
 } ]
 }
 tracks/2/type = "method"
@@ -1615,14 +1616,11 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
 "method": "HideMe"
-}, {
-"args": [  ],
-"method": "HideMultiply"
 } ]
 }
 tracks/3/type = "method"
@@ -1632,14 +1630,11 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.7 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
 "method": "HideMe"
-}, {
-"args": [  ],
-"method": "HideMultiply"
 } ]
 }
 tracks/4/type = "method"
@@ -1667,6 +1662,74 @@ tracks/5/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/6/type = "method"
+tracks/6/path = NodePath("Hex0/BonusPrice0")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0.7, 1.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "hide"
+}, {
+"args": [  ],
+"method": "UnsuscribeMe"
+} ]
+}
+tracks/7/type = "method"
+tracks/7/path = NodePath("Hex1/BonusPrice1")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0.5, 1.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "hide"
+}, {
+"args": [  ],
+"method": "UnsuscribeMe"
+} ]
+}
+tracks/8/type = "method"
+tracks/8/path = NodePath("Hex2/BonusPrice2")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0.5, 1.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "hide"
+}, {
+"args": [  ],
+"method": "UnsuscribeMe"
+} ]
+}
+tracks/9/type = "method"
+tracks/9/path = NodePath("Hex3/BonusPrice3")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0.7, 1.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "hide"
+}, {
+"args": [  ],
+"method": "UnsuscribeMe"
+} ]
 }
 
 [sub_resource type="Animation" id=203]
@@ -1709,7 +1772,6 @@ script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-activeOnes = 4
 pathAnimation = "AnimationPlayerBonus"
 
 [node name="Hex0" type="TextureButton" parent="."]
@@ -1742,11 +1804,12 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -24.6199
-margin_top = -13.3184
-margin_right = 23.3801
-margin_bottom = 13.6816
-custom_fonts/font = ExtResource( 2 )
+margin_left = -39.7379
+margin_top = -23.7378
+margin_right = 36.2621
+margin_bottom = 19.2622
+rect_pivot_offset = Vector2( 24, 13.5 )
+custom_fonts/font = SubResource( 204 )
 text = "0000"
 align = 1
 valign = 1
@@ -1789,11 +1852,12 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -24.6199
-margin_top = -13.3184
-margin_right = 23.3801
-margin_bottom = 13.6816
-custom_fonts/font = ExtResource( 2 )
+margin_left = -41.6449
+margin_top = -19.2799
+margin_right = 34.3551
+margin_bottom = 23.7201
+rect_pivot_offset = Vector2( 24, 13.5 )
+custom_fonts/font = SubResource( 204 )
 text = "0000"
 align = 1
 valign = 1
@@ -1836,11 +1900,12 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -24.6199
-margin_top = -13.3184
-margin_right = 23.3801
-margin_bottom = 13.6816
-custom_fonts/font = ExtResource( 2 )
+margin_left = -36.8118
+margin_top = -19.1152
+margin_right = 39.1882
+margin_bottom = 23.8848
+rect_pivot_offset = Vector2( 24, 13.5 )
+custom_fonts/font = SubResource( 204 )
 text = "0000"
 align = 1
 valign = 1
@@ -1883,11 +1948,12 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -24.6199
-margin_top = -13.3184
-margin_right = 23.3801
-margin_bottom = 13.6816
-custom_fonts/font = ExtResource( 2 )
+margin_left = -38.1672
+margin_top = -25.5596
+margin_right = 37.8328
+margin_bottom = 17.4404
+rect_pivot_offset = Vector2( 24, 13.3184 )
+custom_fonts/font = SubResource( 204 )
 text = "0000"
 align = 1
 valign = 1
@@ -1915,7 +1981,6 @@ __meta__ = {
 }
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="ImageBonus"]
-modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 58.9344, 50.7516 )
 frames = SubResource( 201 )
 animation = "Idle"
@@ -1923,10 +1988,10 @@ animation = "Idle"
 [node name="AnimationPlayerBonus" type="AnimationPlayer" parent="."]
 anims/Exit = SubResource( 202 )
 anims/Init = SubResource( 203 )
-[connection signal="BonusPicked" from="." to="Hex2/BonusPrice2" method="UnsuscribeMe"]
-[connection signal="BonusPicked" from="." to="Hex0/BonusPrice0" method="UnsuscribeMe"]
-[connection signal="BonusPicked" from="." to="Hex3/BonusPrice3" method="UnsuscribeMe"]
-[connection signal="BonusPicked" from="." to="Hex1/BonusPrice1" method="UnsuscribeMe"]
+[connection signal="BonusPicked" from="." to="Hex3/BonusPrice3" method="show"]
+[connection signal="BonusPicked" from="." to="Hex1/BonusPrice1" method="show"]
+[connection signal="BonusPicked" from="." to="Hex0/BonusPrice0" method="show"]
+[connection signal="BonusPicked" from="." to="Hex2/BonusPrice2" method="show"]
 [connection signal="EndAnimaionIsBonus" from="Hex0" to="." method="DestroyBonusAnimation"]
 [connection signal="button_down" from="Hex0" to="Hex0" method="_on_button_down"]
 [connection signal="animation_finished" from="Hex0/Sprite" to="Hex0" method="IdleAnimation"]

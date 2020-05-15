@@ -63,7 +63,6 @@ public class LevelManager : Node
 		{
 			return RecursiveCheckNodesNames(HexName,counter - 1);
 		}
-
 	}
 
 	protected virtual void DestroyHexManager() //La llama la animación de Exit
