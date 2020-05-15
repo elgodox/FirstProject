@@ -18,6 +18,7 @@ public class UIButtonsManager : Control
     [Signal] public delegate void end_collect();
     [Signal] public delegate void GameOverPopUp();
     [Signal] public delegate void UIIdle();
+    [Signal] public delegate void demoMode();
     [Signal] public delegate void TimerDone(bool win);
     [Signal] public delegate void ControlMasterVolume(float volume);
     TextureButton _playButton, _helpButton, _betButton, _maxBetButton, _collectButton, _endAndCollectButton, _okFinishBonusButton, _volumeButton, _buttonStartBonus;
@@ -245,6 +246,7 @@ public class UIButtonsManager : Control
         GD.Print("Setting Idle");
         EmitSignal(nameof(ClearGameOver));
         EmitSignal(nameof(UIIdle));
+        EmitSignal(nameof(demoMode));
     }
 
     void BonusStarted() //La llama GameManager, señal StartBonus
