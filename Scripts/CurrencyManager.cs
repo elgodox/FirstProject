@@ -19,22 +19,27 @@ public class CurrencyManager : Node
         minBetAmount = minBet;
         maxBetAmount = maxBet;
         CheckAllCurrency();
+        Bet();
         CheckBet();
     }
     void Bet() // La llama UIManager, señal bet
     {
+        if(credit <= 0 ) return;
         if(credit >= minBetAmount)
         {
             if(currentBet >= maxBetAmount || currentBet + minBetAmount > credit)
             {
-                currentBet = 0;
-                EmitSignal(nameof(GameHaveBet), false);
+                currentBet = minBetAmount;
             }
             else
             {
                 currentBet += minBetAmount;
-                EmitSignal(nameof(GameHaveBet), true);
             }
+            EmitSignal(nameof(GameHaveBet), true);
+        }
+        else
+        {
+            currentBet = credit;
         }
         EmitSignal(nameof(CurrencyChanged), Constants.CURRENT_BET, currentBet);
     }
@@ -112,7 +117,6 @@ public class CurrencyManager : Node
         credit += currencyToCollect;
         
         currencyToCollect = 0;
-        currentBet = 0;
         
         EmitSignal(nameof(CurrencyChanged), Constants.CURRENT_BET, currentBet);
         EmitSignal(nameof(CurrencyChanged), Constants.CURRENCY_TO_COLLECT, currencyToCollect);
@@ -145,8 +149,12 @@ public class CurrencyManager : Node
     {
         if(credit > 0)
         {
-            if(currentBet > 0)
+            if (currentBet > 0)
             {
+                if (currentBet >= credit)
+                {
+                    currentBet = credit;
+                }
                 EmitSignal(nameof(GameHaveBet), true);
             }
         }
@@ -156,5 +164,6 @@ public class CurrencyManager : Node
             currentBet = 0;
             EmitSignal(nameof(GameHaveBet), false);
         }
+        EmitSignal(nameof(CurrencyChanged), Constants.CURRENT_BET, currentBet);
     }
 }
