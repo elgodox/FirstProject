@@ -286,7 +286,7 @@ public class UIButtonsManager : Control
         _bonusFeedback.Show();
     }
 
-    void FinishBonus() //La llama el botón
+    void FinishBonus() //La llama el botón OkFinishBonus
     {
         _finishedBonus.Hide();
         _okFinishBonusButton.Hide();

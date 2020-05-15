@@ -349,6 +349,7 @@ public class GameManager : Godot.Control
     {
         _currencyManager.UpdateBonusReward(multiplier);
         GameCompletelyOver();
+        GameHaveBetNow(false);
         EmitSignal(nameof(BonusOver));
     }
     
