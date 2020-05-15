@@ -28,6 +28,8 @@ public class UIButtonsManager : Control
     AudioStreamPlayer _audio;
 
     AnimatedSprite _spriteVolumeButton;
+    
+    AnimationPlayer _timerAnim;
 
     Label _myTimeLabel;
 
@@ -49,6 +51,10 @@ public class UIButtonsManager : Control
         {
             var timeInt = Convert.ToInt32(_timer.TimeLeft);
             _myTimeLabel.Text = timeInt.ToString();
+            if (timeInt <= 3)
+            {
+                _timerAnim.Play("Timing Out");
+            }
         }
     }
 
@@ -182,6 +188,7 @@ public class UIButtonsManager : Control
         _spriteVolumeButton = GetNode("VolumeButton/AnimatedSprite") as AnimatedSprite;
         _bonusFeedback = GetNode("BonusFeedback") as Control;
         _buttonStartBonus = GetNode("ui_IncomingBonus/buttonStartBonus") as TextureButton;
+        _timerAnim = GetNode("Tiempo/timer/AnimationPlayer") as AnimationPlayer;
 
         #endregion
         
@@ -303,6 +310,7 @@ public class UIButtonsManager : Control
     {
         _timer.Stop();
         _myTimeLabel.Text = "--";
+        _timerAnim.Play("Idle");
     }
     void StartTimer(float seconds)
     {
