@@ -160,7 +160,6 @@ public class GameManager : Godot.Control
                 UpdateSaveData("|-2");
             }
         }
-        GD.Print(_betDescription);
     }
 
     #endregion
@@ -319,7 +318,7 @@ public class GameManager : Godot.Control
 
     public void EndGame(bool win)
     {
-        GD.Print("End Game, el nivel actual es " + currentLevel + " y el bool de win es " + win);
+        //GD.Print("End Game, el nivel actual es " + currentLevel + " y el bool de win es " + win);
         currentLevelMngr?.ExitAnimation();
         _currencyManager.UpdateWinnedCurrency();
         EmitSignal(nameof(LevelsOver), win, _gotBonus);
