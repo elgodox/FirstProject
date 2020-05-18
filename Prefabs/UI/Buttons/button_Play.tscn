@@ -1,18 +1,76 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Fonts/Dynamic Fonts/Apuestas.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Sprites/Botones/jugar-presionado.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/Botones/jugar.png" type="Texture" id=3]
 
+[sub_resource type="Animation" id=2]
+resource_name = "Idle"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=1]
+resource_name = "Jumping"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.611765, 0.611765, 0.611765, 1 ), Color( 1, 1, 1, 1 ), Color( 0.611765, 0.611765, 0.611765, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_scale")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.03, 1.03 ), Vector2( 1, 1 ) ]
+}
+
 [node name="button_Play" type="TextureButton"]
+self_modulate = Color( 0.87913, 0.87913, 0.87913, 1 )
 anchor_left = 0.701
 anchor_top = 0.823
-anchor_right = 0.82
+anchor_right = 0.817
 anchor_bottom = 0.986
 margin_left = -0.599976
 margin_top = 0.299988
-margin_right = -0.00012207
+margin_right = -0.200073
 margin_bottom = -0.400024
+rect_pivot_offset = Vector2( 95.5, 73 )
 texture_normal = ExtResource( 3 )
 texture_pressed = ExtResource( 2 )
 stretch_mode = 3
@@ -21,14 +79,14 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="."]
-anchor_left = 0.5
-anchor_top = 0.459
-anchor_right = 0.5
-anchor_bottom = 0.459
-margin_left = -56.4999
-margin_top = -56.014
-margin_right = 55.7501
-margin_bottom = 59.475
+anchor_left = 0.498
+anchor_top = 0.469
+anchor_right = 0.498
+anchor_bottom = 0.469
+margin_left = -56.1179
+margin_top = -57.7045
+margin_right = 56.1321
+margin_bottom = 57.7845
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
@@ -38,3 +96,7 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Idle = SubResource( 2 )
+anims/Jumping = SubResource( 1 )
