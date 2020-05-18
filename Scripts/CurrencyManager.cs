@@ -19,10 +19,9 @@ public class CurrencyManager : Node
         minBetAmount = minBet;
         maxBetAmount = maxBet;
         CheckAllCurrency();
-        Bet();
         CheckBet();
     }
-    void Bet() // La llama UIManager, señal bet
+    public void Bet() // La llama UIManager, señal bet
     {
         if(credit <= 0 ) return;
         if(credit >= minBetAmount)

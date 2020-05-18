@@ -60,6 +60,11 @@ public class GameManager : Godot.Control
         {
             EmitSignal(nameof(SetCurrencyManager), 1000, 5, 25);
         }
+
+        if (!_isPlaying)
+        {
+            _currencyManager.Bet();
+        }
     }
 
     void IntiTimer()
