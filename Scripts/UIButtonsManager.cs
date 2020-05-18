@@ -22,7 +22,7 @@ public class UIButtonsManager : Control
     [Signal] public delegate void TimerDone(bool win);
     [Signal] public delegate void ControlMasterVolume(float volume);
     TextureButton _playButton, _helpButton, _betButton, _maxBetButton, _collectButton, _endAndCollectButton, _okFinishBonusButton, _volumeButton, _buttonStartBonus;
-    TextureRect _helpCanvas, _controlPanel, _timeButton, _incomingBonus, _finishedBonus;
+    TextureRect _helpCanvas, _controlPanel, _timerRect, _incomingBonus, _finishedBonus, _nextLevel;
     Control _bonusFeedback;
 
     AudioStreamPlayer _audio;
@@ -74,7 +74,7 @@ public class UIButtonsManager : Control
         PlayAudio();
         _helpCanvas.Show();
         _controlPanel.Hide();
-        _timeButton.Hide();
+        _timerRect.Hide();
         _volumeButton.Hide();
     }
     void OnBackButtonUp()
@@ -82,7 +82,7 @@ public class UIButtonsManager : Control
         PlayAudio();
         _helpCanvas.Hide();
         _controlPanel.Show();
-        _timeButton.Show();
+        _timerRect.Show();
         _volumeButton.Show();
 
     }
@@ -174,7 +174,8 @@ public class UIButtonsManager : Control
         _finishedBonus = GetNode("ui_FinishedBonus") as TextureRect;
         _controlPanel = GetNode("ControlPanel") as TextureRect;
         _helpCanvas = GetNode("ui_Help") as TextureRect;
-        _timeButton = GetNode("Tiempo") as TextureRect;
+        _timerRect = GetNode("Tiempo") as TextureRect;
+        _nextLevel = GetNode("ControlPanel/ui_Collect") as TextureRect;
         _volumeButton = GetNode("VolumeButton") as TextureButton;
         _endAndCollectButton = GetNode("ControlPanel/button_end_collect") as TextureButton;
         _playButton = GetNode("ControlPanel/button_Play") as TextureButton;
@@ -232,6 +233,7 @@ public class UIButtonsManager : Control
 
     void SetGameOverMessage(bool win, bool bonus) //La llama GameManager, señal GameOver
     {
+        _nextLevel.Hide();
         ActivateEndAndCollectButton(false);
         StopTimer();
         EmitSignal(nameof(GameOverPopUp), win);
@@ -284,6 +286,11 @@ public class UIButtonsManager : Control
     public void BonusFeedback()
     {
         _bonusFeedback.Show();
+    }
+
+    void ActivateNextLevelRect() // La llama restartGame
+    {
+        _nextLevel.Show();
     }
 
     void FinishBonus() //La llama el botón OkFinishBonus
