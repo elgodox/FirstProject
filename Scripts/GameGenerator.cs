@@ -72,7 +72,7 @@ public class GameGenerator
                     if(x == levelInfo.Length - (badOnes + 1) && bonusGenerated && !bonusAssigned)
                     {
                         bonusAssigned = true;
-                        GD.Print("Bonus en el índice " + i + " en el nivel " + levelInfo.Length + " con " + bonusChance + " de probabilidad");
+                        //GD.Print("Bonus en el índice " + i + " en el nivel " + levelInfo.Length + " con " + bonusChance + " de probabilidad");
                         bonusSlot = i;
                         descriptionInfo += "3";
                         break;
@@ -120,13 +120,13 @@ public class GameGenerator
         result = result.Replace(',', '.');
         result = result.Replace('*', ',');
         
-        GD.Print("Bonus generado en el siguiente orden de posiciones: " + result);
+        //GD.Print("Bonus generado en el siguiente orden de posiciones: " + result);
 
         return result;
     }
     public void ResetBonus()
     {
-        GD.Print("Resetting bonus");
+        //GD.Print("Resetting bonus");
         bonusGenerated = false;
         bonusAssigned = false;
     }
@@ -138,7 +138,7 @@ public class GameGenerator
         if (rand.Next(1, 101) <= bonusChance)
         {
             bonusGenerated = true;
-            GD.Print("Bonus Generado!");
+            //GD.Print("Bonus Generado!");
         }
     }
     public void SetBadOnes(int badOnesAmount)

@@ -14,6 +14,7 @@ public class CurrencyLabel : Label
     bool changingCurrency;
     Vector2 scaleUp = new Vector2(1.75f, 1.75f);
     Vector2 vectorChanging = new Vector2();
+    Color green = new Color("5dff9c");
 
     public UIButtonsManager uIButtonsManager;
     public void UpdateLabel(float currency)
@@ -21,6 +22,12 @@ public class CurrencyLabel : Label
         elapsedLerpTime = 0;
         currencyToGo = currency;
         originalCurrency = Convert.ToInt32(Text);
+        if (originalCurrency < currencyToGo)
+        {
+            SelfModulate = green;
+        }
+
+        
         changingCurrency = true;
         RectScale = scaleUp;
     }
@@ -43,6 +50,10 @@ public class CurrencyLabel : Label
                 vectorChanging.x = vectorChanging.y = Mathf.Lerp(scaleUp.y, 1, elapsedLerpTime);
                 RectScale = vectorChanging;
                 Text = Convert.ToInt32(newCurrency).ToString();
+                if (elapsedLerpTime > .9f)
+                {
+                    SelfModulate = Colors.White;
+                }
             }
             else
             {

@@ -29,7 +29,7 @@ public class UIButtonsManager : Control
 
     AnimatedSprite _spriteVolumeButton;
     
-    AnimationPlayer _timerAnim;
+    AnimationPlayer _timerAnim, _playButtonAnim;
 
     Label _myTimeLabel;
 
@@ -147,10 +147,12 @@ public class UIButtonsManager : Control
         if (enable)
         {
             _playButton.Disabled = false;
+            _playButtonAnim.Play("Jumping");
         }
         else
         {
             _playButton.Disabled = true;
+            _playButtonAnim.Play("Idle");
         }
     }
     void ActivateCollectButton()
@@ -190,6 +192,7 @@ public class UIButtonsManager : Control
         _bonusFeedback = GetNode("BonusFeedback") as Control;
         _buttonStartBonus = GetNode("ui_IncomingBonus/buttonStartBonus") as TextureButton;
         _timerAnim = GetNode("Tiempo/timer/AnimationPlayer") as AnimationPlayer;
+        _playButtonAnim = GetNode("ControlPanel/button_Play/AnimationPlayer") as AnimationPlayer;
 
         #endregion
         
@@ -211,7 +214,7 @@ public class UIButtonsManager : Control
     }
     public void SubscribeCurrencyLabel(CurrencyLabel cl)
     {
-        GD.Print("Suscribing " + cl.myType);
+        //GD.Print("Suscribing " + cl.myType);
         if (!_myCurrencyLabels.ContainsValue(cl))
         {
             
@@ -222,7 +225,7 @@ public class UIButtonsManager : Control
     {
         if (_myCurrencyLabels.ContainsValue(cl))
         {
-            GD.Print("Desuscribing " + cl.myType);
+            //GD.Print("Desuscribing " + cl.myType);
             _myCurrencyLabels.Remove(cl.myType);
         }
     }
