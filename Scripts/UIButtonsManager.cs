@@ -346,29 +346,33 @@ public class UIButtonsManager : Control
     
     void _on_VolumeButton_pressed()
     {
-        volume -= 20;
+        volume += 20;
 
-        if (volume == -20)
+        if (volume == 0)
         {
-            _spriteVolumeButton.Animation = "Volume2";
+            _spriteVolumeButton.Animation = "Volume3";
+        }
+        if (volume > 0)
+        {
+            _spriteVolumeButton.Animation = "Mute";
+            volume = -80;
+        }
+        if (volume == -60)
+        {
+            volume = -40;
         }
         if (volume == -40)
         {
             _spriteVolumeButton.Animation = "Volume1";
         }
-        if (volume == -60)
+        if (volume == -20)
         {
-            _spriteVolumeButton.Animation = "Mute";
-            volume = -80;
+            _spriteVolumeButton.Animation = "Volume2";
         }
-        if (volume <= -81)
-        {
-            volume = 0;
-        }
-        if (volume == 0)
-        {
-            _spriteVolumeButton.Animation = "Volume3";
-        }
+        
+        
+        
+        
         EmitSignal(nameof(ControlMasterVolume), volume);
     }
 
