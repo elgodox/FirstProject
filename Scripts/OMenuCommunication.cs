@@ -7,7 +7,7 @@ using OMenuClient.Structs;
 public class OMenuCommunication
 {
     public VLTLocalClient oMenuClient;
-    public Profile profile;
+    //public Profile profile;
     public SaveData saveData;
     public PlayInfo playInfo;
 
@@ -18,65 +18,63 @@ public class OMenuCommunication
     }
 
 
-    public void Start(Action OnSuccess, Action OnFail)
+    public void Start()
     {
-        oMenuClient.StartService(16, delegate { GetProfile(OnSuccess, OnFail); }, OnFail);
+        oMenuClient.StartService(16);
     }
-
-    public void GetProfile(Action OnSuccess, Action OnFail, Action OnCompletation = null)
+    public Profile GetProfile()
     {
-        oMenuClient.GetProfile(delegate (Profile profile) { this.profile = profile; OnSuccess?.Invoke(); }, OnFail, OnCompletation);
+        return oMenuClient.GetProfile();
     }
-
-    public void GetMoney(Action<double> OnSuccess, Action OnFail, Action OnCompletation = null)
+    public SaveData GetSaveData()
     {
-        oMenuClient.GetSaveData(delegate (OMenuClient.Structs.SaveData savedata) { OnSuccess?.Invoke(savedata.moneyAmount); }, OnFail, OnCompletation);
+        return oMenuClient.GetSaveData();
+    }
+    public double GetMoney()
+    {
+        return GetSaveData().moneyAmount;
     }
     public double MaxBet()
     {
-        return profile.maxBet;
+        return GetProfile().maxBet;
     }
     public double MinBet()
     {
-        return profile.minBet;
+        return GetProfile().minBet;
     }
-    public void GetCurrentBet(Action<double> OnSuccess, Action OnFail, Action OnCompletation = null)
+    public double GetCurrentBet()
     {
-        oMenuClient.GetSaveData(delegate (OMenuClient.Structs.SaveData saveData) { OnSuccess.Invoke(saveData.betAmount); }, OnFail, OnCompletation);
+        return GetSaveData().betAmount;
     }
     public double MaxPrize()
     {
-        return profile.maxPrize;
+        return GetProfile().maxPrize;
     }
     public double Percent()
     {
-        return profile.percent;
+        return GetProfile().percent;
     }
     public double Denomination()
     {
-        return profile.denomination;
+        return GetProfile().denomination;
     }
-    public void UpdateSaveData(SaveData saveData, Action OnSuccess, Action OnFail)
+    public string GetBetDescription()
     {
-        oMenuClient.UpdateSaveData(saveData, OnSuccess, OnFail);
+        return GetSaveData().description;
     }
-    public void GetBetDescription(Action<string> OnSuccess, Action OnFail, Action OnCompletation = null)
+    public bool IsPlaying()
     {
-        oMenuClient.GetSaveData(delegate (OMenuClient.Structs.SaveData saveData) { OnSuccess?.Invoke(saveData.description); }, OnFail, OnCompletation);
+        return GetSaveData().isPlaying;
     }
-
-
-    public void IsPlaying(Action OnSuccess, Action OnFail)
+    public void UpdateSaveData(SaveData saveData)
     {
-        oMenuClient.GetSaveData(delegate (OMenuClient.Structs.SaveData savedata) { if (savedata.isPlaying) OnSuccess?.Invoke(); }, OnFail);
+        oMenuClient.UpdateSaveData(saveData);
     }
 
-    public void GetSaveData(Action<SaveData> OnSuccess, Action OnFail, Action OnCompletation = null)
-    {
-        oMenuClient.GetSaveData(delegate (OMenuClient.Structs.SaveData saveData) { OnSuccess?.Invoke(saveData); }, OnFail, OnCompletation);
-    }
-
-
+    // public void IsPlaying(Action OnSuccess, Action OnFail)
+    // {
+    //     oMenuClient.GetSaveData(delegate (OMenuClient.Structs.SaveData savedata) { if (savedata.isPlaying) OnSuccess?.Invoke(); }, OnFail);
+    // }
 
 
 

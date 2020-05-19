@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using OMenuClient.Structs;
 
 public class GameManager : Godot.Control
 {
@@ -54,7 +55,9 @@ public class GameManager : Godot.Control
 
         if (_useDb)
         {
-            _oMenu.Start(OnStartCompletation, null);
+            _oMenu.Start();
+            CheckBetDescription(GetBetDescription());
+            EmitSignal(nameof(SetCurrencyManager),_oMenu.GetMoney(),_oMenu.MinBet(),_oMenu.MaxBet());
         }
         else
         {
@@ -75,15 +78,11 @@ public class GameManager : Godot.Control
     }
 
     #region BBDD Methods
-    private void OnStartCompletation()
+    
+    private string GetBetDescription()
     {
-        _oMenu.IsPlaying(delegate { GetBetDescription(delegate (string value) { CheckBetDescription(value); }, null); }, null);
-        // Puede llegar a explotar
-        _oMenu.GetMoney(delegate (double money) { EmitSignal(nameof(SetCurrencyManager), money, _oMenu.MinBet(), _oMenu.MaxBet()); }, null);
-    }
-    private void GetBetDescription(Action<string> onSuccess, Action onFail)
-    {
-        _oMenu.GetBetDescription(onSuccess, onFail);
+        return _oMenu.GetBetDescription();
+
     }
     void CheckBetDescription(string betToCheck)
     {
@@ -94,38 +93,23 @@ public class GameManager : Godot.Control
                 _betDescription = betToCheck;
                 _myRecover = new GameRecover(_betDescription);
                 _myRecover.FillDictionarys(_levels);
-
-                _oMenu.GetMoney(
-                    delegate (double money)
-                    {
-                        _currencyManager.credit = money;
-
-                        _oMenu.GetCurrentBet(delegate (double bet)
-                        {
-                            _currencyManager.currentBet = bet;
-                            ResumeCrashedGame();
-
-                        }, null);
-
-                    }, null);
+                _currencyManager.currentBet = _oMenu.GetCurrentBet();
+                ResumeCrashedGame();
             }
             else
             {
-                PrepareBetDescription();
+                UpdateSaveDataLocal();
             }
         }
     }
-    void PrepareBetDescription()
+    
+    void UpdateSaveDataLocal()
     {
-        _oMenu.GetSaveData(UpdateSaveDataLocal, null);
-    }
-    void UpdateSaveDataLocal(OMenuClient.Structs.SaveData saveData)
-    {
-        double money = saveData.moneyAmount;
-        double bet = saveData.betAmount;
+        double money = _oMenu.GetMoney();
+        double bet = _oMenu.GetCurrentBet();
         double betToMoney = bet + money;
         OMenuClient.Structs.SaveData newSaveData = new OMenuClient.Structs.SaveData(false, betToMoney, 0, DateTime.Now, "");
-        _oMenu.UpdateSaveData(newSaveData, null, null);
+        _oMenu.UpdateSaveData(newSaveData);
     }
     void UpdateSaveData(string nodePressed)
     {
@@ -142,8 +126,7 @@ public class GameManager : Godot.Control
             }
 
             OMenuClient.Structs.SaveData saveData = new OMenuClient.Structs.SaveData(_isPlaying, _currencyManager.credit, _currencyManager.currentBet, DateTime.Now, _betDescription);
-
-            _oMenu.UpdateSaveData(saveData, null, null);
+            _oMenu.UpdateSaveData(saveData);
         }
     }
     private void FillBetDescription(int restOfLevels)
@@ -341,7 +324,7 @@ public class GameManager : Godot.Control
         if (_useDb)
         {
             OMenuClient.Structs.SaveData saveData = new OMenuClient.Structs.SaveData(_isPlaying, _currencyManager.credit, _currencyManager.currentBet, DateTime.Now, _betDescription);
-            _oMenu.UpdateSaveData(saveData, null, null);
+            _oMenu.UpdateSaveData(saveData);
         }
         
         if(!_gotBonus)
@@ -368,7 +351,7 @@ public class GameManager : Godot.Control
         if (_useDb)
         {
             OMenuClient.Structs.SaveData saveData = new OMenuClient.Structs.SaveData(_isPlaying, _currencyManager.credit, _currencyManager.currentBet, DateTime.Now, _betDescription);
-            _oMenu.UpdateSaveData(saveData, null, null);
+            _oMenu.UpdateSaveData(saveData);
         }
         EmitSignal(nameof(GameOver));
     }
