@@ -65,7 +65,7 @@ public class CurrencyManager : Node
         
         CheckBet();
     }*/
-    void ConfirmBet() // La llama UIManager, señal restartGame
+    public void ConfirmBet() // La llama UIManager, señal restartGame
     {
         credit -= currentBet;
         EmitSignal(nameof(CurrencyChanged), Constants.CREDITS, credit);
