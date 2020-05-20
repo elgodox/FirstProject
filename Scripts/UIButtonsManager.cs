@@ -13,12 +13,13 @@ public class UIButtonsManager : Control
     [Signal] public delegate void ClearGameOver();
     [Signal] public delegate void bet();
     [Signal] public delegate void StopGameMusic();
+    [Signal] public delegate void OkFinishBonus();
     [Signal] public delegate void maxBet();
     [Signal] public delegate void collect();
     [Signal] public delegate void end_collect();
     [Signal] public delegate void GameOverPopUp();
     [Signal] public delegate void UIIdle();
-    [Signal] public delegate void demoMode();
+    [Signal] public delegate void DemoModeFinished();
     [Signal] public delegate void TimerDone(bool win);
     [Signal] public delegate void ControlMasterVolume(float volume);
     TextureButton _playButton, _helpButton, _betButton, _maxBetButton, _collectButton, _endAndCollectButton, _okFinishBonusButton, _volumeButton, _buttonStartBonus;
@@ -29,7 +30,7 @@ public class UIButtonsManager : Control
 
     AnimatedSprite _spriteVolumeButton;
     
-    AnimationPlayer _timerAnim, _playButtonAnim;
+    AnimationPlayer _timerAnim, _playButtonAnim, _myAnim;
 
     Label _myTimeLabel;
 
@@ -37,7 +38,7 @@ public class UIButtonsManager : Control
     Timer _timerToSetIdle = new Timer();
 
     float volume = -20;
-    float timeToSetIdle = 10;
+    float timeToSetIdle = 2;
 
     public override void _Ready()
     {
@@ -118,11 +119,14 @@ public class UIButtonsManager : Control
     }
     void OnOkButtonUp()
     {
-        _bonusFeedback.Hide();
         EmitSignal(nameof(BonusAccepted));
-        _incomingBonus.Hide();
-        _buttonStartBonus.Hide();
     }
+
+    void OnOkFinishBonusButtonUp() // La llama el botón de OkFinishBonus
+    {
+        EmitSignal(nameof(OkFinishBonus));
+    }
+    
     void DeactivateButtons()
     {
         _helpButton.Disabled = true;
@@ -154,6 +158,12 @@ public class UIButtonsManager : Control
             _playButton.Disabled = true;
             _playButtonAnim.Play("Idle");
         }
+    }
+    void HideIncomingBonusMessage() // La llama GameManager, señales StopGameInmediate, y BonusStarted
+    {
+        _bonusFeedback.Hide();
+        _incomingBonus.Hide();
+        _buttonStartBonus.Hide();
     }
     void ActivateCollectButton()
     {
@@ -193,6 +203,7 @@ public class UIButtonsManager : Control
         _buttonStartBonus = GetNode("ui_IncomingBonus/buttonStartBonus") as TextureButton;
         _timerAnim = GetNode("Tiempo/timer/AnimationPlayer") as AnimationPlayer;
         _playButtonAnim = GetNode("ControlPanel/button_Play/AnimationPlayer") as AnimationPlayer;
+        _myAnim = GetNode("AnimationPlayer") as AnimationPlayer;
 
         #endregion
         
@@ -250,7 +261,6 @@ public class UIButtonsManager : Control
             _timerToSetIdle.Start();
         }
     }
-
     
     void SetIdle()
     {
@@ -258,10 +268,28 @@ public class UIButtonsManager : Control
         GD.Print("Setting Idle");
         EmitSignal(nameof(ClearGameOver));
         EmitSignal(nameof(UIIdle));
-        EmitSignal(nameof(demoMode));
     }
 
-    void BonusStarted() //La llama GameManager, señal StartBonus
+    void EnterDemoMode() //La llama GameManager, señal DemoModeStarted
+    {
+        _timerToSetIdle.Stop();
+        _myAnim.Play("StartDemoMode");
+    }
+
+    void ExitDemoMode(InputEvent e)
+    {
+        if (e is InputEventMouseButton)
+        {
+            EmitSignal(nameof(DemoModeFinished));
+            
+            _myAnim.CurrentAnimation = "StartDemoMode";
+            _myAnim.Advance(.9f);
+            GD.Print(_myAnim.CurrentAnimationPosition);
+            _myAnim.PlayBackwards();
+        }
+    }
+
+    void ClearGameOverMessage() //La llama GameManager, señal StartBonus
     {
         EmitSignal(nameof(ClearGameOver));
     }
@@ -296,7 +324,7 @@ public class UIButtonsManager : Control
         _nextLevel.Show();
     }
 
-    void FinishBonus() //La llama el botón OkFinishBonus
+    void FinishBonus() //La llama GameManager, señal RemoveBonusMessage
     {
         _finishedBonus.Hide();
         _okFinishBonusButton.Hide();
