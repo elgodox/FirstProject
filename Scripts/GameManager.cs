@@ -431,14 +431,12 @@ public class GameManager : Godot.Control
             OMenuClient.Structs.SaveData saveData = new OMenuClient.Structs.SaveData(_isPlaying, _currencyManager.credit, 0, DateTime.Now, _betDescription);
             _oMenu.UpdateSaveData(saveData);
         }
-        EmitSignal(nameof(GameOver));
         if(!_isDemo)
             _timerToDemoMode.Start();
     }
 
     void SetDemoMode()
     {
-        UpdateSaveDataLocal();
         _useDb = false;
         _isDemo = true;
         EmitSignal(nameof(SetCurrencyManager), 1000, 5, 25);
