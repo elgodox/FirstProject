@@ -428,7 +428,7 @@ public class GameManager : Godot.Control
         _betDescription = "";
         if (_useDb)
         {
-            OMenuClient.Structs.SaveData saveData = new OMenuClient.Structs.SaveData(_isPlaying, _currencyManager.credit, _currencyManager.currentBet, DateTime.Now, _betDescription);
+            OMenuClient.Structs.SaveData saveData = new OMenuClient.Structs.SaveData(_isPlaying, _currencyManager.credit, 0, DateTime.Now, _betDescription);
             _oMenu.UpdateSaveData(saveData);
         }
         EmitSignal(nameof(GameOver));
