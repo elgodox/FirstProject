@@ -343,6 +343,7 @@ public class GameManager : Godot.Control
     void GameCompletelyOver()
     {
         GD.Print("gameCompletely Over");
+        EmitSignal(nameof(GameOver));
         _myGameGen.ResetBonus();
         _gotBonus = false;
         _isPlaying = false;
@@ -352,7 +353,6 @@ public class GameManager : Godot.Control
             OMenuClient.Structs.SaveData saveData = new OMenuClient.Structs.SaveData(_isPlaying, _currencyManager.credit, _currencyManager.currentBet, DateTime.Now, _betDescription);
             _oMenu.UpdateSaveData(saveData);
         }
-        EmitSignal(nameof(GameOver));
     }
 
     void ResumeCrashedGame()
