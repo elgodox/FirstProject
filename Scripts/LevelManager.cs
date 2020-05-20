@@ -180,11 +180,14 @@ public class LevelManager : Node
 		bonusIndex = index;
 	}
 
-	void ChooseRandomNode()
+	public void ChooseRandomNode()
 	{
 		Random random = new Random();
 		int randomNumber = (random.Next() % _nodes.Length);
-		
-		_nodes[randomNumber]._on_button_down();
+		GD.Print("Random Index es : " + randomNumber);
+		if(_nodes[randomNumber] != null)
+			_nodes[randomNumber]._on_button_down();
+		else
+			ChooseRandomNode();
 	}
 }

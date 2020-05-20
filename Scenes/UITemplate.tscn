@@ -1,4 +1,4 @@
-[gd_scene load_steps=195 format=2]
+[gd_scene load_steps=196 format=2]
 
 [ext_resource path="res://Prefabs/UI/Buttons/button_Collect.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Prefabs/UI/Buttons/button_Bet.tscn" type="PackedScene" id=2]
@@ -507,7 +507,7 @@ tracks/2/keys = {
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
-"method": "BonusStarted"
+"method": "ClearGameOverMessage"
 } ]
 }
 tracks/3/type = "animation"
@@ -560,15 +560,11 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="DynamicFont" id=42]
-size = 50
-font_data = ExtResource( 19 )
-
-[sub_resource type="Animation" id=43]
+[sub_resource type="Animation" id=42]
 length = 2.0
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:visible")
+tracks/0/path = NodePath("DemoMode:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -577,8 +573,114 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1, 2 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ true, false, true ]
+"values": [ false, true, false ]
 }
+
+[sub_resource type="Animation" id=43]
+resource_name = "StartDemoMode"
+length = 2.0
+tracks/0/type = "method"
+tracks/0/path = NodePath("AnimationPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 1.9 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "Idle" ],
+"method": "play"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BandasNegras:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 1.1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ false, false, true, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ControlPanel:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1, 1.1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, true, false, false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Black:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.3, 1.7, 2 ),
+"transitions": PoolRealArray( 1, 7.46426, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Tiempo:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1, 1.1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, true, false, false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("VolumeButton:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 1, 1.1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, true, false, false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Black:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, true ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("DemoMode:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, false ]
+}
+
+[sub_resource type="DynamicFont" id=44]
+size = 50
+font_data = ExtResource( 19 )
 
 [node name="UI_Manager" type="Control"]
 anchor_right = 1.0
@@ -612,7 +714,7 @@ __meta__ = {
 position = Vector2( 718.484, 105.917 )
 frames = SubResource( 1 )
 animation = "Idle"
-frame = 27
+frame = 38
 playing = true
 
 [node name="ui_MaxBet" parent="ControlPanel" instance=ExtResource( 4 )]
@@ -628,6 +730,7 @@ expand = true
 stretch_mode = 1
 
 [node name="ui_Collect" parent="ControlPanel" instance=ExtResource( 7 )]
+visible = false
 anchor_left = 0.623
 anchor_top = 0.61
 anchor_right = 0.623
@@ -909,7 +1012,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="BonusFeedback"]
 position = Vector2( 73.3888, 61.2637 )
 frames = SubResource( 6 )
-frame = 50
+frame = 29
 playing = true
 
 [node name="Label" type="Label" parent="BonusFeedback"]
@@ -1070,13 +1173,14 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="ui_IncomingBonus"]
 self_modulate = Color( 1, 1, 1, 0.745098 )
 position = Vector2( 356.862, 314.28 )
-scale = Vector2( 1.47652, 1.47199 )
+scale = Vector2( 1e-05, 1e-05 )
 frames = SubResource( 37 )
 animation = "Idle"
-frame = 14
+frame = 22
 playing = true
 
 [node name="helpText" type="Label" parent="ui_IncomingBonus"]
+modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -1098,6 +1202,7 @@ __meta__ = {
 }
 
 [node name="buttonStartBonus" type="TextureButton" parent="ui_IncomingBonus"]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.766
 anchor_right = 0.5
@@ -1306,30 +1411,59 @@ anims/Entrar = SubResource( 41 )
 pause_mode = 2
 volume_db = 1.0
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+method_call_mode = 1
+anims/Idle = SubResource( 42 )
+anims/StartDemoMode = SubResource( 43 )
+
+[node name="BandasNegras" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="BandasNegras"]
+anchor_right = 1.0
+anchor_bottom = 0.133
+margin_right = 2.0
+margin_bottom = 0.299995
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect2" type="ColorRect" parent="BandasNegras"]
+anchor_top = 0.865
+anchor_right = 1.0
+anchor_bottom = 0.999
+margin_top = 0.447998
+margin_right = 2.0
+margin_bottom = -0.151978
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="DemoMode" type="TextureRect" parent="."]
 visible = false
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -800.0
-margin_top = -450.0
-margin_right = 802.0
-margin_bottom = 448.0
+anchor_right = 1.0
+anchor_bottom = 1.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="DemoMode"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -210.754
-margin_top = -125.101
-margin_right = 218.246
-margin_bottom = 66.8988
-custom_fonts/font = SubResource( 42 )
+anchor_left = 0.503
+anchor_top = 0.066
+anchor_right = 0.503
+anchor_bottom = 0.066
+margin_left = -214.072
+margin_top = -30.1214
+margin_right = 214.928
+margin_bottom = 29.8786
+custom_fonts/font = SubResource( 44 )
 text = "MODO DEMO"
 align = 1
 valign = 1
@@ -1337,11 +1471,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="DemoMode"]
-method_call_mode = 1
-anims/Idle = SubResource( 43 )
+[node name="Black" type="ColorRect" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="button_up" from="ControlPanel/button_Play" to="." method="OnPlayButtonUp"]
-[connection signal="button_up" from="ControlPanel/button_OkFinishBonus" to="." method="FinishBonus"]
+[connection signal="button_up" from="ControlPanel/button_OkFinishBonus" to="." method="OnOkFinishBonusButtonUp"]
 [connection signal="button_up" from="ControlPanel/button_Collect" to="." method="OnCollectButtonUp"]
 [connection signal="button_up" from="ControlPanel/button_Bet" to="." method="OnBetButtonUp"]
 [connection signal="button_up" from="ControlPanel/button_MaxBet" to="." method="OnMaxBetButtonUp"]
@@ -1353,3 +1493,4 @@ anims/Idle = SubResource( 43 )
 [connection signal="visibility_changed" from="ui_IncomingBonus" to="ui_IncomingBonus/AnimationPlayer" method="play" binds= [ "Entrar" ]]
 [connection signal="button_up" from="ui_IncomingBonus/buttonStartBonus" to="." method="OnOkButtonUp"]
 [connection signal="visibility_changed" from="ui_FinishedBonus" to="ui_FinishedBonus/AnimationPlayer" method="play" binds= [ "Entrar" ]]
+[connection signal="gui_input" from="Black" to="." method="ExitDemoMode"]
