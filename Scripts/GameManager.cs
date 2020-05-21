@@ -40,21 +40,16 @@ public class GameManager : Godot.Control
     GameGenerator _myGameGen = new GameGenerator();
     CurrencyManager _currencyManager;
     Panner _panner;
+    Control _barrier;
 
     PackedScene levelManagerPrefab;
-    PackedScene bonusManagerPrefab;
+    BonusManager bonusManager;
     
     Timer _timerToCreateLevels, _timerToDemoMode, _actionsTimer;
 
     public override void _Ready()
     {
-        levelManagerPrefab = ResourceLoader.Load(Constants.PATH_LEVEL_MANAGER) as PackedScene;
-        bonusManagerPrefab = ResourceLoader.Load(Constants.PATH_BONUS) as PackedScene;
-        
-        InitTimers();
-
-        _currencyManager = GetNode("CurrencyManager") as CurrencyManager;
-        _panner = GetNode("PannerAnimation") as Panner;
+        InitChilds();
 
         if (_useDb)
         {
@@ -71,6 +66,20 @@ public class GameManager : Godot.Control
         {
             _currencyManager.Bet();
         }
+    }
+
+    void InitChilds()
+    {
+        levelManagerPrefab = ResourceLoader.Load(Constants.PATH_LEVEL_MANAGER) as PackedScene;
+        var bonusScene = ResourceLoader.Load(Constants.PATH_BONUS) as PackedScene;
+        
+        bonusManager = bonusScene.Instance() as BonusManager;
+        GetNode("UI_Template").AddChildBelowNode(GetNode("UI_Template/AnimationPlayer"), bonusManager);
+        bonusManager.myGameManager = this;
+        _barrier = GetNode("Barrier") as Control;
+        _currencyManager = GetNode("CurrencyManager") as CurrencyManager;
+        _panner = GetNode("PannerAnimation") as Panner;
+        InitTimers();
     }
 
     void InitTimers()
@@ -165,9 +174,7 @@ public class GameManager : Godot.Control
 
     void CreateBonusLevel()
     {
-        currentLevelMngr = bonusManagerPrefab.Instance() as LevelManager;
-        AddChild(currentLevelMngr);
-        currentLevelMngr.myGameManager = this;
+        currentLevelMngr = bonusManager;
         
         if (!_isResuming)
         {
@@ -185,8 +192,8 @@ public class GameManager : Godot.Control
             }
         }
 
-        var bonusMngr = currentLevelMngr as BonusManager;
-        bonusMngr.SetMultipliersPositions(_currentLevelInfo);
+        bonusManager.SetMultipliersPositions(_currentLevelInfo);
+        bonusManager.PlayInitAnimation();
     }
 
     void CreateLevel()
@@ -200,7 +207,9 @@ public class GameManager : Godot.Control
         }
         
         currentLevelMngr = levelManagerPrefab.Instance() as LevelManager;
-        AddChild(currentLevelMngr);
+        
+        GetNode("UI_Template").AddChildBelowNode(GetNode("UI_Template/AnimationPlayer"), currentLevelMngr);
+        
         currentLevelMngr.myGameManager = this;
         if(_myGameGen.bonusGenerated && currentLevel == 8)
         {
@@ -280,10 +289,10 @@ public class GameManager : Godot.Control
         _timerToDemoMode.Stop();
         _isPlaying = true;
         EmitSignal(nameof(GameStarted));
-        if (currentLevelMngr != null)
-        {
-            currentLevelMngr.QueueFree();
-        }
+        // if (currentLevelMngr != null)
+        // {
+        //     currentLevelMngr.QueueFree();
+        // }
         if(!_isResuming)
         {
             if (_useDb)
@@ -341,7 +350,7 @@ public class GameManager : Godot.Control
 
     public void EndGame(bool win)
     {
-        //GD.Print("End Game, el nivel actual es " + currentLevel + " y el bool de win es " + win);
+        GD.Print("End Game, el nivel actual es " + currentLevel + " y el bool de win es " + win);
         currentLevelMngr?.ExitAnimation();
         
         if (_isDemo)
@@ -437,6 +446,8 @@ public class GameManager : Godot.Control
 
     void SetDemoMode()
     {
+        _barrier.Show();
+        EmitSignal(nameof(RemoveBonusMessage));
         _useDb = false;
         _isDemo = true;
         EmitSignal(nameof(SetCurrencyManager), 1000, 5, 25);
@@ -455,13 +466,29 @@ public class GameManager : Godot.Control
         
         _actionsTimer.Stop();
         StopGame();
+
+        DisconnectAllSignalsFromActionsTimer();
         
-        _actionsTimer = new Timer();
-        AddChild(_actionsTimer);
         _actionsTimer.OneShot = true;
         _actionsTimer.WaitTime = timeToDemoActions;
         _useDb = true;
         EmitSignal(nameof(SetCurrencyManager),_oMenu.GetMoney(),_oMenu.MinBet(),_oMenu.MaxBet());
+        _barrier.Hide();
+    }
+
+    void DisconnectAllSignalsFromActionsTimer()
+    {
+        if(_actionsTimer.IsConnected("timeout", this, nameof(StartGame)))
+            _actionsTimer.Disconnect("timeout", this, nameof(StartGame));
+        if(_actionsTimer.IsConnected("timeout", this, nameof(InstantiateBonus)))
+            _actionsTimer.Disconnect("timeout", this, nameof(InstantiateBonus));
+        if(_actionsTimer.IsConnected("timeout", this, nameof(ClearBonusFinished)))
+            _actionsTimer.Disconnect("timeout", this, nameof(ClearBonusFinished));
+        if (currentLevelMngr != null)
+        {
+            if(_actionsTimer.IsConnected("timeout", currentLevelMngr, nameof(currentLevelMngr.ChooseRandomNode)))
+                _actionsTimer.Disconnect("timeout", currentLevelMngr, nameof(currentLevelMngr.ChooseRandomNode));
+        }
     }
 
     void ResumeCrashedGame()

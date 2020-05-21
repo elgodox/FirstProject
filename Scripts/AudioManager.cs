@@ -29,9 +29,17 @@ public class AudioManager : Node
         PlayAudioTrack(winBonusMusic,_backGroundMusic);
     }
 
-    public void StopCurrentMusic()
+    void StopCurrentMusic()
     {
+        var volumeBackGround = _backGroundMusic.VolumeDb;
+        var volumeNotifications = _notificationSounds.VolumeDb;
+        _backGroundMusic.VolumeDb = -80;
+        _notificationSounds.VolumeDb = -80;
         _backGroundMusic.Stop();
+        _notificationSounds.Stream = null;
+        _notificationSounds.Stop();
+        _backGroundMusic.VolumeDb = volumeBackGround;
+        _notificationSounds.VolumeDb = volumeNotifications;
     }
 
     void InitChilds()
@@ -58,6 +66,7 @@ public class AudioManager : Node
         {
            PlayAudioTrack(gameOverLoseMusic, _notificationSounds);
         }
+        GD.Print("PlayGameOverSound");
     }
 
     public void PlayLevelMusic()

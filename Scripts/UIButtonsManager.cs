@@ -36,6 +36,7 @@ public class UIButtonsManager : Control
 
     Timer _timer = new Timer();
     Timer _timerToSetIdle = new Timer();
+    Timer _timerToDoMethod;
 
     float volume = -20;
     float timeToSetIdle = 2;
@@ -215,13 +216,13 @@ public class UIButtonsManager : Control
     
     void CreateTimer(float secs, string method)
     {
-        var timer = new Timer();
-        timer.WaitTime = secs;
-        timer.OneShot = true;
-        AddChild(timer);
-        timer.Start();
-        timer.Connect("timeout", this, method);
-        timer.Connect("timeout", timer, "queue_free");
+        _timerToDoMethod = new Timer();
+        _timerToDoMethod.WaitTime = secs;
+        _timerToDoMethod.OneShot = true;
+        AddChild(_timerToDoMethod);
+        _timerToDoMethod.Start();
+        _timerToDoMethod.Connect("timeout", this, method);
+        _timerToDoMethod.Connect("timeout", _timerToDoMethod, "queue_free");
     }
     public void SubscribeCurrencyLabel(CurrencyLabel cl)
     {
@@ -266,7 +267,11 @@ public class UIButtonsManager : Control
     {
         _timerToSetIdle.Stop();
         GD.Print("Setting Idle");
-        EmitSignal(nameof(ClearGameOver));
+        HideIncomingBonusMessage();
+        FinishBonus();
+        ClearGameOverMessage();
+        if(_timerToDoMethod != null)
+            _timerToDoMethod.Stop();
         EmitSignal(nameof(UIIdle));
     }
 
@@ -280,12 +285,14 @@ public class UIButtonsManager : Control
     {
         if (e is InputEventMouseButton)
         {
-            EmitSignal(nameof(DemoModeFinished));
-            
-            _myAnim.CurrentAnimation = "StartDemoMode";
-            _myAnim.Advance(.9f);
-            GD.Print(_myAnim.CurrentAnimationPosition);
-            _myAnim.PlayBackwards();
+
+            if (_myAnim.CurrentAnimation != "StartDemoMode")
+            {
+                EmitSignal(nameof(DemoModeFinished));
+                _myAnim.CurrentAnimation = "StartDemoMode";
+                _myAnim.Advance(1.75f);
+                _myAnim.PlayBackwards();
+            }
         }
     }
 

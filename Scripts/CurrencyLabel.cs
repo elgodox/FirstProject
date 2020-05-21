@@ -4,7 +4,6 @@ using System;
 public class CurrencyLabel : Label
 {
     [Export] public string myType;
-    [Export] public bool bonusPrice;
 
     float elapsedLerpTime;
     float newCurrency;
@@ -34,8 +33,7 @@ public class CurrencyLabel : Label
     public override void _Ready()
     {
         uIButtonsManager = GetTree().Root.GetNode("GameManager/UI_Template") as UIButtonsManager;
-        if(!bonusPrice)
-            SuscribeMe();
+        SuscribeMe();
     }
 
     public override void _Process(float delta)

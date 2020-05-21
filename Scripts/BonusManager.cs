@@ -18,7 +18,8 @@ public class BonusManager : LevelManager
 	    bonusPrices[3] = GetNode("Hex3/BonusPrice3") as CurrencyLabel;
         _nodes = new HexNode[4];
         base._Ready();
-        _imageBonusCenter.Playing = true;
+        animation.CurrentAnimation = "Off";
+        _imageBonusCenter.Playing = false;
     }
     public override void ReceiveNodePressed(HexNode node)
     {
@@ -35,6 +36,7 @@ public class BonusManager : LevelManager
 
     public void SetMultipliersPositions(int[] randomPos)
     {
+	    UnsuscribeCurrencyLabels();
 	    for (int i = 0; i < randomPos.Length; i++)
 	    {
 		    var currentRandomIndex = randomPos[i];
@@ -48,13 +50,21 @@ public class BonusManager : LevelManager
 	    }
     }
 
-    protected override void DestroyHexManager()
+    void UnsuscribeCurrencyLabels()
     {
-	    base.DestroyHexManager();
+	    foreach (var item in bonusPrices)
+	    {
+		    item.UnsuscribeMe();
+	    }
     }
 
     public void DestroyBonusAnimation()//La llama el nodo cuando finaliza su animacion de isBonus
     {
 	    animation.CurrentAnimation = "Exit";
+    }
+
+    public void PlayInitAnimation()
+    {
+	    animation.Play("Init");
     }
 }

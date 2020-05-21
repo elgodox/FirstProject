@@ -184,7 +184,10 @@ public class LevelManager : Node
 	{
 		Random random = new Random();
 		int randomNumber = (random.Next() % _nodes.Length);
-		GD.Print("Random Index es : " + randomNumber);
+		if (bonusIndex != default)
+		{
+			randomNumber = bonusIndex;
+		}
 		if(_nodes[randomNumber] != null)
 			_nodes[randomNumber]._on_button_down();
 		else
