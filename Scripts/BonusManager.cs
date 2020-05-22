@@ -25,13 +25,23 @@ public class BonusManager : LevelManager
     {
 	    EmitSignal(nameof(BonusPicked));
         myGameManager.BonusFinished(node.bonusMultiplier);
-        foreach (var item in _nodes)
-		{
-			if(item != null)
-			{
-				item.pressed = true;
-			}
-		}
+        
+        for (int i = 0; i < _nodes.Length; i++)
+        {
+	        if (_nodes[i] != null)
+		        _nodes[i].pressed = true;
+	        if (node.bonusMultiplier.ToString().Replace(',', '.') == bonusPrices[i].myType)
+	        {
+		        bonusPrices[i].Show();
+	        }
+        }
+  //       foreach (var item in _nodes)
+		// {
+		// 	if(item != null)
+		// 	{
+		// 		item.pressed = true;
+		// 	}
+		// }
     }
 
     public void SetMultipliersPositions(int[] randomPos)

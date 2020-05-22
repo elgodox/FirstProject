@@ -34,9 +34,7 @@ public class UIButtonsManager : Control
 
     Label _myTimeLabel;
 
-    Timer _timer = new Timer();
-    Timer _timerToSetIdle = new Timer();
-    Timer _timerToDoMethod;
+    Timer _timerToShowFinishedBonus = new Timer(), _timerToEndLevel = new Timer(), _timerToSetIdle = new Timer();
 
     float volume = -20;
     float timeToSetIdle = 2;
@@ -49,9 +47,10 @@ public class UIButtonsManager : Control
 
     public override void _Process(float delta)
     {
-        if (_timer.TimeLeft > 0)
+        
+        if (_timerToEndLevel.TimeLeft > 0)
         {
-            var timeInt = Convert.ToInt32(_timer.TimeLeft);
+            var timeInt = Convert.ToInt32(_timerToEndLevel.TimeLeft);
             _myTimeLabel.Text = timeInt.ToString();
             if (timeInt <= 3)
             {
@@ -214,16 +213,6 @@ public class UIButtonsManager : Control
         SetUpTimers();
     }
     
-    void CreateTimer(float secs, string method)
-    {
-        _timerToDoMethod = new Timer();
-        _timerToDoMethod.WaitTime = secs;
-        _timerToDoMethod.OneShot = true;
-        AddChild(_timerToDoMethod);
-        _timerToDoMethod.Start();
-        _timerToDoMethod.Connect("timeout", this, method);
-        _timerToDoMethod.Connect("timeout", _timerToDoMethod, "queue_free");
-    }
     public void SubscribeCurrencyLabel(CurrencyLabel cl)
     {
         //GD.Print("Suscribing " + cl.myType);
@@ -258,26 +247,25 @@ public class UIButtonsManager : Control
         }
         else
         {
-            _timerToSetIdle.WaitTime = 10;
             _timerToSetIdle.Start();
         }
     }
     
     void SetIdle()
     {
-        _timerToSetIdle.Stop();
         GD.Print("Setting Idle");
+        _timerToSetIdle.Stop();
+        _timerToShowFinishedBonus.Stop();
         HideIncomingBonusMessage();
         FinishBonus();
         ClearGameOverMessage();
-        if(_timerToDoMethod != null)
-            _timerToDoMethod.Stop();
         EmitSignal(nameof(UIIdle));
     }
 
     void EnterDemoMode() //La llama GameManager, señal DemoModeStarted
     {
         _timerToSetIdle.Stop();
+        GD.Print("Idle Time left " + _timerToSetIdle.TimeLeft);
         _myAnim.Play("StartDemoMode");
     }
 
@@ -303,7 +291,7 @@ public class UIButtonsManager : Control
 
     void BonusPicked() //La llama GameManager, señal bonusOver
     {
-        CreateTimer(2.5f,"ShowFinishedBonus");
+        _timerToShowFinishedBonus.Start();
         DeactivateButtons();
     }
 
@@ -328,6 +316,7 @@ public class UIButtonsManager : Control
 
     void ActivateNextLevelRect() // La llama restartGame
     {
+        _timerToSetIdle.Stop();
         _nextLevel.Show();
     }
 
@@ -353,15 +342,14 @@ public class UIButtonsManager : Control
 
     public void StopTimer()
     {
-        _timer.Stop();
+        _timerToEndLevel.Stop();
         _myTimeLabel.Text = "--";
         _timerAnim.Play("Idle");
     }
     void StartTimer(float seconds)
     {
-        _timer.WaitTime = seconds;
-        _timer.OneShot = true;
-        _timer.Start();
+        _timerToEndLevel.WaitTime = seconds;
+        _timerToEndLevel.Start();
     }
 
     void TimerFinished()
@@ -371,10 +359,20 @@ public class UIButtonsManager : Control
 
     void SetUpTimers()
     {
-        AddChild(_timer);
+        AddChild(_timerToEndLevel);
         AddChild(_timerToSetIdle);
-        _timer.Connect("timeout", this, "TimerFinished");
-        _timerToSetIdle.Connect("timeout", this, "SetIdle");
+        AddChild(_timerToShowFinishedBonus);
+        _timerToSetIdle.Name = nameof(_timerToSetIdle);
+        _timerToEndLevel.Name = nameof(_timerToEndLevel);
+        _timerToShowFinishedBonus.Name = nameof(_timerToShowFinishedBonus);
+        
+        _timerToShowFinishedBonus.OneShot = true;
+        _timerToShowFinishedBonus.WaitTime = 4.5f;
+        _timerToSetIdle.WaitTime = 10;
+        
+        _timerToEndLevel.Connect("timeout", this, nameof(TimerFinished));
+        _timerToSetIdle.Connect("timeout", this, nameof(SetIdle));
+        _timerToShowFinishedBonus.Connect("timeout", this, nameof(ShowFinishedBonus));
     }
     #endregion
 

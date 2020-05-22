@@ -31,7 +31,7 @@ public class GameManager : Godot.Control
     [Export] bool _useDb = false;
     [Export] float timeToSetDemo = 2;
     [Export] float timeToDemoActions = 3;
-    [Export] int _levels, _timerInLevel;
+    [Export] int _levels, _timeInLevel;
     [Export] int[] _badOnes = new int[10];
     int[] _currentLevelInfo;
     bool _isPlaying, _gotBonus, _isResuming, _isDemo;
@@ -92,6 +92,8 @@ public class GameManager : Godot.Control
         AddChild(_timerToDemoMode);
         AddChild(_actionsTimer);
         _actionsTimer.Name = nameof(_actionsTimer);
+        _timerToDemoMode.Name = nameof(_timerToDemoMode);
+        _timerToCreateLevels.Name = nameof(_timerToCreateLevels);
         
         _timerToCreateLevels.OneShot = true;
         _timerToDemoMode.OneShot = true;
@@ -269,7 +271,7 @@ public class GameManager : Godot.Control
         if (currentLevel <= 8)
         {
             EmitSignal(nameof(CanCollect));
-            EmitSignal(nameof(StartTimer), _timerInLevel);
+            EmitSignal(nameof(StartTimer), _timeInLevel);
         }
     }
     public void InstantiateBonus() // La llama UI Manager, señal BonusAccepted
