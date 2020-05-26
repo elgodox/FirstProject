@@ -135,7 +135,7 @@ public class LevelManager : Node
 
 			if(actives[i] == bonusIndex && gotABonus)
 			{
-				GD.Print("HexManager recibe que el bonus está en el índice " + actives[i]);
+				GD.Print("Level Manager recibe que el bonus está en el índice " + actives[i]);
 				_nodes[actives[i]].bonus = true;
 				gotABonus = false;
 			}

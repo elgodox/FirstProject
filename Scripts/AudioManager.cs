@@ -66,7 +66,6 @@ public class AudioManager : Node
         {
            PlayAudioTrack(gameOverLoseMusic, _notificationSounds);
         }
-        GD.Print("PlayGameOverSound");
     }
 
     public void PlayLevelMusic()

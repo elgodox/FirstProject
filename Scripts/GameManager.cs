@@ -352,7 +352,7 @@ public class GameManager : Godot.Control
 
     public void EndGame(bool win)
     {
-        GD.Print("End Game, el nivel actual es " + currentLevel + " y el bool de win es " + win);
+        //GD.Print("End Game, el nivel actual es " + currentLevel + " y el bool de win es " + win);
         currentLevelMngr?.ExitAnimation();
         
         if (_isDemo)
@@ -414,6 +414,7 @@ public class GameManager : Godot.Control
         {
             _actionsTimer.Disconnect("timeout", currentLevelMngr, nameof(currentLevelMngr.ChooseRandomNode));
             _actionsTimer.Connect("timeout", this, nameof(ClearBonusFinished));
+            _actionsTimer.WaitTime = 8;
             _actionsTimer.Start();
         }
     }
@@ -431,7 +432,6 @@ public class GameManager : Godot.Control
     
     void GameCompletelyOver()
     {
-        GD.Print("gameCompletely Over");
         EmitSignal(nameof(GameOver));
         _myGameGen.ResetBonus();
         _gotBonus = false;
@@ -457,7 +457,7 @@ public class GameManager : Godot.Control
         GD.Print("Setting Demo Mode");
         EmitSignal(nameof(DemoModeStarted));
         _actionsTimer.Connect("timeout", this, nameof(StartGame));
-        _actionsTimer.WaitTime = 2;
+        _actionsTimer.WaitTime = 4;
         _actionsTimer.Start();
     }
 

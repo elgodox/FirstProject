@@ -278,7 +278,7 @@ public class UIButtonsManager : Control
             {
                 EmitSignal(nameof(DemoModeFinished));
                 _myAnim.CurrentAnimation = "StartDemoMode";
-                _myAnim.Advance(1.75f);
+                _myAnim.Advance(3.5f);
                 _myAnim.PlayBackwards();
             }
         }
