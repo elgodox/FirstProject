@@ -54,8 +54,10 @@ public class GameManager : Godot.Control
         if (_useDb)
         {
             _oMenu.Start();
-            CheckBetDescription(GetBetDescription());
+            _currencyManager.currentBet = _oMenu.GetCurrentBet();
             EmitSignal(nameof(SetCurrencyManager),_oMenu.GetMoney(),_oMenu.MinBet(),_oMenu.MaxBet());
+            CheckBetDescription(GetBetDescription());
+            GD.Print("omenu credit: " + _oMenu.GetMoney());
         }
         else
         {
@@ -120,7 +122,6 @@ public class GameManager : Godot.Control
                 _betDescription = betToCheck;
                 _myRecover = new GameRecover(_betDescription);
                 _myRecover.FillDictionarys(_levels);
-                _currencyManager.currentBet = _oMenu.GetCurrentBet();
                 ResumeCrashedGame();
             }
             else
@@ -128,6 +129,7 @@ public class GameManager : Godot.Control
                 UpdateSaveDataLocal();
             }
         }
+        
     }
     
     void UpdateSaveDataLocal()
@@ -394,6 +396,7 @@ public class GameManager : Godot.Control
 
         if (_useDb)
         {
+            GD.Print("EndGame currencymanager, credit: " + _currencyManager.credit);
             OMenuClient.Structs.SaveData saveData = new OMenuClient.Structs.SaveData(_isPlaying, _currencyManager.credit, _currencyManager.currentBet, DateTime.Now, _betDescription);
             _oMenu.UpdateSaveData(saveData);
         }
@@ -432,10 +435,10 @@ public class GameManager : Godot.Control
     
     void GameCompletelyOver()
     {
+        _isPlaying = false;
         EmitSignal(nameof(GameOver));
         _myGameGen.ResetBonus();
         _gotBonus = false;
-        _isPlaying = false;
         _betDescription = "";
         if (_useDb)
         {
@@ -530,7 +533,6 @@ public class GameManager : Godot.Control
             _currencyManager.AddBetToCurrency();
             EndGame(_myRecover.CheckIfWin());
         }
-
         _isResuming = false;
     }
 

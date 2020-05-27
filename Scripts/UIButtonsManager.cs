@@ -232,6 +232,7 @@ public class UIButtonsManager : Control
     }
     void UpdateCurrencyUI(string currencyType, float currency)
     {
+        GD.Print(currencyType + "  " + currency);
         _myCurrencyLabels[currencyType].UpdateLabel(currency);
     }
 
