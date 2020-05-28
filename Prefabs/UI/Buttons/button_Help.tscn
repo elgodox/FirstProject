@@ -1,18 +1,24 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Fonts/Dynamic Fonts/Menu.tres" type="DynamicFont" id=1]
-[ext_resource path="res://Sprites/Botones/jugar.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Botones/boton-lateral-menu-pres.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Botones/boton-lateral-menu.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Botones/boton-lateral-menu-disabled.png" type="Texture" id=4]
 
 [node name="button_Help" type="TextureButton"]
-anchor_left = 0.792
+anchor_left = 0.782
 anchor_top = 0.01
-anchor_right = 0.873
-anchor_bottom = 0.121
-margin_left = 0.515259
-margin_top = -9.53674e-07
-margin_right = -0.0847168
-margin_bottom = 0.0999832
+anchor_right = 0.878
+anchor_bottom = 0.116
+margin_left = 24.7999
+margin_top = -9.0
+margin_right = 25.2
+margin_bottom = -0.400002
+rect_scale = Vector2( -1, 1 )
+rect_pivot_offset = Vector2( 64.5, 48 )
 texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 2 )
+texture_disabled = ExtResource( 4 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -27,6 +33,8 @@ margin_left = -34.1347
 margin_top = -14.4421
 margin_right = 38.8653
 margin_bottom = 10.5579
+rect_scale = Vector2( -1, 1 )
+rect_pivot_offset = Vector2( 36.5, 12.5 )
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )

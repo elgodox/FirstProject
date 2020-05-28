@@ -1,8 +1,6 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=2 format=2]
 
 [ext_resource path="res://Fonts/Dynamic Fonts/Apuestas.tres" type="DynamicFont" id=1]
-[ext_resource path="res://Sprites/Botones/btn_arriba.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/Botones/apuesta_suma_push.png" type="Texture" id=3]
 
 [node name="button_MaxBet" type="TextureButton"]
 anchor_left = 0.449
@@ -13,8 +11,6 @@ margin_left = 0.599976
 margin_top = 0.0762329
 margin_right = -0.200073
 margin_bottom = -0.423706
-texture_normal = ExtResource( 2 )
-texture_pressed = ExtResource( 3 )
 expand = true
 stretch_mode = 3
 __meta__ = {

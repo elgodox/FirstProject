@@ -66,7 +66,7 @@ public class GameManager : Godot.Control
 
         if (!_isPlaying)
         {
-            _currencyManager.Bet();
+            _currencyManager.BetUp();
         }
     }
 

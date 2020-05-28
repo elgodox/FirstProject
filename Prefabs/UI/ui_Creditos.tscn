@@ -1,52 +1,153 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Fonts/Dynamic Fonts/font_Courier_26.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Fonts/Dynamic Fonts/btn_Ganado.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Sprites/Animations/credito.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/CurrencyLabel.cs" type="Script" id=4]
+
+[sub_resource type="AtlasTexture" id=1]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 230, 130 )
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 230, 0, 230, 130 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 460, 0, 230, 130 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 690, 0, 230, 130 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 0, 130, 230, 130 )
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 230, 130, 230, 130 )
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 460, 130, 230, 130 )
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 690, 130, 230, 130 )
+
+[sub_resource type="AtlasTexture" id=9]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 0, 260, 230, 130 )
+
+[sub_resource type="AtlasTexture" id=10]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 230, 260, 230, 130 )
+
+[sub_resource type="AtlasTexture" id=11]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 460, 260, 230, 130 )
+
+[sub_resource type="AtlasTexture" id=12]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 690, 260, 230, 130 )
+
+[sub_resource type="AtlasTexture" id=13]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 0, 390, 230, 130 )
+
+[sub_resource type="AtlasTexture" id=14]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 230, 390, 230, 130 )
+
+[sub_resource type="AtlasTexture" id=15]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 460, 390, 230, 130 )
+
+[sub_resource type="AtlasTexture" id=16]
+flags = 4
+atlas = ExtResource( 3 )
+region = Rect2( 690, 390, 230, 130 )
+
+[sub_resource type="SpriteFrames" id=17]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 16.0
+} ]
 
 [node name="ui_Creditos" type="TextureRect"]
 anchor_left = 0.141
 anchor_top = 0.786
 anchor_right = 0.302
 anchor_bottom = 0.925
-margin_left = 0.399994
-margin_top = 0.599976
-margin_right = -0.199982
-margin_bottom = 0.5
+margin_left = -8.384
+margin_top = -3.64801
+margin_right = 18.752
+margin_bottom = -6.40002
 expand = true
 stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 99, 49 )
+frames = SubResource( 17 )
+animation = "Idle"
+frame = 15
+playing = true
+
 [node name="title_Credits" type="Label" parent="."]
-anchor_left = 0.391
-anchor_top = 0.34
-anchor_right = 0.391
-anchor_bottom = 0.34
-margin_left = -81.2582
-margin_top = -11.5
-margin_right = 81.7418
-margin_bottom = 11.5
+anchor_left = 0.5
+anchor_top = 0.192
+anchor_right = 0.5
+anchor_bottom = 0.192
+margin_left = -88.0
+margin_top = -11.968
+margin_right = 88.0
+margin_bottom = 12.032
 custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "/// CREDITO"
+text = "CREDITO"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="current_Credits" type="Label" parent="."]
-anchor_left = 0.508
-anchor_top = 0.628
-anchor_right = 0.508
-anchor_bottom = 0.628
-margin_left = -112.556
-margin_top = -23.5
-margin_right = 112.444
-margin_bottom = 22.5
-rect_pivot_offset = Vector2( 1.22879, 23.5 )
+anchor_left = 0.521
+anchor_top = 0.5
+anchor_right = 0.521
+anchor_bottom = 0.5
+margin_left = -93.5635
+margin_top = -4.92603
+margin_right = 90.4365
+margin_bottom = 41.074
+rect_pivot_offset = Vector2( 92, 20 )
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "0"
+align = 1
 valign = 1
 script = ExtResource( 4 )
 __meta__ = {

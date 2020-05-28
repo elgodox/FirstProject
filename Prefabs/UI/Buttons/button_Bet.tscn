@@ -1,8 +1,6 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=2 format=2]
 
 [ext_resource path="res://Fonts/Dynamic Fonts/Apuestas.tres" type="DynamicFont" id=1]
-[ext_resource path="res://Sprites/Botones/btn_abajo.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/Botones/apuesta_resta_push.png" type="Texture" id=3]
 
 [node name="button_Bet" type="TextureButton"]
 anchor_left = 0.449
@@ -13,8 +11,6 @@ margin_left = 0.599976
 margin_top = -6.10352e-05
 margin_right = 0.199951
 margin_bottom = -6.10352e-05
-texture_normal = ExtResource( 2 )
-texture_pressed = ExtResource( 3 )
 stretch_mode = 3
 __meta__ = {
 "_edit_use_anchors_": false
@@ -32,7 +28,7 @@ margin_bottom = 17.9739
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "APUESTA +1"
+text = "+"
 align = 1
 valign = 1
 __meta__ = {

@@ -1,9 +1,6 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Sprites/Botones/jugar.png" type="Texture" id=1]
 [ext_resource path="res://Fonts/Dynamic Fonts/Apuestas.tres" type="DynamicFont" id=2]
-[ext_resource path="res://Sprites/Botones/jugar-presionado.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/Botones/jugar_des.png" type="Texture" id=4]
 [ext_resource path="res://Scripts/CurrencyLabel.cs" type="Script" id=5]
 
 [node name="button_end_collect" type="TextureButton"]
@@ -11,9 +8,6 @@ margin_left = -96.7642
 margin_top = -68.4173
 margin_right = 89.2358
 margin_bottom = 77.5827
-texture_normal = ExtResource( 1 )
-texture_pressed = ExtResource( 3 )
-texture_disabled = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

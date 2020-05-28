@@ -22,7 +22,7 @@ public class CurrencyManager : Node
         CheckAllCurrency();
         //CheckBet();
     }
-    public void Bet() // La llama UIManager, señal bet
+    public void BetUp() // La llama UIManager, señal bet
     {
         if(credit <= 0 ) return;
         if(credit >= minBetAmount)
@@ -34,6 +34,28 @@ public class CurrencyManager : Node
             else
             {
                 currentBet += minBetAmount;
+            }
+            EmitSignal(nameof(GameHaveBet), true);
+        }
+        else
+        {
+            currentBet = credit;
+        }
+        EmitSignal(nameof(CurrencyChanged), Constants.CURRENT_BET, currentBet);
+    }
+
+    void BetDown()
+    {
+        if(credit <= 0 ) return;
+        if(credit >= minBetAmount)
+        {
+            if(currentBet <= minBetAmount)
+            {
+                currentBet = maxBetAmount;
+            }
+            else
+            {
+                currentBet -= minBetAmount;
             }
             EmitSignal(nameof(GameHaveBet), true);
         }

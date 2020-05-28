@@ -1,18 +1,21 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Fonts/Dynamic Fonts/Menu.tres" type="DynamicFont" id=1]
-[ext_resource path="res://Sprites/Botones/jugar.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Botones/boton-lateral-menu.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Botones/boton-lateral-menu-pres.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Botones/boton-lateral-menu-disabled.png" type="Texture" id=4]
 
 [node name="button_Menu" type="TextureButton"]
 anchor_left = 0.127
 anchor_top = 0.01
-anchor_right = 0.19
-anchor_bottom = 0.096
+anchor_right = 0.206
+anchor_bottom = 0.092
 margin_left = 0.799988
-margin_top = -0.311218
-margin_right = -3.05176e-05
-margin_bottom = -0.71122
-texture_normal = ExtResource( 3 )
+margin_right = 0.399963
+margin_bottom = 0.199997
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 3 )
+texture_disabled = ExtResource( 4 )
 expand = true
 stretch_mode = 4
 __meta__ = {
@@ -20,14 +23,14 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -26.6738
-margin_top = -12.6683
-margin_right = 29.3262
-margin_bottom = 12.3317
+anchor_left = 0.482
+anchor_top = 0.401
+anchor_right = 0.482
+anchor_bottom = 0.401
+margin_left = -27.9906
+margin_top = -12.512
+margin_right = 28.0094
+margin_bottom = 12.488
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )

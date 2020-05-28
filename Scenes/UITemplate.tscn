@@ -1,12 +1,12 @@
-[gd_scene load_steps=196 format=2]
+[gd_scene load_steps=273 format=2]
 
 [ext_resource path="res://Prefabs/UI/Buttons/button_Collect.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Prefabs/UI/Buttons/button_Bet.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Sounds/SelectSC.ogg" type="AudioStream" id=3]
-[ext_resource path="res://Prefabs/UI/ui_MaxBet.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Sprites/Animations/bnt_cobrar.png" type="Texture" id=4]
 [ext_resource path="res://Prefabs/UI/ui_Creditos.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Prefabs/UI/Buttons/button_MaxBet.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Prefabs/UI/ui_Collect.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Sprites/Animations/credito.png" type="Texture" id=7]
 [ext_resource path="res://Prefabs/UI/Buttons/button_Help.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scripts/UIButtonsManager.cs" type="Script" id=9]
 [ext_resource path="res://Prefabs/UI/Buttons/button_Play.tscn" type="PackedScene" id=10]
@@ -19,75 +19,75 @@
 [ext_resource path="res://Fonts/Dynamic Fonts/Menu.tres" type="DynamicFont" id=17]
 [ext_resource path="res://Fonts/Dynamic Fonts/font_Courier_46_GameOver.tres" type="DynamicFont" id=18]
 [ext_resource path="res://Fonts/Roboto-BoldCondensed.ttf" type="DynamicFontData" id=19]
-[ext_resource path="res://Sprites/Panel/hud_00058.png" type="Texture" id=20]
+[ext_resource path="res://Sprites/Panel/PanelViejo/hud_00058.png" type="Texture" id=20]
 [ext_resource path="res://Sprites/Botones/Volume3.png" type="Texture" id=21]
 [ext_resource path="res://Sprites/Botones/Volume2.png" type="Texture" id=22]
 [ext_resource path="res://Sprites/Botones/Mute.png" type="Texture" id=23]
 [ext_resource path="res://Sprites/Botones/Volume1.png" type="Texture" id=24]
-[ext_resource path="res://Sprites/Panel/hud_00055.png" type="Texture" id=25]
-[ext_resource path="res://Sprites/Panel/hud_00050.png" type="Texture" id=26]
-[ext_resource path="res://Sprites/Panel/hud_00059.png" type="Texture" id=27]
-[ext_resource path="res://Sprites/Panel/hud_00054.png" type="Texture" id=28]
-[ext_resource path="res://Sprites/Panel/hud_00051.png" type="Texture" id=29]
-[ext_resource path="res://Sprites/Panel/hud_00053.png" type="Texture" id=30]
-[ext_resource path="res://Sprites/Panel/hud_00052.png" type="Texture" id=31]
-[ext_resource path="res://Sprites/Panel/hud_00056.png" type="Texture" id=32]
-[ext_resource path="res://Sprites/Panel/hud_00057.png" type="Texture" id=33]
-[ext_resource path="res://Sprites/Panel/hud_00003.png" type="Texture" id=34]
-[ext_resource path="res://Sprites/Panel/hud_00004.png" type="Texture" id=35]
-[ext_resource path="res://Sprites/Panel/hud_00001.png" type="Texture" id=36]
-[ext_resource path="res://Sprites/Panel/hud_00000.png" type="Texture" id=37]
-[ext_resource path="res://Sprites/Panel/hud_00002.png" type="Texture" id=38]
-[ext_resource path="res://Sprites/Panel/hud_00017.png" type="Texture" id=39]
-[ext_resource path="res://Sprites/Panel/hud_00020.png" type="Texture" id=40]
-[ext_resource path="res://Sprites/Panel/hud_00007.png" type="Texture" id=41]
-[ext_resource path="res://Sprites/Panel/hud_00026.png" type="Texture" id=42]
-[ext_resource path="res://Sprites/Panel/hud_00018.png" type="Texture" id=43]
-[ext_resource path="res://Sprites/Panel/hud_00032.png" type="Texture" id=44]
-[ext_resource path="res://Sprites/Panel/hud_00023.png" type="Texture" id=45]
-[ext_resource path="res://Sprites/Panel/hud_00033.png" type="Texture" id=46]
-[ext_resource path="res://Sprites/Panel/hud_00027.png" type="Texture" id=47]
-[ext_resource path="res://Sprites/Panel/hud_00028.png" type="Texture" id=48]
-[ext_resource path="res://Sprites/Panel/hud_00013.png" type="Texture" id=49]
-[ext_resource path="res://Sprites/Panel/hud_00005.png" type="Texture" id=50]
-[ext_resource path="res://Sprites/Panel/hud_00014.png" type="Texture" id=51]
-[ext_resource path="res://Sprites/Panel/hud_00024.png" type="Texture" id=52]
-[ext_resource path="res://Sprites/Panel/hud_00011.png" type="Texture" id=53]
-[ext_resource path="res://Sprites/Panel/hud_00006.png" type="Texture" id=54]
-[ext_resource path="res://Sprites/Panel/hud_00008.png" type="Texture" id=55]
-[ext_resource path="res://Sprites/Panel/hud_00009.png" type="Texture" id=56]
-[ext_resource path="res://Sprites/Panel/hud_00022.png" type="Texture" id=57]
-[ext_resource path="res://Sprites/Panel/hud_00029.png" type="Texture" id=58]
-[ext_resource path="res://Sprites/Panel/hud_00016.png" type="Texture" id=59]
-[ext_resource path="res://Sprites/Panel/hud_00031.png" type="Texture" id=60]
-[ext_resource path="res://Sprites/Panel/hud_00015.png" type="Texture" id=61]
-[ext_resource path="res://Sprites/Panel/hud_00034.png" type="Texture" id=62]
-[ext_resource path="res://Sprites/Panel/hud_00035.png" type="Texture" id=63]
-[ext_resource path="res://Sprites/Panel/hud_00025.png" type="Texture" id=64]
-[ext_resource path="res://Sprites/Panel/hud_00030.png" type="Texture" id=65]
-[ext_resource path="res://Sprites/Panel/hud_00036.png" type="Texture" id=66]
-[ext_resource path="res://Sprites/Panel/hud_00012.png" type="Texture" id=67]
-[ext_resource path="res://Sprites/Panel/hud_00010.png" type="Texture" id=68]
-[ext_resource path="res://Sprites/Panel/hud_00021.png" type="Texture" id=69]
-[ext_resource path="res://Sprites/Panel/hud_00019.png" type="Texture" id=70]
-[ext_resource path="res://Sprites/Panel/hud_00046.png" type="Texture" id=71]
-[ext_resource path="res://Sprites/Panel/hud_00047.png" type="Texture" id=72]
-[ext_resource path="res://Sprites/Panel/hud_00049.png" type="Texture" id=73]
-[ext_resource path="res://Sprites/Panel/hud_00048.png" type="Texture" id=74]
-[ext_resource path="res://Sprites/Panel/hud_00038.png" type="Texture" id=75]
-[ext_resource path="res://Sprites/Panel/hud_00040.png" type="Texture" id=76]
-[ext_resource path="res://Sprites/Panel/hud_00043.png" type="Texture" id=77]
-[ext_resource path="res://Sprites/Panel/hud_00039.png" type="Texture" id=78]
-[ext_resource path="res://Sprites/Panel/hud_00041.png" type="Texture" id=79]
-[ext_resource path="res://Sprites/Panel/hud_00037.png" type="Texture" id=80]
-[ext_resource path="res://Sprites/Panel/hud_00042.png" type="Texture" id=81]
-[ext_resource path="res://Sprites/Panel/hud_00045.png" type="Texture" id=82]
-[ext_resource path="res://Sprites/Panel/hud_00044.png" type="Texture" id=83]
+[ext_resource path="res://Sprites/Panel/PanelViejo/hud_00055.png" type="Texture" id=25]
+[ext_resource path="res://Sprites/Panel/PanelViejo/hud_00050.png" type="Texture" id=26]
+[ext_resource path="res://Sprites/Panel/PanelViejo/hud_00059.png" type="Texture" id=27]
+[ext_resource path="res://Sprites/Panel/PanelViejo/hud_00054.png" type="Texture" id=28]
+[ext_resource path="res://Sprites/Panel/PanelViejo/hud_00051.png" type="Texture" id=29]
+[ext_resource path="res://Sprites/Panel/PanelViejo/hud_00053.png" type="Texture" id=30]
+[ext_resource path="res://Sprites/Panel/PanelViejo/hud_00052.png" type="Texture" id=31]
+[ext_resource path="res://Sprites/Panel/PanelViejo/hud_00056.png" type="Texture" id=32]
+[ext_resource path="res://Sprites/Panel/PanelViejo/hud_00057.png" type="Texture" id=33]
+[ext_resource path="res://Sprites/Panel/PanelViejo/hud_00003.png" type="Texture" id=34]
+[ext_resource path="res://Sprites/Panel/PanelViejo/hud_00004.png" type="Texture" id=35]
+[ext_resource path="res://Sprites/Panel/PanelViejo/hud_00001.png" type="Texture" id=36]
+[ext_resource path="res://Sprites/Panel/PanelViejo/hud_00000.png" type="Texture" id=37]
+[ext_resource path="res://Sprites/Panel/PanelViejo/hud_00002.png" type="Texture" id=38]
+[ext_resource path="res://Sprites/Panel/PanelViejo/hud_00017.png" type="Texture" id=39]
+[ext_resource path="res://Sprites/Panel/PanelViejo/hud_00020.png" type="Texture" id=40]
+[ext_resource path="res://Sprites/Panel/PanelViejo/hud_00007.png" type="Texture" id=41]
+[ext_resource path="res://Sprites/Panel/PanelViejo/hud_00026.png" type="Texture" id=42]
+[ext_resource path="res://Sprites/Panel/PanelViejo/hud_00018.png" type="Texture" id=43]
+[ext_resource path="res://Sprites/Panel/PanelViejo/hud_00032.png" type="Texture" id=44]
+[ext_resource path="res://Sprites/Panel/PanelViejo/hud_00023.png" type="Texture" id=45]
+[ext_resource path="res://Sprites/Panel/PanelViejo/hud_00033.png" type="Texture" id=46]
+[ext_resource path="res://Sprites/Panel/PanelViejo/hud_00027.png" type="Texture" id=47]
+[ext_resource path="res://Sprites/Panel/PanelViejo/hud_00028.png" type="Texture" id=48]
+[ext_resource path="res://Sprites/Panel/PanelViejo/hud_00013.png" type="Texture" id=49]
+[ext_resource path="res://Sprites/Panel/PanelViejo/hud_00005.png" type="Texture" id=50]
+[ext_resource path="res://Sprites/Panel/PanelViejo/hud_00014.png" type="Texture" id=51]
+[ext_resource path="res://Sprites/Panel/PanelViejo/hud_00024.png" type="Texture" id=52]
+[ext_resource path="res://Sprites/Panel/PanelViejo/hud_00011.png" type="Texture" id=53]
+[ext_resource path="res://Sprites/Panel/PanelViejo/hud_00006.png" type="Texture" id=54]
+[ext_resource path="res://Sprites/Panel/PanelViejo/hud_00008.png" type="Texture" id=55]
+[ext_resource path="res://Sprites/Panel/PanelViejo/hud_00009.png" type="Texture" id=56]
+[ext_resource path="res://Sprites/Panel/PanelViejo/hud_00022.png" type="Texture" id=57]
+[ext_resource path="res://Sprites/Panel/PanelViejo/hud_00029.png" type="Texture" id=58]
+[ext_resource path="res://Sprites/Panel/PanelViejo/hud_00016.png" type="Texture" id=59]
+[ext_resource path="res://Sprites/Panel/PanelViejo/hud_00031.png" type="Texture" id=60]
+[ext_resource path="res://Sprites/Panel/PanelViejo/hud_00015.png" type="Texture" id=61]
+[ext_resource path="res://Sprites/Panel/PanelViejo/hud_00034.png" type="Texture" id=62]
+[ext_resource path="res://Sprites/Panel/PanelViejo/hud_00035.png" type="Texture" id=63]
+[ext_resource path="res://Sprites/Panel/PanelViejo/hud_00025.png" type="Texture" id=64]
+[ext_resource path="res://Sprites/Panel/PanelViejo/hud_00030.png" type="Texture" id=65]
+[ext_resource path="res://Sprites/Panel/PanelViejo/hud_00036.png" type="Texture" id=66]
+[ext_resource path="res://Sprites/Panel/PanelViejo/hud_00012.png" type="Texture" id=67]
+[ext_resource path="res://Sprites/Panel/PanelViejo/hud_00010.png" type="Texture" id=68]
+[ext_resource path="res://Sprites/Panel/PanelViejo/hud_00021.png" type="Texture" id=69]
+[ext_resource path="res://Sprites/Panel/PanelViejo/hud_00019.png" type="Texture" id=70]
+[ext_resource path="res://Sprites/Panel/PanelViejo/hud_00046.png" type="Texture" id=71]
+[ext_resource path="res://Sprites/Panel/PanelViejo/hud_00047.png" type="Texture" id=72]
+[ext_resource path="res://Sprites/Panel/PanelViejo/hud_00049.png" type="Texture" id=73]
+[ext_resource path="res://Sprites/Panel/PanelViejo/hud_00048.png" type="Texture" id=74]
+[ext_resource path="res://Sprites/Panel/PanelViejo/hud_00038.png" type="Texture" id=75]
+[ext_resource path="res://Sprites/Panel/PanelViejo/hud_00040.png" type="Texture" id=76]
+[ext_resource path="res://Sprites/Panel/PanelViejo/hud_00043.png" type="Texture" id=77]
+[ext_resource path="res://Sprites/Panel/PanelViejo/hud_00039.png" type="Texture" id=78]
+[ext_resource path="res://Sprites/Panel/PanelViejo/hud_00041.png" type="Texture" id=79]
+[ext_resource path="res://Sprites/Panel/PanelViejo/hud_00037.png" type="Texture" id=80]
+[ext_resource path="res://Sprites/Panel/PanelViejo/hud_00042.png" type="Texture" id=81]
+[ext_resource path="res://Sprites/Panel/PanelViejo/hud_00045.png" type="Texture" id=82]
+[ext_resource path="res://Sprites/Panel/PanelViejo/hud_00044.png" type="Texture" id=83]
 [ext_resource path="res://Prefabs/UI/Buttons/button_end_collect.tscn" type="PackedScene" id=84]
-[ext_resource path="res://Sprites/Botones/apuesta_suma_des.png" type="Texture" id=85]
-[ext_resource path="res://Sprites/Botones/cobra_des.png" type="Texture" id=86]
+[ext_resource path="res://Sprites/Animations/btn_jugar.png" type="Texture" id=85]
+[ext_resource path="res://Sprites/Botones/boton-lateral-menu-pres.png" type="Texture" id=86]
 [ext_resource path="res://Sprites/Botones/jugar_des.png" type="Texture" id=87]
-[ext_resource path="res://Sprites/Botones/btn_abajo_des.png" type="Texture" id=88]
+[ext_resource path="res://Sprites/Botones/boton-lateral-menu-disabled.png" type="Texture" id=88]
 [ext_resource path="res://Fonts/Dynamic Fonts/Apuestas.tres" type="DynamicFont" id=89]
 [ext_resource path="res://Scripts/CurrencyLabel.cs" type="Script" id=90]
 [ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_idle_00013.png" type="Texture" id=91]
@@ -147,24 +147,276 @@
 [ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_idle_00032.png" type="Texture" id=145]
 [ext_resource path="res://Sprites/Bonus/Circle_bonus/Circle_idle_00055.png" type="Texture" id=146]
 [ext_resource path="res://Fonts/Dynamic Fonts/font_Roboto_100.tres" type="DynamicFont" id=147]
-[ext_resource path="res://Sprites/BonusWin_box.png" type="Texture" id=148]
+[ext_resource path="res://Sprites/win_box_2.png" type="Texture" id=148]
 [ext_resource path="res://Sprites/Bonus/PrevioABonus/Cartel_previobonus.png" type="Texture" id=149]
 [ext_resource path="res://Sprites/Botones/jugar_bonus.png" type="Texture" id=150]
 [ext_resource path="res://Sounds/Deined_01.ogg" type="AudioStream" id=151]
+[ext_resource path="res://Sprites/Tablero.png" type="Texture" id=152]
+[ext_resource path="res://Sprites/Tablero2.png" type="Texture" id=153]
+[ext_resource path="res://Sprites/Botones/boton-lateral-menu.png" type="Texture" id=154]
+[ext_resource path="res://Sprites/Animations/logo_idle.png" type="Texture" id=155]
+
+[sub_resource type="Animation" id=93]
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("ui_BonusTexture:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=148]
+resource_name = "Off"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 37 ), ExtResource( 36 ), ExtResource( 38 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 50 ), ExtResource( 54 ), ExtResource( 41 ), ExtResource( 55 ), ExtResource( 56 ), ExtResource( 68 ), ExtResource( 53 ), ExtResource( 67 ), ExtResource( 49 ), ExtResource( 51 ), ExtResource( 61 ), ExtResource( 59 ), ExtResource( 39 ), ExtResource( 43 ), ExtResource( 70 ), ExtResource( 40 ), ExtResource( 69 ), ExtResource( 57 ), ExtResource( 45 ), ExtResource( 52 ), ExtResource( 64 ), ExtResource( 42 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 58 ), ExtResource( 65 ), ExtResource( 60 ), ExtResource( 44 ), ExtResource( 46 ), ExtResource( 62 ), ExtResource( 63 ), ExtResource( 66 ), ExtResource( 80 ), ExtResource( 75 ), ExtResource( 78 ), ExtResource( 76 ), ExtResource( 79 ), ExtResource( 81 ), ExtResource( 77 ), ExtResource( 83 ), ExtResource( 82 ), ExtResource( 71 ), ExtResource( 72 ), ExtResource( 74 ), ExtResource( 73 ), ExtResource( 26 ), ExtResource( 29 ), ExtResource( 31 ), ExtResource( 30 ), ExtResource( 28 ), ExtResource( 25 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 20 ), ExtResource( 27 ) ],
+"frames": [ ExtResource( 153 ), ExtResource( 152 ), ExtResource( 37 ), ExtResource( 36 ), ExtResource( 38 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 50 ), ExtResource( 54 ), ExtResource( 41 ), ExtResource( 55 ), ExtResource( 56 ), ExtResource( 68 ), ExtResource( 53 ), ExtResource( 67 ), ExtResource( 49 ), ExtResource( 51 ), ExtResource( 61 ), ExtResource( 59 ), ExtResource( 39 ), ExtResource( 43 ), ExtResource( 70 ), ExtResource( 40 ), ExtResource( 69 ), ExtResource( 57 ), ExtResource( 45 ), ExtResource( 52 ), ExtResource( 64 ), ExtResource( 42 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 58 ), ExtResource( 65 ), ExtResource( 60 ), ExtResource( 44 ), ExtResource( 46 ), ExtResource( 62 ), ExtResource( 63 ), ExtResource( 66 ), ExtResource( 80 ), ExtResource( 75 ), ExtResource( 78 ), ExtResource( 76 ), ExtResource( 79 ), ExtResource( 81 ), ExtResource( 77 ), ExtResource( 83 ), ExtResource( 82 ), ExtResource( 71 ), ExtResource( 72 ), ExtResource( 74 ), ExtResource( 73 ), ExtResource( 26 ), ExtResource( 29 ), ExtResource( 31 ), ExtResource( 30 ), ExtResource( 28 ), ExtResource( 25 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 20 ), ExtResource( 27 ) ],
 "loop": true,
 "name": "Idle",
 "speed": 20.0
 } ]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=97]
+size = 14
+outline_size = 1
+outline_color = Color( 0.243137, 0.4, 0.741176, 1 )
+use_filter = true
 font_data = ExtResource( 19 )
 
-[sub_resource type="Animation" id=3]
-resource_name = "Idle"
+[sub_resource type="DynamicFont" id=96]
+size = 14
+outline_size = 1
+outline_color = Color( 0.243137, 0.4, 0.741176, 1 )
+use_filter = true
+font_data = ExtResource( 19 )
+
+[sub_resource type="AtlasTexture" id=2]
+flags = 4
+atlas = ExtResource( 85 )
+region = Rect2( 0, 0, 300, 300 )
+
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 85 )
+region = Rect2( 300, 0, 300, 300 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 85 )
+region = Rect2( 600, 0, 300, 300 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 85 )
+region = Rect2( 900, 0, 300, 300 )
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 85 )
+region = Rect2( 0, 300, 300, 300 )
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
+atlas = ExtResource( 85 )
+region = Rect2( 300, 300, 300, 300 )
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
+atlas = ExtResource( 85 )
+region = Rect2( 600, 300, 300, 300 )
+
+[sub_resource type="AtlasTexture" id=9]
+flags = 4
+atlas = ExtResource( 85 )
+region = Rect2( 900, 300, 300, 300 )
+
+[sub_resource type="AtlasTexture" id=10]
+flags = 4
+atlas = ExtResource( 85 )
+region = Rect2( 0, 600, 300, 300 )
+
+[sub_resource type="AtlasTexture" id=11]
+flags = 4
+atlas = ExtResource( 85 )
+region = Rect2( 300, 600, 300, 300 )
+
+[sub_resource type="AtlasTexture" id=12]
+flags = 4
+atlas = ExtResource( 85 )
+region = Rect2( 600, 600, 300, 300 )
+
+[sub_resource type="AtlasTexture" id=13]
+flags = 4
+atlas = ExtResource( 85 )
+region = Rect2( 900, 600, 300, 300 )
+
+[sub_resource type="AtlasTexture" id=14]
+flags = 4
+atlas = ExtResource( 85 )
+region = Rect2( 0, 900, 300, 300 )
+
+[sub_resource type="AtlasTexture" id=15]
+flags = 4
+atlas = ExtResource( 85 )
+region = Rect2( 300, 900, 300, 300 )
+
+[sub_resource type="AtlasTexture" id=16]
+flags = 4
+atlas = ExtResource( 85 )
+region = Rect2( 600, 900, 300, 300 )
+
+[sub_resource type="AtlasTexture" id=17]
+flags = 4
+atlas = ExtResource( 85 )
+region = Rect2( 900, 900, 300, 300 )
+
+[sub_resource type="SpriteFrames" id=18]
+animations = [ {
+"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 20.0
+} ]
+
+[sub_resource type="Animation" id=19]
+resource_name = "Disabled"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.498039, 0.498039, 0.498039, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3 ),
+"transitions": PoolRealArray( 0.392291, 1, 14.42 ),
+"update": 0,
+"values": [ Vector2( 0.859, 0.859 ), Vector2( 1, 1 ), Vector2( 0.859, 0.859 ) ]
+}
+
+[sub_resource type="AtlasTexture" id=131]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 0, 0, 230, 130 )
+
+[sub_resource type="AtlasTexture" id=132]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 230, 0, 230, 130 )
+
+[sub_resource type="AtlasTexture" id=133]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 460, 0, 230, 130 )
+
+[sub_resource type="AtlasTexture" id=134]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 690, 0, 230, 130 )
+
+[sub_resource type="AtlasTexture" id=135]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 0, 130, 230, 130 )
+
+[sub_resource type="AtlasTexture" id=136]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 230, 130, 230, 130 )
+
+[sub_resource type="AtlasTexture" id=137]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 460, 130, 230, 130 )
+
+[sub_resource type="AtlasTexture" id=138]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 690, 130, 230, 130 )
+
+[sub_resource type="AtlasTexture" id=139]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 0, 260, 230, 130 )
+
+[sub_resource type="AtlasTexture" id=140]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 230, 260, 230, 130 )
+
+[sub_resource type="AtlasTexture" id=141]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 460, 260, 230, 130 )
+
+[sub_resource type="AtlasTexture" id=142]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 690, 260, 230, 130 )
+
+[sub_resource type="AtlasTexture" id=143]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 0, 390, 230, 130 )
+
+[sub_resource type="AtlasTexture" id=144]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 230, 390, 230, 130 )
+
+[sub_resource type="AtlasTexture" id=145]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 460, 390, 230, 130 )
+
+[sub_resource type="AtlasTexture" id=146]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 690, 390, 230, 130 )
+
+[sub_resource type="SpriteFrames" id=147]
+animations = [ {
+"frames": [ SubResource( 131 ), SubResource( 132 ), SubResource( 133 ), SubResource( 134 ), SubResource( 135 ), SubResource( 136 ), SubResource( 137 ), SubResource( 138 ), SubResource( 139 ), SubResource( 140 ), SubResource( 141 ), SubResource( 142 ), SubResource( 143 ), SubResource( 144 ), SubResource( 145 ), SubResource( 146 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 20.0
+} ]
+
+[sub_resource type="DynamicFont" id=20]
+font_data = ExtResource( 19 )
+
+[sub_resource type="Animation" id=21]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
@@ -203,7 +455,7 @@ tracks/2/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=22]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
@@ -256,7 +508,95 @@ tracks/3/keys = {
 "times": PoolRealArray( 0.2 )
 }
 
-[sub_resource type="SpriteFrames" id=5]
+[sub_resource type="AtlasTexture" id=115]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 190, 100 )
+
+[sub_resource type="AtlasTexture" id=116]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 190, 0, 190, 100 )
+
+[sub_resource type="AtlasTexture" id=117]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 380, 0, 190, 100 )
+
+[sub_resource type="AtlasTexture" id=118]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 570, 0, 190, 100 )
+
+[sub_resource type="AtlasTexture" id=119]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 0, 100, 190, 100 )
+
+[sub_resource type="AtlasTexture" id=120]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 190, 100, 190, 100 )
+
+[sub_resource type="AtlasTexture" id=121]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 380, 100, 190, 100 )
+
+[sub_resource type="AtlasTexture" id=122]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 570, 100, 190, 100 )
+
+[sub_resource type="AtlasTexture" id=123]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 0, 200, 190, 100 )
+
+[sub_resource type="AtlasTexture" id=124]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 190, 200, 190, 100 )
+
+[sub_resource type="AtlasTexture" id=125]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 380, 200, 190, 100 )
+
+[sub_resource type="AtlasTexture" id=126]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 570, 200, 190, 100 )
+
+[sub_resource type="AtlasTexture" id=127]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 0, 300, 190, 100 )
+
+[sub_resource type="AtlasTexture" id=128]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 190, 300, 190, 100 )
+
+[sub_resource type="AtlasTexture" id=129]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 380, 300, 190, 100 )
+
+[sub_resource type="AtlasTexture" id=130]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 570, 300, 190, 100 )
+
+[sub_resource type="SpriteFrames" id=114]
+animations = [ {
+"frames": [ SubResource( 115 ), SubResource( 116 ), SubResource( 117 ), SubResource( 118 ), SubResource( 119 ), SubResource( 120 ), SubResource( 121 ), SubResource( 122 ), SubResource( 123 ), SubResource( 124 ), SubResource( 125 ), SubResource( 126 ), SubResource( 127 ), SubResource( 128 ), SubResource( 129 ), SubResource( 130 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 20.0
+} ]
+
+[sub_resource type="SpriteFrames" id=23]
 animations = [ {
 "frames": [ ExtResource( 23 ) ],
 "loop": false,
@@ -268,18 +608,18 @@ animations = [ {
 "name": "Volume1",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 22 ) ],
-"loop": false,
-"name": "Volume2",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 21 ) ],
 "loop": false,
 "name": "Volume3",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 22 ) ],
+"loop": false,
+"name": "Volume2",
+"speed": 5.0
 } ]
 
-[sub_resource type="SpriteFrames" id=6]
+[sub_resource type="SpriteFrames" id=24]
 animations = [ {
 "frames": [ ExtResource( 106 ), ExtResource( 112 ), ExtResource( 110 ), ExtResource( 108 ), ExtResource( 98 ), ExtResource( 109 ), ExtResource( 95 ), ExtResource( 113 ), ExtResource( 99 ), ExtResource( 111 ), ExtResource( 100 ), ExtResource( 94 ), ExtResource( 101 ), ExtResource( 91 ), ExtResource( 96 ), ExtResource( 105 ), ExtResource( 92 ), ExtResource( 102 ), ExtResource( 107 ), ExtResource( 93 ), ExtResource( 97 ), ExtResource( 103 ), ExtResource( 104 ), ExtResource( 137 ), ExtResource( 142 ), ExtResource( 138 ), ExtResource( 115 ), ExtResource( 132 ), ExtResource( 139 ), ExtResource( 116 ), ExtResource( 144 ), ExtResource( 117 ), ExtResource( 145 ), ExtResource( 133 ), ExtResource( 130 ), ExtResource( 131 ), ExtResource( 143 ), ExtResource( 120 ), ExtResource( 140 ), ExtResource( 114 ), ExtResource( 141 ), ExtResource( 126 ), ExtResource( 136 ), ExtResource( 123 ), ExtResource( 118 ), ExtResource( 127 ), ExtResource( 119 ), ExtResource( 121 ), ExtResource( 122 ), ExtResource( 124 ), ExtResource( 125 ), ExtResource( 128 ), ExtResource( 129 ), ExtResource( 134 ), ExtResource( 135 ), ExtResource( 146 ) ],
 "loop": true,
@@ -287,11 +627,11 @@ animations = [ {
 "speed": 20.0
 } ]
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="DynamicFont" id=25]
 size = 22
 font_data = ExtResource( 19 )
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=26]
 length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rect_scale")
@@ -306,8 +646,24 @@ tracks/0/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=9]
-length = 0.3
+[sub_resource type="Animation" id=167]
+resource_name = "Off"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=27]
+length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rect_scale")
 tracks/0/interp = 1
@@ -315,162 +671,162 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3 ),
+"times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 0, 0 ), Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="StreamTexture" id=10]
+[sub_resource type="StreamTexture" id=28]
 flags = 4
 
-[sub_resource type="DynamicFont" id=11]
+[sub_resource type="DynamicFont" id=63]
 size = 26
 font_data = ExtResource( 19 )
 
-[sub_resource type="AtlasTexture" id=12]
+[sub_resource type="AtlasTexture" id=64]
 flags = 4
 atlas = ExtResource( 149 )
 region = Rect2( 0, 0, 480, 400 )
 
-[sub_resource type="AtlasTexture" id=13]
+[sub_resource type="AtlasTexture" id=65]
 flags = 4
 atlas = ExtResource( 149 )
 region = Rect2( 480, 0, 480, 400 )
 
-[sub_resource type="AtlasTexture" id=14]
+[sub_resource type="AtlasTexture" id=66]
 flags = 4
 atlas = ExtResource( 149 )
 region = Rect2( 960, 0, 480, 400 )
 
-[sub_resource type="AtlasTexture" id=15]
+[sub_resource type="AtlasTexture" id=67]
 flags = 4
 atlas = ExtResource( 149 )
 region = Rect2( 1440, 0, 480, 400 )
 
-[sub_resource type="AtlasTexture" id=16]
+[sub_resource type="AtlasTexture" id=68]
 flags = 4
 atlas = ExtResource( 149 )
 region = Rect2( 1920, 0, 480, 400 )
 
-[sub_resource type="AtlasTexture" id=17]
+[sub_resource type="AtlasTexture" id=69]
 flags = 4
 atlas = ExtResource( 149 )
 region = Rect2( 0, 400, 480, 400 )
 
-[sub_resource type="AtlasTexture" id=18]
+[sub_resource type="AtlasTexture" id=70]
 flags = 4
 atlas = ExtResource( 149 )
 region = Rect2( 480, 400, 480, 400 )
 
-[sub_resource type="AtlasTexture" id=19]
+[sub_resource type="AtlasTexture" id=71]
 flags = 4
 atlas = ExtResource( 149 )
 region = Rect2( 960, 400, 480, 400 )
 
-[sub_resource type="AtlasTexture" id=20]
+[sub_resource type="AtlasTexture" id=72]
 flags = 4
 atlas = ExtResource( 149 )
 region = Rect2( 1440, 400, 480, 400 )
 
-[sub_resource type="AtlasTexture" id=21]
+[sub_resource type="AtlasTexture" id=73]
 flags = 4
 atlas = ExtResource( 149 )
 region = Rect2( 1920, 400, 480, 400 )
 
-[sub_resource type="AtlasTexture" id=22]
+[sub_resource type="AtlasTexture" id=74]
 flags = 4
 atlas = ExtResource( 149 )
 region = Rect2( 0, 800, 480, 400 )
 
-[sub_resource type="AtlasTexture" id=23]
+[sub_resource type="AtlasTexture" id=75]
 flags = 4
 atlas = ExtResource( 149 )
 region = Rect2( 480, 800, 480, 400 )
 
-[sub_resource type="AtlasTexture" id=24]
+[sub_resource type="AtlasTexture" id=76]
 flags = 4
 atlas = ExtResource( 149 )
 region = Rect2( 960, 800, 480, 400 )
 
-[sub_resource type="AtlasTexture" id=25]
+[sub_resource type="AtlasTexture" id=77]
 flags = 4
 atlas = ExtResource( 149 )
 region = Rect2( 1440, 800, 480, 400 )
 
-[sub_resource type="AtlasTexture" id=26]
+[sub_resource type="AtlasTexture" id=78]
 flags = 4
 atlas = ExtResource( 149 )
 region = Rect2( 1920, 800, 480, 400 )
 
-[sub_resource type="AtlasTexture" id=27]
+[sub_resource type="AtlasTexture" id=79]
 flags = 4
 atlas = ExtResource( 149 )
 region = Rect2( 0, 1200, 480, 400 )
 
-[sub_resource type="AtlasTexture" id=28]
+[sub_resource type="AtlasTexture" id=80]
 flags = 4
 atlas = ExtResource( 149 )
 region = Rect2( 480, 1200, 480, 400 )
 
-[sub_resource type="AtlasTexture" id=29]
+[sub_resource type="AtlasTexture" id=81]
 flags = 4
 atlas = ExtResource( 149 )
 region = Rect2( 960, 1200, 480, 400 )
 
-[sub_resource type="AtlasTexture" id=30]
+[sub_resource type="AtlasTexture" id=82]
 flags = 4
 atlas = ExtResource( 149 )
 region = Rect2( 1440, 1200, 480, 400 )
 
-[sub_resource type="AtlasTexture" id=31]
+[sub_resource type="AtlasTexture" id=83]
 flags = 4
 atlas = ExtResource( 149 )
 region = Rect2( 1920, 1200, 480, 400 )
 
-[sub_resource type="AtlasTexture" id=32]
+[sub_resource type="AtlasTexture" id=84]
 flags = 4
 atlas = ExtResource( 149 )
 region = Rect2( 0, 1600, 480, 400 )
 
-[sub_resource type="AtlasTexture" id=33]
+[sub_resource type="AtlasTexture" id=85]
 flags = 4
 atlas = ExtResource( 149 )
 region = Rect2( 480, 1600, 480, 400 )
 
-[sub_resource type="AtlasTexture" id=34]
+[sub_resource type="AtlasTexture" id=86]
 flags = 4
 atlas = ExtResource( 149 )
 region = Rect2( 960, 1600, 480, 400 )
 
-[sub_resource type="AtlasTexture" id=35]
+[sub_resource type="AtlasTexture" id=87]
 flags = 4
 atlas = ExtResource( 149 )
 region = Rect2( 1440, 1600, 480, 400 )
 
-[sub_resource type="AtlasTexture" id=36]
+[sub_resource type="AtlasTexture" id=88]
 flags = 4
 atlas = ExtResource( 149 )
 region = Rect2( 1920, 1600, 480, 400 )
 
-[sub_resource type="SpriteFrames" id=37]
+[sub_resource type="SpriteFrames" id=89]
 animations = [ {
-"frames": [ SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ) ],
+"frames": [ SubResource( 64 ), SubResource( 65 ), SubResource( 66 ), SubResource( 67 ), SubResource( 68 ), SubResource( 69 ), SubResource( 70 ), SubResource( 71 ), SubResource( 72 ), SubResource( 73 ), SubResource( 74 ), SubResource( 75 ), SubResource( 76 ), SubResource( 77 ), SubResource( 78 ), SubResource( 79 ), SubResource( 80 ), SubResource( 81 ), SubResource( 82 ), SubResource( 83 ), SubResource( 84 ), SubResource( 85 ), SubResource( 86 ), SubResource( 87 ), SubResource( 88 ) ],
 "loop": true,
 "name": "Idle",
 "speed": 16.0
 } ]
 
-[sub_resource type="DynamicFontData" id=38]
+[sub_resource type="DynamicFontData" id=90]
 font_path = "res://Fonts/Roboto-BoldCondensed.ttf"
 
-[sub_resource type="DynamicFont" id=39]
+[sub_resource type="DynamicFont" id=91]
 size = 36
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
-font_data = SubResource( 38 )
+font_data = SubResource( 90 )
 
-[sub_resource type="Animation" id=40]
+[sub_resource type="Animation" id=92]
 length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:scale")
@@ -545,22 +901,7 @@ tracks/5/keys = {
 "values": [ false, true ]
 }
 
-[sub_resource type="Animation" id=41]
-length = 0.3
-tracks/0/type = "value"
-tracks/0/path = NodePath("ui_BonusTexture:rect_scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.3 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 1, 1 ) ]
-}
-
-[sub_resource type="Animation" id=42]
+[sub_resource type="Animation" id=94]
 length = 2.0
 loop = true
 tracks/0/type = "value"
@@ -573,11 +914,22 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1, 2 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ false, true, false ]
+"values": [ true, true, true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("DemoMode/Label2:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.2 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=43]
-resource_name = "StartDemoMode"
+[sub_resource type="Animation" id=95]
 length = 4.0
 tracks/0/type = "method"
 tracks/0/path = NodePath("AnimationPlayer")
@@ -672,23 +1024,111 @@ tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 0, 4 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 3.6, 4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 1,
-"values": [ false, false ]
+"values": [ false, true, true ]
 }
 
-[sub_resource type="DynamicFont" id=44]
+[sub_resource type="DynamicFont" id=62]
 size = 50
 font_data = ExtResource( 19 )
+
+[sub_resource type="AtlasTexture" id=150]
+flags = 4
+atlas = ExtResource( 155 )
+region = Rect2( 0, 0, 1000, 400 )
+
+[sub_resource type="AtlasTexture" id=151]
+flags = 4
+atlas = ExtResource( 155 )
+region = Rect2( 1000, 0, 1000, 400 )
+
+[sub_resource type="AtlasTexture" id=152]
+flags = 4
+atlas = ExtResource( 155 )
+region = Rect2( 2000, 0, 1000, 400 )
+
+[sub_resource type="AtlasTexture" id=153]
+flags = 4
+atlas = ExtResource( 155 )
+region = Rect2( 3000, 0, 1000, 400 )
+
+[sub_resource type="AtlasTexture" id=154]
+flags = 4
+atlas = ExtResource( 155 )
+region = Rect2( 0, 400, 1000, 400 )
+
+[sub_resource type="AtlasTexture" id=155]
+flags = 4
+atlas = ExtResource( 155 )
+region = Rect2( 1000, 400, 1000, 400 )
+
+[sub_resource type="AtlasTexture" id=156]
+flags = 4
+atlas = ExtResource( 155 )
+region = Rect2( 2000, 400, 1000, 400 )
+
+[sub_resource type="AtlasTexture" id=157]
+flags = 4
+atlas = ExtResource( 155 )
+region = Rect2( 3000, 400, 1000, 400 )
+
+[sub_resource type="AtlasTexture" id=158]
+flags = 4
+atlas = ExtResource( 155 )
+region = Rect2( 0, 800, 1000, 400 )
+
+[sub_resource type="AtlasTexture" id=159]
+flags = 4
+atlas = ExtResource( 155 )
+region = Rect2( 1000, 800, 1000, 400 )
+
+[sub_resource type="AtlasTexture" id=160]
+flags = 4
+atlas = ExtResource( 155 )
+region = Rect2( 2000, 800, 1000, 400 )
+
+[sub_resource type="AtlasTexture" id=161]
+flags = 4
+atlas = ExtResource( 155 )
+region = Rect2( 3000, 800, 1000, 400 )
+
+[sub_resource type="AtlasTexture" id=162]
+flags = 4
+atlas = ExtResource( 155 )
+region = Rect2( 0, 1200, 1000, 400 )
+
+[sub_resource type="AtlasTexture" id=163]
+flags = 4
+atlas = ExtResource( 155 )
+region = Rect2( 1000, 1200, 1000, 400 )
+
+[sub_resource type="AtlasTexture" id=164]
+flags = 4
+atlas = ExtResource( 155 )
+region = Rect2( 2000, 1200, 1000, 400 )
+
+[sub_resource type="AtlasTexture" id=165]
+flags = 4
+atlas = ExtResource( 155 )
+region = Rect2( 3000, 1200, 1000, 400 )
+
+[sub_resource type="SpriteFrames" id=166]
+animations = [ {
+"frames": [ SubResource( 150 ), SubResource( 151 ), SubResource( 152 ), SubResource( 153 ), SubResource( 154 ), SubResource( 155 ), SubResource( 156 ), SubResource( 157 ), SubResource( 158 ), SubResource( 159 ), SubResource( 160 ), SubResource( 161 ), SubResource( 162 ), SubResource( 163 ), SubResource( 164 ), SubResource( 165 ) ],
+"loop": true,
+"name": "default",
+"speed": 24.0
+} ]
 
 [node name="UI_Manager" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -0.295654
-margin_top = 3.97174
+margin_top = 2.10709
 margin_right = -0.295654
-margin_bottom = 3.97174
+margin_bottom = 2.10706
 script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -696,555 +1136,12 @@ __meta__ = {
 PlayFX = ExtResource( 15 )
 ButtonFX = ExtResource( 3 )
 
-[node name="ControlPanel" type="TextureRect" parent="."]
-anchor_left = 0.501
-anchor_top = 1.0
-anchor_right = 0.501
-anchor_bottom = 1.0
-margin_left = -720.777
-margin_top = -225.052
-margin_right = 723.223
-margin_bottom = 28.9482
-stretch_mode = 4
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="ControlPanel"]
-position = Vector2( 718.484, 105.917 )
-frames = SubResource( 1 )
-animation = "Idle"
-frame = 2
-playing = true
-
-[node name="ui_MaxBet" parent="ControlPanel" instance=ExtResource( 4 )]
-anchor_left = 0.368
-anchor_top = 0.621
-anchor_right = 0.368
-anchor_bottom = 0.621
-margin_left = -90.5667
-margin_top = -38.5167
-margin_right = 90.4333
-margin_bottom = 38.4833
-expand = true
-stretch_mode = 1
-
-[node name="ui_Collect" parent="ControlPanel" instance=ExtResource( 7 )]
-visible = false
-anchor_left = 0.623
-anchor_top = 0.61
-anchor_right = 0.623
-anchor_bottom = 0.61
-margin_left = -91.4197
-margin_top = -36.9734
-margin_right = 90.5803
-margin_bottom = 37.0266
-expand = true
-stretch_mode = 1
-
-[node name="button_Play" parent="ControlPanel" instance=ExtResource( 10 )]
-anchor_left = 0.774
-anchor_top = 0.5
-anchor_right = 0.774
-anchor_bottom = 0.5
-margin_left = -93.1155
-margin_top = -57.1243
-margin_right = 92.8845
-margin_bottom = 88.8758
-texture_disabled = ExtResource( 87 )
-
-[node name="button_OkFinishBonus" type="TextureButton" parent="ControlPanel"]
-visible = false
-anchor_left = 0.75
-anchor_top = 0.911
-anchor_right = 0.75
-anchor_bottom = 0.911
-margin_left = -57.1434
-margin_top = -162.558
-margin_right = 128.857
-margin_bottom = -16.5576
-texture_normal = ExtResource( 13 )
-texture_pressed = ExtResource( 12 )
-texture_disabled = ExtResource( 87 )
-stretch_mode = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="ControlPanel/button_OkFinishBonus"]
-anchor_left = 0.5
-anchor_top = 0.459
-anchor_right = 0.5
-anchor_bottom = 0.459
-margin_left = -54.7418
-margin_top = -56.0139
-margin_right = 57.5082
-margin_bottom = 59.4751
-custom_fonts/font = ExtResource( 89 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "OK"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ui_Credits" parent="ControlPanel" instance=ExtResource( 5 )]
-anchor_left = 0.218
-anchor_top = 0.448
-anchor_right = 0.218
-anchor_bottom = 0.448
-margin_left = -115.116
-margin_top = -62.3893
-margin_right = 141.884
-margin_bottom = 62.6107
-expand = false
-
-[node name="button_Collect" parent="ControlPanel" instance=ExtResource( 1 )]
-anchor_left = 0.214
-anchor_top = 0.74
-anchor_right = 0.214
-anchor_bottom = 0.74
-margin_left = -64.016
-margin_top = -24.96
-margin_right = 63.984
-margin_bottom = 25.04
-texture_disabled = ExtResource( 86 )
-stretch_mode = 0
-
-[node name="button_Bet" parent="ControlPanel" instance=ExtResource( 2 )]
-anchor_left = 0.495
-anchor_top = 0.787
-anchor_right = 0.495
-anchor_bottom = 0.787
-margin_left = -84.78
-margin_top = -23.3221
-margin_right = 84.22
-margin_bottom = 24.6779
-texture_disabled = ExtResource( 88 )
-expand = true
-stretch_mode = 0
-
-[node name="button_MaxBet" parent="ControlPanel" instance=ExtResource( 6 )]
-anchor_left = 0.495
-anchor_top = 0.553
-anchor_right = 0.495
-anchor_bottom = 0.553
-margin_left = -82.78
-margin_top = -36.462
-margin_right = 82.22
-margin_bottom = 36.538
-texture_disabled = ExtResource( 85 )
-stretch_mode = 0
-
-[node name="button_end_collect" parent="ControlPanel" instance=ExtResource( 84 )]
-visible = false
-anchor_left = 0.775
-anchor_top = 0.5
-anchor_right = 0.775
-anchor_bottom = 0.5
-margin_left = -93.6228
-margin_top = -56.3461
-margin_right = 92.3772
-margin_bottom = 89.6539
-
-[node name="buttonStartBonus" type="TextureButton" parent="ControlPanel"]
-visible = false
-self_modulate = Color( 1, 1, 0, 1 )
-anchor_left = 0.774
-anchor_top = 0.568
-anchor_right = 0.774
-anchor_bottom = 0.568
-margin_left = -92.4579
-margin_top = -73.1255
-margin_right = 93.5421
-margin_bottom = 72.8745
-rect_scale = Vector2( 1e-05, 1e-05 )
-rect_pivot_offset = Vector2( 93, 73 )
-texture_normal = ExtResource( 13 )
-texture_pressed = ExtResource( 12 )
-texture_disabled = ExtResource( 87 )
-stretch_mode = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="ControlPanel/buttonStartBonus"]
-anchor_left = 0.5
-anchor_top = 0.459
-anchor_right = 0.5
-anchor_bottom = 0.459
-margin_left = -56.4999
-margin_top = -56.014
-margin_right = 55.7501
-margin_bottom = 59.475
-custom_fonts/font = ExtResource( 89 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "COMENZAR"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Tiempo" type="TextureRect" parent="."]
-anchor_left = 0.932
-anchor_top = 0.19
-anchor_right = 0.932
-anchor_bottom = 0.19
-margin_left = -70.4415
-margin_top = -39.5184
-margin_right = 69.5585
-margin_bottom = 39.4816
-rect_pivot_offset = Vector2( 70.4415, 39.5 )
-texture = ExtResource( 13 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="Tiempo"]
-anchor_left = 0.511
-anchor_top = 0.235
-anchor_right = 0.511
-anchor_bottom = 0.235
-margin_left = -25.4531
-margin_top = -9.48674
-margin_right = 25.5469
-margin_bottom = 9.51326
-custom_fonts/font = SubResource( 2 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "TIEMPO"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="timer" type="Label" parent="Tiempo"]
-anchor_left = 0.5
-anchor_top = 0.604
-anchor_right = 0.516
-anchor_bottom = 0.604
-margin_left = -26.0
-margin_top = -27.716
-margin_right = 27.76
-margin_bottom = 27.284
-custom_fonts/font = ExtResource( 18 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "00"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Tiempo/timer"]
-pause_mode = 1
-method_call_mode = 1
-anims/Idle = SubResource( 3 )
-"anims/Timing Out" = SubResource( 4 )
-
-[node name="button_Help" parent="." instance=ExtResource( 8 )]
-anchor_left = 0.93
-anchor_top = 0.054
-anchor_right = 0.93
-anchor_bottom = 0.055
-margin_left = -69.7203
-margin_top = -38.6
-margin_right = 69.2797
-margin_bottom = 38.632
-rect_pivot_offset = Vector2( 113.572, 56.3382 )
-texture_pressed = ExtResource( 12 )
-texture_disabled = ExtResource( 87 )
-
-[node name="button_Menu" parent="." instance=ExtResource( 11 )]
-anchor_left = 0.068
-anchor_top = 0.054
-anchor_right = 0.068
-anchor_bottom = 0.054
-margin_left = -69.2477
-margin_top = -39.9112
-margin_right = 68.7523
-margin_bottom = 39.4
-texture_pressed = ExtResource( 12 )
-texture_disabled = ExtResource( 87 )
-stretch_mode = 0
-
-[node name="VolumeButton" type="TextureButton" parent="."]
-anchor_left = 0.931
-anchor_top = 0.331
-anchor_right = 0.931
-anchor_bottom = 0.332
-margin_left = -69.6253
-margin_top = -39.1085
-margin_right = 69.3747
-margin_bottom = 39.1235
-texture_normal = ExtResource( 13 )
-texture_pressed = ExtResource( 12 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="VolumeButton"]
-position = Vector2( 73.9492, 34.9024 )
-scale = Vector2( 0.111646, 0.111646 )
-frames = SubResource( 5 )
-animation = "Volume2"
-
-[node name="BonusFeedback" type="Control" parent="."]
-visible = false
-anchor_left = 0.067
-anchor_top = 0.332
-anchor_right = 0.067
-anchor_bottom = 0.332
-margin_left = -67.2
-margin_top = -64.8
-margin_right = 68.8
-margin_bottom = 64.2
-rect_pivot_offset = Vector2( 68, 64.5 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="BonusFeedback"]
-position = Vector2( 73.3888, 61.2637 )
-frames = SubResource( 6 )
-frame = 9
-playing = true
-
-[node name="Label" type="Label" parent="BonusFeedback"]
-anchor_left = 0.486
-anchor_top = 0.461
-anchor_right = 0.486
-anchor_bottom = 0.461
-margin_left = -56.5786
-margin_top = -33.6704
-margin_right = 63.4214
-margin_bottom = 31.3296
-custom_fonts/font = SubResource( 7 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "BONUS"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="BonusFeedback"]
-autoplay = "PopUp"
-method_call_mode = 1
-anims/Exit = SubResource( 8 )
-anims/PopUp = SubResource( 9 )
-blend_times = [ "PopUp", "PopUp", 0.003 ]
-
-[node name="GameOverMessageContainer" type="Node" parent="."]
-
-[node name="ui_Help" type="TextureRect" parent="."]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = -3.97174
-margin_bottom = -3.97174
-texture = SubResource( 10 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ui_HelpText" type="TextureRect" parent="ui_Help"]
-self_modulate = Color( 1, 0, 0.74902, 0.921569 )
-anchor_left = 0.08
-anchor_top = 0.138
-anchor_right = 0.91
-anchor_bottom = 0.876
-margin_left = -1.52588e-05
-margin_top = -0.199982
-margin_bottom = -0.400024
-texture = ExtResource( 14 )
-expand = true
-stretch_mode = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="RichTextLabel" type="RichTextLabel" parent="ui_Help/ui_HelpText"]
-anchor_left = 0.025
-anchor_top = 0.102
-anchor_right = 0.673
-anchor_bottom = 0.939
-margin_left = 7.752
-margin_top = 0.208431
-margin_right = 0.00378418
-margin_bottom = -0.0223999
-custom_fonts/normal_font = SubResource( 11 )
-tab_size = 0
-text = "El juego consiste en elegir el boton correcto que te hará seguir tu camino hacia el espacio.
-
-Tiene 10 niveles y un total de 56 opciones para elegir, si consigues correctamente hasta el final alcanzarás llegar al espacio exterior donde te espera una ¡gran recompenza!.
-
-En el tercer nivel elije sabiamente ya que se encuetra un boton BONUS, en el cual, vas a tener la oportunidad de elegir una de las cuatro opciones para obtener el premio, y multiplicar tus ganancias. 
-
-A partir del tercer nivel podrás presionar \"FINALIZAR\" para terminar la partida y sumar lo acumulado hasta el momento o seguir avanzando hasta el final."
-scroll_following = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="RichTextLabel2" type="RichTextLabel" parent="ui_Help/ui_HelpText"]
-anchor_left = 0.728
-anchor_top = 0.102
-anchor_right = 0.969
-anchor_bottom = 0.938
-margin_left = 0.258179
-margin_top = 0.208431
-margin_right = -0.572571
-margin_bottom = 0.544189
-custom_fonts/normal_font = SubResource( 11 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-tab_size = 0
-text = "
-Tabla de pagos
-
-Nivel 1: x0
-Nivel 2: x0.9
-Nivel 3: x1.2
-Nivel 4: x1.4
-Nivel 5: x1.68
-Nivel 6: x2.1
-Nivel 7: x2.8
-Nivel 8: x4.2
-Nivel 9: x8.4
-Nivel 10: x16.8"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="button_Back" type="TextureButton" parent="ui_Help"]
-anchor_left = 0.936
-anchor_top = 0.059
-anchor_right = 0.936
-anchor_bottom = 0.059
-margin_left = -79.343
-margin_top = -39.5816
-margin_right = 59.657
-margin_bottom = 38.4184
-texture_normal = ExtResource( 13 )
-texture_pressed = ExtResource( 12 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="ui_Help/button_Back"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -32.9522
-margin_top = -14.0334
-margin_right = 40.0478
-margin_bottom = 10.9666
-custom_fonts/font = ExtResource( 17 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "ATRAS"
-align = 1
-valign = 1
-
-[node name="ui_IncomingBonus" type="TextureRect" parent="."]
-visible = false
-anchor_left = 0.5
-anchor_top = 0.423
-anchor_right = 0.5
-anchor_bottom = 0.423
-margin_left = -354.0
-margin_top = -296.7
-margin_right = 355.0
-margin_bottom = 296.3
-texture = SubResource( 10 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="ui_IncomingBonus"]
-self_modulate = Color( 1, 1, 1, 0.745098 )
-position = Vector2( 356.862, 314.28 )
-scale = Vector2( 1e-05, 1e-05 )
-frames = SubResource( 37 )
-animation = "Idle"
-frame = 14
-playing = true
-
-[node name="helpText" type="Label" parent="ui_IncomingBonus"]
-modulate = Color( 1, 1, 1, 0 )
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -270.5
-margin_top = -200.5
-margin_right = 264.5
-margin_bottom = 121.5
-custom_fonts/font = SubResource( 39 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_constants/shadow_offset_y = 0
-text = "¡Has ganado un Bonus!
-Escoge un nodo y multiplica tu apuesta, todos los nodos son ganadores!"
-align = 1
-valign = 1
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="buttonStartBonus" type="TextureButton" parent="ui_IncomingBonus"]
-visible = false
-anchor_left = 0.5
-anchor_top = 0.766
-anchor_right = 0.5
-anchor_bottom = 0.766
-margin_left = -74.5443
-margin_top = -49.7876
-margin_right = 74.4557
-margin_bottom = 49.2124
-texture_normal = ExtResource( 150 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Label" type="Label" parent="ui_IncomingBonus/buttonStartBonus"]
-anchor_left = 0.509
-anchor_top = 0.459
-anchor_right = 0.509
-anchor_bottom = 0.459
-margin_left = -16.4575
-margin_top = -15.9485
-margin_right = 16.5425
-margin_bottom = 19.0515
-custom_fonts/font = ExtResource( 89 )
-custom_colors/font_color = Color( 1, 1, 1, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-text = "OK"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="ui_IncomingBonus"]
-anims/Entrar = SubResource( 40 )
-
 [node name="ui_FinishedBonus" type="TextureRect" parent="."]
 visible = false
 anchor_right = 1.0
 anchor_bottom = 0.81
 margin_top = -4.0
-margin_bottom = -6.10352e-05
+margin_bottom = -77.9999
 rect_pivot_offset = Vector2( 512, 318.947 )
 stretch_mode = 1
 __meta__ = {
@@ -1270,14 +1167,14 @@ __meta__ = {
 }
 
 [node name="TextYourReward!" type="Label" parent="ui_FinishedBonus/ui_BonusTexture"]
-anchor_left = 0.485
+anchor_left = 0.502
 anchor_top = 0.157
-anchor_right = 0.485
+anchor_right = 0.502
 anchor_bottom = 0.157
-margin_left = -548.181
-margin_top = -25.2032
-margin_right = 547.819
-margin_bottom = 24.7968
+margin_left = -139.873
+margin_top = -25.1999
+margin_right = 139.127
+margin_bottom = 24.8001
 custom_fonts/font = ExtResource( 16 )
 custom_colors/font_color = Color( 0.63261, 0.940249, 0.952637, 1 )
 text = "¡TU RECOMPENSA!"
@@ -1328,10 +1225,10 @@ anchor_left = 0.5
 anchor_top = 0.266
 anchor_right = 0.5
 anchor_bottom = 0.266
-margin_left = -174.808
-margin_top = -17.9833
-margin_right = 171.192
-margin_bottom = 18.0167
+margin_left = -137.0
+margin_top = -18.32
+margin_right = 134.0
+margin_bottom = 17.68
 custom_fonts/font = ExtResource( 16 )
 custom_colors/font_color = Color( 0.63261, 0.940249, 0.952637, 1 )
 text = "Ganado en Juego"
@@ -1404,7 +1301,690 @@ myType = "totalBonusReward"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ui_FinishedBonus"]
 method_call_mode = 1
-anims/Entrar = SubResource( 41 )
+anims/Entrar = SubResource( 93 )
+anims/Off = SubResource( 148 )
+
+[node name="ControlPanel" type="TextureRect" parent="."]
+anchor_left = 0.501
+anchor_top = 1.0
+anchor_right = 0.501
+anchor_bottom = 1.0
+margin_left = -720.777
+margin_top = -225.052
+margin_right = 723.223
+margin_bottom = 28.9482
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="ControlPanel"]
+position = Vector2( 693.555, 174.493 )
+scale = Vector2( 0.619559, 0.744145 )
+frames = SubResource( 1 )
+animation = "Idle"
+
+[node name="ui_MaxBet" type="TextureRect" parent="ControlPanel"]
+anchor_left = 0.373
+anchor_top = 0.368
+anchor_right = 0.373
+anchor_bottom = 0.368
+margin_left = -73.6121
+margin_top = -21.4721
+margin_right = 74.3879
+margin_bottom = 21.5279
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="title_MaxBet" type="Label" parent="ControlPanel/ui_MaxBet"]
+anchor_left = 0.5
+anchor_top = 0.2
+anchor_right = 0.5
+anchor_bottom = 0.2
+margin_left = -70.344
+margin_top = -5.13593
+margin_right = 49.656
+margin_bottom = 13.8641
+custom_fonts/font = SubResource( 97 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "APUESTA"
+valign = 1
+autowrap = true
+
+[node name="current_CreditsBet" type="Label" parent="ControlPanel/ui_MaxBet"]
+anchor_left = 0.686
+anchor_top = 0.733
+anchor_right = 0.686
+anchor_bottom = 0.733
+margin_left = -46.2035
+margin_top = -24.1944
+margin_right = 38.7965
+margin_bottom = 16.8056
+grow_horizontal = 2
+rect_pivot_offset = Vector2( 68.3315, 20.5 )
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 16 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "0"
+align = 2
+valign = 2
+script = ExtResource( 90 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+myType = "currentBet"
+
+[node name="ui_Collect" type="TextureRect" parent="ControlPanel"]
+anchor_left = 0.626
+anchor_top = 0.399
+anchor_right = 0.626
+anchor_bottom = 0.399
+margin_left = -91.5995
+margin_top = -22.4459
+margin_right = 90.4005
+margin_bottom = 22.5541
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="title_MaxBet" type="Label" parent="ControlPanel/ui_Collect"]
+anchor_left = 0.267
+anchor_top = 0.343
+anchor_right = 0.267
+anchor_bottom = 0.343
+margin_left = -27.0537
+margin_top = -18.491
+margin_right = 26.9463
+margin_bottom = 18.509
+custom_fonts/font = SubResource( 96 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "PRÓXIMO
+NIVEL"
+align = 1
+valign = 1
+
+[node name="current_CreditsCollect" type="Label" parent="ControlPanel/ui_Collect"]
+anchor_left = 0.673
+anchor_top = 0.367
+anchor_right = 0.673
+anchor_bottom = 0.367
+margin_left = -42.486
+margin_top = -16.515
+margin_right = 38.514
+margin_bottom = 24.485
+rect_pivot_offset = Vector2( 63.0194, 16.515 )
+custom_fonts/font = ExtResource( 16 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "0"
+align = 2
+valign = 1
+script = ExtResource( 90 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+myType = "currencyToCollectNextLevel"
+
+[node name="PlayButtonAnimated" type="AnimatedSprite" parent="ControlPanel"]
+position = Vector2( 1086.87, 52.0882 )
+scale = Vector2( 0.859, 0.859 )
+frames = SubResource( 18 )
+animation = "Idle"
+frame = 13
+playing = true
+offset = Vector2( -24.5817, -20.2695 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ControlPanel/PlayButtonAnimated"]
+anims/Disabled = SubResource( 19 )
+
+[node name="button_Play" parent="ControlPanel/PlayButtonAnimated" instance=ExtResource( 10 )]
+anchor_left = 0.584
+anchor_top = 0.591
+anchor_right = 0.584
+anchor_bottom = 0.591
+margin_left = -267.729
+margin_top = -246.068
+margin_right = -81.729
+margin_bottom = -100.068
+
+[node name="button_OkFinishBonus" type="TextureButton" parent="ControlPanel/PlayButtonAnimated"]
+visible = false
+anchor_left = 0.582
+anchor_top = 0.61
+anchor_right = 0.582
+anchor_bottom = 0.61
+margin_left = -267.129
+margin_top = -243.378
+margin_right = -81.1284
+margin_bottom = -97.3777
+stretch_mode = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ControlPanel/PlayButtonAnimated/button_OkFinishBonus"]
+anchor_left = 0.497
+anchor_top = 0.46
+anchor_right = 0.497
+anchor_bottom = 0.46
+margin_left = -55.9322
+margin_top = -57.7382
+margin_right = 56.3178
+margin_bottom = 57.7508
+custom_fonts/font = ExtResource( 89 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "OK"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="button_end_collect" parent="ControlPanel/PlayButtonAnimated" instance=ExtResource( 84 )]
+visible = false
+anchor_left = 0.572
+anchor_top = 0.58
+anchor_right = 0.572
+anchor_bottom = 0.58
+margin_left = -271.413
+margin_top = -237.942
+margin_right = -85.4127
+margin_bottom = -91.9417
+
+[node name="ui_Credits" parent="ControlPanel" instance=ExtResource( 5 )]
+anchor_left = 0.248
+anchor_top = 0.008
+anchor_right = 0.248
+anchor_bottom = 0.008
+margin_left = -94.2028
+margin_top = -49.9438
+margin_right = 94.7972
+margin_bottom = 50.0562
+expand = false
+
+[node name="button_Collect" parent="ControlPanel" instance=ExtResource( 1 )]
+anchor_left = 0.255
+anchor_top = 0.42
+anchor_right = 0.255
+anchor_bottom = 0.42
+margin_left = -74.4586
+margin_top = -31.1168
+margin_right = 73.5414
+margin_bottom = 30.8832
+stretch_mode = 0
+
+[node name="button_BetUp" parent="ControlPanel" instance=ExtResource( 2 )]
+anchor_left = 0.554
+anchor_top = 0.761
+anchor_right = 0.554
+anchor_bottom = 0.761
+margin_left = -27.5611
+margin_top = -23.9576
+margin_right = 28.4389
+margin_bottom = 24.0424
+expand = true
+stretch_mode = 0
+
+[node name="button_BetDown" type="TextureButton" parent="ControlPanel"]
+anchor_left = 0.448
+anchor_top = 0.776
+anchor_right = 0.448
+anchor_bottom = 0.776
+margin_left = -28.5861
+margin_top = -24.1139
+margin_right = 28.4139
+margin_bottom = 23.8861
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ControlPanel/button_BetDown"]
+anchor_left = 0.5
+anchor_top = 0.508
+anchor_right = 0.5
+anchor_bottom = 0.508
+margin_left = -19.5
+margin_top = -18.384
+margin_right = 20.5
+margin_bottom = 17.616
+custom_fonts/font = ExtResource( 89 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "-"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="button_MaxBet" parent="ControlPanel" instance=ExtResource( 6 )]
+anchor_left = 0.5
+anchor_top = 0.745
+anchor_right = 0.5
+anchor_bottom = 0.745
+margin_left = -38.1625
+margin_top = -19.8936
+margin_right = 45.8375
+margin_bottom = 20.1064
+stretch_mode = 0
+
+[node name="buttonStartBonus" type="TextureButton" parent="ControlPanel"]
+self_modulate = Color( 1, 1, 0, 1 )
+anchor_left = 0.774
+anchor_top = 0.568
+anchor_right = 0.774
+anchor_bottom = 0.568
+margin_left = -92.4579
+margin_top = -73.1255
+margin_right = 93.5421
+margin_bottom = 72.8745
+rect_scale = Vector2( 1e-05, 1e-05 )
+rect_pivot_offset = Vector2( 93, 73 )
+texture_normal = ExtResource( 13 )
+texture_pressed = ExtResource( 12 )
+texture_disabled = ExtResource( 87 )
+stretch_mode = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ControlPanel/buttonStartBonus"]
+anchor_left = 0.5
+anchor_top = 0.459
+anchor_right = 0.5
+anchor_bottom = 0.459
+margin_left = -56.4999
+margin_top = -56.014
+margin_right = 55.7501
+margin_bottom = 59.475
+custom_fonts/font = ExtResource( 89 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "COMENZAR"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tiempo" type="TextureRect" parent="."]
+anchor_left = 0.932
+anchor_top = 0.19
+anchor_right = 0.932
+anchor_bottom = 0.19
+margin_left = -70.4415
+margin_top = 81.0282
+margin_right = 69.5585
+margin_bottom = 160.028
+rect_pivot_offset = Vector2( 70.4415, 39.5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Tiempo"]
+position = Vector2( 72.7039, 37.33 )
+scale = Vector2( 0.554484, 0.730934 )
+frames = SubResource( 147 )
+animation = "Idle"
+frame = 7
+playing = true
+
+[node name="Label" type="Label" parent="Tiempo"]
+anchor_left = 0.511
+anchor_top = 0.235
+anchor_right = 0.511
+anchor_bottom = 0.235
+margin_left = -25.4531
+margin_top = -9.48674
+margin_right = 25.5469
+margin_bottom = 9.51326
+custom_fonts/font = SubResource( 20 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "TIEMPO"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="timer" type="Label" parent="Tiempo"]
+anchor_left = 0.5
+anchor_top = 0.604
+anchor_right = 0.516
+anchor_bottom = 0.604
+margin_left = -26.0
+margin_top = -27.716
+margin_right = 27.76
+margin_bottom = 27.284
+custom_fonts/font = ExtResource( 18 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "00"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Tiempo/timer"]
+pause_mode = 1
+method_call_mode = 1
+anims/Idle = SubResource( 21 )
+"anims/Timing Out" = SubResource( 22 )
+
+[node name="button_Help" parent="." instance=ExtResource( 8 )]
+anchor_left = 0.918
+anchor_top = 0.055
+anchor_right = 0.918
+anchor_bottom = 0.055
+margin_left = -84.8049
+margin_top = -57.2958
+margin_right = 90.1951
+margin_bottom = 50.7042
+rect_pivot_offset = Vector2( 87.5, 54 )
+
+[node name="button_Menu" parent="." instance=ExtResource( 11 )]
+anchor_left = 0.08
+anchor_top = 0.056
+anchor_right = 0.08
+anchor_bottom = 0.056
+margin_left = -86.708
+margin_top = -58.1958
+margin_right = 88.292
+margin_bottom = 49.8042
+stretch_mode = 0
+
+[node name="VolumeButton" type="TextureButton" parent="."]
+anchor_left = 0.931
+anchor_top = 0.331
+anchor_right = 0.931
+anchor_bottom = 0.332
+margin_left = -69.6252
+margin_top = -166.986
+margin_right = 69.3748
+margin_bottom = -88.7537
+texture_normal = ExtResource( 13 )
+texture_pressed = ExtResource( 12 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="VolumeButton"]
+position = Vector2( 70.85, 39.4072 )
+scale = Vector2( 0.824678, 1.00825 )
+frames = SubResource( 114 )
+animation = "Idle"
+frame = 13
+playing = true
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="VolumeButton"]
+position = Vector2( 73.9492, 34.9024 )
+scale = Vector2( 0.111646, 0.111646 )
+frames = SubResource( 23 )
+animation = "Volume2"
+
+[node name="BonusFeedback" type="Control" parent="."]
+visible = false
+anchor_left = 0.067
+anchor_top = 0.332
+anchor_right = 0.067
+anchor_bottom = 0.332
+margin_left = -67.2
+margin_top = -64.8
+margin_right = 68.8
+margin_bottom = 64.2
+rect_scale = Vector2( 1e-05, 1e-05 )
+rect_pivot_offset = Vector2( 68, 64.5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="BonusFeedback"]
+position = Vector2( 73.3888, 61.2637 )
+frames = SubResource( 24 )
+frame = 5
+playing = true
+
+[node name="Label" type="Label" parent="BonusFeedback"]
+anchor_left = 0.486
+anchor_top = 0.461
+anchor_right = 0.486
+anchor_bottom = 0.461
+margin_left = -56.5786
+margin_top = -33.6704
+margin_right = 63.4214
+margin_bottom = 31.3296
+custom_fonts/font = SubResource( 25 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "BONUS"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BonusFeedback"]
+autoplay = "PopUp"
+method_call_mode = 1
+anims/Exit = SubResource( 26 )
+anims/Off = SubResource( 167 )
+anims/PopUp = SubResource( 27 )
+blend_times = [ "PopUp", "PopUp", 0.003 ]
+
+[node name="GameOverMessageContainer" type="Node" parent="."]
+
+[node name="ui_Help" type="TextureRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -3.97174
+margin_bottom = -3.97174
+texture = SubResource( 28 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ui_HelpText" type="TextureRect" parent="ui_Help"]
+self_modulate = Color( 1, 0, 0.74902, 0.921569 )
+anchor_left = 0.08
+anchor_top = 0.138
+anchor_right = 0.91
+anchor_bottom = 0.876
+margin_left = -1.52588e-05
+margin_top = -0.199982
+margin_bottom = -0.400024
+texture = ExtResource( 14 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ui_Help/ui_HelpText"]
+anchor_left = 0.025
+anchor_top = 0.102
+anchor_right = 0.673
+anchor_bottom = 0.939
+margin_left = 7.752
+margin_top = 0.208431
+margin_right = 0.00378418
+margin_bottom = -0.0223999
+custom_fonts/normal_font = SubResource( 63 )
+tab_size = 0
+text = "El juego consiste en elegir el boton correcto que te hará seguir tu camino hacia el espacio.
+
+Tiene 10 niveles y un total de 56 opciones para elegir, si consigues correctamente hasta el final alcanzarás llegar al espacio exterior donde te espera una ¡gran recompenza!.
+
+En el tercer nivel elije sabiamente ya que se encuetra un boton BONUS, en el cual, vas a tener la oportunidad de elegir una de las cuatro opciones para obtener el premio, y multiplicar tus ganancias. 
+
+A partir del tercer nivel podrás presionar \"FINALIZAR\" para terminar la partida y sumar lo acumulado hasta el momento o seguir avanzando hasta el final."
+scroll_following = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="ui_Help/ui_HelpText"]
+anchor_left = 0.728
+anchor_top = 0.102
+anchor_right = 0.969
+anchor_bottom = 0.938
+margin_left = 0.258179
+margin_top = 0.208431
+margin_right = -0.572571
+margin_bottom = 0.544189
+custom_fonts/normal_font = SubResource( 63 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+tab_size = 0
+text = "
+Tabla de pagos
+
+Nivel 1: x0
+Nivel 2: x0.9
+Nivel 3: x1.2
+Nivel 4: x1.4
+Nivel 5: x1.68
+Nivel 6: x2.1
+Nivel 7: x2.8
+Nivel 8: x4.2
+Nivel 9: x8.4
+Nivel 10: x16.8"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="button_Back2" type="TextureButton" parent="ui_Help"]
+anchor_left = 0.918
+anchor_top = 0.055
+anchor_right = 0.918
+anchor_bottom = 0.055
+margin_left = -84.1086
+margin_top = -53.3241
+margin_right = 90.8914
+margin_bottom = 54.6759
+rect_scale = Vector2( -1, 1 )
+rect_pivot_offset = Vector2( 87.5, 54 )
+texture_normal = ExtResource( 154 )
+texture_pressed = ExtResource( 86 )
+texture_disabled = ExtResource( 88 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ui_Help/button_Back2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -34.1347
+margin_top = -14.4421
+margin_right = 38.8653
+margin_bottom = 10.5579
+rect_scale = Vector2( -1, 1 )
+rect_pivot_offset = Vector2( 36.5, 12.5 )
+custom_fonts/font = ExtResource( 17 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "ATRAS"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ui_IncomingBonus" type="TextureRect" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.423
+anchor_right = 0.5
+anchor_bottom = 0.423
+margin_left = -354.0
+margin_top = -296.7
+margin_right = 355.0
+margin_bottom = 296.3
+texture = SubResource( 28 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="ui_IncomingBonus"]
+self_modulate = Color( 1, 1, 1, 0.745098 )
+position = Vector2( 356.862, 314.28 )
+scale = Vector2( 1.47652, 1.47199 )
+frames = SubResource( 89 )
+animation = "Idle"
+frame = 21
+playing = true
+
+[node name="helpText" type="Label" parent="ui_IncomingBonus"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -270.5
+margin_top = -200.5
+margin_right = 264.5
+margin_bottom = 121.5
+custom_fonts/font = SubResource( 91 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_constants/shadow_offset_y = 0
+text = "¡Has ganado un Bonus!
+Escoge un nodo y multiplica tu apuesta, todos los nodos son ganadores!"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="buttonStartBonus" type="TextureButton" parent="ui_IncomingBonus"]
+anchor_left = 0.5
+anchor_top = 0.766
+anchor_right = 0.5
+anchor_bottom = 0.766
+margin_left = -74.5443
+margin_top = -49.7876
+margin_right = 74.4557
+margin_bottom = 49.2124
+texture_normal = ExtResource( 150 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ui_IncomingBonus/buttonStartBonus"]
+anchor_left = 0.509
+anchor_top = 0.459
+anchor_right = 0.509
+anchor_bottom = 0.459
+margin_left = -16.4575
+margin_top = -15.9485
+margin_right = 16.5425
+margin_bottom = 19.0515
+custom_fonts/font = ExtResource( 89 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "OK"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ui_IncomingBonus"]
+anims/Entrar = SubResource( 92 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
@@ -1412,8 +1992,8 @@ volume_db = 1.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 method_call_mode = 1
-anims/Idle = SubResource( 42 )
-anims/StartDemoMode = SubResource( 43 )
+anims/Idle = SubResource( 94 )
+anims/StartDemoMode = SubResource( 95 )
 
 [node name="BandasNegras" type="Control" parent="."]
 visible = false
@@ -1462,8 +2042,25 @@ margin_left = -214.072
 margin_top = -29.7592
 margin_right = 214.928
 margin_bottom = 30.2408
-custom_fonts/font = SubResource( 44 )
+custom_fonts/font = SubResource( 62 )
 text = "MODO DEMO"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="DemoMode"]
+anchor_left = 0.503
+anchor_top = 0.057
+anchor_right = 0.503
+anchor_bottom = 0.057
+margin_left = -392.104
+margin_top = 767.795
+margin_right = 415.896
+margin_bottom = 827.795
+custom_fonts/font = SubResource( 62 )
+text = "TOQUE LA PANTALLA PARA CONTINUAR"
 align = 1
 valign = 1
 __meta__ = {
@@ -1479,16 +2076,39 @@ color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="button_up" from="ControlPanel/button_Play" to="." method="OnPlayButtonUp"]
-[connection signal="button_up" from="ControlPanel/button_OkFinishBonus" to="." method="OnOkFinishBonusButtonUp"]
+
+[node name="Control" type="Control" parent="Black"]
+anchor_left = 0.478
+anchor_top = 0.446
+anchor_right = 0.478
+anchor_bottom = 0.446
+margin_left = -435.8
+margin_top = -180.4
+margin_right = 456.2
+margin_bottom = 179.6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Black/Control"]
+position = Vector2( 484.418, 180.092 )
+scale = Vector2( 0.924019, 0.898415 )
+frames = SubResource( 166 )
+frame = 4
+playing = true
+[connection signal="hide" from="ui_FinishedBonus" to="ui_FinishedBonus/AnimationPlayer" method="play" binds= [ "Off" ]]
+[connection signal="visibility_changed" from="ui_FinishedBonus" to="ui_FinishedBonus/AnimationPlayer" method="play" binds= [ "Entrar" ]]
+[connection signal="button_up" from="ControlPanel/PlayButtonAnimated/button_Play" to="." method="OnPlayButtonUp"]
+[connection signal="button_up" from="ControlPanel/PlayButtonAnimated/button_OkFinishBonus" to="." method="OnOkFinishBonusButtonUp"]
+[connection signal="button_up" from="ControlPanel/PlayButtonAnimated/button_end_collect" to="." method="OnEndAndCollectButtonUp"]
 [connection signal="button_up" from="ControlPanel/button_Collect" to="." method="OnCollectButtonUp"]
-[connection signal="button_up" from="ControlPanel/button_Bet" to="." method="OnBetButtonUp"]
+[connection signal="button_up" from="ControlPanel/button_BetUp" to="." method="OnBetUpButtonUp"]
+[connection signal="button_up" from="ControlPanel/button_BetDown" to="." method="OnBetDownButtonUp"]
 [connection signal="button_up" from="ControlPanel/button_MaxBet" to="." method="OnMaxBetButtonUp"]
-[connection signal="button_up" from="ControlPanel/button_end_collect" to="." method="OnEndAndCollectButtonUp"]
 [connection signal="button_up" from="button_Help" to="." method="OnHelpButtonUp"]
 [connection signal="pressed" from="VolumeButton" to="." method="_on_VolumeButton_pressed"]
+[connection signal="hide" from="BonusFeedback" to="BonusFeedback/AnimationPlayer" method="play" binds= [ "Off" ]]
 [connection signal="visibility_changed" from="BonusFeedback" to="BonusFeedback/AnimationPlayer" method="play" binds= [ "PopUp" ]]
-[connection signal="button_up" from="ui_Help/button_Back" to="." method="OnBackButtonUp"]
+[connection signal="button_up" from="ui_Help/button_Back2" to="." method="OnBackButtonUp"]
 [connection signal="visibility_changed" from="ui_IncomingBonus" to="ui_IncomingBonus/AnimationPlayer" method="play" binds= [ "Entrar" ]]
 [connection signal="button_up" from="ui_IncomingBonus/buttonStartBonus" to="." method="OnOkButtonUp"]
-[connection signal="visibility_changed" from="ui_FinishedBonus" to="ui_FinishedBonus/AnimationPlayer" method="play" binds= [ "Entrar" ]]

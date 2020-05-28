@@ -11,7 +11,8 @@ public class UIButtonsManager : Control
     [Signal] public delegate void BonusAccepted();
     [Signal] public delegate void restartGame();
     [Signal] public delegate void ClearGameOver();
-    [Signal] public delegate void bet();
+    [Signal] public delegate void betUp();
+    [Signal] public delegate void betDown();
     [Signal] public delegate void StopGameMusic();
     [Signal] public delegate void OkFinishBonus();
     [Signal] public delegate void maxBet();
@@ -22,7 +23,7 @@ public class UIButtonsManager : Control
     [Signal] public delegate void DemoModeFinished();
     [Signal] public delegate void TimerDone(bool win);
     [Signal] public delegate void ControlMasterVolume(float volume);
-    TextureButton _playButton, _helpButton, _betButton, _maxBetButton, _collectButton, _endAndCollectButton, _okFinishBonusButton, _volumeButton, _buttonStartBonus;
+    TextureButton _playButton, _helpButton, _betUpButton, _betDownButton, _maxBetButton, _collectButton, _endAndCollectButton, _okFinishBonusButton, _volumeButton, _buttonStartBonus;
     TextureRect _helpCanvas, _controlPanel, _timerRect, _incomingBonus, _finishedBonus, _nextLevel;
     Control _bonusFeedback;
 
@@ -30,7 +31,7 @@ public class UIButtonsManager : Control
 
     AnimatedSprite _spriteVolumeButton;
     
-    AnimationPlayer _timerAnim, _playButtonAnim, _myAnim;
+    AnimationPlayer _timerAnim, _myAnim, _playButtonAnim;
 
     Label _myTimeLabel;
 
@@ -65,7 +66,8 @@ public class UIButtonsManager : Control
     {
         _helpButton.Disabled = false;
         _maxBetButton.Disabled = false;
-        _betButton.Disabled = false;
+        _betUpButton.Disabled = false;
+        _betDownButton.Disabled = false;
         _collectButton.Disabled = false;
         ActivateEndAndCollectButton(false);
     }
@@ -87,10 +89,15 @@ public class UIButtonsManager : Control
         _volumeButton.Show();
 
     }
-    void OnBetButtonUp()
+    void OnBetUpButtonUp()
     {
         PlayAudio();
-        EmitSignal(nameof(bet));
+        EmitSignal(nameof(betUp));
+    }
+    void OnBetDownButtonUp()
+    {
+        PlayAudio();
+        EmitSignal(nameof(betDown));
     }
     void OnMaxBetButtonUp()
     {
@@ -131,7 +138,8 @@ public class UIButtonsManager : Control
     {
         _helpButton.Disabled = true;
         _maxBetButton.Disabled = true;
-        _betButton.Disabled = true;
+        _betUpButton.Disabled = true;
+        _betDownButton.Disabled = true;
         _collectButton.Disabled = true;
     }
     void ActivateEndAndCollectButton(bool enable)
@@ -139,10 +147,12 @@ public class UIButtonsManager : Control
         if (enable)
         {
             _endAndCollectButton.Show();
+            _playButtonAnim.PlayBackwards("Disabled");
         }
         else
         {
             _endAndCollectButton.Hide();
+            _playButtonAnim.Play("Disabled");
         }
     }
     void ActivatePlayButton(bool enable)
@@ -150,13 +160,13 @@ public class UIButtonsManager : Control
 
         if (enable)
         {
-            _playButton.Disabled = false;
-            _playButtonAnim.Play("Jumping");
+            _playButton.Visible = true;
+            _playButtonAnim.PlayBackwards("Disabled");
         }
         else
         {
-            _playButton.Disabled = true;
-            _playButtonAnim.Play("Idle");
+            _playButton.Visible = false;
+            _playButtonAnim.Play("Disabled");
         }
     }
     void HideIncomingBonusMessage() // La llama GameManager, señales StopGameInmediate, y BonusStarted
@@ -189,21 +199,22 @@ public class UIButtonsManager : Control
         _timerRect = GetNode("Tiempo") as TextureRect;
         _nextLevel = GetNode("ControlPanel/ui_Collect") as TextureRect;
         _volumeButton = GetNode("VolumeButton") as TextureButton;
-        _endAndCollectButton = GetNode("ControlPanel/button_end_collect") as TextureButton;
-        _playButton = GetNode("ControlPanel/button_Play") as TextureButton;
+        _endAndCollectButton = GetNode("ControlPanel/PlayButtonAnimated/button_end_collect") as TextureButton;
+        _playButton = GetNode("ControlPanel/PlayButtonAnimated/button_Play") as TextureButton;
         _helpButton = GetNode("button_Help") as TextureButton;
-        _betButton = GetNode("ControlPanel/button_Bet") as TextureButton;
+        _betUpButton = GetNode("ControlPanel/button_BetUp") as TextureButton;
+        _betDownButton = GetNode("ControlPanel/button_BetDown") as TextureButton;
         _maxBetButton = GetNode("ControlPanel/button_MaxBet") as TextureButton;
         _collectButton = GetNode("ControlPanel/button_Collect") as TextureButton;
-        _okFinishBonusButton = GetNode("ControlPanel/button_OkFinishBonus") as TextureButton;
+        _okFinishBonusButton = GetNode("ControlPanel/PlayButtonAnimated/button_OkFinishBonus") as TextureButton;
         _myTimeLabel = GetNode("Tiempo/timer") as Label;
         _audio = GetNode("AudioStreamPlayer") as AudioStreamPlayer;
         _spriteVolumeButton = GetNode("VolumeButton/AnimatedSprite") as AnimatedSprite;
         _bonusFeedback = GetNode("BonusFeedback") as Control;
         _buttonStartBonus = GetNode("ui_IncomingBonus/buttonStartBonus") as TextureButton;
         _timerAnim = GetNode("Tiempo/timer/AnimationPlayer") as AnimationPlayer;
-        _playButtonAnim = GetNode("ControlPanel/button_Play/AnimationPlayer") as AnimationPlayer;
         _myAnim = GetNode("AnimationPlayer") as AnimationPlayer;
+        _playButtonAnim = GetNode("ControlPanel/PlayButtonAnimated/AnimationPlayer") as AnimationPlayer;
 
         #endregion
         
@@ -300,6 +311,7 @@ public class UIButtonsManager : Control
     {
         _finishedBonus.Show();
         _okFinishBonusButton.Show();
+        _playButtonAnim.PlayBackwards("Disabled");
     }
     void DeactivateFinishButton() //Lo llama GameManager, señal NodePicked
     {
@@ -325,6 +337,7 @@ public class UIButtonsManager : Control
     {
         _finishedBonus.Hide();
         _okFinishBonusButton.Hide();
+        _playButtonAnim.Play("Disabled");
         ActivateAgain();
         EmitSignal(nameof(StopGameMusic));
     }
@@ -380,6 +393,7 @@ public class UIButtonsManager : Control
     
     void _on_VolumeButton_pressed()
     {
+        PlayAudio();
         volume += 20;
 
         if (volume == 0)
