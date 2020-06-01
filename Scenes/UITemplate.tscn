@@ -1,11 +1,11 @@
-[gd_scene load_steps=273 format=2]
+[gd_scene load_steps=331 format=2]
 
 [ext_resource path="res://Prefabs/UI/Buttons/button_Collect.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Prefabs/UI/Buttons/button_Bet.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprites/Botones/boton_ok_press.png" type="Texture" id=2]
 [ext_resource path="res://Sounds/SelectSC.ogg" type="AudioStream" id=3]
 [ext_resource path="res://Sprites/Animations/bnt_cobrar.png" type="Texture" id=4]
 [ext_resource path="res://Prefabs/UI/ui_Creditos.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Prefabs/UI/Buttons/button_MaxBet.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Sprites/Animations/minus.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/Animations/credito.png" type="Texture" id=7]
 [ext_resource path="res://Prefabs/UI/Buttons/button_Help.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scripts/UIButtonsManager.cs" type="Script" id=9]
@@ -149,14 +149,16 @@
 [ext_resource path="res://Fonts/Dynamic Fonts/font_Roboto_100.tres" type="DynamicFont" id=147]
 [ext_resource path="res://Sprites/win_box_2.png" type="Texture" id=148]
 [ext_resource path="res://Sprites/Bonus/PrevioABonus/Cartel_previobonus.png" type="Texture" id=149]
-[ext_resource path="res://Sprites/Botones/jugar_bonus.png" type="Texture" id=150]
+[ext_resource path="res://Sprites/Botones/boton_ok.png" type="Texture" id=150]
 [ext_resource path="res://Sounds/Deined_01.ogg" type="AudioStream" id=151]
 [ext_resource path="res://Sprites/Tablero.png" type="Texture" id=152]
 [ext_resource path="res://Sprites/Tablero2.png" type="Texture" id=153]
 [ext_resource path="res://Sprites/Botones/boton-lateral-menu.png" type="Texture" id=154]
 [ext_resource path="res://Sprites/Animations/logo_idle.png" type="Texture" id=155]
+[ext_resource path="res://Sprites/Animations/max.png" type="Texture" id=156]
+[ext_resource path="res://Sprites/Animations/plus.png" type="Texture" id=157]
 
-[sub_resource type="Animation" id=93]
+[sub_resource type="Animation" id=1]
 length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("ui_BonusTexture:rect_scale")
@@ -171,7 +173,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=148]
+[sub_resource type="Animation" id=2]
 resource_name = "Off"
 length = 0.2
 tracks/0/type = "value"
@@ -187,7 +189,7 @@ tracks/0/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="SpriteFrames" id=3]
 animations = [ {
 "frames": [ ExtResource( 153 ), ExtResource( 152 ), ExtResource( 37 ), ExtResource( 36 ), ExtResource( 38 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 50 ), ExtResource( 54 ), ExtResource( 41 ), ExtResource( 55 ), ExtResource( 56 ), ExtResource( 68 ), ExtResource( 53 ), ExtResource( 67 ), ExtResource( 49 ), ExtResource( 51 ), ExtResource( 61 ), ExtResource( 59 ), ExtResource( 39 ), ExtResource( 43 ), ExtResource( 70 ), ExtResource( 40 ), ExtResource( 69 ), ExtResource( 57 ), ExtResource( 45 ), ExtResource( 52 ), ExtResource( 64 ), ExtResource( 42 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 58 ), ExtResource( 65 ), ExtResource( 60 ), ExtResource( 44 ), ExtResource( 46 ), ExtResource( 62 ), ExtResource( 63 ), ExtResource( 66 ), ExtResource( 80 ), ExtResource( 75 ), ExtResource( 78 ), ExtResource( 76 ), ExtResource( 79 ), ExtResource( 81 ), ExtResource( 77 ), ExtResource( 83 ), ExtResource( 82 ), ExtResource( 71 ), ExtResource( 72 ), ExtResource( 74 ), ExtResource( 73 ), ExtResource( 26 ), ExtResource( 29 ), ExtResource( 31 ), ExtResource( 30 ), ExtResource( 28 ), ExtResource( 25 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 20 ), ExtResource( 27 ) ],
 "loop": true,
@@ -195,110 +197,109 @@ animations = [ {
 "speed": 20.0
 } ]
 
-[sub_resource type="DynamicFont" id=97]
+[sub_resource type="DynamicFont" id=4]
 size = 14
 outline_size = 1
 outline_color = Color( 0.243137, 0.4, 0.741176, 1 )
 use_filter = true
 font_data = ExtResource( 19 )
 
-[sub_resource type="DynamicFont" id=96]
+[sub_resource type="DynamicFont" id=5]
 size = 14
 outline_size = 1
 outline_color = Color( 0.243137, 0.4, 0.741176, 1 )
 use_filter = true
 font_data = ExtResource( 19 )
-
-[sub_resource type="AtlasTexture" id=2]
-flags = 4
-atlas = ExtResource( 85 )
-region = Rect2( 0, 0, 300, 300 )
-
-[sub_resource type="AtlasTexture" id=3]
-flags = 4
-atlas = ExtResource( 85 )
-region = Rect2( 300, 0, 300, 300 )
-
-[sub_resource type="AtlasTexture" id=4]
-flags = 4
-atlas = ExtResource( 85 )
-region = Rect2( 600, 0, 300, 300 )
-
-[sub_resource type="AtlasTexture" id=5]
-flags = 4
-atlas = ExtResource( 85 )
-region = Rect2( 900, 0, 300, 300 )
 
 [sub_resource type="AtlasTexture" id=6]
 flags = 4
 atlas = ExtResource( 85 )
-region = Rect2( 0, 300, 300, 300 )
+region = Rect2( 0, 0, 300, 300 )
 
 [sub_resource type="AtlasTexture" id=7]
 flags = 4
 atlas = ExtResource( 85 )
-region = Rect2( 300, 300, 300, 300 )
+region = Rect2( 300, 0, 300, 300 )
 
 [sub_resource type="AtlasTexture" id=8]
 flags = 4
 atlas = ExtResource( 85 )
-region = Rect2( 600, 300, 300, 300 )
+region = Rect2( 600, 0, 300, 300 )
 
 [sub_resource type="AtlasTexture" id=9]
 flags = 4
 atlas = ExtResource( 85 )
-region = Rect2( 900, 300, 300, 300 )
+region = Rect2( 900, 0, 300, 300 )
 
 [sub_resource type="AtlasTexture" id=10]
 flags = 4
 atlas = ExtResource( 85 )
-region = Rect2( 0, 600, 300, 300 )
+region = Rect2( 0, 300, 300, 300 )
 
 [sub_resource type="AtlasTexture" id=11]
 flags = 4
 atlas = ExtResource( 85 )
-region = Rect2( 300, 600, 300, 300 )
+region = Rect2( 300, 300, 300, 300 )
 
 [sub_resource type="AtlasTexture" id=12]
 flags = 4
 atlas = ExtResource( 85 )
-region = Rect2( 600, 600, 300, 300 )
+region = Rect2( 600, 300, 300, 300 )
 
 [sub_resource type="AtlasTexture" id=13]
 flags = 4
 atlas = ExtResource( 85 )
-region = Rect2( 900, 600, 300, 300 )
+region = Rect2( 900, 300, 300, 300 )
 
 [sub_resource type="AtlasTexture" id=14]
 flags = 4
 atlas = ExtResource( 85 )
-region = Rect2( 0, 900, 300, 300 )
+region = Rect2( 0, 600, 300, 300 )
 
 [sub_resource type="AtlasTexture" id=15]
 flags = 4
 atlas = ExtResource( 85 )
-region = Rect2( 300, 900, 300, 300 )
+region = Rect2( 300, 600, 300, 300 )
 
 [sub_resource type="AtlasTexture" id=16]
 flags = 4
 atlas = ExtResource( 85 )
-region = Rect2( 600, 900, 300, 300 )
+region = Rect2( 600, 600, 300, 300 )
 
 [sub_resource type="AtlasTexture" id=17]
 flags = 4
 atlas = ExtResource( 85 )
+region = Rect2( 900, 600, 300, 300 )
+
+[sub_resource type="AtlasTexture" id=18]
+flags = 4
+atlas = ExtResource( 85 )
+region = Rect2( 0, 900, 300, 300 )
+
+[sub_resource type="AtlasTexture" id=19]
+flags = 4
+atlas = ExtResource( 85 )
+region = Rect2( 300, 900, 300, 300 )
+
+[sub_resource type="AtlasTexture" id=20]
+flags = 4
+atlas = ExtResource( 85 )
+region = Rect2( 600, 900, 300, 300 )
+
+[sub_resource type="AtlasTexture" id=21]
+flags = 4
+atlas = ExtResource( 85 )
 region = Rect2( 900, 900, 300, 300 )
 
-[sub_resource type="SpriteFrames" id=18]
+[sub_resource type="SpriteFrames" id=22]
 animations = [ {
-"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ) ],
+"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ) ],
 "loop": true,
 "name": "Idle",
 "speed": 20.0
 } ]
 
-[sub_resource type="Animation" id=19]
-resource_name = "Disabled"
+[sub_resource type="Animation" id=23]
 length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
@@ -325,98 +326,450 @@ tracks/1/keys = {
 "values": [ Vector2( 0.859, 0.859 ), Vector2( 1, 1 ), Vector2( 0.859, 0.859 ) ]
 }
 
-[sub_resource type="AtlasTexture" id=131]
+[sub_resource type="AtlasTexture" id=24]
 flags = 4
-atlas = ExtResource( 7 )
-region = Rect2( 0, 0, 230, 130 )
+atlas = ExtResource( 157 )
+region = Rect2( 0, 0, 186, 112 )
 
-[sub_resource type="AtlasTexture" id=132]
+[sub_resource type="AtlasTexture" id=25]
 flags = 4
-atlas = ExtResource( 7 )
-region = Rect2( 230, 0, 230, 130 )
+atlas = ExtResource( 157 )
+region = Rect2( 186, 0, 186, 112 )
 
-[sub_resource type="AtlasTexture" id=133]
+[sub_resource type="AtlasTexture" id=26]
 flags = 4
-atlas = ExtResource( 7 )
-region = Rect2( 460, 0, 230, 130 )
+atlas = ExtResource( 157 )
+region = Rect2( 372, 0, 186, 112 )
 
-[sub_resource type="AtlasTexture" id=134]
+[sub_resource type="AtlasTexture" id=27]
 flags = 4
-atlas = ExtResource( 7 )
-region = Rect2( 690, 0, 230, 130 )
+atlas = ExtResource( 157 )
+region = Rect2( 558, 0, 186, 112 )
 
-[sub_resource type="AtlasTexture" id=135]
+[sub_resource type="AtlasTexture" id=28]
 flags = 4
-atlas = ExtResource( 7 )
-region = Rect2( 0, 130, 230, 130 )
+atlas = ExtResource( 157 )
+region = Rect2( 0, 112, 186, 112 )
 
-[sub_resource type="AtlasTexture" id=136]
+[sub_resource type="AtlasTexture" id=29]
 flags = 4
-atlas = ExtResource( 7 )
-region = Rect2( 230, 130, 230, 130 )
+atlas = ExtResource( 157 )
+region = Rect2( 186, 112, 186, 112 )
 
-[sub_resource type="AtlasTexture" id=137]
+[sub_resource type="AtlasTexture" id=30]
 flags = 4
-atlas = ExtResource( 7 )
-region = Rect2( 460, 130, 230, 130 )
+atlas = ExtResource( 157 )
+region = Rect2( 372, 112, 186, 112 )
 
-[sub_resource type="AtlasTexture" id=138]
+[sub_resource type="AtlasTexture" id=31]
 flags = 4
-atlas = ExtResource( 7 )
-region = Rect2( 690, 130, 230, 130 )
+atlas = ExtResource( 157 )
+region = Rect2( 558, 112, 186, 112 )
 
-[sub_resource type="AtlasTexture" id=139]
+[sub_resource type="AtlasTexture" id=32]
 flags = 4
-atlas = ExtResource( 7 )
-region = Rect2( 0, 260, 230, 130 )
+atlas = ExtResource( 157 )
+region = Rect2( 0, 224, 186, 112 )
 
-[sub_resource type="AtlasTexture" id=140]
+[sub_resource type="AtlasTexture" id=33]
 flags = 4
-atlas = ExtResource( 7 )
-region = Rect2( 230, 260, 230, 130 )
+atlas = ExtResource( 157 )
+region = Rect2( 186, 224, 186, 112 )
 
-[sub_resource type="AtlasTexture" id=141]
+[sub_resource type="AtlasTexture" id=34]
 flags = 4
-atlas = ExtResource( 7 )
-region = Rect2( 460, 260, 230, 130 )
+atlas = ExtResource( 157 )
+region = Rect2( 372, 224, 186, 112 )
 
-[sub_resource type="AtlasTexture" id=142]
+[sub_resource type="AtlasTexture" id=35]
 flags = 4
-atlas = ExtResource( 7 )
-region = Rect2( 690, 260, 230, 130 )
+atlas = ExtResource( 157 )
+region = Rect2( 558, 224, 186, 112 )
 
-[sub_resource type="AtlasTexture" id=143]
+[sub_resource type="AtlasTexture" id=36]
 flags = 4
-atlas = ExtResource( 7 )
-region = Rect2( 0, 390, 230, 130 )
+atlas = ExtResource( 157 )
+region = Rect2( 0, 336, 186, 112 )
 
-[sub_resource type="AtlasTexture" id=144]
+[sub_resource type="AtlasTexture" id=37]
 flags = 4
-atlas = ExtResource( 7 )
-region = Rect2( 230, 390, 230, 130 )
+atlas = ExtResource( 157 )
+region = Rect2( 186, 336, 186, 112 )
 
-[sub_resource type="AtlasTexture" id=145]
+[sub_resource type="AtlasTexture" id=38]
 flags = 4
-atlas = ExtResource( 7 )
-region = Rect2( 460, 390, 230, 130 )
+atlas = ExtResource( 157 )
+region = Rect2( 372, 336, 186, 112 )
 
-[sub_resource type="AtlasTexture" id=146]
+[sub_resource type="AtlasTexture" id=39]
 flags = 4
-atlas = ExtResource( 7 )
-region = Rect2( 690, 390, 230, 130 )
+atlas = ExtResource( 157 )
+region = Rect2( 558, 336, 186, 112 )
 
-[sub_resource type="SpriteFrames" id=147]
+[sub_resource type="SpriteFrames" id=40]
 animations = [ {
-"frames": [ SubResource( 131 ), SubResource( 132 ), SubResource( 133 ), SubResource( 134 ), SubResource( 135 ), SubResource( 136 ), SubResource( 137 ), SubResource( 138 ), SubResource( 139 ), SubResource( 140 ), SubResource( 141 ), SubResource( 142 ), SubResource( 143 ), SubResource( 144 ), SubResource( 145 ), SubResource( 146 ) ],
+"frames": [ SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ) ],
 "loop": true,
 "name": "Idle",
 "speed": 20.0
 } ]
 
-[sub_resource type="DynamicFont" id=20]
+[sub_resource type="Animation" id=41]
+resource_name = "Disabled"
+length = 0.3
+
+[sub_resource type="Animation" id=42]
+resource_name = "Pressed"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Plus:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.8, 0.9 ), Vector2( 0.7, 0.8 ), Vector2( 0.8, 0.9 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Plus:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.001, 0.05, 0.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0.607843, 0.690196, 1, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="AtlasTexture" id=43]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 0, 0, 186, 112 )
+
+[sub_resource type="AtlasTexture" id=44]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 186, 0, 186, 112 )
+
+[sub_resource type="AtlasTexture" id=45]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 372, 0, 186, 112 )
+
+[sub_resource type="AtlasTexture" id=46]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 558, 0, 186, 112 )
+
+[sub_resource type="AtlasTexture" id=47]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 0, 112, 186, 112 )
+
+[sub_resource type="AtlasTexture" id=48]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 186, 112, 186, 112 )
+
+[sub_resource type="AtlasTexture" id=49]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 372, 112, 186, 112 )
+
+[sub_resource type="AtlasTexture" id=50]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 558, 112, 186, 112 )
+
+[sub_resource type="AtlasTexture" id=51]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 0, 224, 186, 112 )
+
+[sub_resource type="AtlasTexture" id=52]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 186, 224, 186, 112 )
+
+[sub_resource type="AtlasTexture" id=53]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 372, 224, 186, 112 )
+
+[sub_resource type="AtlasTexture" id=54]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 558, 224, 186, 112 )
+
+[sub_resource type="AtlasTexture" id=55]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 0, 336, 186, 112 )
+
+[sub_resource type="AtlasTexture" id=56]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 186, 336, 186, 112 )
+
+[sub_resource type="AtlasTexture" id=57]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 372, 336, 186, 112 )
+
+[sub_resource type="AtlasTexture" id=58]
+flags = 4
+atlas = ExtResource( 6 )
+region = Rect2( 558, 336, 186, 112 )
+
+[sub_resource type="SpriteFrames" id=59]
+animations = [ {
+"frames": [ SubResource( 43 ), SubResource( 44 ), SubResource( 45 ), SubResource( 46 ), SubResource( 47 ), SubResource( 48 ), SubResource( 49 ), SubResource( 50 ), SubResource( 51 ), SubResource( 52 ), SubResource( 53 ), SubResource( 54 ), SubResource( 55 ), SubResource( 56 ), SubResource( 57 ), SubResource( 58 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 20.0
+} ]
+
+[sub_resource type="Animation" id=172]
+resource_name = "Pressed"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Minus:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.8, 0.9 ), Vector2( 0.7, 0.8 ), Vector2( 0.8, 0.9 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Minus:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.607843, 0.690196, 1, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="AtlasTexture" id=60]
+flags = 4
+atlas = ExtResource( 156 )
+region = Rect2( 0, 0, 346, 70 )
+
+[sub_resource type="AtlasTexture" id=61]
+flags = 4
+atlas = ExtResource( 156 )
+region = Rect2( 346, 0, 346, 70 )
+
+[sub_resource type="AtlasTexture" id=62]
+flags = 4
+atlas = ExtResource( 156 )
+region = Rect2( 692, 0, 346, 70 )
+
+[sub_resource type="AtlasTexture" id=63]
+flags = 4
+atlas = ExtResource( 156 )
+region = Rect2( 1038, 0, 346, 70 )
+
+[sub_resource type="AtlasTexture" id=64]
+flags = 4
+atlas = ExtResource( 156 )
+region = Rect2( 0, 70, 346, 70 )
+
+[sub_resource type="AtlasTexture" id=65]
+flags = 4
+atlas = ExtResource( 156 )
+region = Rect2( 346, 70, 346, 70 )
+
+[sub_resource type="AtlasTexture" id=66]
+flags = 4
+atlas = ExtResource( 156 )
+region = Rect2( 692, 70, 346, 70 )
+
+[sub_resource type="AtlasTexture" id=67]
+flags = 4
+atlas = ExtResource( 156 )
+region = Rect2( 1038, 70, 346, 70 )
+
+[sub_resource type="AtlasTexture" id=68]
+flags = 4
+atlas = ExtResource( 156 )
+region = Rect2( 0, 140, 346, 70 )
+
+[sub_resource type="AtlasTexture" id=69]
+flags = 4
+atlas = ExtResource( 156 )
+region = Rect2( 346, 140, 346, 70 )
+
+[sub_resource type="AtlasTexture" id=70]
+flags = 4
+atlas = ExtResource( 156 )
+region = Rect2( 692, 140, 346, 70 )
+
+[sub_resource type="AtlasTexture" id=71]
+flags = 4
+atlas = ExtResource( 156 )
+region = Rect2( 1038, 140, 346, 70 )
+
+[sub_resource type="AtlasTexture" id=72]
+flags = 4
+atlas = ExtResource( 156 )
+region = Rect2( 0, 210, 346, 70 )
+
+[sub_resource type="AtlasTexture" id=73]
+flags = 4
+atlas = ExtResource( 156 )
+region = Rect2( 346, 210, 346, 70 )
+
+[sub_resource type="AtlasTexture" id=74]
+flags = 4
+atlas = ExtResource( 156 )
+region = Rect2( 692, 210, 346, 70 )
+
+[sub_resource type="AtlasTexture" id=75]
+flags = 4
+atlas = ExtResource( 156 )
+region = Rect2( 1038, 210, 346, 70 )
+
+[sub_resource type="SpriteFrames" id=76]
+animations = [ {
+"frames": [ SubResource( 60 ), SubResource( 61 ), SubResource( 62 ), SubResource( 63 ), SubResource( 64 ), SubResource( 65 ), SubResource( 66 ), SubResource( 67 ), SubResource( 68 ), SubResource( 69 ), SubResource( 70 ), SubResource( 71 ), SubResource( 72 ), SubResource( 73 ), SubResource( 74 ), SubResource( 75 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 20.0
+} ]
+
+[sub_resource type="Animation" id=173]
+resource_name = "Pressed"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Max:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.8, 0.9 ), Vector2( 0.7, 0.8 ), Vector2( 0.8, 0.9 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Max:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1 ),
+"transitions": PoolRealArray( 1, 0.933033, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.607843, 0.690196, 1, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="AtlasTexture" id=77]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 0, 0, 230, 130 )
+
+[sub_resource type="AtlasTexture" id=78]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 230, 0, 230, 130 )
+
+[sub_resource type="AtlasTexture" id=79]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 460, 0, 230, 130 )
+
+[sub_resource type="AtlasTexture" id=80]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 690, 0, 230, 130 )
+
+[sub_resource type="AtlasTexture" id=81]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 0, 130, 230, 130 )
+
+[sub_resource type="AtlasTexture" id=82]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 230, 130, 230, 130 )
+
+[sub_resource type="AtlasTexture" id=83]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 460, 130, 230, 130 )
+
+[sub_resource type="AtlasTexture" id=84]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 690, 130, 230, 130 )
+
+[sub_resource type="AtlasTexture" id=85]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 0, 260, 230, 130 )
+
+[sub_resource type="AtlasTexture" id=86]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 230, 260, 230, 130 )
+
+[sub_resource type="AtlasTexture" id=87]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 460, 260, 230, 130 )
+
+[sub_resource type="AtlasTexture" id=88]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 690, 260, 230, 130 )
+
+[sub_resource type="AtlasTexture" id=89]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 0, 390, 230, 130 )
+
+[sub_resource type="AtlasTexture" id=90]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 230, 390, 230, 130 )
+
+[sub_resource type="AtlasTexture" id=91]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 460, 390, 230, 130 )
+
+[sub_resource type="AtlasTexture" id=92]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 690, 390, 230, 130 )
+
+[sub_resource type="SpriteFrames" id=93]
+animations = [ {
+"frames": [ SubResource( 77 ), SubResource( 78 ), SubResource( 79 ), SubResource( 80 ), SubResource( 81 ), SubResource( 82 ), SubResource( 83 ), SubResource( 84 ), SubResource( 85 ), SubResource( 86 ), SubResource( 87 ), SubResource( 88 ), SubResource( 89 ), SubResource( 90 ), SubResource( 91 ), SubResource( 92 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 20.0
+} ]
+
+[sub_resource type="DynamicFont" id=94]
 font_data = ExtResource( 19 )
 
-[sub_resource type="Animation" id=21]
+[sub_resource type="Animation" id=95]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
@@ -455,7 +808,7 @@ tracks/2/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=22]
+[sub_resource type="Animation" id=96]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
@@ -508,104 +861,104 @@ tracks/3/keys = {
 "times": PoolRealArray( 0.2 )
 }
 
-[sub_resource type="AtlasTexture" id=115]
+[sub_resource type="AtlasTexture" id=97]
 flags = 4
 atlas = ExtResource( 4 )
 region = Rect2( 0, 0, 190, 100 )
 
-[sub_resource type="AtlasTexture" id=116]
+[sub_resource type="AtlasTexture" id=98]
 flags = 4
 atlas = ExtResource( 4 )
 region = Rect2( 190, 0, 190, 100 )
 
-[sub_resource type="AtlasTexture" id=117]
+[sub_resource type="AtlasTexture" id=99]
 flags = 4
 atlas = ExtResource( 4 )
 region = Rect2( 380, 0, 190, 100 )
 
-[sub_resource type="AtlasTexture" id=118]
+[sub_resource type="AtlasTexture" id=100]
 flags = 4
 atlas = ExtResource( 4 )
 region = Rect2( 570, 0, 190, 100 )
 
-[sub_resource type="AtlasTexture" id=119]
+[sub_resource type="AtlasTexture" id=101]
 flags = 4
 atlas = ExtResource( 4 )
 region = Rect2( 0, 100, 190, 100 )
 
-[sub_resource type="AtlasTexture" id=120]
+[sub_resource type="AtlasTexture" id=102]
 flags = 4
 atlas = ExtResource( 4 )
 region = Rect2( 190, 100, 190, 100 )
 
-[sub_resource type="AtlasTexture" id=121]
+[sub_resource type="AtlasTexture" id=103]
 flags = 4
 atlas = ExtResource( 4 )
 region = Rect2( 380, 100, 190, 100 )
 
-[sub_resource type="AtlasTexture" id=122]
+[sub_resource type="AtlasTexture" id=104]
 flags = 4
 atlas = ExtResource( 4 )
 region = Rect2( 570, 100, 190, 100 )
 
-[sub_resource type="AtlasTexture" id=123]
+[sub_resource type="AtlasTexture" id=105]
 flags = 4
 atlas = ExtResource( 4 )
 region = Rect2( 0, 200, 190, 100 )
 
-[sub_resource type="AtlasTexture" id=124]
+[sub_resource type="AtlasTexture" id=106]
 flags = 4
 atlas = ExtResource( 4 )
 region = Rect2( 190, 200, 190, 100 )
 
-[sub_resource type="AtlasTexture" id=125]
+[sub_resource type="AtlasTexture" id=107]
 flags = 4
 atlas = ExtResource( 4 )
 region = Rect2( 380, 200, 190, 100 )
 
-[sub_resource type="AtlasTexture" id=126]
+[sub_resource type="AtlasTexture" id=108]
 flags = 4
 atlas = ExtResource( 4 )
 region = Rect2( 570, 200, 190, 100 )
 
-[sub_resource type="AtlasTexture" id=127]
+[sub_resource type="AtlasTexture" id=109]
 flags = 4
 atlas = ExtResource( 4 )
 region = Rect2( 0, 300, 190, 100 )
 
-[sub_resource type="AtlasTexture" id=128]
+[sub_resource type="AtlasTexture" id=110]
 flags = 4
 atlas = ExtResource( 4 )
 region = Rect2( 190, 300, 190, 100 )
 
-[sub_resource type="AtlasTexture" id=129]
+[sub_resource type="AtlasTexture" id=111]
 flags = 4
 atlas = ExtResource( 4 )
 region = Rect2( 380, 300, 190, 100 )
 
-[sub_resource type="AtlasTexture" id=130]
+[sub_resource type="AtlasTexture" id=112]
 flags = 4
 atlas = ExtResource( 4 )
 region = Rect2( 570, 300, 190, 100 )
 
-[sub_resource type="SpriteFrames" id=114]
+[sub_resource type="SpriteFrames" id=113]
 animations = [ {
-"frames": [ SubResource( 115 ), SubResource( 116 ), SubResource( 117 ), SubResource( 118 ), SubResource( 119 ), SubResource( 120 ), SubResource( 121 ), SubResource( 122 ), SubResource( 123 ), SubResource( 124 ), SubResource( 125 ), SubResource( 126 ), SubResource( 127 ), SubResource( 128 ), SubResource( 129 ), SubResource( 130 ) ],
+"frames": [ SubResource( 97 ), SubResource( 98 ), SubResource( 99 ), SubResource( 100 ), SubResource( 101 ), SubResource( 102 ), SubResource( 103 ), SubResource( 104 ), SubResource( 105 ), SubResource( 106 ), SubResource( 107 ), SubResource( 108 ), SubResource( 109 ), SubResource( 110 ), SubResource( 111 ), SubResource( 112 ) ],
 "loop": true,
 "name": "Idle",
 "speed": 20.0
 } ]
 
-[sub_resource type="SpriteFrames" id=23]
+[sub_resource type="SpriteFrames" id=114]
 animations = [ {
 "frames": [ ExtResource( 23 ) ],
 "loop": false,
 "name": "Mute",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 24 ) ],
+"frames": [ ExtResource( 22 ) ],
 "loop": false,
-"name": "Volume1",
+"name": "Volume2",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 21 ) ],
@@ -613,13 +966,13 @@ animations = [ {
 "name": "Volume3",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 22 ) ],
+"frames": [ ExtResource( 24 ) ],
 "loop": false,
-"name": "Volume2",
+"name": "Volume1",
 "speed": 5.0
 } ]
 
-[sub_resource type="SpriteFrames" id=24]
+[sub_resource type="SpriteFrames" id=115]
 animations = [ {
 "frames": [ ExtResource( 106 ), ExtResource( 112 ), ExtResource( 110 ), ExtResource( 108 ), ExtResource( 98 ), ExtResource( 109 ), ExtResource( 95 ), ExtResource( 113 ), ExtResource( 99 ), ExtResource( 111 ), ExtResource( 100 ), ExtResource( 94 ), ExtResource( 101 ), ExtResource( 91 ), ExtResource( 96 ), ExtResource( 105 ), ExtResource( 92 ), ExtResource( 102 ), ExtResource( 107 ), ExtResource( 93 ), ExtResource( 97 ), ExtResource( 103 ), ExtResource( 104 ), ExtResource( 137 ), ExtResource( 142 ), ExtResource( 138 ), ExtResource( 115 ), ExtResource( 132 ), ExtResource( 139 ), ExtResource( 116 ), ExtResource( 144 ), ExtResource( 117 ), ExtResource( 145 ), ExtResource( 133 ), ExtResource( 130 ), ExtResource( 131 ), ExtResource( 143 ), ExtResource( 120 ), ExtResource( 140 ), ExtResource( 114 ), ExtResource( 141 ), ExtResource( 126 ), ExtResource( 136 ), ExtResource( 123 ), ExtResource( 118 ), ExtResource( 127 ), ExtResource( 119 ), ExtResource( 121 ), ExtResource( 122 ), ExtResource( 124 ), ExtResource( 125 ), ExtResource( 128 ), ExtResource( 129 ), ExtResource( 134 ), ExtResource( 135 ), ExtResource( 146 ) ],
 "loop": true,
@@ -627,11 +980,11 @@ animations = [ {
 "speed": 20.0
 } ]
 
-[sub_resource type="DynamicFont" id=25]
+[sub_resource type="DynamicFont" id=116]
 size = 22
 font_data = ExtResource( 19 )
 
-[sub_resource type="Animation" id=26]
+[sub_resource type="Animation" id=117]
 length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rect_scale")
@@ -646,7 +999,7 @@ tracks/0/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=167]
+[sub_resource type="Animation" id=118]
 resource_name = "Off"
 length = 0.2
 tracks/0/type = "value"
@@ -662,7 +1015,7 @@ tracks/0/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=27]
+[sub_resource type="Animation" id=119]
 length = 0.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rect_scale")
@@ -677,156 +1030,156 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="StreamTexture" id=28]
+[sub_resource type="StreamTexture" id=120]
 flags = 4
 
-[sub_resource type="DynamicFont" id=63]
+[sub_resource type="DynamicFont" id=121]
 size = 26
 font_data = ExtResource( 19 )
 
-[sub_resource type="AtlasTexture" id=64]
+[sub_resource type="AtlasTexture" id=122]
 flags = 4
 atlas = ExtResource( 149 )
 region = Rect2( 0, 0, 480, 400 )
 
-[sub_resource type="AtlasTexture" id=65]
+[sub_resource type="AtlasTexture" id=123]
 flags = 4
 atlas = ExtResource( 149 )
 region = Rect2( 480, 0, 480, 400 )
 
-[sub_resource type="AtlasTexture" id=66]
+[sub_resource type="AtlasTexture" id=124]
 flags = 4
 atlas = ExtResource( 149 )
 region = Rect2( 960, 0, 480, 400 )
 
-[sub_resource type="AtlasTexture" id=67]
+[sub_resource type="AtlasTexture" id=125]
 flags = 4
 atlas = ExtResource( 149 )
 region = Rect2( 1440, 0, 480, 400 )
 
-[sub_resource type="AtlasTexture" id=68]
+[sub_resource type="AtlasTexture" id=126]
 flags = 4
 atlas = ExtResource( 149 )
 region = Rect2( 1920, 0, 480, 400 )
 
-[sub_resource type="AtlasTexture" id=69]
+[sub_resource type="AtlasTexture" id=127]
 flags = 4
 atlas = ExtResource( 149 )
 region = Rect2( 0, 400, 480, 400 )
 
-[sub_resource type="AtlasTexture" id=70]
+[sub_resource type="AtlasTexture" id=128]
 flags = 4
 atlas = ExtResource( 149 )
 region = Rect2( 480, 400, 480, 400 )
 
-[sub_resource type="AtlasTexture" id=71]
+[sub_resource type="AtlasTexture" id=129]
 flags = 4
 atlas = ExtResource( 149 )
 region = Rect2( 960, 400, 480, 400 )
 
-[sub_resource type="AtlasTexture" id=72]
+[sub_resource type="AtlasTexture" id=130]
 flags = 4
 atlas = ExtResource( 149 )
 region = Rect2( 1440, 400, 480, 400 )
 
-[sub_resource type="AtlasTexture" id=73]
+[sub_resource type="AtlasTexture" id=131]
 flags = 4
 atlas = ExtResource( 149 )
 region = Rect2( 1920, 400, 480, 400 )
 
-[sub_resource type="AtlasTexture" id=74]
+[sub_resource type="AtlasTexture" id=132]
 flags = 4
 atlas = ExtResource( 149 )
 region = Rect2( 0, 800, 480, 400 )
 
-[sub_resource type="AtlasTexture" id=75]
+[sub_resource type="AtlasTexture" id=133]
 flags = 4
 atlas = ExtResource( 149 )
 region = Rect2( 480, 800, 480, 400 )
 
-[sub_resource type="AtlasTexture" id=76]
+[sub_resource type="AtlasTexture" id=134]
 flags = 4
 atlas = ExtResource( 149 )
 region = Rect2( 960, 800, 480, 400 )
 
-[sub_resource type="AtlasTexture" id=77]
+[sub_resource type="AtlasTexture" id=135]
 flags = 4
 atlas = ExtResource( 149 )
 region = Rect2( 1440, 800, 480, 400 )
 
-[sub_resource type="AtlasTexture" id=78]
+[sub_resource type="AtlasTexture" id=136]
 flags = 4
 atlas = ExtResource( 149 )
 region = Rect2( 1920, 800, 480, 400 )
 
-[sub_resource type="AtlasTexture" id=79]
+[sub_resource type="AtlasTexture" id=137]
 flags = 4
 atlas = ExtResource( 149 )
 region = Rect2( 0, 1200, 480, 400 )
 
-[sub_resource type="AtlasTexture" id=80]
+[sub_resource type="AtlasTexture" id=138]
 flags = 4
 atlas = ExtResource( 149 )
 region = Rect2( 480, 1200, 480, 400 )
 
-[sub_resource type="AtlasTexture" id=81]
+[sub_resource type="AtlasTexture" id=139]
 flags = 4
 atlas = ExtResource( 149 )
 region = Rect2( 960, 1200, 480, 400 )
 
-[sub_resource type="AtlasTexture" id=82]
+[sub_resource type="AtlasTexture" id=140]
 flags = 4
 atlas = ExtResource( 149 )
 region = Rect2( 1440, 1200, 480, 400 )
 
-[sub_resource type="AtlasTexture" id=83]
+[sub_resource type="AtlasTexture" id=141]
 flags = 4
 atlas = ExtResource( 149 )
 region = Rect2( 1920, 1200, 480, 400 )
 
-[sub_resource type="AtlasTexture" id=84]
+[sub_resource type="AtlasTexture" id=142]
 flags = 4
 atlas = ExtResource( 149 )
 region = Rect2( 0, 1600, 480, 400 )
 
-[sub_resource type="AtlasTexture" id=85]
+[sub_resource type="AtlasTexture" id=143]
 flags = 4
 atlas = ExtResource( 149 )
 region = Rect2( 480, 1600, 480, 400 )
 
-[sub_resource type="AtlasTexture" id=86]
+[sub_resource type="AtlasTexture" id=144]
 flags = 4
 atlas = ExtResource( 149 )
 region = Rect2( 960, 1600, 480, 400 )
 
-[sub_resource type="AtlasTexture" id=87]
+[sub_resource type="AtlasTexture" id=145]
 flags = 4
 atlas = ExtResource( 149 )
 region = Rect2( 1440, 1600, 480, 400 )
 
-[sub_resource type="AtlasTexture" id=88]
+[sub_resource type="AtlasTexture" id=146]
 flags = 4
 atlas = ExtResource( 149 )
 region = Rect2( 1920, 1600, 480, 400 )
 
-[sub_resource type="SpriteFrames" id=89]
+[sub_resource type="SpriteFrames" id=147]
 animations = [ {
-"frames": [ SubResource( 64 ), SubResource( 65 ), SubResource( 66 ), SubResource( 67 ), SubResource( 68 ), SubResource( 69 ), SubResource( 70 ), SubResource( 71 ), SubResource( 72 ), SubResource( 73 ), SubResource( 74 ), SubResource( 75 ), SubResource( 76 ), SubResource( 77 ), SubResource( 78 ), SubResource( 79 ), SubResource( 80 ), SubResource( 81 ), SubResource( 82 ), SubResource( 83 ), SubResource( 84 ), SubResource( 85 ), SubResource( 86 ), SubResource( 87 ), SubResource( 88 ) ],
+"frames": [ SubResource( 122 ), SubResource( 123 ), SubResource( 124 ), SubResource( 125 ), SubResource( 126 ), SubResource( 127 ), SubResource( 128 ), SubResource( 129 ), SubResource( 130 ), SubResource( 131 ), SubResource( 132 ), SubResource( 133 ), SubResource( 134 ), SubResource( 135 ), SubResource( 136 ), SubResource( 137 ), SubResource( 138 ), SubResource( 139 ), SubResource( 140 ), SubResource( 141 ), SubResource( 142 ), SubResource( 143 ), SubResource( 144 ), SubResource( 145 ), SubResource( 146 ) ],
 "loop": true,
 "name": "Idle",
 "speed": 16.0
 } ]
 
-[sub_resource type="DynamicFontData" id=90]
+[sub_resource type="DynamicFontData" id=148]
 font_path = "res://Fonts/Roboto-BoldCondensed.ttf"
 
-[sub_resource type="DynamicFont" id=91]
+[sub_resource type="DynamicFont" id=149]
 size = 36
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
-font_data = SubResource( 90 )
+font_data = SubResource( 148 )
 
-[sub_resource type="Animation" id=92]
+[sub_resource type="Animation" id=150]
 length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:scale")
@@ -901,7 +1254,119 @@ tracks/5/keys = {
 "values": [ false, true ]
 }
 
-[sub_resource type="Animation" id=94]
+[sub_resource type="Animation" id=171]
+resource_name = "DisableButtons"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("ControlPanel/button_BetUp:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.501961, 0.501961, 0.501961, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ControlPanel/button_Collect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.501961, 0.501961, 0.501961, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("ControlPanel/button_BetDown:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.501961, 0.501961, 0.501961, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("ControlPanel/button_MaxBet:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.501961, 0.501961, 0.501961, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("button_Help:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.501961, 0.501961, 0.501961, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("ControlPanel/button_BetUp:rect_scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.05, 1.05 ), Vector2( 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("ControlPanel/button_BetDown:rect_scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.05, 1.05 ), Vector2( 1, 1 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("ControlPanel/button_MaxBet:rect_scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.05, 1.05 ), Vector2( 1, 1 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("ControlPanel/button_Collect:rect_scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.05, 1.05 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=151]
 length = 2.0
 loop = true
 tracks/0/type = "value"
@@ -928,8 +1393,20 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.2 ), Color( 1, 1, 1, 1 ) ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("ControlPanel/button_BetUp/AnimationPlayer:current_animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 2,
+"values": [  ]
+}
 
-[sub_resource type="Animation" id=95]
+[sub_resource type="Animation" id=152]
 length = 4.0
 tracks/0/type = "method"
 tracks/0/path = NodePath("AnimationPlayer")
@@ -1029,94 +1506,168 @@ tracks/7/keys = {
 "update": 1,
 "values": [ false, true, true ]
 }
+tracks/8/type = "method"
+tracks/8/path = NodePath(".")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "HideHelpCanvas"
+} ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("ControlPanel/button_Collect:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("ControlPanel/button_BetUp:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("ControlPanel/button_BetDown:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("ControlPanel/button_MaxBet:modulate")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("button_Help:modulate")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
 
-[sub_resource type="DynamicFont" id=62]
+[sub_resource type="DynamicFont" id=153]
 size = 50
 font_data = ExtResource( 19 )
-
-[sub_resource type="AtlasTexture" id=150]
-flags = 4
-atlas = ExtResource( 155 )
-region = Rect2( 0, 0, 1000, 400 )
-
-[sub_resource type="AtlasTexture" id=151]
-flags = 4
-atlas = ExtResource( 155 )
-region = Rect2( 1000, 0, 1000, 400 )
-
-[sub_resource type="AtlasTexture" id=152]
-flags = 4
-atlas = ExtResource( 155 )
-region = Rect2( 2000, 0, 1000, 400 )
-
-[sub_resource type="AtlasTexture" id=153]
-flags = 4
-atlas = ExtResource( 155 )
-region = Rect2( 3000, 0, 1000, 400 )
 
 [sub_resource type="AtlasTexture" id=154]
 flags = 4
 atlas = ExtResource( 155 )
-region = Rect2( 0, 400, 1000, 400 )
+region = Rect2( 0, 0, 1000, 400 )
 
 [sub_resource type="AtlasTexture" id=155]
 flags = 4
 atlas = ExtResource( 155 )
-region = Rect2( 1000, 400, 1000, 400 )
+region = Rect2( 1000, 0, 1000, 400 )
 
 [sub_resource type="AtlasTexture" id=156]
 flags = 4
 atlas = ExtResource( 155 )
-region = Rect2( 2000, 400, 1000, 400 )
+region = Rect2( 2000, 0, 1000, 400 )
 
 [sub_resource type="AtlasTexture" id=157]
 flags = 4
 atlas = ExtResource( 155 )
-region = Rect2( 3000, 400, 1000, 400 )
+region = Rect2( 3000, 0, 1000, 400 )
 
 [sub_resource type="AtlasTexture" id=158]
 flags = 4
 atlas = ExtResource( 155 )
-region = Rect2( 0, 800, 1000, 400 )
+region = Rect2( 0, 400, 1000, 400 )
 
 [sub_resource type="AtlasTexture" id=159]
 flags = 4
 atlas = ExtResource( 155 )
-region = Rect2( 1000, 800, 1000, 400 )
+region = Rect2( 1000, 400, 1000, 400 )
 
 [sub_resource type="AtlasTexture" id=160]
 flags = 4
 atlas = ExtResource( 155 )
-region = Rect2( 2000, 800, 1000, 400 )
+region = Rect2( 2000, 400, 1000, 400 )
 
 [sub_resource type="AtlasTexture" id=161]
 flags = 4
 atlas = ExtResource( 155 )
-region = Rect2( 3000, 800, 1000, 400 )
+region = Rect2( 3000, 400, 1000, 400 )
 
 [sub_resource type="AtlasTexture" id=162]
 flags = 4
 atlas = ExtResource( 155 )
-region = Rect2( 0, 1200, 1000, 400 )
+region = Rect2( 0, 800, 1000, 400 )
 
 [sub_resource type="AtlasTexture" id=163]
 flags = 4
 atlas = ExtResource( 155 )
-region = Rect2( 1000, 1200, 1000, 400 )
+region = Rect2( 1000, 800, 1000, 400 )
 
 [sub_resource type="AtlasTexture" id=164]
 flags = 4
 atlas = ExtResource( 155 )
-region = Rect2( 2000, 1200, 1000, 400 )
+region = Rect2( 2000, 800, 1000, 400 )
 
 [sub_resource type="AtlasTexture" id=165]
 flags = 4
 atlas = ExtResource( 155 )
+region = Rect2( 3000, 800, 1000, 400 )
+
+[sub_resource type="AtlasTexture" id=166]
+flags = 4
+atlas = ExtResource( 155 )
+region = Rect2( 0, 1200, 1000, 400 )
+
+[sub_resource type="AtlasTexture" id=167]
+flags = 4
+atlas = ExtResource( 155 )
+region = Rect2( 1000, 1200, 1000, 400 )
+
+[sub_resource type="AtlasTexture" id=168]
+flags = 4
+atlas = ExtResource( 155 )
+region = Rect2( 2000, 1200, 1000, 400 )
+
+[sub_resource type="AtlasTexture" id=169]
+flags = 4
+atlas = ExtResource( 155 )
 region = Rect2( 3000, 1200, 1000, 400 )
 
-[sub_resource type="SpriteFrames" id=166]
+[sub_resource type="SpriteFrames" id=170]
 animations = [ {
-"frames": [ SubResource( 150 ), SubResource( 151 ), SubResource( 152 ), SubResource( 153 ), SubResource( 154 ), SubResource( 155 ), SubResource( 156 ), SubResource( 157 ), SubResource( 158 ), SubResource( 159 ), SubResource( 160 ), SubResource( 161 ), SubResource( 162 ), SubResource( 163 ), SubResource( 164 ), SubResource( 165 ) ],
+"frames": [ SubResource( 154 ), SubResource( 155 ), SubResource( 156 ), SubResource( 157 ), SubResource( 158 ), SubResource( 159 ), SubResource( 160 ), SubResource( 161 ), SubResource( 162 ), SubResource( 163 ), SubResource( 164 ), SubResource( 165 ), SubResource( 166 ), SubResource( 167 ), SubResource( 168 ), SubResource( 169 ) ],
 "loop": true,
 "name": "default",
 "speed": 24.0
@@ -1301,8 +1852,8 @@ myType = "totalBonusReward"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ui_FinishedBonus"]
 method_call_mode = 1
-anims/Entrar = SubResource( 93 )
-anims/Off = SubResource( 148 )
+anims/Entrar = SubResource( 1 )
+anims/Off = SubResource( 2 )
 
 [node name="ControlPanel" type="TextureRect" parent="."]
 anchor_left = 0.501
@@ -1321,7 +1872,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="ControlPanel"]
 position = Vector2( 693.555, 174.493 )
 scale = Vector2( 0.619559, 0.744145 )
-frames = SubResource( 1 )
+frames = SubResource( 3 )
 animation = "Idle"
 
 [node name="ui_MaxBet" type="TextureRect" parent="ControlPanel"]
@@ -1348,7 +1899,7 @@ margin_left = -70.344
 margin_top = -5.13593
 margin_right = 49.656
 margin_bottom = 13.8641
-custom_fonts/font = SubResource( 97 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "APUESTA"
@@ -1403,7 +1954,7 @@ margin_left = -27.0537
 margin_top = -18.491
 margin_right = 26.9463
 margin_bottom = 18.509
-custom_fonts/font = SubResource( 96 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "PRÓXIMO
@@ -1436,14 +1987,14 @@ myType = "currencyToCollectNextLevel"
 [node name="PlayButtonAnimated" type="AnimatedSprite" parent="ControlPanel"]
 position = Vector2( 1086.87, 52.0882 )
 scale = Vector2( 0.859, 0.859 )
-frames = SubResource( 18 )
+frames = SubResource( 22 )
 animation = "Idle"
-frame = 13
+frame = 4
 playing = true
 offset = Vector2( -24.5817, -20.2695 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ControlPanel/PlayButtonAnimated"]
-anims/Disabled = SubResource( 19 )
+anims/Disabled = SubResource( 23 )
 
 [node name="button_Play" parent="ControlPanel/PlayButtonAnimated" instance=ExtResource( 10 )]
 anchor_left = 0.584
@@ -1522,41 +2073,77 @@ margin_right = 73.5414
 margin_bottom = 30.8832
 stretch_mode = 0
 
-[node name="button_BetUp" parent="ControlPanel" instance=ExtResource( 2 )]
-anchor_left = 0.554
-anchor_top = 0.761
-anchor_right = 0.554
-anchor_bottom = 0.761
-margin_left = -27.5611
-margin_top = -23.9576
-margin_right = 28.4389
-margin_bottom = 24.0424
+[node name="button_BetUp" type="TextureButton" parent="ControlPanel"]
+anchor_left = 0.451
+anchor_top = 0.681
+anchor_right = 0.451
+anchor_bottom = 0.681
+margin_left = -70.1701
+margin_top = -39.9002
+margin_right = 69.8299
+margin_bottom = 40.0998
+rect_pivot_offset = Vector2( 140, 0 )
 expand = true
-stretch_mode = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ControlPanel/button_BetUp"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.508
+anchor_right = 0.5
+anchor_bottom = 0.508
+margin_left = -73.1395
+margin_top = -18.0071
+margin_right = 74.8605
+margin_bottom = 17.9739
+custom_fonts/font = ExtResource( 89 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "+"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Plus" type="AnimatedSprite" parent="ControlPanel/button_BetUp"]
+position = Vector2( 73.2712, 44.1647 )
+scale = Vector2( 0.8, 0.9 )
+frames = SubResource( 40 )
+animation = "Idle"
+frame = 10
+playing = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ControlPanel/button_BetUp"]
+anims/Disabled = SubResource( 41 )
+anims/Pressed = SubResource( 42 )
 
 [node name="button_BetDown" type="TextureButton" parent="ControlPanel"]
-anchor_left = 0.448
-anchor_top = 0.776
-anchor_right = 0.448
-anchor_bottom = 0.776
-margin_left = -28.5861
-margin_top = -24.1139
-margin_right = 28.4139
-margin_bottom = 23.8861
+anchor_left = 0.55
+anchor_top = 0.691
+anchor_right = 0.55
+anchor_bottom = 0.691
+margin_left = -70.126
+margin_top = -40.4402
+margin_right = 68.874
+margin_bottom = 40.5598
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="ControlPanel/button_BetDown"]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.508
 anchor_right = 0.5
 anchor_bottom = 0.508
-margin_left = -19.5
-margin_top = -18.384
-margin_right = 20.5
-margin_bottom = 17.616
+margin_left = 165.519
+margin_top = -15.2839
+margin_right = 205.519
+margin_bottom = 20.7161
 custom_fonts/font = ExtResource( 89 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
@@ -1567,16 +2154,62 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="button_MaxBet" parent="ControlPanel" instance=ExtResource( 6 )]
+[node name="Minus" type="AnimatedSprite" parent="ControlPanel/button_BetDown"]
+position = Vector2( 65.7428, 42.5201 )
+scale = Vector2( 0.8, 0.9 )
+frames = SubResource( 59 )
+animation = "Idle"
+frame = 14
+playing = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ControlPanel/button_BetDown"]
+anims/Pressed = SubResource( 172 )
+
+[node name="button_MaxBet" type="TextureButton" parent="ControlPanel"]
+anchor_left = 0.501
+anchor_top = 0.585
+anchor_right = 0.501
+anchor_bottom = 0.585
+margin_left = -129.37
+margin_top = -63.5161
+margin_right = 126.63
+margin_bottom = -14.5161
+rect_pivot_offset = Vector2( 129.37, 49 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ControlPanel/button_MaxBet"]
+visible = false
 anchor_left = 0.5
-anchor_top = 0.745
+anchor_top = 0.523
 anchor_right = 0.5
-anchor_bottom = 0.745
-margin_left = -38.1625
-margin_top = -19.8936
-margin_right = 45.8375
-margin_bottom = 20.1064
-stretch_mode = 0
+anchor_bottom = 0.523
+margin_left = -75.6964
+margin_top = -20.9601
+margin_right = 80.3036
+margin_bottom = 30.0399
+custom_fonts/font = ExtResource( 89 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "MAX."
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Max" type="AnimatedSprite" parent="ControlPanel/button_MaxBet"]
+position = Vector2( 128.759, 27.2949 )
+scale = Vector2( 0.8, 0.9 )
+frames = SubResource( 76 )
+animation = "Idle"
+frame = 5
+playing = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ControlPanel/button_MaxBet"]
+anims/Pressed = SubResource( 173 )
 
 [node name="buttonStartBonus" type="TextureButton" parent="ControlPanel"]
 self_modulate = Color( 1, 1, 0, 1 )
@@ -1619,13 +2252,13 @@ __meta__ = {
 
 [node name="Tiempo" type="TextureRect" parent="."]
 anchor_left = 0.932
-anchor_top = 0.19
+anchor_top = 0.324
 anchor_right = 0.932
-anchor_bottom = 0.19
-margin_left = -70.4415
-margin_top = 81.0282
-margin_right = 69.5585
-margin_bottom = 160.028
+anchor_bottom = 0.324
+margin_left = -76.9409
+margin_top = -37.4659
+margin_right = 63.0591
+margin_bottom = 41.5339
 rect_pivot_offset = Vector2( 70.4415, 39.5 )
 expand = true
 __meta__ = {
@@ -1635,9 +2268,9 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Tiempo"]
 position = Vector2( 72.7039, 37.33 )
 scale = Vector2( 0.554484, 0.730934 )
-frames = SubResource( 147 )
+frames = SubResource( 93 )
 animation = "Idle"
-frame = 7
+frame = 14
 playing = true
 
 [node name="Label" type="Label" parent="Tiempo"]
@@ -1649,7 +2282,7 @@ margin_left = -25.4531
 margin_top = -9.48674
 margin_right = 25.5469
 margin_bottom = 9.51326
-custom_fonts/font = SubResource( 20 )
+custom_fonts/font = SubResource( 94 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "TIEMPO"
@@ -1678,8 +2311,8 @@ __meta__ = {
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Tiempo/timer"]
 pause_mode = 1
 method_call_mode = 1
-anims/Idle = SubResource( 21 )
-"anims/Timing Out" = SubResource( 22 )
+anims/Idle = SubResource( 95 )
+"anims/Timing Out" = SubResource( 96 )
 
 [node name="button_Help" parent="." instance=ExtResource( 8 )]
 anchor_left = 0.918
@@ -1704,14 +2337,14 @@ margin_bottom = 49.8042
 stretch_mode = 0
 
 [node name="VolumeButton" type="TextureButton" parent="."]
-anchor_left = 0.931
-anchor_top = 0.331
-anchor_right = 0.931
-anchor_bottom = 0.332
-margin_left = -69.6252
-margin_top = -166.986
-margin_right = 69.3748
-margin_bottom = -88.7537
+anchor_left = 0.924
+anchor_top = 0.197
+anchor_right = 0.924
+anchor_bottom = 0.197
+margin_left = -69.9517
+margin_top = -39.3741
+margin_right = 69.0483
+margin_bottom = 39.6262
 texture_normal = ExtResource( 13 )
 texture_pressed = ExtResource( 12 )
 expand = true
@@ -1722,15 +2355,15 @@ __meta__ = {
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="VolumeButton"]
 position = Vector2( 70.85, 39.4072 )
 scale = Vector2( 0.824678, 1.00825 )
-frames = SubResource( 114 )
+frames = SubResource( 113 )
 animation = "Idle"
-frame = 13
+frame = 4
 playing = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="VolumeButton"]
 position = Vector2( 73.9492, 34.9024 )
 scale = Vector2( 0.111646, 0.111646 )
-frames = SubResource( 23 )
+frames = SubResource( 114 )
 animation = "Volume2"
 
 [node name="BonusFeedback" type="Control" parent="."]
@@ -1751,8 +2384,8 @@ __meta__ = {
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="BonusFeedback"]
 position = Vector2( 73.3888, 61.2637 )
-frames = SubResource( 24 )
-frame = 5
+frames = SubResource( 115 )
+frame = 4
 playing = true
 
 [node name="Label" type="Label" parent="BonusFeedback"]
@@ -1764,7 +2397,7 @@ margin_left = -56.5786
 margin_top = -33.6704
 margin_right = 63.4214
 margin_bottom = 31.3296
-custom_fonts/font = SubResource( 25 )
+custom_fonts/font = SubResource( 116 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "BONUS"
 align = 1
@@ -1776,9 +2409,9 @@ __meta__ = {
 [node name="AnimationPlayer" type="AnimationPlayer" parent="BonusFeedback"]
 autoplay = "PopUp"
 method_call_mode = 1
-anims/Exit = SubResource( 26 )
-anims/Off = SubResource( 167 )
-anims/PopUp = SubResource( 27 )
+anims/Exit = SubResource( 117 )
+anims/Off = SubResource( 118 )
+anims/PopUp = SubResource( 119 )
 blend_times = [ "PopUp", "PopUp", 0.003 ]
 
 [node name="GameOverMessageContainer" type="Node" parent="."]
@@ -1789,7 +2422,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -3.97174
 margin_bottom = -3.97174
-texture = SubResource( 28 )
+texture = SubResource( 120 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1820,7 +2453,7 @@ margin_left = 7.752
 margin_top = 0.208431
 margin_right = 0.00378418
 margin_bottom = -0.0223999
-custom_fonts/normal_font = SubResource( 63 )
+custom_fonts/normal_font = SubResource( 121 )
 tab_size = 0
 text = "El juego consiste en elegir el boton correcto que te hará seguir tu camino hacia el espacio.
 
@@ -1843,7 +2476,7 @@ margin_left = 0.258179
 margin_top = 0.208431
 margin_right = -0.572571
 margin_bottom = 0.544189
-custom_fonts/normal_font = SubResource( 63 )
+custom_fonts/normal_font = SubResource( 121 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 tab_size = 0
 text = "
@@ -1913,7 +2546,7 @@ margin_left = -354.0
 margin_top = -296.7
 margin_right = 355.0
 margin_bottom = 296.3
-texture = SubResource( 28 )
+texture = SubResource( 120 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -1923,9 +2556,9 @@ __meta__ = {
 self_modulate = Color( 1, 1, 1, 0.745098 )
 position = Vector2( 356.862, 314.28 )
 scale = Vector2( 1.47652, 1.47199 )
-frames = SubResource( 89 )
+frames = SubResource( 147 )
 animation = "Idle"
-frame = 21
+frame = 3
 playing = true
 
 [node name="helpText" type="Label" parent="ui_IncomingBonus"]
@@ -1937,7 +2570,7 @@ margin_left = -270.5
 margin_top = -200.5
 margin_right = 264.5
 margin_bottom = 121.5
-custom_fonts/font = SubResource( 91 )
+custom_fonts/font = SubResource( 149 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_constants/shadow_offset_y = 0
 text = "¡Has ganado un Bonus!
@@ -1959,20 +2592,21 @@ margin_top = -49.7876
 margin_right = 74.4557
 margin_bottom = 49.2124
 texture_normal = ExtResource( 150 )
+texture_pressed = ExtResource( 2 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="ui_IncomingBonus/buttonStartBonus"]
-anchor_left = 0.509
-anchor_top = 0.459
-anchor_right = 0.509
-anchor_bottom = 0.459
-margin_left = -16.4575
-margin_top = -15.9485
-margin_right = 16.5425
-margin_bottom = 19.0515
+anchor_left = 0.5
+anchor_top = 0.475
+anchor_right = 0.5
+anchor_bottom = 0.475
+margin_left = -17.2071
+margin_top = -17.5325
+margin_right = 15.7929
+margin_bottom = 17.4675
 custom_fonts/font = ExtResource( 89 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
@@ -1984,7 +2618,7 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ui_IncomingBonus"]
-anims/Entrar = SubResource( 92 )
+anims/Entrar = SubResource( 150 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
@@ -1992,22 +2626,28 @@ volume_db = 1.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 method_call_mode = 1
-anims/Idle = SubResource( 94 )
-anims/StartDemoMode = SubResource( 95 )
+anims/DisableButtons = SubResource( 171 )
+anims/Idle = SubResource( 151 )
+anims/StartDemoMode = SubResource( 152 )
 
 [node name="BandasNegras" type="Control" parent="."]
 visible = false
+anchor_top = -0.004
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = 0.0719998
+margin_bottom = 6.10352e-05
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ColorRect" type="ColorRect" parent="BandasNegras"]
+anchor_top = -0.032
 anchor_right = 1.0
-anchor_bottom = 0.133
-margin_right = 2.0
-margin_bottom = -16.7
+anchor_bottom = 0.123
+margin_top = -0.327999
+margin_right = 3.0
+margin_bottom = 0.167
 color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2042,7 +2682,7 @@ margin_left = -214.072
 margin_top = -29.7592
 margin_right = 214.928
 margin_bottom = 30.2408
-custom_fonts/font = SubResource( 62 )
+custom_fonts/font = SubResource( 153 )
 text = "MODO DEMO"
 align = 1
 valign = 1
@@ -2051,15 +2691,15 @@ __meta__ = {
 }
 
 [node name="Label2" type="Label" parent="DemoMode"]
-anchor_left = 0.503
-anchor_top = 0.057
-anchor_right = 0.503
-anchor_bottom = 0.057
-margin_left = -392.104
-margin_top = 767.795
-margin_right = 415.896
-margin_bottom = 827.795
-custom_fonts/font = SubResource( 62 )
+anchor_left = 0.519
+anchor_top = 0.942
+anchor_right = 0.519
+anchor_bottom = 0.942
+margin_left = -404.456
+margin_top = -30.3606
+margin_right = 403.544
+margin_bottom = 29.6394
+custom_fonts/font = SubResource( 153 )
 text = "TOQUE LA PANTALLA PARA CONTINUAR"
 align = 1
 valign = 1
@@ -2070,8 +2710,12 @@ __meta__ = {
 [node name="Black" type="ColorRect" parent="."]
 visible = false
 modulate = Color( 1, 1, 1, 0 )
+anchor_top = -0.003
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = -0.696
+margin_right = 2.0
+margin_bottom = 6.10352e-05
 color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2093,8 +2737,8 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Black/Control"]
 position = Vector2( 484.418, 180.092 )
 scale = Vector2( 0.924019, 0.898415 )
-frames = SubResource( 166 )
-frame = 4
+frames = SubResource( 170 )
+frame = 11
 playing = true
 [connection signal="hide" from="ui_FinishedBonus" to="ui_FinishedBonus/AnimationPlayer" method="play" binds= [ "Off" ]]
 [connection signal="visibility_changed" from="ui_FinishedBonus" to="ui_FinishedBonus/AnimationPlayer" method="play" binds= [ "Entrar" ]]
@@ -2102,8 +2746,11 @@ playing = true
 [connection signal="button_up" from="ControlPanel/PlayButtonAnimated/button_OkFinishBonus" to="." method="OnOkFinishBonusButtonUp"]
 [connection signal="button_up" from="ControlPanel/PlayButtonAnimated/button_end_collect" to="." method="OnEndAndCollectButtonUp"]
 [connection signal="button_up" from="ControlPanel/button_Collect" to="." method="OnCollectButtonUp"]
+[connection signal="button_down" from="ControlPanel/button_BetUp" to="ControlPanel/button_BetUp/AnimationPlayer" method="play" binds= [ "Pressed" ]]
 [connection signal="button_up" from="ControlPanel/button_BetUp" to="." method="OnBetUpButtonUp"]
+[connection signal="button_down" from="ControlPanel/button_BetDown" to="ControlPanel/button_BetDown/AnimationPlayer" method="play" binds= [ "Pressed" ]]
 [connection signal="button_up" from="ControlPanel/button_BetDown" to="." method="OnBetDownButtonUp"]
+[connection signal="button_down" from="ControlPanel/button_MaxBet" to="ControlPanel/button_MaxBet/AnimationPlayer" method="play" binds= [ "Pressed" ]]
 [connection signal="button_up" from="ControlPanel/button_MaxBet" to="." method="OnMaxBetButtonUp"]
 [connection signal="button_up" from="button_Help" to="." method="OnHelpButtonUp"]
 [connection signal="pressed" from="VolumeButton" to="." method="_on_VolumeButton_pressed"]

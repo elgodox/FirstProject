@@ -23,6 +23,8 @@ public class UIButtonsManager : Control
     [Signal] public delegate void DemoModeFinished();
     [Signal] public delegate void TimerDone(bool win);
     [Signal] public delegate void ControlMasterVolume(float volume);
+    [Signal] public delegate void DisableButtons();
+    
     TextureButton _playButton, _helpButton, _betUpButton, _betDownButton, _maxBetButton, _collectButton, _endAndCollectButton, _okFinishBonusButton, _volumeButton, _buttonStartBonus;
     TextureRect _helpCanvas, _controlPanel, _timerRect, _incomingBonus, _finishedBonus, _nextLevel;
     Control _bonusFeedback;
@@ -64,6 +66,7 @@ public class UIButtonsManager : Control
 
     void ActivateAgain() //La llama GameManager, señal GameOver!
     {
+        _myAnim.PlayBackwards("DisableButtons");
         _helpButton.Disabled = false;
         _maxBetButton.Disabled = false;
         _betUpButton.Disabled = false;
@@ -83,11 +86,7 @@ public class UIButtonsManager : Control
     void OnBackButtonUp()
     {
         PlayAudio();
-        _helpCanvas.Hide();
-        _controlPanel.Show();
-        _timerRect.Show();
-        _volumeButton.Show();
-
+        HideHelpCanvas();
     }
     void OnBetUpButtonUp()
     {
@@ -141,6 +140,7 @@ public class UIButtonsManager : Control
         _betUpButton.Disabled = true;
         _betDownButton.Disabled = true;
         _collectButton.Disabled = true;
+        _myAnim.Play("DisableButtons");
     }
     void ActivateEndAndCollectButton(bool enable)
     {
@@ -215,6 +215,7 @@ public class UIButtonsManager : Control
         _timerAnim = GetNode("Tiempo/timer/AnimationPlayer") as AnimationPlayer;
         _myAnim = GetNode("AnimationPlayer") as AnimationPlayer;
         _playButtonAnim = GetNode("ControlPanel/PlayButtonAnimated/AnimationPlayer") as AnimationPlayer;
+        _playButtonAnim = GetNode("ControlPanel/PlayButtonAnimated/AnimationPlayer") as AnimationPlayer;
 
         #endregion
         
@@ -243,8 +244,15 @@ public class UIButtonsManager : Control
     }
     void UpdateCurrencyUI(string currencyType, float currency)
     {
-        GD.Print(currencyType + "  " + currency);
+        //GD.Print(currencyType + "  " + currency);
         _myCurrencyLabels[currencyType].UpdateLabel(currency);
+    }
+    void HideHelpCanvas()
+    {
+        _helpCanvas.Hide();
+        _controlPanel.Show();
+        _timerRect.Show();
+        _volumeButton.Show();
     }
 
     void SetGameOverMessage(bool win, bool bonus) //La llama GameManager, señal GameOver
@@ -285,7 +293,6 @@ public class UIButtonsManager : Control
     {
         if (e is InputEventMouseButton)
         {
-
             if (_myAnim.CurrentAnimation != "StartDemoMode")
             {
                 EmitSignal(nameof(DemoModeFinished));

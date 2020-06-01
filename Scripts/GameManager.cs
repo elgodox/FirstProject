@@ -57,7 +57,7 @@ public class GameManager : Godot.Control
             _currencyManager.currentBet = _oMenu.GetCurrentBet();
             EmitSignal(nameof(SetCurrencyManager),_oMenu.GetMoney(),_oMenu.MinBet(),_oMenu.MaxBet());
             CheckBetDescription(GetBetDescription());
-            GD.Print("omenu credit: " + _oMenu.GetMoney());
+            //GD.Print("omenu credit: " + _oMenu.GetMoney());
         }
         else
         {

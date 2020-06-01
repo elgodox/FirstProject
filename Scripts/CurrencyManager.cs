@@ -15,7 +15,7 @@ public class CurrencyManager : Node
 
     void SetCurrency(double money, double minBet,double maxBet)
     {
-        GD.Print("Set Currency recibe creditos: " + money);
+        //GD.Print("Set Currency recibe creditos: " + money);
         credit = money;
         minBetAmount = minBet;
         maxBetAmount = maxBet;
@@ -150,7 +150,6 @@ public class CurrencyManager : Node
     
     public void CheckAllCurrency()
     {
-        GD.Print("checkall currency " + currentBet);
         EmitSignal(nameof(CurrencyChanged), Constants.CREDITS, credit);
         EmitSignal(nameof(CurrencyChanged), Constants.CURRENCY_TO_COLLECT, currencyToCollect);
         EmitSignal(nameof(CurrencyChanged), Constants.CURRENT_BET, currentBet);

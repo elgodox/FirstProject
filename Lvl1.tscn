@@ -747,6 +747,7 @@ __meta__ = {
 "_edit_use_anchors_": false,
 "_edit_vertical_guides_": [ 798.594 ]
 }
+_useDb = true
 timeToSetDemo = 20.0
 timeToDemoActions = 0.5
 _levels = 10
@@ -943,8 +944,8 @@ anchor_bottom = 1.0
 [connection signal="GameOver" from="." to="UI_Template" method="ActivateAgain"]
 [connection signal="GameReady" from="." to="UI_Template" method="ActivatePlayButton"]
 [connection signal="GameStarted" from="." to="UI_Template" method="DeactivateButtons"]
-[connection signal="GameStarted" from="." to="UI_Template" method="ActivateNextLevelRect"]
 [connection signal="GameStarted" from="." to="UI_Template" method="ClearGameOverMessage"]
+[connection signal="GameStarted" from="." to="UI_Template" method="ActivateNextLevelRect"]
 [connection signal="LevelCreated" from="." to="UI_Template" method="ActivateFinishButton"]
 [connection signal="LevelsOver" from="." to="AudioManager" method="GameOverSound"]
 [connection signal="LevelsOver" from="." to="PannerAnimation" method="BackToOrigin"]
@@ -961,9 +962,9 @@ anchor_bottom = 1.0
 [connection signal="SetCurrencyManager" from="." to="CurrencyManager" method="SetCurrency"]
 [connection signal="StartTimer" from="." to="UI_Template" method="StartTimer"]
 [connection signal="StopGameInmediate" from="." to="UI_Template" method="SetIdle"]
+[connection signal="ready" from="." to="Background/AnimationPlayer" method="play" binds= [ "Init" ]]
 [connection signal="ready" from="." to="AudioManager/PowerOn" method="play"]
 [connection signal="ready" from="." to="AudioManager/BackGroundMusic" method="play"]
-[connection signal="ready" from="." to="Background/AnimationPlayer" method="play" binds= [ "Init" ]]
 [connection signal="animation_finished" from="Background/AnimationPlayer" to="Background" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="BonusAccepted" from="UI_Template" to="." method="InstantiateBonus"]
 [connection signal="ControlMasterVolume" from="UI_Template" to="AudioManager" method="_on_UI_ControlMasterVolume"]
@@ -978,8 +979,8 @@ anchor_bottom = 1.0
 [connection signal="betUp" from="UI_Template" to="CurrencyManager" method="BetUp"]
 [connection signal="end_collect" from="UI_Template" to="." method="MoneyCollected"]
 [connection signal="maxBet" from="UI_Template" to="CurrencyManager" method="MaxBet"]
-[connection signal="restartGame" from="UI_Template" to="PannerAnimation" method="BackToInitAnimation"]
 [connection signal="restartGame" from="UI_Template" to="." method="StartGame"]
+[connection signal="restartGame" from="UI_Template" to="PannerAnimation" method="BackToInitAnimation"]
 [connection signal="CurrencyChanged" from="CurrencyManager" to="UI_Template" method="UpdateCurrencyUI"]
 [connection signal="GameHaveBet" from="CurrencyManager" to="." method="GameHaveBetNow"]
 [connection signal="finished" from="AudioManager/BackGroundMusic" to="AudioManager" method="_on_BackGroundMusic_finished"]

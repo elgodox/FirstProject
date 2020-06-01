@@ -1,12 +1,12 @@
 using Godot;
 using System;
-using OMenuClient;
+using Client = OMenuClient.OMenuClient;
 using OMenuClient.Structs;
 
 
 public class OMenuCommunication
 {
-    public VLTLocalClient oMenuClient;
+    public Client oMenuClient;
     //public Profile profile;
     public SaveData saveData;
     public PlayInfo playInfo;
@@ -14,7 +14,7 @@ public class OMenuCommunication
 
     public OMenuCommunication()
     {
-        oMenuClient = new VLTLocalClient(VLTLocalClient.TypeConncetion.DataBase);
+        oMenuClient = new Client(Client.TypeConncetion.DataBase);
     }
 
 
