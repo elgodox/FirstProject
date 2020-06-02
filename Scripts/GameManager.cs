@@ -34,7 +34,7 @@ public class GameManager : Godot.Control
     [Export] int _levels, _timeInLevel;
     [Export] int[] _badOnes = new int[10];
     int[] _currentLevelInfo;
-    bool _isPlaying, _gotBonus, _isResuming, _isDemo;
+    bool _isPlaying, _gotBonus, _isResuming, _isDemo, _wasUsingDb;
     GameRecover _myRecover;
     OMenuCommunication _oMenu = new OMenuCommunication();
     GameGenerator _myGameGen = new GameGenerator();
@@ -61,7 +61,7 @@ public class GameManager : Godot.Control
         }
         else
         {
-            EmitSignal(nameof(SetCurrencyManager), 1000, 5, 25);
+            EmitSignal(nameof(SetCurrencyManager), 25, 5, 25);
         }
 
         if (!_isPlaying)
@@ -299,10 +299,7 @@ public class GameManager : Godot.Control
         // }
         if(!_isResuming)
         {
-            if (_useDb)
-            {
-                _currencyManager.ConfirmBet();
-            }
+            _currencyManager.ConfirmBet();
             _betDescription = "P";
             currentLevel = 10;
             EmitSignal(nameof(PlayMusicGame));
@@ -453,7 +450,11 @@ public class GameManager : Godot.Control
     {
         _barrier.Show();
         EmitSignal(nameof(RemoveBonusMessage));
-        _useDb = false;
+        if (_useDb)
+        {
+            _wasUsingDb = true;
+            _useDb = false;
+        }
         _isDemo = true;
         EmitSignal(nameof(SetCurrencyManager), 1000, 5, 25);
         _timerToDemoMode.Stop();
@@ -476,8 +477,12 @@ public class GameManager : Godot.Control
         
         _actionsTimer.OneShot = true;
         _actionsTimer.WaitTime = timeToDemoActions;
-        _useDb = true;
-        EmitSignal(nameof(SetCurrencyManager),_oMenu.GetMoney(),_oMenu.MinBet(),_oMenu.MaxBet());
+        if (_wasUsingDb)
+        {
+            _wasUsingDb = false;
+            _useDb = true;
+            EmitSignal(nameof(SetCurrencyManager),_oMenu.GetMoney(),_oMenu.MinBet(),_oMenu.MaxBet());
+        }
         _barrier.Hide();
     }
 
