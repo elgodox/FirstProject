@@ -797,7 +797,7 @@ anims/SetBlack = SubResource( 12 )
 anims/SetWhite = SubResource( 13 )
 
 [node name="Background" type="TextureRect" parent="."]
-self_modulate = Color( 0.352844, 0.352844, 0.352844, 1 )
+self_modulate = Color( 0.6, 0.6, 0.6, 1 )
 anchor_right = 1.002
 anchor_bottom = 0.999
 margin_left = 1.0
@@ -847,7 +847,7 @@ __meta__ = {
 }
 
 [node name="HaloLuz" type="TextureRect" parent="Background"]
-modulate = Color( 1, 1, 1, 0 )
+modulate = Color( 0.458824, 0.858824, 1, 1 )
 anchor_left = 0.399
 anchor_top = 0.44
 anchor_right = 0.603
@@ -934,8 +934,8 @@ visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 [connection signal="BonusOver" from="." to="UI_Template" method="BonusPicked"]
-[connection signal="BonusOver" from="." to="AudioManager" method="BonusWinSound"]
 [connection signal="BonusOver" from="." to="CurrencyManager" method="UpdateBonusPrices"]
+[connection signal="BonusOver" from="." to="AudioManager" method="BonusWinSound"]
 [connection signal="BonusStarted" from="." to="UI_Template" method="HideIncomingBonusMessage"]
 [connection signal="BonusStarted" from="." to="AudioManager" method="PlayBonusMusic"]
 [connection signal="CanCollect" from="." to="UI_Template" method="ActivateCollectButton"]
@@ -943,18 +943,18 @@ anchor_bottom = 1.0
 [connection signal="GameOver" from="." to="UI_Template" method="ActivateAgain"]
 [connection signal="GameOver" from="." to="CurrencyManager" method="AddCurrencyToCredits"]
 [connection signal="GameReady" from="." to="UI_Template" method="ActivatePlayButton"]
-[connection signal="GameStarted" from="." to="UI_Template" method="ClearGameOverMessage"]
-[connection signal="GameStarted" from="." to="UI_Template" method="ActivateNextLevelRect"]
 [connection signal="GameStarted" from="." to="UI_Template" method="DeactivateButtons"]
+[connection signal="GameStarted" from="." to="UI_Template" method="ActivateNextLevelRect"]
+[connection signal="GameStarted" from="." to="UI_Template" method="ClearGameOverMessage"]
 [connection signal="LevelCreated" from="." to="UI_Template" method="ActivateFinishButton"]
-[connection signal="LevelsOver" from="." to="Background" method="SetBackgroundAnimation"]
-[connection signal="LevelsOver" from="." to="PannerAnimation" method="BackToOrigin"]
 [connection signal="LevelsOver" from="." to="UI_Template" method="SetGameOverMessage"]
+[connection signal="LevelsOver" from="." to="PannerAnimation" method="BackToOrigin"]
+[connection signal="LevelsOver" from="." to="Background" method="SetBackgroundAnimation"]
 [connection signal="LevelsOver" from="." to="AudioManager" method="GameOverSound"]
-[connection signal="NodePicked" from="." to="UI_Template" method="DeactivateFinishButton"]
 [connection signal="NodePicked" from="." to="UI_Template" method="StopTimer"]
-[connection signal="NodeWithBonus" from="." to="Background" method="IsBonus"]
+[connection signal="NodePicked" from="." to="UI_Template" method="DeactivateFinishButton"]
 [connection signal="NodeWithBonus" from="." to="UI_Template" method="BonusFeedback"]
+[connection signal="NodeWithBonus" from="." to="Background" method="IsBonus"]
 [connection signal="PlayMusicGame" from="." to="AudioManager" method="PlayLevelMusic"]
 [connection signal="RemoveBonusMessage" from="." to="UI_Template" method="FinishBonus"]
 [connection signal="RoundWined" from="." to="Background" method="IsGood"]
@@ -971,16 +971,16 @@ anchor_bottom = 1.0
 [connection signal="DemoModeFinished" from="UI_Template" to="." method="ExitDemoMode"]
 [connection signal="OkFinishBonus" from="UI_Template" to="." method="ClearBonusFinished"]
 [connection signal="StopGameMusic" from="UI_Template" to="PannerAnimation" method="BackToInitAnimation"]
-[connection signal="StopGameMusic" from="UI_Template" to="AudioManager" method="StopCurrentMusic"]
 [connection signal="StopGameMusic" from="UI_Template" to="CurrencyManager" method="CheckBet"]
+[connection signal="StopGameMusic" from="UI_Template" to="AudioManager" method="StopCurrentMusic"]
 [connection signal="TimerDone" from="UI_Template" to="." method="EndGame"]
 [connection signal="UIIdle" from="UI_Template" to="PannerAnimation/Background/AnimationPlayer" method="play" binds= [ "SetBlack" ]]
 [connection signal="betDown" from="UI_Template" to="CurrencyManager" method="BetDown"]
 [connection signal="betUp" from="UI_Template" to="CurrencyManager" method="BetUp"]
 [connection signal="end_collect" from="UI_Template" to="." method="MoneyCollected"]
 [connection signal="maxBet" from="UI_Template" to="CurrencyManager" method="MaxBet"]
-[connection signal="restartGame" from="UI_Template" to="PannerAnimation" method="BackToInitAnimation"]
 [connection signal="restartGame" from="UI_Template" to="." method="StartGame"]
+[connection signal="restartGame" from="UI_Template" to="PannerAnimation" method="BackToInitAnimation"]
 [connection signal="CurrencyChanged" from="CurrencyManager" to="UI_Template" method="UpdateCurrencyUI"]
 [connection signal="GameHaveBet" from="CurrencyManager" to="." method="GameHaveBetNow"]
 [connection signal="finished" from="AudioManager/BackGroundMusic" to="AudioManager" method="_on_BackGroundMusic_finished"]

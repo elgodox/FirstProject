@@ -211,7 +211,7 @@ public class UIButtonsManager : Control
         _audio = GetNode("AudioStreamPlayer") as AudioStreamPlayer;
         _spriteVolumeButton = GetNode("VolumeButton/AnimatedSprite") as AnimatedSprite;
         _bonusFeedback = GetNode("BonusFeedback") as Control;
-        _buttonStartBonus = GetNode("ui_IncomingBonus/buttonStartBonus") as TextureButton;
+        _buttonStartBonus = GetNode("ui_IncomingBonus/AnimatedSprite/buttonStartBonus") as TextureButton;
         _timerAnim = GetNode("Tiempo/timer/AnimationPlayer") as AnimationPlayer;
         _myAnim = GetNode("AnimationPlayer") as AnimationPlayer;
         _playButtonAnim = GetNode("ControlPanel/PlayButtonAnimated/AnimationPlayer") as AnimationPlayer;

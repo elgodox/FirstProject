@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class LevelManager : Node
 {
 	int bonusIndex;
+	int activeIndex;
 	public bool gotABonus;
 	public GameManager myGameManager;
 	[Export] String pathAnimation;
@@ -131,6 +132,10 @@ public class LevelManager : Node
 	{
 		for (int i = 0; i < actives.Length; i++) // asigna los nodos activos, los últinmos son considerados malos
 		{
+			if (i == 0)
+			{
+				activeIndex = actives[i];
+			}
 			_nodes[actives[i]].pressed = true;
 
 			if(actives[i] == bonusIndex && gotABonus)
@@ -188,9 +193,24 @@ public class LevelManager : Node
 		{
 			randomNumber = bonusIndex;
 		}
-		if(_nodes[randomNumber] != null)
-			_nodes[randomNumber]._on_button_down();
-		else
-			ChooseRandomNode();
+		//GD.Print("RandomNumber is: " + randomNumber);
+		for (int i = randomNumber; i < _nodes.Length; i++)
+		{
+			var current = _nodes[i];
+			//GD.Print("Checking Index " + i + " Value: " + current);
+			if (current != null && current.goodOne)
+			{
+				current._on_button_down();
+				//GD.Print("Node Selected is goodOne: " + current);
+				break;
+			}
+			else if(i >= _nodes.Length - 1)
+			{
+				//GD.Print("END");
+				_nodes[activeIndex]._on_button_down();
+				//GD.Print("Node Selected is the first of the list: " + _nodes[0]);
+				break;
+			}
+		}
 	}
 }

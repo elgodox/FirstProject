@@ -61,12 +61,13 @@ public class GameManager : Godot.Control
         }
         else
         {
-            EmitSignal(nameof(SetCurrencyManager), 25, 5, 25);
+            EmitSignal(nameof(SetCurrencyManager), 1000, 5, 25);
         }
 
         if (!_isPlaying)
         {
             _currencyManager.BetUp();
+            _timerToDemoMode.Start();
         }
     }
 
