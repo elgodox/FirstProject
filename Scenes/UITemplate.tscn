@@ -964,6 +964,11 @@ animations = [ {
 "name": "Mute",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 24 ) ],
+"loop": false,
+"name": "Volume1",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 21 ) ],
 "loop": false,
 "name": "Volume3",
@@ -972,11 +977,6 @@ animations = [ {
 "frames": [ ExtResource( 22 ) ],
 "loop": false,
 "name": "Volume2",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 24 ) ],
-"loop": false,
-"name": "Volume1",
 "speed": 5.0
 } ]
 
@@ -1196,14 +1196,14 @@ outline_color = Color( 0, 0, 0, 1 )
 use_filter = true
 font_data = ExtResource( 19 )
 
-[sub_resource type="DynamicFont" id=174]
+[sub_resource type="DynamicFont" id=175]
 size = 18
 outline_size = 1
 outline_color = Color( 0.243137, 0.4, 0.741176, 1 )
 use_filter = true
 font_data = ExtResource( 19 )
 
-[sub_resource type="Animation" id=151]
+[sub_resource type="Animation" id=176]
 length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:scale")
@@ -1278,8 +1278,7 @@ tracks/5/keys = {
 "values": [ false, true ]
 }
 
-[sub_resource type="Animation" id=152]
-resource_name = "Off"
+[sub_resource type="Animation" id=177]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:scale")
@@ -1294,8 +1293,7 @@ tracks/0/keys = {
 "values": [ Vector2( 1e-05, 1e-05 ) ]
 }
 
-[sub_resource type="Animation" id=153]
-resource_name = "DisableButtons"
+[sub_resource type="Animation" id=178]
 length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("ControlPanel/button_BetUp:modulate")
@@ -1406,7 +1404,7 @@ tracks/8/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 1.05, 1.05 ), Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=154]
+[sub_resource type="Animation" id=179]
 length = 2.0
 loop = true
 tracks/0/type = "value"
@@ -1446,7 +1444,7 @@ tracks/2/keys = {
 "values": [  ]
 }
 
-[sub_resource type="Animation" id=155]
+[sub_resource type="Animation" id=156]
 length = 4.0
 tracks/0/type = "method"
 tracks/0/path = NodePath("AnimationPlayer")
@@ -1621,93 +1619,93 @@ tracks/13/keys = {
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="DynamicFont" id=175]
+[sub_resource type="DynamicFont" id=180]
 size = 50
 font_data = ExtResource( 19 )
-
-[sub_resource type="AtlasTexture" id=157]
-flags = 4
-atlas = ExtResource( 155 )
-region = Rect2( 0, 0, 1000, 400 )
 
 [sub_resource type="AtlasTexture" id=158]
 flags = 4
 atlas = ExtResource( 155 )
-region = Rect2( 1000, 0, 1000, 400 )
+region = Rect2( 0, 0, 1000, 400 )
 
 [sub_resource type="AtlasTexture" id=159]
 flags = 4
 atlas = ExtResource( 155 )
-region = Rect2( 2000, 0, 1000, 400 )
+region = Rect2( 1000, 0, 1000, 400 )
 
 [sub_resource type="AtlasTexture" id=160]
 flags = 4
 atlas = ExtResource( 155 )
-region = Rect2( 3000, 0, 1000, 400 )
+region = Rect2( 2000, 0, 1000, 400 )
 
 [sub_resource type="AtlasTexture" id=161]
 flags = 4
 atlas = ExtResource( 155 )
-region = Rect2( 0, 400, 1000, 400 )
+region = Rect2( 3000, 0, 1000, 400 )
 
 [sub_resource type="AtlasTexture" id=162]
 flags = 4
 atlas = ExtResource( 155 )
-region = Rect2( 1000, 400, 1000, 400 )
+region = Rect2( 0, 400, 1000, 400 )
 
 [sub_resource type="AtlasTexture" id=163]
 flags = 4
 atlas = ExtResource( 155 )
-region = Rect2( 2000, 400, 1000, 400 )
+region = Rect2( 1000, 400, 1000, 400 )
 
 [sub_resource type="AtlasTexture" id=164]
 flags = 4
 atlas = ExtResource( 155 )
-region = Rect2( 3000, 400, 1000, 400 )
+region = Rect2( 2000, 400, 1000, 400 )
 
 [sub_resource type="AtlasTexture" id=165]
 flags = 4
 atlas = ExtResource( 155 )
-region = Rect2( 0, 800, 1000, 400 )
+region = Rect2( 3000, 400, 1000, 400 )
 
 [sub_resource type="AtlasTexture" id=166]
 flags = 4
 atlas = ExtResource( 155 )
-region = Rect2( 1000, 800, 1000, 400 )
+region = Rect2( 0, 800, 1000, 400 )
 
 [sub_resource type="AtlasTexture" id=167]
 flags = 4
 atlas = ExtResource( 155 )
-region = Rect2( 2000, 800, 1000, 400 )
+region = Rect2( 1000, 800, 1000, 400 )
 
 [sub_resource type="AtlasTexture" id=168]
 flags = 4
 atlas = ExtResource( 155 )
-region = Rect2( 3000, 800, 1000, 400 )
+region = Rect2( 2000, 800, 1000, 400 )
 
 [sub_resource type="AtlasTexture" id=169]
 flags = 4
 atlas = ExtResource( 155 )
-region = Rect2( 0, 1200, 1000, 400 )
+region = Rect2( 3000, 800, 1000, 400 )
 
 [sub_resource type="AtlasTexture" id=170]
 flags = 4
 atlas = ExtResource( 155 )
-region = Rect2( 1000, 1200, 1000, 400 )
+region = Rect2( 0, 1200, 1000, 400 )
 
 [sub_resource type="AtlasTexture" id=171]
 flags = 4
 atlas = ExtResource( 155 )
-region = Rect2( 2000, 1200, 1000, 400 )
+region = Rect2( 1000, 1200, 1000, 400 )
 
 [sub_resource type="AtlasTexture" id=172]
 flags = 4
 atlas = ExtResource( 155 )
+region = Rect2( 2000, 1200, 1000, 400 )
+
+[sub_resource type="AtlasTexture" id=173]
+flags = 4
+atlas = ExtResource( 155 )
 region = Rect2( 3000, 1200, 1000, 400 )
 
-[sub_resource type="SpriteFrames" id=173]
+[sub_resource type="SpriteFrames" id=174]
 animations = [ {
-"frames": [ SubResource( 157 ), SubResource( 158 ), SubResource( 159 ), SubResource( 160 ), SubResource( 161 ), SubResource( 162 ), SubResource( 163 ), SubResource( 164 ), SubResource( 165 ), SubResource( 166 ), SubResource( 167 ), SubResource( 168 ), SubResource( 169 ), SubResource( 170 ), SubResource( 171 ), SubResource( 172 ) ],
+"frames": [ SubResource( 158 ), SubResource( 159 ), SubResource( 160 ), SubResource( 161 ), SubResource( 162 ), SubResource( 163 ), SubResource( 164 ), SubResource( 165 ), SubResource( 166 ), SubResource( 167 ), SubResource( 168 ), SubResource( 169 ), SubResource( 170 ), SubResource( 171 ), SubResource( 172 ), SubResource( 173 ) ],
 "loop": true,
 "name": "default",
 "speed": 24.0
@@ -2422,7 +2420,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="BonusFeedback"]
 position = Vector2( 73.3888, 61.2637 )
 frames = SubResource( 117 )
-frame = 25
+frame = 49
 playing = true
 
 [node name="Label" type="Label" parent="BonusFeedback"]
@@ -2450,8 +2448,6 @@ anims/Exit = SubResource( 119 )
 anims/Off = SubResource( 120 )
 anims/PopUp = SubResource( 121 )
 blend_times = [ "PopUp", "PopUp", 0.003 ]
-
-[node name="GameOverMessageContainer" type="Node" parent="."]
 
 [node name="ui_Help" type="TextureRect" parent="."]
 visible = false
@@ -2594,7 +2590,7 @@ self_modulate = Color( 1, 1, 1, 0.745098 )
 position = Vector2( 356.862, 314.28 )
 scale = Vector2( 1e-05, 1e-05 )
 frames = SubResource( 149 )
-frame = 15
+frame = 12
 playing = true
 
 [node name="helpText" type="Label" parent="ui_IncomingBonus/AnimatedSprite"]
@@ -2645,7 +2641,7 @@ margin_left = -18.3398
 margin_top = -17.5325
 margin_right = 14.6602
 margin_bottom = 17.4675
-custom_fonts/font = SubResource( 174 )
+custom_fonts/font = SubResource( 175 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "OK"
@@ -2656,8 +2652,8 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ui_IncomingBonus"]
-anims/Entrar = SubResource( 151 )
-anims/Off = SubResource( 152 )
+anims/Entrar = SubResource( 176 )
+anims/Off = SubResource( 177 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
@@ -2665,9 +2661,9 @@ volume_db = 1.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 method_call_mode = 1
-anims/DisableButtons = SubResource( 153 )
-anims/Idle = SubResource( 154 )
-anims/StartDemoMode = SubResource( 155 )
+anims/DisableButtons = SubResource( 178 )
+anims/Idle = SubResource( 179 )
+anims/StartDemoMode = SubResource( 156 )
 
 [node name="BandasNegras" type="Control" parent="."]
 visible = false
@@ -2704,6 +2700,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="GameOverMessageContainer" type="Node" parent="."]
+
 [node name="DemoMode" type="TextureRect" parent="."]
 visible = false
 anchor_right = 1.0
@@ -2721,7 +2719,7 @@ margin_left = -214.072
 margin_top = -29.7592
 margin_right = 214.928
 margin_bottom = 30.2408
-custom_fonts/font = SubResource( 175 )
+custom_fonts/font = SubResource( 180 )
 text = "MODO DEMO"
 align = 1
 valign = 1
@@ -2738,7 +2736,7 @@ margin_left = -404.456
 margin_top = -30.3606
 margin_right = 403.544
 margin_bottom = 29.6394
-custom_fonts/font = SubResource( 175 )
+custom_fonts/font = SubResource( 180 )
 text = "TOQUE LA PANTALLA PARA CONTINUAR"
 align = 1
 valign = 1
@@ -2776,8 +2774,8 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Black/Control"]
 position = Vector2( 484.418, 180.092 )
 scale = Vector2( 0.924019, 0.898415 )
-frames = SubResource( 173 )
-frame = 9
+frames = SubResource( 174 )
+frame = 15
 playing = true
 [connection signal="hide" from="ui_FinishedBonus" to="ui_FinishedBonus/AnimationPlayer" method="play" binds= [ "Off" ]]
 [connection signal="visibility_changed" from="ui_FinishedBonus" to="ui_FinishedBonus/AnimationPlayer" method="play" binds= [ "Entrar" ]]

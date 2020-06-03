@@ -487,6 +487,54 @@ tracks/4/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
 }
+tracks/5/type = "value"
+tracks/5/path = NodePath("../UI_Template:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.2, 0.5, 0.7, 1 ),
+"transitions": PoolRealArray( 1, 1.07177, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0.917647, 0.431373, 0.164706, 1 ), Color( 1, 1, 1, 1 ), Color( 0.917647, 0.431373, 0.164706, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath(".:rect_rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = false
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0, 0.0, -1.0, 0.0 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath(".:rect_position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.1, 0.14, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 0.189465, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, -2 ), Vector2( -10, 2 ), Vector2( -10, -10 ), Vector2( 10, -5 ), Vector2( -5, 0 ), Vector2( 5, -2 ), Vector2( 1, -2 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath(".:rect_scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.1, 0.5, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.05, 1.05 ), Vector2( 1.05, 1.05 ), Vector2( 1, 1 ) ]
+}
 
 [sub_resource type="Animation" id=20]
 tracks/0/type = "value"
@@ -698,16 +746,19 @@ tracks/0/keys = {
 [sub_resource type="Environment" id=26]
 background_mode = 4
 ambient_light_color = Color( 1, 1, 1, 1 )
-fog_color = Color( 1, 1, 1, 1 )
+fog_color = Color( 0.364706, 0.988235, 0.415686, 1 )
+fog_sun_color = Color( 0.980392, 0.639216, 0.27451, 1 )
 fog_sun_amount = 1.0
 fog_depth_enabled = false
-fog_depth_begin = 367.1
+fog_depth_begin = 724.1
 fog_depth_end = 481.6
-fog_depth_curve = 23.4254
-fog_height_min = 408.0
+fog_depth_curve = 2.63902
+fog_transmit_enabled = true
+fog_transmit_curve = 0.574349
+fog_height_enabled = true
+fog_height_min = -458.6
 fog_height_max = -397.0
 tonemap_mode = 2
-tonemap_exposure = 1.06
 tonemap_white = 16.0
 ss_reflections_depth_tolerance = 0.1
 ss_reflections_roughness = false
@@ -751,7 +802,7 @@ timeToSetDemo = 20.0
 timeToDemoActions = 0.5
 _levels = 10
 _timeInLevel = 10
-_badOnes = PoolIntArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 )
+_badOnes = PoolIntArray( 0, 1, 1, 1, 1, 1, 1, 1, 1, 1 )
 
 [node name="PannerAnimation" type="Control" parent="."]
 anchor_right = 1.003
@@ -797,14 +848,13 @@ anims/SetBlack = SubResource( 12 )
 anims/SetWhite = SubResource( 13 )
 
 [node name="Background" type="TextureRect" parent="."]
-self_modulate = Color( 0.6, 0.6, 0.6, 1 )
 anchor_right = 1.002
 anchor_bottom = 0.999
 margin_left = 1.0
 margin_top = -2.0
-margin_right = -0.200195
+margin_right = -0.200073
 margin_bottom = 0.899963
-rect_pivot_offset = Vector2( 799.835, 451.591 )
+rect_pivot_offset = Vector2( 513.37, 385.066 )
 texture = ExtResource( 10 )
 expand = true
 stretch_mode = 7
@@ -943,18 +993,18 @@ anchor_bottom = 1.0
 [connection signal="GameOver" from="." to="UI_Template" method="ActivateAgain"]
 [connection signal="GameOver" from="." to="CurrencyManager" method="AddCurrencyToCredits"]
 [connection signal="GameReady" from="." to="UI_Template" method="ActivatePlayButton"]
-[connection signal="GameStarted" from="." to="UI_Template" method="DeactivateButtons"]
 [connection signal="GameStarted" from="." to="UI_Template" method="ActivateNextLevelRect"]
+[connection signal="GameStarted" from="." to="UI_Template" method="DeactivateButtons"]
 [connection signal="GameStarted" from="." to="UI_Template" method="ClearGameOverMessage"]
 [connection signal="LevelCreated" from="." to="UI_Template" method="ActivateFinishButton"]
-[connection signal="LevelsOver" from="." to="UI_Template" method="SetGameOverMessage"]
 [connection signal="LevelsOver" from="." to="PannerAnimation" method="BackToOrigin"]
 [connection signal="LevelsOver" from="." to="Background" method="SetBackgroundAnimation"]
+[connection signal="LevelsOver" from="." to="UI_Template" method="SetGameOverMessage"]
 [connection signal="LevelsOver" from="." to="AudioManager" method="GameOverSound"]
 [connection signal="NodePicked" from="." to="UI_Template" method="StopTimer"]
 [connection signal="NodePicked" from="." to="UI_Template" method="DeactivateFinishButton"]
-[connection signal="NodeWithBonus" from="." to="UI_Template" method="BonusFeedback"]
 [connection signal="NodeWithBonus" from="." to="Background" method="IsBonus"]
+[connection signal="NodeWithBonus" from="." to="UI_Template" method="BonusFeedback"]
 [connection signal="PlayMusicGame" from="." to="AudioManager" method="PlayLevelMusic"]
 [connection signal="RemoveBonusMessage" from="." to="UI_Template" method="FinishBonus"]
 [connection signal="RoundWined" from="." to="Background" method="IsGood"]
