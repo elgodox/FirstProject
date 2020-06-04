@@ -17,6 +17,8 @@ public class HexNode : Node
     public bool pressed = false;
     public double bonusMultiplier;
     AnimatedSprite sprite;
+    Particles2D _explotion;
+    AudioStreamPlayer _explosiveAudio;
 
     public Label myName;
     public override void _Ready()
@@ -24,6 +26,11 @@ public class HexNode : Node
         sprite = GetChild(0) as AnimatedSprite;
         sprite.Playing = false;
         audio = GetNode("HexAudio") as AudioStreamPlayer2D;
+        if (HasNode("Explotion"))
+        {
+            _explotion = GetNode("Explotion") as Particles2D;
+            _explosiveAudio = GetNode("Explotion/AudioStreamPlayer") as AudioStreamPlayer;
+        }
     }
     public void _on_button_down()
     {
@@ -34,12 +41,22 @@ public class HexNode : Node
             if (bonus)
             {
                 sprite.Animation = "isBonus";
-                audio.Stream = isBonus;    
+                audio.Stream = isBonus;
+                if (_explotion != null)
+                {
+                    _explotion.Emitting = true;
+                    _explosiveAudio.Play();
+                }
             }
             else if (goodOne)
             {
                 sprite.Animation = "isGood";
                 audio.Stream = isGood;
+                if (_explotion != null)
+                {
+                    _explotion.Emitting = true;
+                    _explosiveAudio.Play();
+                }
             }
             else
             {

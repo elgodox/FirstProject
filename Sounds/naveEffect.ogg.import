@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/naveEffect.ogg-e1634749042b8ebd9a8475af1c349bc1.oggstr"
+
+[deps]
+
+source_file="res://Sounds/naveEffect.ogg"
+dest_files=[ "res://.import/naveEffect.ogg-e1634749042b8ebd9a8475af1c349bc1.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

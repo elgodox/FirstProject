@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://Scenes/UITemplate.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/AudioManager.cs" type="Script" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://Sounds/MusicMenu.ogg" type="AudioStream" id=17]
 [ext_resource path="res://Sounds/bonus_Win_Music_01.ogg" type="AudioStream" id=18]
 [ext_resource path="res://Sounds/Win_mezcla1.ogg" type="AudioStream" id=19]
+[ext_resource path="res://Prefabs/ParticleErosion.tscn" type="PackedScene" id=20]
 
 [sub_resource type="Animation" id=1]
 resource_name = "0"
@@ -672,6 +673,18 @@ tracks/5/keys = {
 "update": 0,
 "values": [ Vector2( 1, 1 ), Vector2( 1.01, 1.01 ), Vector2( 1, 1 ) ]
 }
+tracks/6/type = "value"
+tracks/6/path = NodePath("HaloLuz/Contenedor de Particulas/Particles2D2:emitting")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [sub_resource type="Animation" id=22]
 tracks/0/type = "value"
@@ -816,13 +829,12 @@ __meta__ = {
 }
 
 [node name="Background" type="TextureRect" parent="PannerAnimation"]
-modulate = Color( 0, 0, 0, 1 )
 anchor_top = 0.989
 anchor_right = 0.997
 anchor_bottom = 1.0
-margin_top = -8990.01
+margin_top = -1700.09
 margin_right = -0.18811
-margin_bottom = -9.81934
+margin_bottom = 7280.1
 rect_pivot_offset = Vector2( 789.233, 5.63574 )
 texture = ExtResource( 12 )
 expand = true
@@ -848,6 +860,7 @@ anims/SetBlack = SubResource( 12 )
 anims/SetWhite = SubResource( 13 )
 
 [node name="Background" type="TextureRect" parent="."]
+self_modulate = Color( 0.6, 0.6, 0.6, 1 )
 anchor_right = 1.002
 anchor_bottom = 0.999
 margin_left = 1.0
@@ -937,6 +950,11 @@ randomness = 1.0
 process_material = SubResource( 18 )
 texture = ExtResource( 16 )
 
+[node name="Particles2D2" parent="Background/HaloLuz/Contenedor de Particulas" instance=ExtResource( 20 )]
+position = Vector2( 24.0865, -691.024 )
+rotation = -3.14159
+speed_scale = 0.4
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Background"]
 method_call_mode = 1
 anims/Bad = SubResource( 19 )
@@ -948,6 +966,7 @@ anims/TurnOff = SubResource( 24 )
 anims/TurnOn = SubResource( 25 )
 
 [node name="UI_Template" parent="." instance=ExtResource( 1 )]
+visible = true
 margin_left = 1.04956
 margin_top = 3.0
 margin_right = 1.04956
@@ -984,8 +1003,8 @@ visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 [connection signal="BonusOver" from="." to="UI_Template" method="BonusPicked"]
-[connection signal="BonusOver" from="." to="CurrencyManager" method="UpdateBonusPrices"]
 [connection signal="BonusOver" from="." to="AudioManager" method="BonusWinSound"]
+[connection signal="BonusOver" from="." to="CurrencyManager" method="UpdateBonusPrices"]
 [connection signal="BonusStarted" from="." to="UI_Template" method="HideIncomingBonusMessage"]
 [connection signal="BonusStarted" from="." to="AudioManager" method="PlayBonusMusic"]
 [connection signal="CanCollect" from="." to="UI_Template" method="ActivateCollectButton"]
@@ -993,18 +1012,18 @@ anchor_bottom = 1.0
 [connection signal="GameOver" from="." to="UI_Template" method="ActivateAgain"]
 [connection signal="GameOver" from="." to="CurrencyManager" method="AddCurrencyToCredits"]
 [connection signal="GameReady" from="." to="UI_Template" method="ActivatePlayButton"]
-[connection signal="GameStarted" from="." to="UI_Template" method="ActivateNextLevelRect"]
 [connection signal="GameStarted" from="." to="UI_Template" method="DeactivateButtons"]
 [connection signal="GameStarted" from="." to="UI_Template" method="ClearGameOverMessage"]
+[connection signal="GameStarted" from="." to="UI_Template" method="ActivateNextLevelRect"]
 [connection signal="LevelCreated" from="." to="UI_Template" method="ActivateFinishButton"]
-[connection signal="LevelsOver" from="." to="PannerAnimation" method="BackToOrigin"]
-[connection signal="LevelsOver" from="." to="Background" method="SetBackgroundAnimation"]
 [connection signal="LevelsOver" from="." to="UI_Template" method="SetGameOverMessage"]
+[connection signal="LevelsOver" from="." to="Background" method="SetBackgroundAnimation"]
+[connection signal="LevelsOver" from="." to="PannerAnimation" method="BackToOrigin"]
 [connection signal="LevelsOver" from="." to="AudioManager" method="GameOverSound"]
-[connection signal="NodePicked" from="." to="UI_Template" method="StopTimer"]
 [connection signal="NodePicked" from="." to="UI_Template" method="DeactivateFinishButton"]
-[connection signal="NodeWithBonus" from="." to="Background" method="IsBonus"]
+[connection signal="NodePicked" from="." to="UI_Template" method="StopTimer"]
 [connection signal="NodeWithBonus" from="." to="UI_Template" method="BonusFeedback"]
+[connection signal="NodeWithBonus" from="." to="Background" method="IsBonus"]
 [connection signal="PlayMusicGame" from="." to="AudioManager" method="PlayLevelMusic"]
 [connection signal="RemoveBonusMessage" from="." to="UI_Template" method="FinishBonus"]
 [connection signal="RoundWined" from="." to="Background" method="IsGood"]
@@ -1021,8 +1040,8 @@ anchor_bottom = 1.0
 [connection signal="DemoModeFinished" from="UI_Template" to="." method="ExitDemoMode"]
 [connection signal="OkFinishBonus" from="UI_Template" to="." method="ClearBonusFinished"]
 [connection signal="StopGameMusic" from="UI_Template" to="PannerAnimation" method="BackToInitAnimation"]
-[connection signal="StopGameMusic" from="UI_Template" to="CurrencyManager" method="CheckBet"]
 [connection signal="StopGameMusic" from="UI_Template" to="AudioManager" method="StopCurrentMusic"]
+[connection signal="StopGameMusic" from="UI_Template" to="CurrencyManager" method="CheckBet"]
 [connection signal="TimerDone" from="UI_Template" to="." method="EndGame"]
 [connection signal="UIIdle" from="UI_Template" to="PannerAnimation/Background/AnimationPlayer" method="play" binds= [ "SetBlack" ]]
 [connection signal="betDown" from="UI_Template" to="CurrencyManager" method="BetDown"]

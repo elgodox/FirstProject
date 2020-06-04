@@ -1,4 +1,4 @@
-[gd_scene load_steps=328 format=2]
+[gd_scene load_steps=330 format=2]
 
 [ext_resource path="res://Prefabs/UI/Buttons/button_Collect.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/Botones/boton_ok_press.png" type="Texture" id=2]
@@ -11,6 +11,8 @@
 [ext_resource path="res://Scripts/UIButtonsManager.cs" type="Script" id=9]
 [ext_resource path="res://Prefabs/UI/Buttons/button_Play.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Prefabs/UI/Buttons/button_Menu.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Sounds/Positive Message.ogg" type="AudioStream" id=12]
+[ext_resource path="res://Sounds/Appear.ogg" type="AudioStream" id=13]
 [ext_resource path="res://Sprites/cartel-ayuda.png" type="Texture" id=14]
 [ext_resource path="res://Sounds/Play.ogg" type="AudioStream" id=15]
 [ext_resource path="res://Fonts/Dynamic Fonts/font_Courier_26.tres" type="DynamicFont" id=16]
@@ -167,6 +169,20 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 0, 0 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "audio"
+tracks/1/path = NodePath("../ui_IncomingBonus/AudioStreamPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 13 )
+} ],
+"times": PoolRealArray( 0 )
 }
 
 [sub_resource type="Animation" id=2]
@@ -964,11 +980,6 @@ animations = [ {
 "name": "Mute",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 24 ) ],
-"loop": false,
-"name": "Volume1",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 21 ) ],
 "loop": false,
 "name": "Volume3",
@@ -977,6 +988,11 @@ animations = [ {
 "frames": [ ExtResource( 22 ) ],
 "loop": false,
 "name": "Volume2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 24 ) ],
+"loop": false,
+"name": "Volume1",
 "speed": 5.0
 } ]
 
@@ -1190,21 +1206,21 @@ animations = [ {
 } ]
 
 [sub_resource type="DynamicFont" id=150]
-size = 28
+size = 38
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 use_filter = true
 font_data = ExtResource( 19 )
 
-[sub_resource type="DynamicFont" id=175]
-size = 18
+[sub_resource type="DynamicFont" id=151]
+size = 26
 outline_size = 1
 outline_color = Color( 0.243137, 0.4, 0.741176, 1 )
 use_filter = true
 font_data = ExtResource( 19 )
 
-[sub_resource type="Animation" id=176]
-length = 3.0
+[sub_resource type="Animation" id=152]
+length = 3.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:scale")
 tracks/0/interp = 1
@@ -1218,7 +1234,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 1.46, 0 ), Vector2( 1.47652, 1.47199 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("AnimatedSprite/helpText:modulate")
+tracks/1/path = NodePath("helpText:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -1266,7 +1282,7 @@ tracks/4/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 1, 0 ), Vector2( 1, 1.1 ), Vector2( 1, 1 ) ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("AnimatedSprite/buttonStartBonus:visible")
+tracks/5/path = NodePath("buttonStartBonus:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -1277,8 +1293,22 @@ tracks/5/keys = {
 "update": 1,
 "values": [ false, true ]
 }
+tracks/6/type = "audio"
+tracks/6/path = NodePath("AudioStreamPlayer")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 12 )
+} ],
+"times": PoolRealArray( 2.3 )
+}
 
-[sub_resource type="Animation" id=177]
+[sub_resource type="Animation" id=153]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:scale")
@@ -1293,7 +1323,7 @@ tracks/0/keys = {
 "values": [ Vector2( 1e-05, 1e-05 ) ]
 }
 
-[sub_resource type="Animation" id=178]
+[sub_resource type="Animation" id=154]
 length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("ControlPanel/button_BetUp:modulate")
@@ -1404,7 +1434,7 @@ tracks/8/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 1.05, 1.05 ), Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=179]
+[sub_resource type="Animation" id=155]
 length = 2.0
 loop = true
 tracks/0/type = "value"
@@ -1619,7 +1649,7 @@ tracks/13/keys = {
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="DynamicFont" id=180]
+[sub_resource type="DynamicFont" id=157]
 size = 50
 font_data = ExtResource( 19 )
 
@@ -1712,6 +1742,7 @@ animations = [ {
 } ]
 
 [node name="UI_Manager" type="Control"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -0.295654
@@ -1731,7 +1762,7 @@ anchor_right = 1.0
 anchor_bottom = 0.81
 margin_top = -4.0
 margin_bottom = -77.9999
-rect_pivot_offset = Vector2( 512, 318.947 )
+rect_pivot_offset = Vector2( 782.09, 337.134 )
 stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": false
@@ -2029,7 +2060,7 @@ position = Vector2( 1086.87, 52.0882 )
 scale = Vector2( 0.859, 0.859 )
 frames = SubResource( 22 )
 animation = "Idle"
-frame = 9
+frame = 6
 playing = true
 offset = Vector2( -24.5817, -20.2695 )
 
@@ -2153,7 +2184,7 @@ position = Vector2( 73.2712, 44.1647 )
 scale = Vector2( 0.8, 0.9 )
 frames = SubResource( 40 )
 animation = "Idle"
-frame = 15
+frame = 12
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ControlPanel/button_BetUp"]
@@ -2199,7 +2230,6 @@ position = Vector2( 65.7428, 42.5201 )
 scale = Vector2( 0.8, 0.9 )
 frames = SubResource( 59 )
 animation = "Idle"
-frame = 3
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ControlPanel/button_BetDown"]
@@ -2245,7 +2275,7 @@ position = Vector2( 128.759, 27.2949 )
 scale = Vector2( 0.8, 0.9 )
 frames = SubResource( 77 )
 animation = "Idle"
-frame = 10
+frame = 7
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ControlPanel/button_MaxBet"]
@@ -2307,7 +2337,6 @@ position = Vector2( 72.7039, 37.33 )
 scale = Vector2( 0.554484, 0.730934 )
 frames = SubResource( 95 )
 animation = "Idle"
-frame = 3
 playing = true
 
 [node name="Label" type="Label" parent="Tiempo"]
@@ -2392,7 +2421,7 @@ position = Vector2( 70.85, 39.4072 )
 scale = Vector2( 0.824678, 1.00825 )
 frames = SubResource( 115 )
 animation = "Idle"
-frame = 9
+frame = 6
 playing = true
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="VolumeButton"]
@@ -2420,7 +2449,7 @@ __meta__ = {
 [node name="AnimatedSprite" type="AnimatedSprite" parent="BonusFeedback"]
 position = Vector2( 73.3888, 61.2637 )
 frames = SubResource( 117 )
-frame = 49
+frame = 30
 playing = true
 
 [node name="Label" type="Label" parent="BonusFeedback"]
@@ -2590,19 +2619,18 @@ self_modulate = Color( 1, 1, 1, 0.745098 )
 position = Vector2( 356.862, 314.28 )
 scale = Vector2( 1e-05, 1e-05 )
 frames = SubResource( 149 )
-frame = 12
+frame = 15
 playing = true
 
-[node name="helpText" type="Label" parent="ui_IncomingBonus/AnimatedSprite"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -420.0
-margin_top = -318.0
-margin_right = 37.0
-margin_bottom = -68.0
-rect_scale = Vector2( 0.8, 0.8 )
+[node name="helpText" type="Label" parent="ui_IncomingBonus"]
+anchor_left = 0.509
+anchor_top = 0.459
+anchor_right = 0.509
+anchor_bottom = 0.459
+margin_left = -228.505
+margin_top = -124.758
+margin_right = 228.495
+margin_bottom = 125.242
 custom_fonts/font = SubResource( 150 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_constants/shadow_offset_y = 0
@@ -2615,16 +2643,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="buttonStartBonus" type="TextureButton" parent="ui_IncomingBonus/AnimatedSprite"]
+[node name="buttonStartBonus" type="TextureButton" parent="ui_IncomingBonus"]
 anchor_left = 0.497
 anchor_top = 0.754
 anchor_right = 0.497
 anchor_bottom = 0.754
-margin_left = -284.965
-margin_top = -233.328
-margin_right = -171.965
-margin_bottom = -150.328
-rect_scale = Vector2( 0.8, 0.8 )
+margin_left = -54.4429
+margin_top = -39.5333
+margin_right = 58.5571
+margin_bottom = 43.4667
 texture_normal = ExtResource( 150 )
 texture_pressed = ExtResource( 2 )
 expand = true
@@ -2632,7 +2659,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="ui_IncomingBonus/AnimatedSprite/buttonStartBonus"]
+[node name="Label" type="Label" parent="ui_IncomingBonus/buttonStartBonus"]
 anchor_left = 0.5
 anchor_top = 0.475
 anchor_right = 0.5
@@ -2641,7 +2668,7 @@ margin_left = -18.3398
 margin_top = -17.5325
 margin_right = 14.6602
 margin_bottom = 17.4675
-custom_fonts/font = SubResource( 175 )
+custom_fonts/font = SubResource( 151 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "OK"
@@ -2652,8 +2679,12 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ui_IncomingBonus"]
-anims/Entrar = SubResource( 176 )
-anims/Off = SubResource( 177 )
+anims/Entrar = SubResource( 152 )
+anims/Off = SubResource( 153 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="ui_IncomingBonus"]
+stream = ExtResource( 13 )
+volume_db = 10.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
@@ -2661,8 +2692,8 @@ volume_db = 1.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 method_call_mode = 1
-anims/DisableButtons = SubResource( 178 )
-anims/Idle = SubResource( 179 )
+anims/DisableButtons = SubResource( 154 )
+anims/Idle = SubResource( 155 )
 anims/StartDemoMode = SubResource( 156 )
 
 [node name="BandasNegras" type="Control" parent="."]
@@ -2719,7 +2750,7 @@ margin_left = -214.072
 margin_top = -29.7592
 margin_right = 214.928
 margin_bottom = 30.2408
-custom_fonts/font = SubResource( 180 )
+custom_fonts/font = SubResource( 157 )
 text = "MODO DEMO"
 align = 1
 valign = 1
@@ -2736,7 +2767,7 @@ margin_left = -404.456
 margin_top = -30.3606
 margin_right = 403.544
 margin_bottom = 29.6394
-custom_fonts/font = SubResource( 180 )
+custom_fonts/font = SubResource( 157 )
 text = "TOQUE LA PANTALLA PARA CONTINUAR"
 align = 1
 valign = 1
@@ -2796,4 +2827,4 @@ playing = true
 [connection signal="button_up" from="ui_Help/button_Back2" to="." method="OnBackButtonUp"]
 [connection signal="hide" from="ui_IncomingBonus" to="ui_IncomingBonus/AnimationPlayer" method="play" binds= [ "Off" ]]
 [connection signal="visibility_changed" from="ui_IncomingBonus" to="ui_IncomingBonus/AnimationPlayer" method="play" binds= [ "Entrar" ]]
-[connection signal="button_up" from="ui_IncomingBonus/AnimatedSprite/buttonStartBonus" to="." method="OnOkButtonUp"]
+[connection signal="button_up" from="ui_IncomingBonus/buttonStartBonus" to="." method="OnOkButtonUp"]
