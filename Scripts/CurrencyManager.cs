@@ -189,7 +189,7 @@ public class CurrencyManager : Node
         //GD.Print("Set Multiplier setea el muliplicador " + multiplier + " que esta en el índice " + levelMultiplier);
     }
 
-    void CheckBet() 
+    public void CheckBet() 
     {
         GD.Print("Checking bet...");
         if(credit > 0)

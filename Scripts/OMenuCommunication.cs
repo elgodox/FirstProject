@@ -66,6 +66,15 @@ public class OMenuCommunication
     {
         return GetSaveData().isPlaying;
     }
+    public void CashOut(double ammount)
+    {
+        oMenuClient.CashOut(ammount);
+    }
+    public void GoToMenu()
+    {
+        oMenuClient.GoToMenu();
+    }
+    
     public void UpdateSaveData(SaveData saveData)
     {
         oMenuClient.UpdateSaveData(saveData);

@@ -811,6 +811,7 @@ __meta__ = {
 "_edit_use_anchors_": false,
 "_edit_vertical_guides_": [ 798.594 ]
 }
+_useDb = true
 timeToSetDemo = 20.0
 timeToDemoActions = 0.5
 _levels = 10
@@ -1012,18 +1013,18 @@ anchor_bottom = 1.0
 [connection signal="GameOver" from="." to="UI_Template" method="ActivateAgain"]
 [connection signal="GameOver" from="." to="CurrencyManager" method="AddCurrencyToCredits"]
 [connection signal="GameReady" from="." to="UI_Template" method="ActivatePlayButton"]
-[connection signal="GameStarted" from="." to="UI_Template" method="DeactivateButtons"]
 [connection signal="GameStarted" from="." to="UI_Template" method="ClearGameOverMessage"]
+[connection signal="GameStarted" from="." to="UI_Template" method="DeactivateButtons"]
 [connection signal="GameStarted" from="." to="UI_Template" method="ActivateNextLevelRect"]
 [connection signal="LevelCreated" from="." to="UI_Template" method="ActivateFinishButton"]
-[connection signal="LevelsOver" from="." to="UI_Template" method="SetGameOverMessage"]
-[connection signal="LevelsOver" from="." to="Background" method="SetBackgroundAnimation"]
 [connection signal="LevelsOver" from="." to="PannerAnimation" method="BackToOrigin"]
+[connection signal="LevelsOver" from="." to="Background" method="SetBackgroundAnimation"]
+[connection signal="LevelsOver" from="." to="UI_Template" method="SetGameOverMessage"]
 [connection signal="LevelsOver" from="." to="AudioManager" method="GameOverSound"]
-[connection signal="NodePicked" from="." to="UI_Template" method="DeactivateFinishButton"]
 [connection signal="NodePicked" from="." to="UI_Template" method="StopTimer"]
-[connection signal="NodeWithBonus" from="." to="UI_Template" method="BonusFeedback"]
+[connection signal="NodePicked" from="." to="UI_Template" method="DeactivateFinishButton"]
 [connection signal="NodeWithBonus" from="." to="Background" method="IsBonus"]
+[connection signal="NodeWithBonus" from="." to="UI_Template" method="BonusFeedback"]
 [connection signal="PlayMusicGame" from="." to="AudioManager" method="PlayLevelMusic"]
 [connection signal="RemoveBonusMessage" from="." to="UI_Template" method="FinishBonus"]
 [connection signal="RoundWined" from="." to="Background" method="IsGood"]
@@ -1046,8 +1047,10 @@ anchor_bottom = 1.0
 [connection signal="UIIdle" from="UI_Template" to="PannerAnimation/Background/AnimationPlayer" method="play" binds= [ "SetBlack" ]]
 [connection signal="betDown" from="UI_Template" to="CurrencyManager" method="BetDown"]
 [connection signal="betUp" from="UI_Template" to="CurrencyManager" method="BetUp"]
+[connection signal="collect" from="UI_Template" to="." method="CashOut"]
 [connection signal="end_collect" from="UI_Template" to="." method="MoneyCollected"]
 [connection signal="maxBet" from="UI_Template" to="CurrencyManager" method="MaxBet"]
+[connection signal="menu_button_pressed" from="UI_Template" to="." method="BackToMenu"]
 [connection signal="restartGame" from="UI_Template" to="." method="StartGame"]
 [connection signal="restartGame" from="UI_Template" to="PannerAnimation" method="BackToInitAnimation"]
 [connection signal="CurrencyChanged" from="CurrencyManager" to="UI_Template" method="UpdateCurrencyUI"]

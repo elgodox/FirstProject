@@ -18,6 +18,7 @@ public class UIButtonsManager : Control
     [Signal] public delegate void maxBet();
     [Signal] public delegate void collect();
     [Signal] public delegate void end_collect();
+    [Signal] public delegate void menu_button_pressed();
     [Signal] public delegate void GameOverPopUp();
     [Signal] public delegate void UIIdle();
     [Signal] public delegate void DemoModeFinished();
@@ -25,7 +26,7 @@ public class UIButtonsManager : Control
     [Signal] public delegate void ControlMasterVolume(float volume);
     [Signal] public delegate void DisableButtons();
     
-    TextureButton _playButton, _helpButton, _betUpButton, _betDownButton, _maxBetButton, _collectButton, _endAndCollectButton, _okFinishBonusButton, _volumeButton, _buttonStartBonus;
+    TextureButton _playButton, _helpButton, _betUpButton, _betDownButton, _maxBetButton, _collectButton, _endAndCollectButton, _okFinishBonusButton, _volumeButton, _buttonStartBonus, _buttonMenu;
     TextureRect _helpCanvas, _controlPanel, _timerRect, _incomingBonus, _finishedBonus, _nextLevel;
     Control _bonusFeedback;
 
@@ -70,6 +71,7 @@ public class UIButtonsManager : Control
         _helpButton.Disabled = false;
         _maxBetButton.Disabled = false;
         _betUpButton.Disabled = false;
+        _buttonMenu.Disabled = false;
         _betDownButton.Disabled = false;
         _collectButton.Disabled = false;
         ActivateEndAndCollectButton(false);
@@ -109,6 +111,11 @@ public class UIButtonsManager : Control
         EmitSignal(nameof(collect));
     }
 
+    void OnMenuButtonUp()
+    {
+        EmitSignal(nameof(menu_button_pressed));
+    }
+    
     void OnEndAndCollectButtonUp()
     {
         PlayAudio();
@@ -140,6 +147,7 @@ public class UIButtonsManager : Control
         _helpButton.Disabled = true;
         _maxBetButton.Disabled = true;
         _betUpButton.Disabled = true;
+        _buttonMenu.Disabled = true;
         _betDownButton.Disabled = true;
         _collectButton.Disabled = true;
         _myAnim.Play("DisableButtons");
@@ -205,6 +213,7 @@ public class UIButtonsManager : Control
         _playButton = GetNode("ControlPanel/PlayButtonAnimated/button_Play") as TextureButton;
         _helpButton = GetNode("button_Help") as TextureButton;
         _betUpButton = GetNode("ControlPanel/button_BetUp") as TextureButton;
+        _buttonMenu = GetNode("button_Menu") as TextureButton;
         _betDownButton = GetNode("ControlPanel/button_BetDown") as TextureButton;
         _maxBetButton = GetNode("ControlPanel/button_MaxBet") as TextureButton;
         _collectButton = GetNode("ControlPanel/button_Collect") as TextureButton;

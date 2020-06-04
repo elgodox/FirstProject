@@ -7,23 +7,56 @@ using OMenuClient.Structs;
 
 public class GameManager : Godot.Control
 {
-    [Signal] public delegate void CanCollect();
-    [Signal] public delegate void GameOver();
-    [Signal] public delegate void LevelsOver(bool win, bool bonus);
-    [Signal] public delegate void GameStarted();
-    [Signal] public delegate void PlayMusicGame();
-    [Signal] public delegate void RoundWined();
-    [Signal] public delegate void SetCurrencyManager(double credit, double minBet, double maxBet);
-    [Signal] public delegate void GameReady(bool ready);
-    [Signal] public delegate void StartTimer(float secs);
-    [Signal] public delegate void BonusStarted();
-    [Signal] public delegate void NodeWithBonus();
-    [Signal] public delegate void BonusOver();
-    [Signal] public delegate void NodePicked();
-    [Signal] public delegate void DemoModeStarted();
-    [Signal] public delegate void LevelCreated();
-    [Signal] public delegate void RemoveBonusMessage();
-    [Signal] public delegate void StopGameInmediate();
+    [Signal]
+    public delegate void CanCollect();
+
+    [Signal]
+    public delegate void GameOver();
+
+    [Signal]
+    public delegate void LevelsOver(bool win, bool bonus);
+
+    [Signal]
+    public delegate void GameStarted();
+
+    [Signal]
+    public delegate void PlayMusicGame();
+
+    [Signal]
+    public delegate void RoundWined();
+
+    [Signal]
+    public delegate void SetCurrencyManager(double credit, double minBet, double maxBet);
+
+    [Signal]
+    public delegate void GameReady(bool ready);
+
+    [Signal]
+    public delegate void StartTimer(float secs);
+
+    [Signal]
+    public delegate void BonusStarted();
+
+    [Signal]
+    public delegate void NodeWithBonus();
+
+    [Signal]
+    public delegate void BonusOver();
+
+    [Signal]
+    public delegate void NodePicked();
+
+    [Signal]
+    public delegate void DemoModeStarted();
+
+    [Signal]
+    public delegate void LevelCreated();
+
+    [Signal]
+    public delegate void RemoveBonusMessage();
+
+    [Signal]
+    public delegate void StopGameInmediate();
 
     public LevelManager currentLevelMngr;
     public int currentLevel;
@@ -44,7 +77,7 @@ public class GameManager : Godot.Control
 
     PackedScene levelManagerPrefab;
     BonusManager bonusManager;
-    
+
     Timer _timerToCreateLevels, _timerToDemoMode, _actionsTimer;
 
     public override void _Ready()
@@ -55,7 +88,7 @@ public class GameManager : Godot.Control
         {
             _oMenu.Start();
             _currencyManager.currentBet = _oMenu.GetCurrentBet();
-            EmitSignal(nameof(SetCurrencyManager),_oMenu.GetMoney(),_oMenu.MinBet(),_oMenu.MaxBet());
+            EmitSignal(nameof(SetCurrencyManager), _oMenu.GetMoney(), _oMenu.MinBet(), _oMenu.MaxBet());
             CheckBetDescription(GetBetDescription());
             //GD.Print("omenu credit: " + _oMenu.GetMoney());
         }
@@ -75,7 +108,7 @@ public class GameManager : Godot.Control
     {
         levelManagerPrefab = ResourceLoader.Load(Constants.PATH_LEVEL_MANAGER) as PackedScene;
         var bonusScene = ResourceLoader.Load(Constants.PATH_BONUS) as PackedScene;
-        
+
         bonusManager = bonusScene.Instance() as BonusManager;
         GetNode("UI_Template").AddChildBelowNode(GetNode("UI_Template/AnimationPlayer"), bonusManager);
         bonusManager.myGameManager = this;
@@ -90,30 +123,30 @@ public class GameManager : Godot.Control
         _timerToCreateLevels = new Timer();
         _timerToDemoMode = new Timer();
         _actionsTimer = new Timer();
-        
+
         AddChild(_timerToCreateLevels);
         AddChild(_timerToDemoMode);
         AddChild(_actionsTimer);
         _actionsTimer.Name = nameof(_actionsTimer);
         _timerToDemoMode.Name = nameof(_timerToDemoMode);
         _timerToCreateLevels.Name = nameof(_timerToCreateLevels);
-        
+
         _timerToCreateLevels.OneShot = true;
         _timerToDemoMode.OneShot = true;
         _actionsTimer.OneShot = true;
-        
+
         _timerToDemoMode.WaitTime = timeToSetDemo;
         _actionsTimer.WaitTime = timeToDemoActions;
         _timerToDemoMode.Connect("timeout", this, nameof(SetDemoMode));
     }
 
     #region BBDD Methods
-    
+
     private string GetBetDescription()
     {
         return _oMenu.GetBetDescription();
-
     }
+
     void CheckBetDescription(string betToCheck)
     {
         if (betToCheck != null)
@@ -130,17 +163,18 @@ public class GameManager : Godot.Control
                 UpdateSaveDataLocal();
             }
         }
-        
     }
-    
+
     void UpdateSaveDataLocal()
     {
         double money = _oMenu.GetMoney();
         double bet = _oMenu.GetCurrentBet();
         double betToMoney = bet + money;
-        OMenuClient.Structs.SaveData newSaveData = new OMenuClient.Structs.SaveData(false, betToMoney, 0, DateTime.Now, "");
+        OMenuClient.Structs.SaveData newSaveData =
+            new OMenuClient.Structs.SaveData(false, betToMoney, 0, DateTime.Now, "");
         _oMenu.UpdateSaveData(newSaveData);
     }
+
     void UpdateSaveData(string nodePressed)
     {
         if (_useDb)
@@ -155,10 +189,12 @@ public class GameManager : Godot.Control
                 _betDescription += "|";
             }
 
-            OMenuClient.Structs.SaveData saveData = new OMenuClient.Structs.SaveData(_isPlaying, _currencyManager.credit, _currencyManager.currentBet, DateTime.Now, _betDescription);
+            OMenuClient.Structs.SaveData saveData = new OMenuClient.Structs.SaveData(_isPlaying,
+                _currencyManager.credit, _currencyManager.currentBet, DateTime.Now, _betDescription);
             _oMenu.UpdateSaveData(saveData);
         }
     }
+
     private void FillBetDescription(int restOfLevels)
     {
         if (restOfLevels > 0)
@@ -180,7 +216,7 @@ public class GameManager : Godot.Control
     void CreateBonusLevel()
     {
         currentLevelMngr = bonusManager;
-        
+
         if (!_isResuming)
         {
             GetNewBonusInfo();
@@ -210,29 +246,31 @@ public class GameManager : Godot.Control
         {
             GetNewLevelInfo();
         }
-        
+
         currentLevelMngr = levelManagerPrefab.Instance() as LevelManager;
-        
+
         GetNode("UI_Template").AddChildBelowNode(GetNode("UI_Template/AnimationPlayer"), currentLevelMngr);
-        
+
         currentLevelMngr.myGameManager = this;
-        if(_myGameGen.bonusGenerated && currentLevel == 8)
+        if (_myGameGen.bonusGenerated && currentLevel == 8)
         {
             currentLevelMngr.SetBonusPosition(_myGameGen.bonusSlot);
             currentLevelMngr.gotABonus = true;
         }
+
         currentLevelMngr.SetActivesPositions(_currentLevelInfo, _badOnes[_levels - currentLevel]);
         currentLevel--;
         //New level created
         EmitSignal(nameof(LevelCreated));
-        
+
         if (_isDemo)
         {
             _actionsTimer.WaitTime = timeToDemoActions;
-            if(_actionsTimer.IsConnected("timeout", this, nameof(StartGame)))
+            if (_actionsTimer.IsConnected("timeout", this, nameof(StartGame)))
             {
                 _actionsTimer.Disconnect("timeout", this, nameof(StartGame));
             }
+
             _actionsTimer.Connect("timeout", currentLevelMngr, nameof(currentLevelMngr.ChooseRandomNode));
             _actionsTimer.Start();
         }
@@ -243,12 +281,12 @@ public class GameManager : Godot.Control
         //NodePicked
         EmitSignal(nameof(NodePicked));
         UpdateSaveData(nodeName);
-        
+
         if (win)
         {
             EmitSignal(nameof(RoundWined));
             _panner.Panning(currentLevel);
-            if(bonus)
+            if (bonus)
             {
                 _gotBonus = true;
                 EmitSignal(nameof(NodeWithBonus));
@@ -260,7 +298,6 @@ public class GameManager : Godot.Control
             }
             else
             {
-                
                 SetTimeOutMethod(.65f, "CreateLevel");
             }
         }
@@ -269,6 +306,7 @@ public class GameManager : Godot.Control
             EndGame(false);
         }
     }
+
     void CheckToFinishGame()
     {
         if (currentLevel <= 8)
@@ -277,6 +315,7 @@ public class GameManager : Godot.Control
             EmitSignal(nameof(StartTimer), _timeInLevel);
         }
     }
+
     public void InstantiateBonus() // La llama UI Manager, señal BonusAccepted
     {
         CreateBonusLevel();
@@ -289,6 +328,31 @@ public class GameManager : Godot.Control
         }
     }
 
+    public void CashOut()
+    {
+        if (_useDb)
+        {
+            _oMenu.CashOut(_oMenu.GetMoney());
+            OMenuClient.Structs.SaveData saveData =
+                new OMenuClient.Structs.SaveData(_isPlaying, 0, 0, DateTime.Now, "");
+            _oMenu.UpdateSaveData(saveData);
+            EmitSignal(nameof(SetCurrencyManager), _oMenu.GetMoney(), _oMenu.MinBet(), _oMenu.MaxBet());
+            _currencyManager.CheckBet();
+        }
+        else
+        {
+            EmitSignal(nameof(SetCurrencyManager), 1000, 5, 25);
+        }
+    }
+
+    public void BackToMenu()
+    {
+        if (_useDb)
+        {
+            _oMenu.GoToMenu();
+        }
+    }
+
     public void StartGame() //La llama UIManager, señal RestartGame
     {
         _timerToDemoMode.Stop();
@@ -298,7 +362,7 @@ public class GameManager : Godot.Control
         // {
         //     currentLevelMngr.QueueFree();
         // }
-        if(!_isResuming)
+        if (!_isResuming)
         {
             _currencyManager.ConfirmBet();
             _betDescription = "P";
@@ -307,6 +371,7 @@ public class GameManager : Godot.Control
             CreateLevel();
         }
     }
+
     void SetTimeOutMethod(float secs, string method)
     {
         _timerToCreateLevels.Stop();
@@ -315,6 +380,7 @@ public class GameManager : Godot.Control
         {
             _timerToCreateLevels.Connect("timeout", this, method);
         }
+
         _timerToCreateLevels.Start();
     }
 
@@ -325,12 +391,13 @@ public class GameManager : Godot.Control
             EmitSignal(nameof(GameReady), haveBet);
         }
     }
+
     void GetNewLevelInfo()
     {
         _myGameGen.SetBadOnes(_badOnes[_levels - currentLevel]);
         _currentLevelInfo = _myGameGen.GenerateLevelInfo(currentLevel);
         _betDescription += _myGameGen.levelDescription;
-        if(_useDb)
+        if (_useDb)
             UpdateSaveData(null);
     }
 
@@ -339,9 +406,10 @@ public class GameManager : Godot.Control
         //GD.Print("Generando Nueva info de bonus");
         _currentLevelInfo = _myGameGen.GenerateBonusInfo();
         _betDescription += _myGameGen.GetBonusDescription(_currentLevelInfo);
-        if(_useDb)
+        if (_useDb)
             UpdateSaveData(null);
     }
+
     void MoneyCollected() //La llama la señal Collect, del UIManager
     {
         if (_isPlaying)
@@ -354,12 +422,12 @@ public class GameManager : Godot.Control
     {
         //GD.Print("End Game, el nivel actual es " + currentLevel + " y el bool de win es " + win);
         currentLevelMngr?.ExitAnimation();
-        
+
         if (_isDemo)
         {
             _actionsTimer.Stop();
             _actionsTimer.WaitTime = 5;
-            
+
             if (_actionsTimer.IsConnected("timeout", currentLevelMngr, nameof(currentLevelMngr.ChooseRandomNode)))
             {
                 _actionsTimer.Disconnect("timeout", currentLevelMngr, nameof(currentLevelMngr.ChooseRandomNode));
@@ -373,14 +441,17 @@ public class GameManager : Godot.Control
             {
                 _actionsTimer.Connect("timeout", this, nameof(StartGame));
             }
+
             _actionsTimer.Start();
         }
+
         _currencyManager.UpdateWinnedCurrency();
         EmitSignal(nameof(LevelsOver), win, _gotBonus);
         if (!win)
         {
             _currencyManager.ResetCurrencyToCollect();
         }
+
         if (currentLevel > 0)
         {
             if (win)
@@ -388,6 +459,7 @@ public class GameManager : Godot.Control
                 //GD.Print("Gané pero el nivel actual" + _currentLevel +" es mayor a 0, por lo que o se me acabó el tiempo, o finalicé sin apretar ningún nodo.");
                 _betDescription += "-1;";
             }
+
             //GD.Print("Finalicé antes de llegar al final, generando " + (_currentLevel) + " niveles faltantes");
             FillBetDescription(currentLevel);
         }
@@ -395,11 +467,12 @@ public class GameManager : Godot.Control
         if (_useDb)
         {
             GD.Print("EndGame currencymanager, credit: " + _currencyManager.credit);
-            OMenuClient.Structs.SaveData saveData = new OMenuClient.Structs.SaveData(_isPlaying, _currencyManager.credit, _currencyManager.currentBet, DateTime.Now, _betDescription);
+            OMenuClient.Structs.SaveData saveData = new OMenuClient.Structs.SaveData(_isPlaying,
+                _currencyManager.credit, _currencyManager.currentBet, DateTime.Now, _betDescription);
             _oMenu.UpdateSaveData(saveData);
         }
-        
-        if(!_gotBonus)
+
+        if (!_gotBonus)
         {
             GameCompletelyOver();
         }
@@ -430,7 +503,7 @@ public class GameManager : Godot.Control
             _actionsTimer.Start();
         }
     }
-    
+
     void GameCompletelyOver()
     {
         _isPlaying = false;
@@ -440,10 +513,12 @@ public class GameManager : Godot.Control
         _betDescription = "";
         if (_useDb)
         {
-            OMenuClient.Structs.SaveData saveData = new OMenuClient.Structs.SaveData(_isPlaying, _currencyManager.credit, 0, DateTime.Now, _betDescription);
+            OMenuClient.Structs.SaveData saveData = new OMenuClient.Structs.SaveData(_isPlaying,
+                _currencyManager.credit, 0, DateTime.Now, _betDescription);
             _oMenu.UpdateSaveData(saveData);
         }
-        if(!_isDemo)
+
+        if (!_isDemo)
             _timerToDemoMode.Start();
     }
 
@@ -456,6 +531,7 @@ public class GameManager : Godot.Control
             _wasUsingDb = true;
             _useDb = false;
         }
+
         _isDemo = true;
         EmitSignal(nameof(SetCurrencyManager), 1000, 5, 25);
         _timerToDemoMode.Stop();
@@ -470,34 +546,35 @@ public class GameManager : Godot.Control
     {
         GD.Print("DemoMode Stoped");
         _isDemo = false;
-        
+
         _actionsTimer.Stop();
         StopGame();
 
         DisconnectAllSignalsFromActionsTimer();
-        
+
         _actionsTimer.OneShot = true;
         _actionsTimer.WaitTime = timeToDemoActions;
         if (_wasUsingDb)
         {
             _wasUsingDb = false;
             _useDb = true;
-            EmitSignal(nameof(SetCurrencyManager),_oMenu.GetMoney(),_oMenu.MinBet(),_oMenu.MaxBet());
+            EmitSignal(nameof(SetCurrencyManager), _oMenu.GetMoney(), _oMenu.MinBet(), _oMenu.MaxBet());
         }
+
         _barrier.Hide();
     }
 
     void DisconnectAllSignalsFromActionsTimer()
     {
-        if(_actionsTimer.IsConnected("timeout", this, nameof(StartGame)))
+        if (_actionsTimer.IsConnected("timeout", this, nameof(StartGame)))
             _actionsTimer.Disconnect("timeout", this, nameof(StartGame));
-        if(_actionsTimer.IsConnected("timeout", this, nameof(InstantiateBonus)))
+        if (_actionsTimer.IsConnected("timeout", this, nameof(InstantiateBonus)))
             _actionsTimer.Disconnect("timeout", this, nameof(InstantiateBonus));
-        if(_actionsTimer.IsConnected("timeout", this, nameof(ClearBonusFinished)))
+        if (_actionsTimer.IsConnected("timeout", this, nameof(ClearBonusFinished)))
             _actionsTimer.Disconnect("timeout", this, nameof(ClearBonusFinished));
         if (currentLevelMngr != null)
         {
-            if(_actionsTimer.IsConnected("timeout", currentLevelMngr, nameof(currentLevelMngr.ChooseRandomNode)))
+            if (_actionsTimer.IsConnected("timeout", currentLevelMngr, nameof(currentLevelMngr.ChooseRandomNode)))
                 _actionsTimer.Disconnect("timeout", currentLevelMngr, nameof(currentLevelMngr.ChooseRandomNode));
         }
     }
@@ -508,8 +585,8 @@ public class GameManager : Godot.Control
         currentLevel = _myRecover.GetLevelReached();
 
         _myGameGen.bonusGenerated = _myRecover.GetPossibleBonus();
-        
-        if(_myGameGen.bonusGenerated)
+
+        if (_myGameGen.bonusGenerated)
         {
             _myGameGen.bonusSlot = _myRecover.bonuSlot;
             _gotBonus = _myRecover.GetIfBonusGained();
@@ -517,8 +594,8 @@ public class GameManager : Godot.Control
         }
 
         StartGame();
-        
-        if(currentLevel > 0)
+
+        if (currentLevel > 0)
         {
             CheckToFinishGame();
             _currencyManager.SetLevelMultiplier((_levels - currentLevel) - 1);
@@ -532,13 +609,14 @@ public class GameManager : Godot.Control
                 EmitSignal(nameof(NodeWithBonus));
             }
         }
-        else if(_gotBonus)
+        else if (_gotBonus)
         {
             GD.Print("Resuming Bonus");
             _currencyManager.SetLevelMultiplier((_levels - _myRecover.GetLastLevelWinned()));
             _currencyManager.AddBetToCurrency();
             EndGame(_myRecover.CheckIfWin());
         }
+
         _isResuming = false;
     }
 
