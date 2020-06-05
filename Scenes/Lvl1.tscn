@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=2]
+[gd_scene load_steps=56 format=2]
 
 [ext_resource path="res://Scenes/UITemplate.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/AudioManager.cs" type="Script" id=2]
@@ -11,7 +11,7 @@
 [ext_resource path="res://Sounds/bonus_music_01.ogg" type="AudioStream" id=9]
 [ext_resource path="res://Sprites/BackGround/fondo-sinluces-2.png" type="Texture" id=10]
 [ext_resource path="res://Sounds/Loose.ogg" type="AudioStream" id=11]
-[ext_resource path="res://Sprites/BackGround/fondo_largo_jpg.jpg" type="Texture" id=12]
+[ext_resource path="res://Sprites/BackGround/FondoCortado/3.png" type="Texture" id=12]
 [ext_resource path="res://Sprites/luz-proyector.png" type="Texture" id=13]
 [ext_resource path="res://Sprites/BackGround/luces.png" type="Texture" id=14]
 [ext_resource path="res://Sounds/PowerOn.ogg" type="AudioStream" id=15]
@@ -20,6 +20,15 @@
 [ext_resource path="res://Sounds/bonus_Win_Music_01.ogg" type="AudioStream" id=18]
 [ext_resource path="res://Sounds/Win_mezcla1.ogg" type="AudioStream" id=19]
 [ext_resource path="res://Prefabs/ParticleErosion.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Sprites/BackGround/FondoCortado/2.png" type="Texture" id=21]
+[ext_resource path="res://Sprites/BackGround/FondoCortado/1.png" type="Texture" id=22]
+[ext_resource path="res://Sprites/BackGround/FondoCortado/10.png" type="Texture" id=23]
+[ext_resource path="res://Sprites/BackGround/FondoCortado/9.png" type="Texture" id=24]
+[ext_resource path="res://Sprites/BackGround/FondoCortado/7.png" type="Texture" id=25]
+[ext_resource path="res://Sprites/BackGround/FondoCortado/8.png" type="Texture" id=26]
+[ext_resource path="res://Sprites/BackGround/FondoCortado/5.png" type="Texture" id=27]
+[ext_resource path="res://Sprites/BackGround/FondoCortado/4.png" type="Texture" id=28]
+[ext_resource path="res://Sprites/BackGround/FondoCortado/6.png" type="Texture" id=29]
 
 [sub_resource type="Animation" id=1]
 resource_name = "0"
@@ -811,7 +820,6 @@ __meta__ = {
 "_edit_use_anchors_": false,
 "_edit_vertical_guides_": [ 798.594 ]
 }
-_useDb = true
 timeToSetDemo = 20.0
 timeToDemoActions = 0.5
 _levels = 10
@@ -830,18 +838,17 @@ __meta__ = {
 }
 
 [node name="Background" type="TextureRect" parent="PannerAnimation"]
-anchor_top = 0.989
-anchor_right = 0.997
-anchor_bottom = 1.0
-margin_top = -1700.09
-margin_right = -0.18811
-margin_bottom = 7280.1
+anchor_top = -0.897891
+anchor_right = 0.996883
+anchor_bottom = 9.08002
+margin_top = -0.000244141
+margin_right = 0.999878
+margin_bottom = -8090.1
 rect_pivot_offset = Vector2( 789.233, 5.63574 )
-texture = ExtResource( 12 )
 expand = true
 stretch_mode = 7
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_use_anchors_": true
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="PannerAnimation/Background"]
@@ -859,6 +866,119 @@ anims/8 = SubResource( 10 )
 anims/9 = SubResource( 11 )
 anims/SetBlack = SubResource( 12 )
 anims/SetWhite = SubResource( 13 )
+
+[node name="01" type="TextureRect" parent="PannerAnimation/Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 8085.43
+margin_right = 0.999878
+margin_bottom = -4.6709
+texture = ExtResource( 22 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="02" type="TextureRect" parent="PannerAnimation/Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 7185.15
+margin_right = 0.999878
+margin_bottom = -904.945
+texture = ExtResource( 21 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="03" type="TextureRect" parent="PannerAnimation/Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 6286.14
+margin_right = 0.999878
+margin_bottom = -1803.96
+texture = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="04" type="TextureRect" parent="PannerAnimation/Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 5385.75
+margin_right = 0.999878
+margin_bottom = -2704.34
+texture = ExtResource( 28 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="05" type="TextureRect" parent="PannerAnimation/Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 4486.22
+margin_right = 0.999878
+margin_bottom = -3603.87
+texture = ExtResource( 27 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="06" type="TextureRect" parent="PannerAnimation/Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -0.487823
+margin_top = 3585.64
+margin_right = 0.512085
+margin_bottom = -4504.45
+texture = ExtResource( 29 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="07" type="TextureRect" parent="PannerAnimation/Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -0.487823
+margin_top = 2685.85
+margin_right = 0.512085
+margin_bottom = -5404.25
+texture = ExtResource( 25 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="08" type="TextureRect" parent="PannerAnimation/Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 1786.07
+margin_right = 0.999878
+margin_bottom = -6304.02
+texture = ExtResource( 26 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="09" type="TextureRect" parent="PannerAnimation/Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -0.313019
+margin_top = 885.667
+margin_right = 0.68689
+margin_bottom = -7204.43
+texture = ExtResource( 24 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="10" type="TextureRect" parent="PannerAnimation/Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -14.3788
+margin_right = 0.999878
+margin_bottom = -8104.48
+texture = ExtResource( 23 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Background" type="TextureRect" parent="."]
 self_modulate = Color( 0.6, 0.6, 0.6, 1 )
@@ -1004,8 +1124,8 @@ visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 [connection signal="BonusOver" from="." to="UI_Template" method="BonusPicked"]
-[connection signal="BonusOver" from="." to="AudioManager" method="BonusWinSound"]
 [connection signal="BonusOver" from="." to="CurrencyManager" method="UpdateBonusPrices"]
+[connection signal="BonusOver" from="." to="AudioManager" method="BonusWinSound"]
 [connection signal="BonusStarted" from="." to="UI_Template" method="HideIncomingBonusMessage"]
 [connection signal="BonusStarted" from="." to="AudioManager" method="PlayBonusMusic"]
 [connection signal="CanCollect" from="." to="UI_Template" method="ActivateCollectButton"]
@@ -1021,8 +1141,8 @@ anchor_bottom = 1.0
 [connection signal="LevelsOver" from="." to="Background" method="SetBackgroundAnimation"]
 [connection signal="LevelsOver" from="." to="UI_Template" method="SetGameOverMessage"]
 [connection signal="LevelsOver" from="." to="AudioManager" method="GameOverSound"]
-[connection signal="NodePicked" from="." to="UI_Template" method="StopTimer"]
 [connection signal="NodePicked" from="." to="UI_Template" method="DeactivateFinishButton"]
+[connection signal="NodePicked" from="." to="UI_Template" method="StopTimer"]
 [connection signal="NodeWithBonus" from="." to="Background" method="IsBonus"]
 [connection signal="NodeWithBonus" from="." to="UI_Template" method="BonusFeedback"]
 [connection signal="PlayMusicGame" from="." to="AudioManager" method="PlayLevelMusic"]
@@ -1041,8 +1161,8 @@ anchor_bottom = 1.0
 [connection signal="DemoModeFinished" from="UI_Template" to="." method="ExitDemoMode"]
 [connection signal="OkFinishBonus" from="UI_Template" to="." method="ClearBonusFinished"]
 [connection signal="StopGameMusic" from="UI_Template" to="PannerAnimation" method="BackToInitAnimation"]
-[connection signal="StopGameMusic" from="UI_Template" to="AudioManager" method="StopCurrentMusic"]
 [connection signal="StopGameMusic" from="UI_Template" to="CurrencyManager" method="CheckBet"]
+[connection signal="StopGameMusic" from="UI_Template" to="AudioManager" method="StopCurrentMusic"]
 [connection signal="TimerDone" from="UI_Template" to="." method="EndGame"]
 [connection signal="UIIdle" from="UI_Template" to="PannerAnimation/Background/AnimationPlayer" method="play" binds= [ "SetBlack" ]]
 [connection signal="betDown" from="UI_Template" to="CurrencyManager" method="BetDown"]
@@ -1050,9 +1170,8 @@ anchor_bottom = 1.0
 [connection signal="collect" from="UI_Template" to="." method="CashOut"]
 [connection signal="end_collect" from="UI_Template" to="." method="MoneyCollected"]
 [connection signal="maxBet" from="UI_Template" to="CurrencyManager" method="MaxBet"]
-[connection signal="menu_button_pressed" from="UI_Template" to="." method="BackToMenu"]
-[connection signal="restartGame" from="UI_Template" to="." method="StartGame"]
 [connection signal="restartGame" from="UI_Template" to="PannerAnimation" method="BackToInitAnimation"]
+[connection signal="restartGame" from="UI_Template" to="." method="StartGame"]
 [connection signal="CurrencyChanged" from="CurrencyManager" to="UI_Template" method="UpdateCurrencyUI"]
 [connection signal="GameHaveBet" from="CurrencyManager" to="." method="GameHaveBetNow"]
 [connection signal="finished" from="AudioManager/BackGroundMusic" to="AudioManager" method="_on_BackGroundMusic_finished"]
